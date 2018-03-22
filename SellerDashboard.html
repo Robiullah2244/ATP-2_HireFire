@@ -358,7 +358,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="sellerBalanceReportWithGraph.html" ><i class="fa  fa-dollar"></i> <span>Balance</span></a></li>
-              <li><a href="#" ><i class="fa   fa-cc-mastercard"></i> <span>Withdraw</span></a></li>
+              <li><a href="#" onclick="Withdraw()"><i class="fa   fa-cc-mastercard"></i> <span>Withdraw</span></a></li>
               <li><a href="#" ><i class="fa  fa-sticky-note"></i> <span>Statement</span></a></li>
           </ul>
         </li>
@@ -653,7 +653,34 @@ desired effect
  {
 	document.getElementById("promotion").innerHTML="";
  }
+     
+ function Withdraw()
+ {
+	document.getElementById("promotion").innerHTML=""+
+	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
+	  "<div class='modal-dialog'>"+
+		"<div class='modal-content'>"+
+		  "<div class='modal-header'>"+
+			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
+			"<h4 class='modal-title'>Withdraw</h4>"+
+		  "</div>"+
+		  "<div class='modal-body'>"+
+			"<p>Current Balance: 120000<br/></p>"+
+			"<p><input placeholder='Withdraw Ammount' style='color:black'</p>"+
+		  "</div>"+
+		  "<div class='modal-footer'>"+
+			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
+			"<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>"+
+		  "</div>"+
+		"</div>"+
+		"<!-- /.modal-content -->"+
+	  "</div>"+
+	  "<!-- /.modal-dialog -->"+
+	"</div>";
+ }
 	
+     
 	
  </script>
 <!--
