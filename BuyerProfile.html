@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>HireFire | Buyer Profile</title>
+  <title>AdminLTE 2 | Collapsed Sidebar Layout</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -28,40 +28,30 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-<style>
-.side-bar {
-    border: 1px solid black;
-    margin-top: 00px;
-    margin-right: 85%;
-    margin-left: 0px;
-    
-}
-.body{
-	background-color: white;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-left: 15%;
-}
-</style>
-
-<body class="hold-transition skin-blue layout-top-nav">
-
+<!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+<!-- Site wrapper -->
 <div class="wrapper">
 
   <header class="main-header">
-    <nav class="navbar navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-		
-          <a href="home.html" ><img width="100" height= "45" src="image/logo.png"></a>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-            <i class="fa fa-bars"></i>
-          </button>
-        </div>
 
+    <!-- Logo -->
+    <a href="Home.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>H</b>F</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Hire</b>Fire</span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
       
-        <!-- /.navbar-collapse -->
+	  
+	  
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
@@ -156,7 +146,7 @@
                   </ul>
                 </li>
                 <li class="footer">
-                  <a href="tasks.html">View all tasks</a>
+                  <a href="sellerActiveWork.html">View all tasks</a>
                 </li>
               </ul>
             </li>
@@ -180,7 +170,7 @@
 			
 			<li class="dropdown tasks-menu">
               <!-- Menu Toggle Button -->
-              <a href="BuyerDashBoard.html" class="fa  fa-dashboard (alias)">
+              <a href="SellerDashboard.html" class="fa  fa-dashboard (alias)">
                
                 
               </a>
@@ -227,7 +217,7 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    <a href="sellerProfile.html" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
                     <a href="PublicHome.html" class="btn btn-default btn-flat">Sign out</a>
@@ -235,26 +225,72 @@
                 </li>
               </ul>
             </li>
-              
-            <li class="dropdown tasks-menu">
-            <!-- Menu Toggle Button -->
-                <a href="BuyerSettings.html" class="fa fa-gears"></a>
-            </li>
           </ul>
         </div>
-        <!-- /.navbar-custom-menu -->
-      </div>
-      <!-- /.container-fluid -->
     </nav>
   </header>
 
+  <!-- =============================================== -->
 
-  
-  <div style="background-color: white; font-family:times-new-roman" >
+  <!-- Left side column. contains the sidebar -->
 
-		
-		<br/>
-		<table border="0">
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Ibrahim Khalil Tanim</p>
+          <!-- Status -->
+<!--          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+<!--        <li class="header" align="center" style="font-size:16px;">Seller</li>-->
+        <!-- Optionally, you can add icons to the links -->
+        <li class="active"><a href="BuyerDashboard.html"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
+          
+           <li><a href="BuyerAccount.html"><i class="fa fa-money"></i> <span>Accounts</span></a></li>
+          
+          <li class="treeview">
+            <a ><i class="fa   fa-balance-scale"></i> <span>Orders</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="BuyerActiveWork.html" ><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
+              <li><a href="BuyerPendingWork.html" ><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
+              <li><a href="BuyerCompletedWork.html" ><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
+          </ul>
+        </li>
+
+    
+          <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
+          <li><a href="#"  onclick="promotion()"><i class="fa  fa-child"></i> <span>Promotions</span></a></li>
+          <li><a href="BuyerSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
+
+
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content">
+     		<table border="0">
 	
 	
 	<tr height="600">
@@ -325,91 +361,212 @@
 		<h2>You doesn't have any gig's to display</h2>
 		</td>
 	</tr>
-	<tr>
-		<table>
-			<tr colspan="3" height="20%">
-			  
-			   <table border="0" width="100%">
-				  </br></br><hr>
-					<tr>
-					   <th align="left">CATEGORIES</th>
-					   <th align="left">ABOUT</th>
-					   <th align="left">COMMUNITY</th>
-					   <th align="left">SUPPORT</th>
-					   <th align="left">FOLLOW US</th>
-				   </tr>
-				  
-				  <tr>
-						<td> <a href="Home.html">Graphics & Design</a></td>
-						<td>Careers</td>
-						<td>Blog</td>
-						<td>Contact Support</td>
-						<td> <a href="https://www.google.com/">Google</a></td>
-					</tr>
-					<tr>
-						<td><a href="Home.html">Digital Marketing</a></td>
-						<td>Press & News</td>
-						<td>Forum</td>
-						<td>Help & Education</td>
-						<td>  <a href="https://twitter.com/">Twitter</a></td>
-					
-					</tr>
-					<tr>
-						<td><a href="Home.html">Writing & Translation</a></td>
-						<td>Partnerships</td>
-						<td>Podcast</td>
-						<td>Trust & Safety</td>
-						<td> <a href="https://Youtube.com">Youtube</a></td>
-					
-					</tr>
-					<tr>
-						<td><a href="Home.html"> Video & Animation</a></td>
-						<td>Privacy Policy</td>
-						<td>Affiliates</td>
-						<td>Selling on Freelance</td>
-						<td> <a href="https://www.facebook.com/robiullah2244">Facebook</a></td>
-					
-					</tr>
-					<tr>
-						<td><a href="Home.html"> Music & Audio</a></td>
-						<td>Terms of Service</td>
-						<td></td>
-						<td>Buying on freelance</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td> <a href="Home.html">Programming & Tech</a></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td><a href="Home.html">Business</a></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-				   </tr>
-			   </table>
-			</tr>
-		</table>
-	</tr>
 </table>
-
-				   
-	<hr style="margin-bottom: 0em;color: black;background-color: black;height: 5px">
+    </section>
+  </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
-    <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.0.0
-      </div>
-        <strong>Copyright &copy; 2017-2018 <a href="Home.html">HireFire</a></strong> All rights
-      reserved.
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 2.4.0
     </div>
-    <!-- /.container -->
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
   </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                <p>Will be 23 on April 24th</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-user bg-yellow"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                <p>New phone +1(800)555-1234</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                <p>nora@example.com</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                <p>Execution time 5 seconds</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="label label-danger pull-right">70%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Update Resume
+                <span class="label label-success pull-right">95%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Laravel Integration
+                <span class="label label-warning pull-right">50%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Back End Framework
+                <span class="label label-primary pull-right">68%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+        <form method="post">
+          <h3 class="control-sidebar-heading">General Settings</h3>
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Report panel usage
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Some information about this general settings option
+            </p>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Allow mail redirect
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Other sets of options are available
+            </p>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Expose author name in posts
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Allow the user to show his name in blog posts
+            </p>
+          </div>
+          <!-- /.form-group -->
+
+          <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Show me as online
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Turn off notifications
+              <input type="checkbox" class="pull-right">
+            </label>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Delete chat history
+              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+            </label>
+          </div>
+          <!-- /.form-group -->
+        </form>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
@@ -427,8 +584,3 @@
 <script src="dist/js/demo.js"></script>
 </body>
 </html>
-
-
-
-
-
