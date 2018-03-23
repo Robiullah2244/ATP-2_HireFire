@@ -30,6 +30,21 @@
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<style>
+.example-modal .modal {
+  position: relative;
+  top: auto;
+  bottom: auto;
+  right: auto;
+  left: auto;
+  display: block;
+  z-index: 1;
+}
+
+.example-modal .modal {
+  background: transparent !important;
+}
+</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -589,6 +604,8 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
+
+<div id="promotion"></div>
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
@@ -620,5 +637,71 @@
     })
   })
 </script>
+ <script>
+ function promotion()
+ {
+	document.getElementById("promotion").innerHTML=""+
+	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
+	  "<div class='modal-dialog'>"+
+		"<div class='modal-content'>"+
+		  "<div class='modal-header'>"+
+			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
+			"<h4 class='modal-title'>Promotions</h4>"+
+		  "</div>"+
+		  "<div class='modal-body'>"+
+			"<p>You have no promotion<br/></p>"+
+			"<p><input placeholder='Promo Code' style='color:black'</p>"+
+		  "</div>"+
+		  "<div class='modal-footer'>"+
+			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
+			"<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>"+
+		  "</div>"+
+		"</div>"+
+		"<!-- /.modal-content -->"+
+	  "</div>"+
+	  "<!-- /.modal-dialog -->"+
+	"</div>";
+ }
+ 
+ function hide()
+ {
+	document.getElementById("promotion").innerHTML="";
+ }
+ 
+ function add()
+ {
+	document.getElementById("promotion").innerHTML="";
+ }
+     
+ function Withdraw()
+ {
+	document.getElementById("promotion").innerHTML=""+
+	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
+	  "<div class='modal-dialog'>"+
+		"<div class='modal-content'>"+
+		  "<div class='modal-header'>"+
+			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
+			"<h4 class='modal-title'>Withdraw</h4>"+
+		  "</div>"+
+		  "<div class='modal-body'>"+
+			"<p>Current Balance: 120000<br/></p>"+
+			"<p><input placeholder='Withdraw Ammount' style='color:black'</p>"+
+		  "</div>"+
+		  "<div class='modal-footer'>"+
+			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
+			"<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>"+
+		  "</div>"+
+		"</div>"+
+		"<!-- /.modal-content -->"+
+	  "</div>"+
+	  "<!-- /.modal-dialog -->"+
+	"</div>";
+ }
+	
+     
+	
+ </script>
 </body>
 </html>
