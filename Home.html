@@ -53,7 +53,7 @@
     <nav class="navbar navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="index2.html" ><img width="100" height= "45" src="image/logo.png"></a>
+          <a href="Home.html" ><img width="100" height= "45" src="image/logo.png"></a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -62,24 +62,26 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Link</a></li>
-            <li class="dropdown">
+            
+            <li class="dropdown" style="margin-left: 80px">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search By <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                
+                <li><a onclick="SearchByOthers()" style="cursor: pointer">Title</a></li>
+                  <li class="divider"></li>
+                <li><a onclick="SearchByOthers()" style="cursor: pointer">Seller Name</a></li>
+                  <li class="divider"></li>
+                <li><a onclick="SearchByOthers()" style="cursor: pointer">Description</a></li>
+                  <li class="divider"></li>
+                <li><a onclick="SearchByPrice()" style="cursor: pointer">Price</a></li>
+                  <li class="divider"></li>
                 <li><a href="#" class="hover-right" data-toggle="dropdown">Category <span class="fa fa-caret-right"></span></a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
 		  
-            <div class="form-group">
+            <div class="form-group" id="SearchBox">
               <input type="text" class="form-control" id="navbar-search-input" placeholder="Search"> 
             </div>
 			<div class="form-group "> </div>
@@ -513,5 +515,19 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+
+<script>
+    function SearchByPrice()
+    {
+        document.getElementById("SearchBox").innerHTML="<input type='text' class='form-control' id='navbar-search-input' placeholder='Minimum'>&nbsp;&nbsp;<input type='text' class='form-control' id='navbar-search-input' placeholder='Maximum'>  ";
+    }
+    
+    function SearchByOthers()
+    {
+        document.getElementById("SearchBox").innerHTML="<input type='text' class='form-control' id='navbar-search-input' placeholder='Search'> ";
+    }
+</script>
+
 </body>
 </html>
