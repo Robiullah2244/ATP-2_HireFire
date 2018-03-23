@@ -32,6 +32,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+ <style>
+        a{
+            text-decoration: none; color:inherit;
+            
+        }
+    </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -226,6 +232,8 @@ desired effect
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
+    
+
   <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
@@ -261,7 +269,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="Dashboard.html"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
           
-           <li><a href="earnings.html" target="contentFrame"><i class="fa fa-money"></i> <span>Accounts</span></a></li>
+           <li><a href="AdminAccountReport.html" ><i class="fa fa-money"></i> <span>Accounts</span></a></li>
           <li class="treeview">
             <a ><i class="fa   fa-tasks"></i> <span>Report</span>
 <!--          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>-->
@@ -270,34 +278,23 @@ desired effect
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="gigsReport.html" >Gigs</a></li>
-            <li><a href="#">Seller</a></li>
-            <li><a href="#">Buyer</a></li>
+            <li><a href="AdminGigsReport.html" ><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
+            <li><a href="#"><i class="fa  fa-user"></i> <span>Seller</span></a></li>
+            <li><a href="AdminBuyerReport%20.html"><i class="fa   fa-child"></i> <span>Buyer</span></a></li>
           </ul>
         </li>
     
     
-          <li><a href="#"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
-          <li><a href="#"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
-          
-
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
+          <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
+          <li><a href="AdminSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
+            
 
       </ul>
       <!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
   </aside>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -315,46 +312,51 @@ desired effect
       <!--------------------------
         | Your Page Content Here |
         -------------------------->
+         <a href="TopSellerAllTimeList.html">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="ion  ion-ios-body"></i></span>
+            <span class="info-box-icon bg-blue"><i class="ion  ion-ios-body"></i></span>
 
             <div class="info-box-content" style="cursor:pointer;">
                 <br/>
-              <span class="info-box-text"><b>Top Buyer all time</b></span>
+              <span class="info-box-text"><b>Top seller all time</b></span>
 <!--              <span class="info-box-number">41,410</span>-->
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+        </a>
+        <a href="TopSellerThisMonth.html">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-red"><i class="ion ion-woman"></i></span>
+            <span class="info-box-icon bg-green"><i class="ion ion-woman"></i></span>
 
             <div class="info-box-content" style="cursor:pointer;">
                 <br/>
-              <span class="info-box-text"><b>Top Buyer this month</b></span>
+              <span class="info-box-text"><b>Top seller this month</b></span>
 <!--              <span class="info-box-number">41,410</span>-->
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
-        
+            </a>
+        <a href="MostActiveSellerThisMonth.html">
          <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-gray"><i class="ion ion-android-contacts"></i></span>
+            <span class="info-box-icon bg-red"><i class="ion ion-android-contacts"></i></span>
 
             <div class="info-box-content" style="cursor:pointer;">
                 <br/>
-              <span class="info-box-text"><b>Most Active Buyer </b></span>
+              <span class="info-box-text"><b>Most Active Seller </b></span>
               <span class="info-box-text"><b>This Month</b></span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+            </a>
         
         
 
