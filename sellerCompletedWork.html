@@ -204,7 +204,8 @@
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
- <aside class="main-sidebar">
+
+  <aside class="main-sidebar">
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -234,45 +235,46 @@
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
-    
       <ul class="sidebar-menu" data-widget="tree">
 <!--        <li class="header" align="center" style="font-size:16px;">Seller</li>-->
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
+        <li class="active"><a href="SellerDashboard.html"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
           
-           <li><a href="#"><i class="fa fa-money"></i> <span>Accounts</span></a></li>
-           <li class="treeview">
+<!--           <li><a href="#"><i class="fa fa-money"></i> <span>Accounts</span></a></li>-->
+<!--            <li><a href="#"><i class="fa fa-balance-scale"></i> <span>Orders</span></a></li>-->
+          
+          <li class="treeview">
+            <a ><i class="fa fa-money"></i> <span>Accounts</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="sellerBalanceReport.html" ><i class="fa  fa-dollar"></i> <span>Balance</span></a></li>
+              <li><a href="#" onclick="Withdraw()"><i class="fa   fa-cc-mastercard"></i> <span>Withdraw</span></a></li>
+              <li><a href="SellerAccountStatement.html" ><i class="fa  fa-sticky-note"></i> <span>Statement</span></a></li>
+          </ul>
+        </li>
+          
+          <li class="treeview">
             <a ><i class="fa   fa-balance-scale"></i> <span>Orders</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" ><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
-              <li><a href="#" ><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
+            <li><a href="sellerActiveWork.html" ><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
+              <li><a href="sellerPendingWork.html" ><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
               <li><a href="#" ><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
           </ul>
         </li>
-           <li><a href="#"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
+           <li><a href="sellerGigInventory.html"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
 
     
-          <li><a href="#"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
-          <li><a href="#"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
-          
-<!--
+          <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
+          <li><a href="#"  onclick="promotion()"><i class="fa  fa-child"></i> <span>Promotions</span></a></li>
+          <li><a href="SellerSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
 
-        <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
-          </ul>
-        </li>
--->
 
       </ul>
       <!-- /.sidebar-menu -->
