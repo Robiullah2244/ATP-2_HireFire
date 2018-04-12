@@ -269,8 +269,13 @@
   <div style="background-color: white; font-family:times-new-roman" >
   
   
-  </br></br></br>
-  <b style="margin-left: 7%;margin-right: 7%">Progress</b></br></br>
+  <br/><br/><br/>
+    <span style="margin-left: 7%;margin-right: 7%"><b>Gig Title: </b>I can do C++ Project</span><br/><br/>
+      
+    <span style="margin-left: 7%;margin-right: 7%"><b>Deadline: </b>10 Days Left</span><br/><br/>
+    
+    
+  <b style="margin-left: 7%;margin-right: 7%">Progress</b><br/><br/>
   <div class="progress" style="margin-left: 7%;margin-right: 7%">
 	<div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
 	  <span class="sr-only">40% Complete (success)</span>
@@ -278,7 +283,7 @@
   </div>
 
 
-    </br></br></br>
+    <br/><br/><br/>
   
   
   
@@ -292,16 +297,22 @@
             <div class="box-body no-padding">
               <table class="table table-striped">
                 <tbody><tr>
-                  <th width="4%">#</th>
-                  <th width="55%">Task</th>
-                  <th width="27%">File</th>
-				  <th width="12%">Approve?</th>
+                  <th >#</th>
+                  <th >Task</th>
+                  <th >Status</th>
+                  <th >Comment</th>
+                  <th >Deadline</th>
+                  <th >File</th>
+				  <th >Approve?</th>
                   
                 </tr>
 				
                 <tr>
                   <td>1.</td>
                   <td><input value="Task-1"/></td>
+                  <td>Pending</td>
+                  <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
+                  <td><input type="date"></td>
 				  <td><input type="file"><input type="button" value="submit"/></td>
                   <td><input type="checkbox" id="approve" width="100"></td>
                 </tr>
@@ -309,12 +320,15 @@
 				
 				
                 
-              </tbody></table><div id="task"></div>
+              </tbody></table><div id="comment" style="margin-left: 30%;margin-right: 30%"></div><div id="task"></div>
             </div>
             <!-- /.box-body -->
           </div></div>
   
 
+      
+      
+      
   <div id="task"></div>
   <div style="cursor:pointer; margin-left: 90%; background-color: #4d79ff"  onclick="AddRow()">
   <div class="glyphicon glyphicon-plus" > Add Row</div>
@@ -341,7 +355,7 @@
 			<tr colspan="3" height="20%">
 			  
 			   <table border="0" width="100%">
-				  </br></br><hr>
+				  <br/><br/><hr>
 					<tr>
 					   <th align="left">CATEGORIES</th>
 					   <th align="left">ABOUT</th>
@@ -442,14 +456,19 @@
 	var count=2;
 </script>
 <script>
+
+    
 	function AddRow()
 	{
 		document.getElementById("task").innerHTML+="<table class='table table-striped'>"+
 		"<tbody><tr>"+
-		  "<td width='4%'>"+count+"</td>"+
-		  "<td width='55%'><input value='Task-"+count+"'/></td>"+
-		  "<td width='27%'><input type='file'><input type='button' value='submit'/></td>"+
-		  "<td width='12%'><input type='checkbox' id='approve' width='100'></td>"+
+		  "<td >"+count+"</td>"+
+		  "<td ><input value='Task-"+count+"'/></td>"+
+          "<td>Pending</td>"+
+          "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
+          "<td><input type='date'></td>"+
+		  "<td ><input type='file'><input type='button' value='submit'/></td>"+
+		  "<td ><input type='checkbox' id='approve' width='100'></td>"+
 		"</tr></table></tbody>";
 		count++;
 	}
@@ -504,6 +523,106 @@
 		document.getElementById("FourStar").style.backgroundColor="red";
 		document.getElementById("FiveStar").style.backgroundColor="red";
 	}
+	
+</script>
+    
+<script>
+ function Comment(count)
+ {
+	document.getElementById("comment").innerHTML=""+
+	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
+	  "<div class='modal-dialog'>"+
+		"<div class='modal-content'>"+
+		  "<div class='modal-header'>"+
+			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
+			"<h4 class='modal-title'>Task-"+count+"</h4>"+
+		  "</div>"+
+		  "<div class='modal-body'>"+
+			
+            
+            "<b>Comment and Reply</b><br/><br/>"+
+            "<table border='0' width='100%' height='100%'>"+
+            "<tbody><tr>"+
+                "<td>"+
+                  "<img src='../uploads/raj.jpg' title='raj' width='30'>&nbsp;&nbsp;It's Need to be update<br><br>"+
+                "</td>"+
+                "</tr><tr>"+
+                "<td>"+
+                  "<img src='../uploads/robi.jpg' title='robi' width='30'>&nbsp;&nbsp; What update??<br><br>"+
+                "</td>"+
+                "</tr><tr>"+
+                "<td>"+
+                  "<img src='../uploads/raj.jpg' title='raj' width='30'>&nbsp;&nbsp; Design of Home page is not perfect<br><br>"+
+                "</td>"+
+                "</tr><tr>"+
+                "<td>"+
+                  "<img src='../uploads/robi.jpg' title='robi' width='30'>&nbsp;&nbsp; Ok. i Will see<br><br>"+
+                "</td>"+
+                "</tr>"+
+
+         "<tr>"+
+            "<td>"+
+                "<textarea rows='2' cols='30' name='reply' style='color:black'></textarea>"+
+                "<br><input type='submit' value='Reply' style='color:black'>"+
+            "</td>"+
+        "</tr>"+
+        "<tr height='70%'>"+
+            "<td>"+
+            "</td>"+
+        "</tr>"+
+    "</tbody></table>"+
+
+				
+		  "</div>"+
+		  "<div class='modal-footer'>"+
+			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
+			
+		  "</div>"+
+		"</div>"+
+		"<!-- /.modal-content -->"+
+	  "</div>"+
+	  "<!-- /.modal-dialog -->"+
+	"</div>";
+ }
+ 
+ function hide()
+ {
+	document.getElementById("comment").innerHTML="";
+ }
+ 
+ function add()
+ {
+	document.getElementById("comment").innerHTML="";
+ }
+     
+ function Withdraw()
+ {
+	document.getElementById("comment").innerHTML=""+
+	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
+	  "<div class='modal-dialog'>"+
+		"<div class='modal-content'>"+
+		  "<div class='modal-header'>"+
+			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
+			"<h4 class='modal-title'>Withdraw</h4>"+
+		  "</div>"+
+		  "<div class='modal-body'>"+
+			"<p>Current Balance: 120000<br/></p>"+
+			"<p><input placeholder='Withdraw Ammount' style='color:black'</p>"+
+		  "</div>"+
+		  "<div class='modal-footer'>"+
+			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
+			"<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>"+
+		  "</div>"+
+		"</div>"+
+		"<!-- /.modal-content -->"+
+	  "</div>"+
+	  "<!-- /.modal-dialog -->"+
+	"</div>";
+ }
+	
+     
 	
 </script>
 
