@@ -4,7 +4,6 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
-<html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -377,7 +376,7 @@ desired effect
 
     
           <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
-          <li><a href="#"  onclick="promotion()"><i class="fa  fa-child"></i> <span>Promotions</span></a></li>
+          
           <li><a href="SellerSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
 
 
@@ -457,7 +456,52 @@ desired effect
           </div>
           <!-- /.info-box -->
         </div>
+            
+        <a href="sellerTopGigs.html" target="contentFrame">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box" style="cursor:pointer;">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
+                
+            <div class="info-box-content" >
+              <span class="info-box-text">Top Buyer<br/>Regarding you</span>
+              <span class="info-box-number">10</span>
+            </div>
+            <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
         </div>
+        </a>
+            
+        
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
+                
+            <div class="info-box-content" >
+              <span class="info-box-text">Your Lavel</span>
+              <span class="info-box-number">2</span>
+            </div>
+            <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+       
+            
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
+                
+            <div class="info-box-content" >
+              <span class="info-box-text">Repotation point<br/></span>
+              <span class="info-box-number">100</span>
+            </div>
+            <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        
+            
+      </div>
 <!--        Iframe-->
 <!--Iframe ends        -->
         
@@ -616,31 +660,7 @@ desired effect
 
  
  <script>
- function promotion()
- {
-	document.getElementById("promotion").innerHTML=""+
-	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
-	  "<div class='modal-dialog'>"+
-		"<div class='modal-content'>"+
-		  "<div class='modal-header'>"+
-			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
-			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
-			"<h4 class='modal-title'>Promotions</h4>"+
-		  "</div>"+
-		  "<div class='modal-body'>"+
-			"<p>You have no promotion<br/></p>"+
-			"<p><input placeholder='Promo Code' style='color:black'</p>"+
-		  "</div>"+
-		  "<div class='modal-footer'>"+
-			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
-			"<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>"+
-		  "</div>"+
-		"</div>"+
-		"<!-- /.modal-content -->"+
-	  "</div>"+
-	  "<!-- /.modal-dialog -->"+
-	"</div>";
- }
+ 
  
  function hide()
  {
