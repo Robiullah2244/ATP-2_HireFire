@@ -40,11 +40,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 	<script>
 window.onload = function () {
 
-var chart = new CanvasJS.Chart("chartContainer", {
+var chart = new CanvasJS.Chart("SellerChartContainer", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
-		text: "Response Rate Last 3 Months"
+		text: "Your Response Rate Last 3 Months"
 	},
 	
 	data: [{        
@@ -66,9 +66,44 @@ var chart = new CanvasJS.Chart("chartContainer", {
 		]
 	}]
 });
+    
+chart.render();
+    
+var chart = new CanvasJS.Chart("BuyerChartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Buyer Response Rate Last 3 Months"
+	},
+	
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: 0},
+			{ y: 3,indexLabel: "Week-1"},
+			{ y: 1,indexLabel:"Week-2"},
+			{ y: 7, indexLabel: "Week-3"},
+			{ y: 2,indexLabel: "Week-4"},
+			{ y: 6 ,indexLabel: "Week-5"},
+			{ y: 2, indexLabel: "Week-6"},
+			{ y: 6, indexLabel: "Week-7" },
+			{ y: 4,indexLabel: "Week-8" },
+			{ y: 5 ,indexLabel: "Week-9"},
+			{ y: 6,indexLabel: "Week-10" },
+			{ y: 8,indexLabel: "Week-11"},
+			{ y: 12,indexLabel:"Week-12"}
+		]
+	}]
+});
 chart.render();
 
 }
+
+function AutoScroll()
+{
+    location.href = "#Table";
+}
+
 </script>	
 		
 	<style>
@@ -404,7 +439,7 @@ desired effect
         -------------------------->
         <div class="row">
          <div class="col-md-3 col-sm-6 col-xs-12">
-             <a href="sellerAllGigs.html" target="contentFrame" style="text-decoration: none; color:inherit;">
+             <a href="sellerAllGigs.html" target="contentFrame" ">
           <div class="info-box" style="cursor:pointer;">
             <span class="info-box-icon bg-green"><i class="fa  fa-hand-paper-o"></i></span>
 
@@ -445,7 +480,7 @@ desired effect
         </div>
         
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box" style="cursor:pointer;">
+          <div class="info-box" >
             <span class="info-box-icon bg-red"><i class="fa fa-usd"></i></span>
 
             <div class="info-box-content" >
@@ -456,9 +491,10 @@ desired effect
           </div>
           <!-- /.info-box -->
         </div>
-            
-        <a href="Seller.TopBuyerRegardingYou.html" target="contentFrame">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+   
+        <a href="Seller.TopBuyerRegardingYou.html" target="contentFrame" >
+       
+        <div class="col-md-3 col-sm-6 col-xs-12" >
             <div class="info-box" style="cursor:pointer;">
             <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
                 
@@ -471,7 +507,6 @@ desired effect
             <!-- /.info-box -->
         </div>
         </a>
-            
         
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
@@ -510,7 +545,7 @@ desired effect
           <!-- LINE CHART -->
           <div class="box box-info">
             <div class="box-header with-border">
-<!--              <h3 class="box-title"><b>Response Rate Last 3 Months</b></h3>-->
+<!--              <h3 class="box-title"><b>Your Response Rate Last 3 Months</b></h3>-->
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -523,15 +558,54 @@ desired effect
             <div class="box-body chart-responsive">
               <div class="chart" id="line-chart" style="height: 300px;"></div>
             </div>-->
-                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <div id="SellerChartContainer" style="height: 370px; width: 100%;"></div>
                 <script src="Graph.js"></script>
             <!-- /.box-body -->
           </div>
           </div>
         </div>
-        <div class="row" style="height: 100%; margin: 2px;">
-            <iframe src="" name="contentFrame"frameborder="0" style="outline: none; display: block; width: 100%; height: 800px;"></iframe> 
+        <hr style="border-color: blue" >
+        <hr style="border-color: blue" >
+        
+        <input type="radio" name="selector" value="CountryWise" checked> Country Wise&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="selector" value="ClientWise"> Client Wise<br><br>
+        
+        <input name="search"/>
+        <input type="button" value="Search" style="color: blue"/><br><br>
+        
+        <div class="row">
+             <div class="col-md-12">
+          <!-- LINE CHART -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+<!--              <h3 class="box-title"><b>Buyer Response Rate Last 3 Months</b></h3>-->
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+              
+<!--
+            <div class="box-body chart-responsive">
+              <div class="chart" id="line-chart" style="height: 300px;"></div>
+            </div>-->
+                <div id="BuyerChartContainer" style="height: 370px; width: 100%;"></div>
+                <script src="Graph.js"></script>
+            <!-- /.box-body -->
+          </div>
+          </div>
         </div>
+        
+        
+        <div id="Table">
+        <div class="row" style="height: 100%; margin: 2px;">
+            
+            <iframe src="" name="contentFrame"frameborder="0" style="outline: none; display: block; width: 100%; height: 800px;" onload="AutoScroll()"></iframe> 
+            </div>   
+        </div>
+        
 
     </section>
     <!-- /.content -->
@@ -698,10 +772,12 @@ desired effect
 	"</div>";
  }
 	
-     
+ 
+      
 	
  </script>
  
+    
 
 </body>
 </html>
