@@ -27,6 +27,19 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
+  <script>
+	function AddLanguage()
+	{
+		document.getElementById("language").innerHTML='<td colspan="4" class="form-group"><label for="name">New Language </label><input class="form-control" id="newLanguage" type="text" value="Bangla"> <button onclick="AddLanguageinpanel()"><font size="3">Submit</font></button></td>';
+    }
+	function AddLanguageinpanel()
+	{
+		document.getElementById("language2").innerHTML+= "<ul>"+document.getElementById("newLanguage").value+"</ul>";
+		document.getElementById("language").innerHTML="";
+    }
+	
+</script>
 </head>
 <!-- ADD THE CLASS sidebar-collapse TO HIDE THE SIDEBAR PRIOR TO LOADING THE SITE -->
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
@@ -57,6 +70,7 @@
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
+			
               <!-- Menu toggle button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-envelope-o"></i>
@@ -331,11 +345,25 @@
 			<tr height="10">
 				<td colspan="3"><hr/></td>
 			</tr>
+			
 			<tr>
-				<td colspan="2"><font size="4"><b>Languages</font></b>
-				<br/>English</td>
-				<td valign="top" align="right">Add new</td>
+				<td colspan="2"><font size="4"><b>Languages</font>
+				<ul>English</ul>
+				<div id="language2"><ul>English</ul><ul>English</ul></div>
+				</td>
+				<td class="dropdown tasks-menu">
+					<!--<td valign="top" align="right">Add new</td>-->
+					<!-- Menu Toggle Button -->
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="label label-danger" onclick="AddLanguage()">ADD NEW</span>
+					</a>
+                </td>
+				
 			</tr>
+				
+			<tr id="language">
+					<!--<td id="language"><td>-->
+				</tr>
 			<tr height="10">
 				<td colspan="3"><hr/></td>
 			</tr>
@@ -582,5 +610,7 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+
+
 </body>
 </html>
