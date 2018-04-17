@@ -35,7 +35,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     
-
+ <style>
+        a{
+            text-decoration: none; color:inherit;
+            
+        }
+    </style>
     
 </head>
 <!--
@@ -302,11 +307,12 @@ desired effect
         | Your Page Content Here |
         -------------------------->
         <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="AdminTotalIncome.html">
+        <div class="col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;">
           <div class="info-box">
             <span class="info-box-icon bg-blue"><i class="fa   fa-dollar "></i></span>
 
-            <div class="info-box-content" style="cursor:pointer;">
+            <div class="info-box-content" >
                 <br/>
               <span class="info-box-text">Total Income</span>
               <span class="info-box-number">41,410</span>
@@ -315,6 +321,7 @@ desired effect
           </div>
           <!-- /.info-box -->
         </div>
+                </a>
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="fa fa-cc-visa"></i></span>
@@ -328,20 +335,20 @@ desired effect
           </div>
           <!-- /.info-box -->
         </div>
-        
-         <div class="col-md-3 col-sm-6 col-xs-12">
+        <a href="AdminLastMonthIncome.html">
+         <div class="col-md-3 col-sm-6 col-xs-12" style="cursor:pointer;">
           <div class="info-box">
             <span class="info-box-icon bg-red"><i class="ion ion-cash"></i></span>
 
-            <div class="info-box-content" style="cursor:pointer;">
-                <br/>
-              <span class="info-box-text">Last month income</span>
+            <div class="info-box-content" >
+              <span class="info-box-text">Last month<br/> income</span>
               <span class="info-box-number">10000</span>
             </div>
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
         </div>
+        </a>
             
         
          

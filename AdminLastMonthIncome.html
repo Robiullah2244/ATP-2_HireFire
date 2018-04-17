@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Account| Statement</title>
+  <title>Last Month | Income </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -29,43 +29,18 @@
 
   <!-- Google Font -->
   <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">	
-	<style>
-    .example-modal .modal {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      display: block;
-      z-index: 1;
-    }
-
-    .example-modal .modal {
-      background: transparent !important;
-    }
-    </style>
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <script>
+        function myFunction(){
+            var x = document.getElementById("selectedOption").selectedIndex;
+            var y = document.getElementById("selectedOption").options;
+            if(y[x].text!="Detail View"){
+                window.location = "AdminLastMonthIncomeGraphView.html";
+            }
+            
+        }
+    </script>
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -153,41 +128,6 @@ desired effect
               </ul>
             </li>
             <!-- Tasks Menu -->
-            <li class="dropdown tasks-menu">
-              <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-flag-o"></i>
-                <span class="label label-danger">9</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 9 tasks</li>
-                <li>
-                  <!-- Inner menu: contains the tasks -->
-                  <ul class="menu">
-                    <li><!-- Task item -->
-                      <a href="#">
-                        <!-- Task title and progress text -->
-                        <h3>
-                          Design some buttons
-                          <small class="pull-right">20%</small>
-                        </h3>
-                        <!-- The progress bar -->
-                        <div class="progress xs">
-                          <!-- Change the css width attribute to simulate progress -->
-                          <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                            <span class="sr-only">20% Complete</span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <!-- end task item -->
-                  </ul>
-                </li>
-                <li class="footer">
-                  <a href="sellerActiveWork.html">View all tasks</a>
-                </li>
-              </ul>
-            </li>
 			
 			
 			
@@ -208,10 +148,7 @@ desired effect
 			
 			<li class="dropdown tasks-menu">
               <!-- Menu Toggle Button -->
-              <a href="SellerDashboard.html" class="fa  fa-dashboard (alias)">
-               
-                
-              </a>
+              <a href="Dashboard.html" class="fa  fa-dashboard (alias)">  </a>
               
             </li>
 			
@@ -255,7 +192,7 @@ desired effect
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="sellerProfile.html" class="btn btn-default btn-flat">Profile</a>
+                    <a href="Dashboard.html" class="btn btn-default btn-flat">Dashboard</a>
                   </div>
                   <div class="pull-right">
                     <a href="PublicHome.html" class="btn btn-default btn-flat">Sign out</a>
@@ -302,43 +239,27 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
 <!--        <li class="header" align="center" style="font-size:16px;">Seller</li>-->
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="SellerDashboard.html"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
+        <li class="active"><a href="Dashboard.html"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
           
-<!--           <li><a href="#"><i class="fa fa-money"></i> <span>Accounts</span></a></li>-->
-<!--            <li><a href="#"><i class="fa fa-balance-scale"></i> <span>Orders</span></a></li>-->
-          
+           <li><a href="AdminAccountReport.html" ><i class="fa fa-money"></i> <span>Accounts</span></a></li>
           <li class="treeview">
-            <a ><i class="fa fa-money"></i> <span>Accounts</span>
+            <a ><i class="fa   fa-tasks"></i> <span>Report</span>
+<!--          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>-->
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="sellerBalanceReport.html" ><i class="fa  fa-dollar"></i> <span>Balance</span></a></li>
-              <li><a href="#" onclick="Withdraw()"><i class="fa   fa-cc-mastercard"></i> <span>Withdraw</span></a></li>
-              <li><a href="#" ><i class="fa  fa-sticky-note"></i> <span>Statement</span></a></li>
+            <li><a href="AdminGigsReport.html" ><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
+            <li><a href="AdminSellerReport.html"><i class="fa  fa-user"></i> <span>Seller</span></a></li>
+            <li><a href="AdminBuyerReport%20.html"><i class="fa   fa-child"></i> <span>Buyer</span></a></li>
           </ul>
         </li>
-          
-          <li class="treeview">
-            <a ><i class="fa   fa-balance-scale"></i> <span>Orders</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="sellerActiveWork.html" ><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
-              <li><a href="sellerPendingWork.html" ><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
-              <li><a href="sellerCompletedWork.html" ><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
-          </ul>
-        </li>
-           <li><a href="sellerGigInventory.html"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
-
+    
     
           <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
-          
-          <li><a href="SellerSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
-
+          <li><a href="AdminSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
+            
 
       </ul>
       <!-- /.sidebar-menu -->
@@ -346,28 +267,38 @@ desired effect
     <!-- /.sidebar -->
   </aside>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
 <!--
     <section class="content-header">
-	  <iframe name="contentFrame" frameborder="0" width="100%" height="475" src="gigs.html"></iframe>
-		
+      <h1>
+        Data Tables
+        <small>advanced tables</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol>
     </section>
 -->
 
     <!-- Main content -->
-    <section class="content container-fluid">
-
-      <!--------------------------
-        | Your Page Content Here |
-        -------------------------->
+    
+    <section class="content">
         <div class="row">
         <div class="col-xs-12">
-
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title"><b>Account Statement</b></h3>
+              <h3 class="box-title"><b>
+                  Last Month Income<br/><br/>
+                  <select onchange="myFunction()" id="selectedOption">
+                    <option > Detail View</option>
+                    <option>Graphical View</option>
+                  </select>
+                  </b></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -376,7 +307,6 @@ desired effect
                 <tr>
                     <th>Date(yyyy-mm-dd)</th>
                     <th>From</th>
-                    <th>Transaction Type</th>
                     <th>Amount</th>
                 </tr>
                 </thead>
@@ -384,21 +314,18 @@ desired effect
                 <tr>
                     <td>2012-03-13</td>
                     <td>Null</td>
-                    <td>Withdraw</td>
                     <td>1200</td>
                 </tr>
                     
                 <tr>
                     <td>2011-03-13</td>
                     <td>Robi Ullah</td>
-                    <td>Deposit</td>
                     <td>1500</td>
                 </tr>
                 
                 <tr>
                     <td>2014-03-13</td>
                     <td>HireFire</td>
-                    <td>Repotation Bouns</td>
                     <td>300</td>
                 </tr>
                     
@@ -406,8 +333,7 @@ desired effect
                 <tfoot>
                 <tr>
                     <th>Date(yyyy-mm-dd)</th>
-                    <th>From</th>
-                    <th>Transaction Type</th>
+                    <th>Form</th>
                     <th>Amount</th>
                 </tr>
                 </tfoot>
@@ -420,42 +346,26 @@ desired effect
         <!-- /.col -->
       </div>
       <!-- /.row -->
-
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <!-- Main Footer -->
   <footer class="main-footer">
-    <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Anything you want
+      <b>Version</b> 2.4.0
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    reserved.
   </footer>
 
   <!-- Control Sidebar -->
   <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
-  immediately after the control sidebar -->
+       immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-
-
-
-
-
-
-
-<div id="promotion"></div>
-	
-	
-	
 <!-- ./wrapper -->
 
-<!-- REQUIRED JS SCRIPTS -->
 <!-- jQuery 3 -->
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -484,50 +394,7 @@ desired effect
       'autoWidth'   : false
     })
   })
-</script> 
-	 
-
- 
- <script>
- 
- 
- function hide()
- {
-	document.getElementById("promotion").innerHTML="";
- }
- 
- function add()
- {
-	document.getElementById("promotion").innerHTML="";
- }
-	
- function Withdraw()
- {
-	document.getElementById("promotion").innerHTML=""+
-	"<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>"+
-	  "<div class='modal-dialog'>"+
-		"<div class='modal-content'>"+
-		  "<div class='modal-header'>"+
-			"<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
-			  "<span aria-hidden='true' onclick='hide()'>×</span></button>"+
-			"<h4 class='modal-title'>Withdraw</h4>"+
-		  "</div>"+
-		  "<div class='modal-body'>"+
-			"<p>Current Balance: 120000<br/></p>"+
-			"<p><input placeholder='Withdraw Ammount' style='color:black'</p>"+
-		  "</div>"+
-		  "<div class='modal-footer'>"+
-			"<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>"+
-			"<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>"+
-		  "</div>"+
-		"</div>"+
-		"<!-- /.modal-content -->"+
-	  "</div>"+
-	  "<!-- /.modal-dialog -->"+
-	"</div>";
- }
-	
- </script>
-
+</script>
+    
 </body>
 </html>
