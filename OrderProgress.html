@@ -18,6 +18,9 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
   
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="plugins/iCheck/all.css">
@@ -62,6 +65,11 @@
       display: block;
       z-index: 7;
     }
+      
+
+
+
+ 
   </style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
@@ -300,9 +308,10 @@
                   <th >#</th>
                   <th >Task</th>
                   <th >Status</th>
-                  <th >Comment</th>
+                  
                   <th >Deadline</th>
                   <th >File</th>
+                  <th >Comment</th>
 				  <th >Approve?</th>
                   
                 </tr>
@@ -311,9 +320,24 @@
                   <td>1.</td>
                   <td><input value="Task-1"/></td>
                   <td>Pending</td>
-                  <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
-                  <td><input type="date"></td>
-				  <td><input type="file"><input type="button" value="submit"/></td>
+                  
+                  <td>
+                    <div class="form-group">
+                     <div class="input-group date">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input type="text" class="form-control pull-right" id="datepicker">
+                     </div>
+                    <!-- /.input group -->
+                   </div>
+                    
+                 </td>
+				  <td>
+                    
+                      <input type="file" class="custom-file-input" id="customFile">
+                  </td>
+                    <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
                   <td><input type="checkbox" id="approve" width="100"></td>
                 </tr>
 				
@@ -326,8 +350,7 @@
           </div></div>
   
 
-      
-      
+
       
   <div id="task"></div>
   <div style="cursor:pointer; margin-left: 90%; background-color: #4d79ff"  onclick="AddRow()">
@@ -465,6 +488,8 @@
 <script src="dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
+<!-- bootstrap datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- Select2 -->
 
 <script>
@@ -473,6 +498,7 @@
 <script>
 
     
+    
 	function AddRow()
 	{
 		document.getElementById("task").innerHTML+="<table class='table table-striped'>"+
@@ -480,14 +506,31 @@
 		  "<td >"+count+"</td>"+
 		  "<td ><input value='Task-"+count+"'/></td>"+
           "<td>Pending</td>"+
-          "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
-          "<td><input type='date'></td>"+
+          
+          "<td>"+
+            "<div class='form-group'>"+
+                 "<div class='input-group date'>"+
+                  "<div class='input-group-addon'>"+
+                    "<i class='fa fa-calendar'></i>"+
+                  "</div>"+
+                     "<input type='text' class='form-control pull-right' id='datepicker"+count+"'/>"+
+                 "</div>"+
+
+               "</div>"+
+          "</td>"+
 		  "<td ><input type='file'><input type='button' value='submit'/></td>"+
+            "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
 		  "<td ><input type='checkbox' id='approve' width='100'></td>"+
 		"</tr></table></tbody>";
 		count++;
 	}
-	
+    
+	//Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+
+    
 	function ClearRow()
 	{
 		count=2;
