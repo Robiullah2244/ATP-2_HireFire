@@ -31,13 +31,34 @@
   <script>
 	function AddLanguage()
 	{
-		document.getElementById("language").innerHTML='<td colspan="4" class="form-group"><label for="name">New Language </label><input class="form-control" id="newLanguage" type="text" value="Bangla"> <button onclick="AddLanguageinpanel()"><font size="3">Submit</font></button></td>';
+		document.getElementById("language").innerHTML='<td colspan="4" class="form-group"><label for="name">New Language </label><input class="form-control" id="newLanguage" type="text" value="Type your Language"> <button onclick="AddLanguageinpanel()"><font size="3">Submit</font></button></td>';
     }
 	function AddLanguageinpanel()
 	{
-		document.getElementById("language2").innerHTML+= "<ul>"+document.getElementById("newLanguage").value+"</ul>";
+		document.getElementById("language2").innerHTML+= '</br>'+document.getElementById("newLanguage").value;
 		document.getElementById("language").innerHTML="";
     }
+	function Adddescription()
+	{
+		document.getElementById("textboxpanel").innerHTML='<td colspan="4" class="form-group"><textarea class="form-control" id="adddescriptionpanle">'+document.getElementById("textboxpanelLoder").innerHTML+'</textarea><button onclick="Adddescriptioninpanel()"><font size="3">Edit</font></button></td>';
+
+    }
+	function Adddescriptioninpanel()
+	{
+
+		document.getElementById("textboxpanelLoder").innerHTML = document.getElementById("adddescriptionpanle").value;
+		document.getElementById("textboxpanel").innerHTML="";
+    }
+	<!--function clearcontents(adddescriptionpanle)
+	<!--{
+	<!--if(document.getElementById("adddescriptionpanle").value=="Your description .")
+	<!--{adddescriptionpanle.value = '';}
+	<!--	else
+	<!--	{
+	<!--		document.getElementById("textboxpanel").innerHTML='<td colspan="4" class="form-group"><textarea class="form-control" id="adddescriptionpanle" onclick="clearcontents(adddescriptionpanle)">'+document.getElementById("textboxpanelLoder").innerHTML+'</textarea><button onclick="Adddescriptioninpanel()"><font size="3">Edit</font></button></td>';
+	<!--	}
+	<!--}
+	-->
 	
 </script>
 </head>
@@ -339,26 +360,36 @@
 			</tr>
 			
 			<tr>
-				<td colspan="2"><font size="4"><b>Description</b></font></td>
-				<td align="right">Edit Description</td>
+				<td colspan="4"><font size="4"><b>Description</b></font></td>
+				<!--<td align="right">Edit Description</td>-->
+				<td align="right" class="dropdown tasks-menu">
+					<!-- Menu Toggle Button -->
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<span class="label label-danger" onclick="Adddescription()">Edit Description</span>
+					</a>
+                </td>
 			</tr>
+			<tr >
+			<td colspan="4" id="textboxpanelLoder"> Your description .</td>
+			</tr>
+			<tr id="textboxpanel"></tr>
 			<tr height="10">
 				<td colspan="3"><hr/></td>
 			</tr>
 			
 			<tr>
-				<td colspan="2"><font size="4"><b>Languages</font>
-				<ul>English</ul>
-				<div id="language2"><ul>English</ul><ul>English</ul></div>
+				<td colspan="4">
+				<font size="4"><b>Languages</font>
 				</td>
-				<td class="dropdown tasks-menu">
-					<!--<td valign="top" align="right">Add new</td>-->
+				<td align="right" class="dropdown tasks-menu">
 					<!-- Menu Toggle Button -->
 					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span class="label label-danger" onclick="AddLanguage()">ADD NEW</span>
 					</a>
                 </td>
-				
+			</tr>
+			
+			<tr><td colspan="4" id="language2">English</td>
 			</tr>
 				
 			<tr id="language">
