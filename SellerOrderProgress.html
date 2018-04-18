@@ -364,7 +364,7 @@
                     </label>
                   </td>
                     <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
-                  <td><input type="checkbox" id="approve" width="100"></td>
+                  <td><input type="checkbox" checked disabled id="approve" width="100"></td>
                 </tr>
 				
 				
@@ -406,7 +406,7 @@
 
           <div class="form-group">
               <label for="description">Feedback</label>
-		      <textarea class="form-control" rows="5" id="description"></textarea>
+		      <textarea disabled class="form-control" rows="5" id="description"></textarea>
               <script>
                 document.getElementById("description").defaultValue = "Your Web designing sense is very Gooood.";
               </script>
@@ -556,7 +556,7 @@
             "</label>"+
           "</td>"+
             "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
-		  "<td ><input type='checkbox' id='approve' ></td>"+
+		  "<td ><input type='checkbox' disabled id='approve' ></td>"+
 		"</tr></table></tbody>";
 		count++;
 	}
@@ -569,8 +569,42 @@
     
 	function ClearRow()
 	{
-		count=2;
-		document.getElementById("table").innerHTML=""+
+		count=count-1;
+        /*var previous="<table class='table table-striped'>"+
+		"<tbody><tr>"+
+		  "<td >"+count+"</td>"+
+		  "<td ><input value='Task-"+count+"'/></td>"+
+          "<td ><span class='label label-success'>On going</span</td>"+
+          
+          "<td>"+
+            "<div class='form-group'>"+
+                 "<div class='input-group date'>"+
+                  "<div class='input-group-addon'>"+
+                    "<i class='fa fa-calendar'></i>"+
+                  "</div>"+
+                     "<input type='text' class='form-control pull-right' id='datepicker1'>"+
+                 "</div>"+
+
+               "</div>"+
+          "</td>"+
+		  "<td >"+
+            "<label class='fileContainer'>"+
+                "<span class='label label-success'>Browse</span>"+
+                "<input type='file'/>"+
+            "</label>"+
+          "</td>"+
+            "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
+		  "<td ><input type='checkbox' id='approve' ></td>"+
+		"</tr></table></tbody>";
+        
+        var str=document.getElementById('table').innerHTML;
+        
+        var res = str.replace("<td>","");
+        
+        document.getElementById("table").innerHTML=res;*/
+        
+        
+		  document.getElementById("table").innerHTML=""+
              "<tbody><tr>"+
                   "<th >#</th>"+
                   "<th >Task</th>"+
