@@ -8,9 +8,14 @@ namespace HireFire.Core.Entity
 {
     class Transaction
     {
-        public string SellerName { get; set; }
+        public int Id { get; set; }
         public string BuyerName { get; set; }
-        public int PromoCode { get; set; }
-        public int GigId { get; set; }
+        public int BuyerPaid { get; set; }
+        public string SellerName { get; set; }
+        public float SellerEarned { get; set; }
+        public int OrderId { get; set; }
+        public int PromotionId { get; set; }
+        public float HireFireProfit { get; set; }
+        public DateTime Date { get; set; }
     }
 }

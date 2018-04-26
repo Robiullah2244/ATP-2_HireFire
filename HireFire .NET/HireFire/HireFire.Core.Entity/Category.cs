@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Entity
 {
-    class LastActiveTime
+    class Category
     {
-        public DateTime LastActiveTimeInfo { get; set; }
     }
 }

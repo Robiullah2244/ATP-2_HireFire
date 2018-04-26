@@ -12,6 +12,7 @@ namespace HireFire.Core.Entity
         public DateTime JoiningDate { get; set; }
         public string Description { get; set; }
         public int Level { get; set; }
+        public int ReputationPoint { get; set; }
         public int WorkingHour { get; set; }
 
         //Account

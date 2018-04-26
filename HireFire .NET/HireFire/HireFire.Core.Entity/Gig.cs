@@ -11,7 +11,7 @@ namespace HireFire.Core.Entity
         public int Id { get; set; }
         public string SellerUserName { get; set; }
         public sbyte Title { get; set; }
-        public string Category { get; set; }
+        public string CategoryId { get; set; }
         public int Price { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }

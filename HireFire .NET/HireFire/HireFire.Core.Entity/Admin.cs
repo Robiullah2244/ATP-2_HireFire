@@ -10,5 +10,6 @@ namespace HireFire.Core.Entity
     {
         public string UserName { get; set; }
         public DateTime JoiningDate { get; set; }
+        public string ContactNumber { get; set; }
     }
 }
