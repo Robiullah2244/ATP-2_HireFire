@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireFire.Web.Mvc", "HireFire.Web.Mvc\HireFire.Web.Mvc.csproj", "{F1BE2A20-CA94-47F5-B99D-08A39E88AA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireFire.Core.Entity", "HireFire.Core.Entity\HireFire.Core.Entity.csproj", "{6BFA1A3E-32E7-4F01-B03E-533C7F162D25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireFire.Core.Services", "HireFire.Core.Services\HireFire.Core.Services.csproj", "{9F0AD564-AAD9-4DF6-8901-9281C0792613}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hirefire.Core.Services.Interfaces", "Hirefire.Core.Services.Interfaces\Hirefire.Core.Services.Interfaces.csproj", "{D95FE853-35BF-4056-9D37-66FA92BC080A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HireFire.Infrastructure", "HireFire.Infrastructure\HireFire.Infrastructure.csproj", "{2057E358-3618-4203-8514-92EC8ADBCF33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{5F8EDB0C-5963-45D4-ADE2-116376B3AEAC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4EC88864-D532-4943-8C54-E4C5611C088F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B79C6B59-14C3-4160-BE97-1FFD7AEA1EBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1BE2A20-CA94-47F5-B99D-08A39E88AA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1BE2A20-CA94-47F5-B99D-08A39E88AA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1BE2A20-CA94-47F5-B99D-08A39E88AA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1BE2A20-CA94-47F5-B99D-08A39E88AA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFA1A3E-32E7-4F01-B03E-533C7F162D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFA1A3E-32E7-4F01-B03E-533C7F162D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFA1A3E-32E7-4F01-B03E-533C7F162D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFA1A3E-32E7-4F01-B03E-533C7F162D25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0AD564-AAD9-4DF6-8901-9281C0792613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0AD564-AAD9-4DF6-8901-9281C0792613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0AD564-AAD9-4DF6-8901-9281C0792613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0AD564-AAD9-4DF6-8901-9281C0792613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D95FE853-35BF-4056-9D37-66FA92BC080A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95FE853-35BF-4056-9D37-66FA92BC080A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95FE853-35BF-4056-9D37-66FA92BC080A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95FE853-35BF-4056-9D37-66FA92BC080A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2057E358-3618-4203-8514-92EC8ADBCF33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2057E358-3618-4203-8514-92EC8ADBCF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2057E358-3618-4203-8514-92EC8ADBCF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2057E358-3618-4203-8514-92EC8ADBCF33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1BE2A20-CA94-47F5-B99D-08A39E88AA0B} = {5F8EDB0C-5963-45D4-ADE2-116376B3AEAC}
+		{6BFA1A3E-32E7-4F01-B03E-533C7F162D25} = {4EC88864-D532-4943-8C54-E4C5611C088F}
+		{9F0AD564-AAD9-4DF6-8901-9281C0792613} = {4EC88864-D532-4943-8C54-E4C5611C088F}
+		{D95FE853-35BF-4056-9D37-66FA92BC080A} = {4EC88864-D532-4943-8C54-E4C5611C088F}
+		{2057E358-3618-4203-8514-92EC8ADBCF33} = {B79C6B59-14C3-4160-BE97-1FFD7AEA1EBB}
+	EndGlobalSection
+EndGlobal

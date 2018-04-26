@@ -1,0 +1,8 @@
+E:\9th semester\ATP-2\Project\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll
+E:\9th semester\ATP-2\Project\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.pdb
+E:\9th semester\ATP-2\Project\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
+E:\9th semester\ATP-2\Project\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb
