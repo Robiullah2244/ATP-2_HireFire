@@ -7411,6 +7411,8 @@
     <Content Include="Views\Buyer\PendingWork.cshtml" />
     <Content Include="Views\Buyer\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Buyer\_Layout.Profile.cshtml" />
+    <Content Include="Views\Buyer\BuyerList.cshtml" />
+    <Content Include="Views\Buyer\BuyerOrderProgress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    public class Class1
+    public class IBuyerService
     {
+
     }
 }
