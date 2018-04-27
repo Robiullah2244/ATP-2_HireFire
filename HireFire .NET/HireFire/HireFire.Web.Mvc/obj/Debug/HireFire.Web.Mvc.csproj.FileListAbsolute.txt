@@ -107,4 +107,3 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Micro
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.pdb
-E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.csprojResolveAssemblyReference.cache
