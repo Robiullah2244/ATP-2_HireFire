@@ -36,6 +36,14 @@ namespace HireFire.Controllers
         {
             return View();
         }
+        public ActionResult BuyerList()
+        {
+            return View();
+        }
+        public ActionResult BuyerOrderProgress()
+        {
+            return View();
+        }
 
 
     }
