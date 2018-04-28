@@ -7418,10 +7418,13 @@
     <Content Include="Views\Buyer\_Layout.Profile.cshtml" />
     <Content Include="Views\Buyer\BuyerList.cshtml" />
     <Content Include="Views\Buyer\BuyerOrderProgress.cshtml" />
+    <Content Include="Views\Seller\Profile.cshtml" />
+    <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
+    <Content Include="Views\Seller\_Layout.Profile.cshtml" />
+    <Content Include="Views\Seller\_Layout.Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Seller\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
