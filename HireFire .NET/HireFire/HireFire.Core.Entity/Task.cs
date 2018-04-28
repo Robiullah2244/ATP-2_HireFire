@@ -9,7 +9,7 @@ namespace HireFire.Core.Entity
     public class Task
     {
         public int Id { get; set; }
-        public int GigId { get; set; }
+        //public int GigId { get; set; }
         public int OrderId { get; set; }
         public string TaskName { get; set; }
         public int Status { get; set; }  // Pending-->1    On Going-->2

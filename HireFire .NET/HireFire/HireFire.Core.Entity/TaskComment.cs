@@ -9,10 +9,10 @@ namespace HireFire.Core.Entity
     public class TaskComment
     {
         public int Id { get; set; }
-        public int GigId { get; set; }
-        public int OrderId { get; set; }
+        //public int GigId { get; set; }
+        //public int OrderId { get; set; }
         public int TaskId { get; set; }
-        public string Comment { get; set; }
-        public string Reply { get; set; }
+        public string BuyerComment { get; set; }
+        public string SellerComment { get; set; }
     }
 }
