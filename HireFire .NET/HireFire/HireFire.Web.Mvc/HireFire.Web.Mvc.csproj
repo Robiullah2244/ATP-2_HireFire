@@ -7430,6 +7430,7 @@
     <Content Include="Views\Seller\Registration1.cshtml" />
     <Content Include="Views\Seller\Registration2.cshtml" />
     <Content Include="Views\Seller\Registration3.cshtml" />
+    <Content Include="Views\Seller\SellerOrderProgress.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />
