@@ -70,6 +70,7 @@
 }
 <!-- =============================================== -->
 <!-- Content Wrapper. Contains page content -->
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content">
@@ -108,18 +109,41 @@
                         </tr>
 
                         <tr>
-                            <td colspan="2"><font size="4"><b>Description</b></font></td>
-                            <td align="right">Edit Description</td>
+                            <td colspan="4"><font size="4"><b>Description</b></font></td>
+                            <!--<td align="right">Edit Description</td>-->
+                            <td align="right" class="dropdown tasks-menu">
+                                <!-- Menu Toggle Button -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="label label-danger" onclick="Adddescription()">Edit Description</span>
+                                </a>
+                            </td>
                         </tr>
+                        <tr>
+                            <td colspan="4" id="textboxpanelLoder"> Your description .</td>
+                        </tr>
+                        <tr id="textboxpanel"></tr>
                         <tr height="10">
                             <td colspan="3"><hr /></td>
                         </tr>
+
                         <tr>
-                            <td colspan="2">
-                                <font size="4"><b>Languages</font></b>
-                                <br />English
+                            <td colspan="4">
+                                <font size="4"><b>Languages</font>
                             </td>
-                            <td valign="top" align="right">Add new</td>
+                            <td align="right" class="dropdown tasks-menu">
+                                <!-- Menu Toggle Button -->
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="label label-danger" onclick="AddLanguage()">ADD NEW</span>
+                                </a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4" id="language2">English</td>
+                        </tr>
+
+                        <tr id="language">
+                            <!--<td id="language"><td>-->
                         </tr>
                         <tr height="10">
                             <td colspan="3"><hr /></td>
