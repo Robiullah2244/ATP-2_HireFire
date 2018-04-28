@@ -59,6 +59,8 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireF
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Antlr3.Runtime.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\EntityFramework.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\EntityFramework.SqlServer.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireFire.Core.Entity.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireFire.Infrastructure.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.AspNet.Identity.Core.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -82,6 +84,10 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Syste
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\System.Web.WebPages.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\System.Web.WebPages.Razor.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\WebGrease.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireFire.Core.Entity.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireFire.Infrastructure.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\EntityFramework.xml
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\EntityFramework.SqlServer.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\System.Web.Helpers.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\System.Web.Mvc.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\System.Web.Optimization.xml
@@ -91,8 +97,6 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Syste
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\System.Web.WebPages.Razor.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Antlr3.Runtime.pdb
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Newtonsoft.Json.xml
-E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\EntityFramework.xml
-E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\EntityFramework.SqlServer.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.AspNet.Identity.Core.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.AspNet.Identity.Owin.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.AspNet.Identity.EntityFramework.xml
@@ -105,6 +109,6 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Micro
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.Owin.Security.Google.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.Owin.Security.Twitter.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.csprojResolveAssemblyReference.cache
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.pdb
-E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.csprojResolveAssemblyReference.cache

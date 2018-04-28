@@ -1,8 +1,11 @@
-﻿using System;
+﻿using HireFire.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HireFire.Core.Entity;
+using System.Collections;
 
 namespace HireFire.Controllers
 {
@@ -11,14 +14,25 @@ namespace HireFire.Controllers
         //
         // GET: /Buyer/
 
-        public new ActionResult Profile()
+        public  ActionResult Profile()
         {
+            HireFireDbContext ctx = new HireFireDbContext();
+            //Category cetagory = new Category();
+            //cetagory.Name = "sfs";
+            //cetagory.Id = 1;
+            ctx.Admins.ToList();
             return View();
         }
 
-        public ActionResult Dashboard()
+        public IEnumerable Dashboard()
         {
-            return View();
+            HireFireDbContext ctx = new HireFireDbContext();
+            //Category cetagory = new Category();
+            //cetagory.Name = "sfs";
+            //cetagory.Id = 1;
+            return ctx.Categorys.ToList();
+            
+            
         }
         public ActionResult Account()
         {
