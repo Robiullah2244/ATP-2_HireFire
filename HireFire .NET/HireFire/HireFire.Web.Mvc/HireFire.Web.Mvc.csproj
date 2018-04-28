@@ -7421,6 +7421,7 @@
     <Content Include="Views\Seller\Profile.cshtml" />
     <Content Include="Views\Seller\Dashboard.cshtml" />
     <Content Include="Views\Seller\ProfileFromAdminView.cshtml" />
+    <Content Include="Views\Seller\SellerList.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />
