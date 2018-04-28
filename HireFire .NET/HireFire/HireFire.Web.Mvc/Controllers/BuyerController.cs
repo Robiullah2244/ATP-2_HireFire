@@ -15,14 +15,20 @@ namespace HireFire.Controllers
     {
         //
         // GET: /Buyer/
+        public IBuyerService _service;
 
-        HireFireDbContext ctx = new HireFireDbContext();
-        IBuyerService _service;
-
-        public BuyerController()
+        public BuyerController(IBuyerService service)
         {
-            _service = new BuyerService(ctx);
+            _service = service;
         }
+
+        //HireFireDbContext ctx = new HireFireDbContext();
+        //IBuyerService _service;
+
+        //public BuyerController()
+        //{
+        //    _service = new BuyerService(ctx);
+        //}
 
         public ActionResult Profile()
         {
@@ -53,9 +59,27 @@ namespace HireFire.Controllers
 
 
         }
+        //public void Dashboard()
+        //{
+        //    HireFireDbContext ctx = new HireFireDbContext();
+        //    //Category cetagory = new Category();
+        //    //cetagory.Name = "sfs";
+        //    //cetagory.Id = 1;
+        //    var x = _service.GetAll().ToList();
+        //    foreach (var x1 in x)
+        //    {
+        //        Response.Write(x1.ContactNumber);
+        //        Response.Write(x1.UserName);
+        //        Response.Write(x1.JoiningDate);
+
+        //    }
+        //    // return Content();
+
+
+        //}
         public void Account()
         {
-            var x = _service.GetByUserName("1");
+            var x = _service.GetByUserName("Tanim");
             
             Response.Write(x.UserName+""+x.JoiningDate);
             

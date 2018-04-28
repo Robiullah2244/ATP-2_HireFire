@@ -11,3 +11,12 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\D
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.dll.config
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.pdb
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.xml
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb

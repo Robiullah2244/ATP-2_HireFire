@@ -14,3 +14,15 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bi
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.csprojResolveAssemblyReference.cache
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll.config
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.pdb
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Core.Entity.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Core.Entity.pdb
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.xml
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.csprojResolveAssemblyReference.cache
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
+C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb
