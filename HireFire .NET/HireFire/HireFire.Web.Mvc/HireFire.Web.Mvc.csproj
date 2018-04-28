@@ -7427,6 +7427,7 @@
     <Content Include="Views\Seller\CompletedWork.cshtml" />
     <Content Include="Views\Seller\AllGigs.cshtml" />
     <Content Include="Views\Seller\TopGigs.cshtml" />
+    <Content Include="Views\Seller\Registration1.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />
