@@ -11,4 +11,3 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\D
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.xml
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb
-E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.csprojResolveAssemblyReference.cache

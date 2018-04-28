@@ -112,3 +112,7 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Micro
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.csprojResolveAssemblyReference.cache
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\obj\Debug\HireFire.Web.Mvc.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireFire.Core.Services.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Hirefire.Core.Services.Interfaces.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\Hirefire.Core.Services.Interfaces.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\bin\HireFire.Core.Services.pdb

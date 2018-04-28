@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using HireFire.Core.Entity;
 using System.Collections;
+using Hirefire.Core.Services.Interfaces;
+using HireFire.Core.Services;
 
 namespace HireFire.Controllers
 {
@@ -14,29 +16,50 @@ namespace HireFire.Controllers
         //
         // GET: /Buyer/
 
-        public  ActionResult Profile()
+        HireFireDbContext ctx = new HireFireDbContext();
+        IBuyerService _service;
+
+        public BuyerController()
         {
-            HireFireDbContext ctx = new HireFireDbContext();
+            _service = new BuyerService(ctx);
+        }
+
+        public ActionResult Profile()
+        {
+
             //Category cetagory = new Category();
             //cetagory.Name = "sfs";
             //cetagory.Id = 1;
-            ctx.Admins.ToList();
+            Admin a = new Admin();
+            a.ContactNumber = "4546";
+            a.JoiningDate = DateTime.Now;
+            a.UserName = "6789";
+            //ctx.Admins.Add(a);
+
+            //ctx.SaveChanges();
+
             return View();
         }
 
-        public IEnumerable Dashboard()
+        public ActionResult Dashboard()
         {
-            HireFireDbContext ctx = new HireFireDbContext();
-            //Category cetagory = new Category();
-            //cetagory.Name = "sfs";
-            //cetagory.Id = 1;
-            return ctx.Categorys.ToList();
-            
-            
-        }
-        public ActionResult Account()
-        {
+
+            Category cetagory = new Category();
+            cetagory.Name = "sfs";
+            cetagory.Id = 1;
+            //ctx.Categorys.Add(cetagory);
+            //ctx.SaveChanges();
             return View();
+
+
+        }
+        public void Account()
+        {
+            var x = _service.GetByUserName("1");
+            
+            Response.Write(x.UserName+""+x.JoiningDate);
+            
+
         }
         public ActionResult ActiveWork()
         {

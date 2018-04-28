@@ -55,6 +55,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HireFire.Core.Entity\HireFire.Core.Entity.csproj">
+      <Project>{6bfa1a3e-32e7-4f01-b03e-533c7f162d25}</Project>
+      <Name>HireFire.Core.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hirefire.Core.Services.Interfaces\Hirefire.Core.Services.Interfaces.csproj">
+      <Project>{d95fe853-35bf-4056-9d37-66fa92bc080a}</Project>
+      <Name>Hirefire.Core.Services.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

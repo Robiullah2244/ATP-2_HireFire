@@ -7459,6 +7459,14 @@
       <Project>{6bfa1a3e-32e7-4f01-b03e-533c7f162d25}</Project>
       <Name>HireFire.Core.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hirefire.Core.Services.Interfaces\Hirefire.Core.Services.Interfaces.csproj">
+      <Project>{d95fe853-35bf-4056-9d37-66fa92bc080a}</Project>
+      <Name>Hirefire.Core.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HireFire.Core.Services\HireFire.Core.Services.csproj">
+      <Project>{9f0ad564-aad9-4df6-8901-9281c0792613}</Project>
+      <Name>HireFire.Core.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HireFire.Infrastructure\HireFire.Infrastructure.csproj">
       <Project>{2057e358-3618-4203-8514-92ec8adbcf33}</Project>
       <Name>HireFire.Infrastructure</Name>

@@ -12,3 +12,7 @@ E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.dll
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.pdb
 E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.csprojResolveAssemblyReference.cache
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Entity.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\Hirefire.Core.Services.Interfaces.dll
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Entity.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\Hirefire.Core.Services.Interfaces.pdb
