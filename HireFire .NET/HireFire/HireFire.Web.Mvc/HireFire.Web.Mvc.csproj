@@ -7432,6 +7432,7 @@
     <Content Include="Views\Seller\Registration3.cshtml" />
     <Content Include="Views\Seller\SellerOrderProgress.cshtml" />
     <Content Include="Views\Seller\Account.cshtml" />
+    <Content Include="Views\Seller\BalanceReport.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />
