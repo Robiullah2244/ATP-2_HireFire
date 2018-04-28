@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    public interface IAdminService
+    public interface ISkillService
     {
-        IEnumerable<Admin> GetAll();
+        IEnumerable<Skill> GetByUserName(string userName);
 
-        Admin GetByUserName(string userName);
+        Buyer GetById(int id);
 
-        bool Insert(Admin buyer);
-        bool Update(Admin buyer);
+        bool Insert(Skill skill);
+        bool Update(Skill seller);
         bool Delete(string userName);
     }
 }

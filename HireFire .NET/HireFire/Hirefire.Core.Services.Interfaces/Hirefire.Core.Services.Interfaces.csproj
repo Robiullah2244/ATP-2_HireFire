@@ -43,6 +43,12 @@
     <Compile Include="IBuyerService.cs" />
     <Compile Include="ICategoryService.cs" />
     <Compile Include="IGigService.cs" />
+    <Compile Include="ILanguageService.cs" />
+    <Compile Include="IMessageService.cs" />
+    <Compile Include="IOrderService.cs" />
+    <Compile Include="IPromotionService.cs" />
+    <Compile Include="ISellerService.cs" />
+    <Compile Include="ISkillService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

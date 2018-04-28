@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    public interface IGigService
+    public interface IOrderService
     {
+        IEnumerable<Order> GetAll();
 
-        IEnumerable<Gig> GetAll();
+        Order GetById(int id);
 
-        Gig GetById(int id);
-
-        bool Insert(Gig gig);
-        bool Update(Gig gig);
+        bool Insert(Order order);
+        bool Update(Order order);
         bool Delete(int id);
-
     }
 }

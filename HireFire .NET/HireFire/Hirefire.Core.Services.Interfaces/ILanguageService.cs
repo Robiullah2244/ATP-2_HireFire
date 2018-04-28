@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    public interface IGigService
+    public interface ILanguageService
     {
+        IEnumerable<Language> GetAll();
 
-        IEnumerable<Gig> GetAll();
+        Language GetById(int id);
 
-        Gig GetById(int id);
-
-        bool Insert(Gig gig);
-        bool Update(Gig gig);
+        bool Insert(Language language);
+        bool Update(Language language);
         bool Delete(int id);
-
     }
 }

@@ -1,23 +1,21 @@
-﻿using System;
+﻿using HireFire.Core.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HireFire.Core.Entity;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    public interface IBuyerService
+    public interface ISellerService
     {
-        IEnumerable<Buyer> GetAll();
+        IEnumerable<Seller> GetAll();
 
         Buyer GetByUserName(string userName);
 
-        bool Insert(Buyer buyer);
-        bool Update(Buyer buyer);
+        bool Insert(Seller seller);
+        bool Update(Seller seller);
         bool Delete(string userName);
 
-
-        
     }
 }
