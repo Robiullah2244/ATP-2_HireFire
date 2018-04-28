@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Entity
 {
-    class Task
+    public class Task
     {
         public int Id { get; set; }
         public int GigId { get; set; }

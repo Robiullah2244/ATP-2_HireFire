@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Entity
 {
-    public class Buyer
+    public class Buyer : User
     {
-        public string UserName { get; set; }
+        //public string UserName { get; set; }
         public DateTime JoiningDate { get; set; }
         
     }

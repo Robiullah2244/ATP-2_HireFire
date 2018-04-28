@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Entity
 {
-    class Admin
+    public class Admin : User
     {
-        public string UserName { get; set; }
+        //public string UserName { get; set; }
         public DateTime JoiningDate { get; set; }
         public string ContactNumber { get; set; }
     }

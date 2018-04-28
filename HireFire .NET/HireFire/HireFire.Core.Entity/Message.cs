@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Entity
 {
-    class Message
+    public class Message
     {
         public int Id { get; set; }
         public int ConversionNumber { get; set; }
