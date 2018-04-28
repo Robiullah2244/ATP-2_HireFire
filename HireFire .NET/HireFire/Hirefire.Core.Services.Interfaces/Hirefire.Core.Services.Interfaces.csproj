@@ -49,6 +49,10 @@
     <Compile Include="IPromotionService.cs" />
     <Compile Include="ISellerService.cs" />
     <Compile Include="ISkillService.cs" />
+	<Compile Include="ITaskCommentService.cs" />
+    <Compile Include="ITaskService.cs" />
+    <Compile Include="ITransactionService.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

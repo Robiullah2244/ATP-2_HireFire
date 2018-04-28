@@ -13,6 +13,6 @@ namespace Hirefire.Core.Services.Interfaces
         //TaskComment GetById(int Id);
         bool Insert(TaskComment transaction);
         //bool Update(TaskComment transaction);
-        //1bool Delete(int Id);
+        //bool Delete(int Id);
     }
 }
