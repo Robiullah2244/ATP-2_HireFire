@@ -44,6 +44,11 @@ namespace HireFire.Controllers
         {
             return View();
         }
+        public ActionResult BuyerSetting()
+        {
+            return View();
+        }
+
 
 
     }
