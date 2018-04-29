@@ -9,7 +9,7 @@ using System.Collections;
 using Hirefire.Core.Services.Interfaces;
 using HireFire.Core.Services;
 
-namespace HireFire.Controllers
+namespace HireFire.Web.Mvc.Controllers
 {
     public class BuyerController : Controller
     {

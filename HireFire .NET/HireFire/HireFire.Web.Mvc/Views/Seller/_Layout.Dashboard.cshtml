@@ -155,7 +155,7 @@ desired effect
                                     </ul>
                                 </li>
                                 <li class="footer">
-                                    <a href="/Seller/ActiveWork">View all tasks</a>
+                                    <a href="BuyerActiveWork.html">View all tasks</a>
                                 </li>
                             </ul>
                         </li>
@@ -256,10 +256,8 @@ desired effect
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <!--        <li class="header" align="center" style="font-size:16px;">Seller</li>-->
-                    <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="/seller/dashboard"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
 
+                    <li class="active"><a href="/Seller/Dashboard"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
 
                     <li class="treeview">
                         <a>
@@ -269,9 +267,9 @@ desired effect
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/seller/BalanceReport"><i class="fa  fa-dollar"></i> <span>Balance</span></a></li>
+                            <li><a href="/Seller/BalanceReport"><i class="fa  fa-dollar"></i> <span>Balance</span></a></li>
                             <li><a href="#" onclick="Withdraw()"><i class="fa   fa-cc-mastercard"></i> <span>Withdraw</span></a></li>
-                            <li><a href="/seller/Account"><i class="fa  fa-sticky-note"></i> <span>Statement</span></a></li>
+                            <li><a href="/Seller/Account"><i class="fa  fa-sticky-note"></i> <span>Statement</span></a></li>
                         </ul>
                     </li>
 
@@ -283,17 +281,17 @@ desired effect
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/seller/ActiveWork"><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
-                            <li><a href="/seller/PendingWork"><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
-                            <li><a href="/seller/CompletedWork"><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
+                            <li><a href="/Seller/ActiveWork"><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
+                            <li><a href="/Seller/PendingWork"><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
+                            <li><a href="/Seller/CompletedWork"><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
                         </ul>
                     </li>
-                    <li><a href="/seller/GigInventory"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
+                    <li><a href="/Seller/AllGigs"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
 
 
-                    <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
+                    <li><a href="/Seller/Profile"><i class="fa fa-inbox"></i> <span>Profile</span></a></li>
 
-                    <li><a href="/Seller/Settings"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
+                    <li><a href="/Seller/Setting"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
 
 
                 </ul>
@@ -301,7 +299,6 @@ desired effect
             </section>
             <!-- /.sidebar -->
         </aside>
-
 
 
 
@@ -337,41 +334,133 @@ desired effect
 
     @RenderSection("javascript")
 
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="bower_components/raphael/raphael.min.js"></script>
+    <script src="bower_components/morris.js/morris.min.js"></script>
+    <!-- FastClick -->
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.min.js"></script>
+
+    <!-- Optionally, you can add Slimscroll and FastClick plugins.
+         Both of these plugins are recommended to enhance the
+         user experience. -->
+
+
+
+
     <script>
-    function promotion() {
-        document.getElementById("promotion").innerHTML = "" +
-        "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-          "<div class='modal-dialog'>" +
-            "<div class='modal-content'>" +
-              "<div class='modal-header'>" +
-                "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                  "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                "<h4 class='modal-title'>Promotions</h4>" +
-              "</div>" +
-              "<div class='modal-body'>" +
-                "<p>You have no promotion<br/></p>" +
-                "<p><input placeholder='Promo Code' style='color:black'</p>" +
-              "</div>" +
-              "<div class='modal-footer'>" +
-                "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
-              "</div>" +
-            "</div>" +
-            "<!-- /.modal-content -->" +
-          "</div>" +
-          "<!-- /.modal-dialog -->" +
-        "</div>";
-    }
 
-    function hide() {
-        document.getElementById("promotion").innerHTML = "";
-    }
 
-    function add() {
-        document.getElementById("promotion").innerHTML = "";
-    }
+        function hide() {
+            document.getElementById("promotion").innerHTML = "";
+        }
+
+        function add() {
+            document.getElementById("promotion").innerHTML = "";
+        }
+
+        function Withdraw() {
+            document.getElementById("promotion").innerHTML = "" +
+            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+              "<div class='modal-dialog'>" +
+                "<div class='modal-content'>" +
+                  "<div class='modal-header'>" +
+                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+                    "<h4 class='modal-title'>Withdraw</h4>" +
+                  "</div>" +
+                  "<div class='modal-body'>" +
+                    "<p>Current Balance: 120000<br/></p>" +
+                    "<p><input placeholder='Withdraw Ammount' style='color:black'</p>" +
+                  "</div>" +
+                  "<div class='modal-footer'>" +
+                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+                    "<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>" +
+                  "</div>" +
+                "</div>" +
+                "<!-- /.modal-content -->" +
+              "</div>" +
+              "<!-- /.modal-dialog -->" +
+            "</div>";
+        }
+
+
+
 
     </script>
 
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("SellerChartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Your Response Rate Last 3 Months"
+                },
+
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { y: 0 },
+                        { y: 4, indexLabel: "Week-1" },
+                        { y: 5, indexLabel: "Week-2" },
+                        { y: 5, indexLabel: "Week-3" },
+                        { y: 5, indexLabel: "Week-4" },
+                        { y: 5, indexLabel: "Week-5" },
+                        { y: 2, indexLabel: "Week-6" },
+                        { y: 3, indexLabel: "Week-7" },
+                        { y: 4, indexLabel: "Week-8" },
+                        { y: 5, indexLabel: "Week-9" },
+                        { y: 6, indexLabel: "Week-10" },
+                        { y: 5, indexLabel: "Week-11" },
+                        { y: 7, indexLabel: "Week-12" }
+                    ]
+                }]
+            });
+
+            chart.render();
+
+            var chart = new CanvasJS.Chart("BuyerChartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Buyer Response Rate Last 3 Months"
+                },
+
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { y: 0 },
+                        { y: 3, indexLabel: "Week-1" },
+                        { y: 1, indexLabel: "Week-2" },
+                        { y: 7, indexLabel: "Week-3" },
+                        { y: 2, indexLabel: "Week-4" },
+                        { y: 6, indexLabel: "Week-5" },
+                        { y: 2, indexLabel: "Week-6" },
+                        { y: 6, indexLabel: "Week-7" },
+                        { y: 4, indexLabel: "Week-8" },
+                        { y: 5, indexLabel: "Week-9" },
+                        { y: 6, indexLabel: "Week-10" },
+                        { y: 8, indexLabel: "Week-11" },
+                        { y: 12, indexLabel: "Week-12" }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+
+        function AutoScroll() {
+            location.href = "#Table";
+        }
+
+    </script>
 </body>
 </html>
