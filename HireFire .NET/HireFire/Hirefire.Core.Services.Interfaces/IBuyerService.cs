@@ -17,6 +17,9 @@ namespace Hirefire.Core.Services.Interfaces
         bool Update(Buyer buyer);
         bool Delete(string userName);
 
+        //int TotalSpend(string userName);
+
+
 
         
     }

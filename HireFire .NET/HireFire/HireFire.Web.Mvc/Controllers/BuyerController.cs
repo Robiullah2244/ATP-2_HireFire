@@ -67,6 +67,8 @@ namespace HireFire.Web.Mvc.Controllers
             cetagory.Id = 1;
             //ctx.Categorys.Add(cetagory);
             //ctx.SaveChanges();
+            //_service.
+
             return View();
 
 
