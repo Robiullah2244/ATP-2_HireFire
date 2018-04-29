@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Data Tables</title>
+    <title>Admin | Top Buyers</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -39,35 +40,41 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><b>TOP GIGS</b></h3>
+                        <h3 class="box-title"><b>TOP BUYERS</b></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Gig Title</th>
-                                    <th>Number of order completed</th>
-                                    <th>Gig Price</th>
-                                    <th>Gig Added Date(yyyy/mm/dd)</th>
+                                    <th>Buyer Name</th>
+                                    <th>Email</th>
+                                    <th>Over all Rating</th>
+                                    <th>Your AVG rating</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a href="#" style="text-decoration: none; color:inherit;">I will do c++</a></td>
-                                    <td>12.5$</td>
-                                    <td>12</td>
-                                    <td>2005-03-12</td>
+                                    <td><a href="#" style="text-decoration: none; color:inherit;">Robi Ullah</a></td>
+                                    <td>Md.RobiUllah@ieee.org</td>
+                                    <td>4.7</td>
+                                    <td>5</td>
                                 </tr>
 
+                                <tr>
+                                    <td><a href="#" style="text-decoration: none; color:inherit;">IKTanim</a></td>
+                                    <td>IbrahimKhalilTanim@ieee.org</td>
+                                    <td>4.5</td>
+                                    <td>4.8</td>
+                                </tr>
 
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Gig Title</th>
-                                    <th>Number of order complted</th>
-                                    <th>Gig Price</th>
-                                    <th>Gig Added Date(yyyy/mm/dd)</th>
+                                    <th>Buyer Name</th>
+                                    <th>Email</th>
+                                    <th>Over all Rating</th>
+                                    <th>Your AVG rating</th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -80,7 +87,7 @@
         </div>
         <!-- /.row -->
     </section>
-    <!-- /.content -->
+   <!-- /.content -->
     <!-- jQuery 3 -->
     <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -98,17 +105,17 @@
     <script src="~/Contents/dist/js/demo.js"></script>
     <!-- page script -->
     <script>
-        $(function () {
-            $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
-        })
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
     </script>
 </body>
 </html>

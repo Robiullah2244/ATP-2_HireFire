@@ -9,9 +9,9 @@ namespace Hirefire.Core.Services.Interfaces
 {
     public interface IMessageService
     {
-        IEnumerable<Message> GetByUserName(string fromUser, string toUser);
+        IEnumerable<Message> GetAllMessage(string fromUser, string toUser);//At first we will have to see if a user is in
 
-        bool Insert(Message message);
+        bool Insert(Message message);//Insert the reply message to the table
 
         //bool Update(Message message);
         //bool Delete(int id);

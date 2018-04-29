@@ -14,19 +14,19 @@
         <title>HireFire | Starter</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="../Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="../Contents/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="../Contents/bower_components/Ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/Ionicons/css/ionicons.min.css">
         <!-- Morris charts -->
-        <link rel="stylesheet" href="../Contents/bower_components/morris.js/morris.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/morris.js/morris.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../Contents/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="~/Contents/dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
               page. However, you can choose any other skin. Make sure you
               apply the skin class to the body tag so the changes take effect. -->
-        <link rel="stylesheet" href="../Contents/dist/css/skins/skin-blue.min.css">
+        <link rel="stylesheet" href="~/Contents/dist/css/skins/skin-blue.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js does not work if you view the page via file:// -->
@@ -80,7 +80,7 @@
           -------------------------->
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <a href="sellerAllGigs.html" target="contentFrame">
+                <a href="/seller/AllGigs" target="contentFrame">
                     <div class="info-box" style="cursor:pointer;">
                         <span class="info-box-icon bg-green"><i class="fa  fa-hand-paper-o"></i></span>
 
@@ -93,7 +93,7 @@
                 </a>
                 <!-- /.info-box -->
             </div>
-            <a href="sellerTopGigs.html" target="contentFrame">
+            <a href="/seller/TopGigs" target="contentFrame">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box" style="cursor:pointer;">
                         <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
@@ -133,7 +133,7 @@
                 <!-- /.info-box -->
             </div>
 
-            <a href="Seller.TopBuyerRegardingYou.html" target="contentFrame">
+            <a href="/seller/TopBuyer" target="contentFrame">
 
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box" style="cursor:pointer;">
@@ -201,7 +201,7 @@
                                   <div class="chart" id="line-chart" style="height: 300px;"></div>
                                 </div>-->
                     <div id="SellerChartContainer" style="height: 370px; width: 100%;"></div>
-                    <script src="Graph.js"></script>
+                    <script src="~/Scripts/Graph.js"></script>
                     <!-- /.box-body -->
                 </div>
             </div>
@@ -235,7 +235,7 @@
                                   <div class="chart" id="line-chart" style="height: 300px;"></div>
                                 </div>-->
                     <div id="BuyerChartContainer" style="height: 370px; width: 100%;"></div>
-                    <script src="../..//Scripts/Graph.js"></script>
+                    <script src="~/Scripts/Graph.js"></script>
                     <!-- /.box-body -->
                 </div>
             </div>
@@ -258,16 +258,16 @@
 
     <!-- REQUIRED JS SCRIPTS -->
     <!-- jQuery 3 -->
-    <script src="../Contents/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="../Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
-    <script src="../Contents/bower_components/raphael/raphael.min.js"></script>
-    <script src="../Contents/bower_components/morris.js/morris.min.js"></script>
+    <script src="~/Contents/bower_components/raphael/raphael.min.js"></script>
+    <script src="~/Contents/bower_components/morris.js/morris.min.js"></script>
     <!-- FastClick -->
-    <script src="../Contents/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
-    <script src="../Contents/dist/js/adminlte.min.js"></script>
+    <script src="~/Contents/dist/js/adminlte.min.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the

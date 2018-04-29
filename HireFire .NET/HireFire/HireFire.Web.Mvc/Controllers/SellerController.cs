@@ -81,6 +81,10 @@ namespace HireFire.Controllers
         {
             return View();
         }
+        public ActionResult TopBuyer()
+        {
+            return View();
+        }
         public ActionResult Registration1()
         {
             return View();
