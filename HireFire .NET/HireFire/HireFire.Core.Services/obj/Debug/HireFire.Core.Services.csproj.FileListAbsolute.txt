@@ -30,3 +30,17 @@ C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFir
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.csprojResolveAssemblyReference.cache
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.dll
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Services.dll.config
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Services.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Services.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\EntityFramework.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\EntityFramework.SqlServer.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Entity.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\Hirefire.Core.Services.Interfaces.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\HireFire.Core.Entity.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\Hirefire.Core.Services.Interfaces.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\EntityFramework.xml
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\bin\Debug\EntityFramework.SqlServer.xml
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.csprojResolveAssemblyReference.cache
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Services\obj\Debug\HireFire.Core.Services.pdb

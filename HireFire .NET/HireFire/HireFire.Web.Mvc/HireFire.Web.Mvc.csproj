@@ -178,7 +178,9 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BuyerController.cs" />
+    <Compile Include="Controllers\OthersController.cs" />
     <Compile Include="Controllers\SellerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -7479,6 +7481,26 @@
     <Content Include="Views\Seller\Contact.cshtml" />
     <Content Include="Views\Seller\Statistics.cshtml" />
     <Content Include="Views\Seller\Setting.cshtml" />
+    <Content Include="Views\Admin\AddAdmin.cshtml" />
+    <Content Include="Views\Admin\AdminAccountReport.cshtml" />
+    <Content Include="Views\Admin\AdminBuyerReport.cshtml" />
+    <Content Include="Views\Admin\AdminGigsReport.cshtml" />
+    <Content Include="Views\Admin\AdminLastMonthIncome.cshtml" />
+    <Content Include="Views\Admin\AdminLastMonthIncomeGraphView.cshtml" />
+    <Content Include="Views\Admin\AdminSellerReport.cshtml" />
+    <Content Include="Views\Admin\AdminSetting.cshtml" />
+    <Content Include="Views\Admin\AdminTotalIncome.cshtml" />
+    <Content Include="Views\Admin\AdminTotalUserListGraph.cshtml" />
+    <Content Include="Views\Admin\_Layout.Admin.Add.cshtml" />
+    <Content Include="Views\Admin\_Layout.Admin.cshtml" />
+    <Content Include="Views\Admin\_Layout.Admin.Others.cshtml" />
+    <Content Include="Views\Others\ContactSeller.cshtml" />
+    <Content Include="Views\Others\Home.cshtml" />
+    <Content Include="Views\Others\OrderRequirements.cshtml" />
+    <Content Include="Views\Others\PlaceOrder.cshtml" />
+    <Content Include="Views\Others\ProceedToOrder.cshtml" />
+    <Content Include="Views\Others\_Layout.Others.cshtml" />
+    <Content Include="Views\Buyer\BuyerSetting.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />
