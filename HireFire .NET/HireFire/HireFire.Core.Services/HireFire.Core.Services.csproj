@@ -50,8 +50,10 @@
   <ItemGroup>
     <Compile Include="AdminService.cs" />
     <Compile Include="BuyerService.cs" />
+    <Compile Include="PromotionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellerService.cs" />
+    <Compile Include="TransactionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
