@@ -11,10 +11,8 @@ namespace Hirefire.Core.Services.Interfaces
     {
         IEnumerable<Skill> GetByUserName(string userName);
 
-        Buyer GetById(int id);
-
         bool Insert(Skill skill);
-        bool Update(Skill seller);
+       // bool Update(Skill seller);
         bool Delete(string userName);
     }
 }

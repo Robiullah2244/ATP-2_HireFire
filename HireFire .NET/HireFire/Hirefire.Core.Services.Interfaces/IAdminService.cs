@@ -16,5 +16,6 @@ namespace Hirefire.Core.Services.Interfaces
         bool Insert(Admin buyer);
         bool Update(Admin buyer);
         bool Delete(string userName);
+
     }
 }

@@ -12,11 +12,16 @@ namespace Hirefire.Core.Services.Interfaces
 
         IEnumerable<Gig> GetAll();
 
-        Gig GetById(int id);
+
+        IEnumerable<Gig> GetById(int categoryId);
 
         bool Insert(Gig gig);
         bool Update(Gig gig);
         bool Delete(int id);
+
+        string Search(string search, string searchBy);
+
+
 
     }
 }

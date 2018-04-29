@@ -15,7 +15,7 @@ namespace Hirefire.Core.Services.Interfaces
         bool Update(User user);
         bool Delete(string userName);
 
-        bool IsValid(string userName, string password);
+        int IsValid(string userName, string password); // if valid then return type.. Return Zero for Invalid  ( Sign In purpose)
 
     }
 }

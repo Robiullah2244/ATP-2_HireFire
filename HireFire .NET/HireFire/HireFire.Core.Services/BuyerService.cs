@@ -78,5 +78,11 @@ namespace HireFire.Core.Services
                 return false;
             }
         }
+
+
+        public IEnumerable<Buyer> NewUser(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
