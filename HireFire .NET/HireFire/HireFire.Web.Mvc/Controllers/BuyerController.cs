@@ -9,25 +9,28 @@ using System.Collections;
 using Hirefire.Core.Services.Interfaces;
 using HireFire.Core.Services;
 
-namespace HireFire.Controllers
+namespace HireFire.Web.Mvc.Controllers
 {
     public class BuyerController : Controller
     {
         //
         // GET: /Buyer/
-        public IBuyerService _service;
+        IBuyerService _buyerService;
+        ITransactionService _transactionService;
 
-        public BuyerController(IBuyerService service)
+
+        public BuyerController(IBuyerService service, ITransactionService transactionService)
         {
-            _service = service;
+            _buyerService = service;
+            _transactionService = transactionService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
-        //IBuyerService _service;
+        //IBuyerService _buyerService;
 
         //public BuyerController()
         //{
-        //    _service = new BuyerService(ctx);
+        //    _buyerService = new BuyerService(ctx);
         //}
 
 
@@ -37,7 +40,7 @@ namespace HireFire.Controllers
             var x=false;
             for(int i=10;i<14;i++)
             {
-                x = _service.Insert(new Buyer { UserName = "Tanim"+i, JoiningDate = DateTime.Now, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now, Name = "Robi" });
+                x = _buyerService.Insert(new Buyer { UserName = "Tanim"+i, JoiningDate = DateTime.Now, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now, Name = "Robi" });
             }
             return x;
         }
@@ -61,16 +64,20 @@ namespace HireFire.Controllers
 
         public ActionResult Dashboard()
         {
+            _buyerService.GetByUserName("Robi");
 
-            Category cetagory = new Category();
-            cetagory.Name = "sfs";
-            cetagory.Id = 1;
-            //ctx.Categorys.Add(cetagory);
-            //ctx.SaveChanges();
-            //_service.
+            int totalSpend = _transactionService.TotalSpend("Robi");
+
+            int lastMonthSpend = _transactionService.LastMonthSpend("Robi");
+
+            var transaction = _transactionService.GetByBuyerUserName("robi");
+
+
+            ViewBag.totalSpend = totalSpend;
+            ViewBag.lastMonthSpend = lastMonthSpend;
 
             return View();
-
+            //Response.Write(lastMonthSpend + " " + totalSpend);
 
         }
         //public void Dashboard()
@@ -79,7 +86,7 @@ namespace HireFire.Controllers
         //    //Category cetagory = new Category();
         //    //cetagory.Name = "sfs";
         //    //cetagory.Id = 1;
-        //    var x = _service.GetAll().ToList();
+        //    var x = _buyerService.GetAll().ToList();
         //    foreach (var x1 in x)
         //    {
         //        Response.Write(x1.ContactNumber);
@@ -91,17 +98,19 @@ namespace HireFire.Controllers
 
 
         //}
-        public void Account()
+        public ActionResult Account()
         {
-            var x = _service.GetByUserName("1");
-            
-            Response.Write(x.UserName+""+x.JoiningDate);
+            IEnumerable<Transaction> transaction = _transactionService.GetByBuyerUserName("Robi");
+            return View(transaction);
             
 
         }
-        public ActionResult ActiveWork()
+        public void ActiveWork()
         {
-            return View();
+            _transactionService.GetByBuyerUserName("robi");
+            DateTime d = DateTime.MinValue;
+            Response.Write((DateTime.Now - d).Days);
+            //return View();
         }
         public ActionResult CompletedWork()
         {
@@ -123,12 +132,12 @@ namespace HireFire.Controllers
         //[HttpPost]
         public bool BuyerSetting()
         {
-            var x = _service.Update(new Buyer { UserName="robi", Email = "sdsfc", Name = "Tanim" });
+            var x = _buyerService.Update(new Buyer { UserName="robi", Email = "sdsfc", Name = "Tanim" });
             return x;
         }
         public bool Delete()
         {
-            var x = _service.Delete("robi2");
+            var x = _buyerService.Delete("robi2");
             return x;
         }
 

@@ -14,5 +14,15 @@ namespace Hirefire.Core.Services.Interfaces
         bool Insert(Transaction transaction);
         //bool Update(Transaction transaction);
         //bool Delete(int Id);
+
+        
+        //public IEnumerable<Transaction> GetAll()
+        IEnumerable<Transaction> GetByBuyerUserName(string userName);
+        IEnumerable<Transaction> GetBySellerUserName(string userName);
+
+        int TotalSpend(string userName);
+        int LastMonthSpend(string userName);
+
+        
     }
 }

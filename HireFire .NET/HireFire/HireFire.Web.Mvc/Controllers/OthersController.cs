@@ -30,5 +30,17 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
+        public ActionResult Messenger()
+        {
+            return View();
+        }
+        public ActionResult Notification()
+        {
+            return View();
+        }
+        public ActionResult PublicHome()
+        {
+            return View();
+        }
     }
 }
