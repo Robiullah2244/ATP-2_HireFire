@@ -18,6 +18,7 @@ namespace Hirefire.Core.Services.Interfaces
         bool Delete(string userName);
 
 
+
         
     }
 }
