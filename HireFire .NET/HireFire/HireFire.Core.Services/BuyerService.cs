@@ -25,23 +25,58 @@ namespace HireFire.Core.Services
     
         public Buyer GetByUserName(string userName)
         {
-            return _context.Set<Buyer>().Where(c => c.UserName == userName).FirstOrDefault();
+            return _context.Set<Buyer>().Where(b => b.UserName == userName).FirstOrDefault();
             //return _context.Set<Buyer>().ToList();
         }
 
-        public bool Insert(Entity.Buyer buyer)
+        public bool Insert(Buyer buyer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Set<Buyer>().Add(buyer);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+            
         }
 
-        public bool Update(Entity.Buyer buyer)
+        public bool Update(Buyer buyer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetBuyer= _context.Set<Buyer>().Where(b => b.UserName == buyer.UserName).FirstOrDefault();
+                targetBuyer.Name = buyer.Name;
+                targetBuyer.Email = buyer.Email;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
 
         public bool Delete(string userName)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetBuyer = _context.Set<Buyer>().Where(b => b.UserName == userName).FirstOrDefault();
+                _context.Set<Buyer>().Remove(targetBuyer);
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

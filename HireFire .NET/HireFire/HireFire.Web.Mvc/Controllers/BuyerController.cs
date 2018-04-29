@@ -30,6 +30,18 @@ namespace HireFire.Controllers
         //    _service = new BuyerService(ctx);
         //}
 
+
+
+        public bool Insert()
+        {
+            var x=false;
+            for(int i=10;i<14;i++)
+            {
+                x = _service.Insert(new Buyer { UserName = "Tanim"+i, JoiningDate = DateTime.Now, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now, Name = "Robi" });
+            }
+            return x;
+        }
+
         public ActionResult Profile()
         {
 
@@ -79,7 +91,7 @@ namespace HireFire.Controllers
         //}
         public void Account()
         {
-            var x = _service.GetByUserName("Tanim");
+            var x = _service.GetByUserName("1");
             
             Response.Write(x.UserName+""+x.JoiningDate);
             
@@ -105,12 +117,18 @@ namespace HireFire.Controllers
         {
             return View();
         }
-        public ActionResult BuyerSetting()
+
+        //[HttpPost]
+        public bool Setting()
         {
-            return View();
+            var x = _service.Update(new Buyer { UserName="robi", Email = "sdsfc", Name = "Tanim" });
+            return x;
         }
-
-
+        public bool Delete()
+        {
+            var x = _service.Delete("robi2");
+            return x;
+        }
 
     }
 }

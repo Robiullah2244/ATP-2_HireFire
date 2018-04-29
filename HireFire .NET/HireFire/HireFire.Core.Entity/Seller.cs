@@ -11,11 +11,16 @@ namespace HireFire.Core.Entity
     {
         [Key]
         public string UserName { get; set; }
+        public string Name { get; set; }
         public DateTime JoiningDate { get; set; }
         public string Description { get; set; }
         public int Level { get; set; }
         public int ReputationPoint { get; set; }
         public int WorkingHour { get; set; }
+
+        public string Email { get; set; }
+        public string ImagePath { get; set; }
+        public DateTime LastActiveTimeInfo { get; set; }
 
         //Account
         public string BankName { get; set; }
@@ -33,6 +38,8 @@ namespace HireFire.Core.Entity
         public DateTime InstituteAttendTo { get; set; }
         public string Degree { get; set; }
         public string Area { get; set; }
+
+        
         
 
     }
