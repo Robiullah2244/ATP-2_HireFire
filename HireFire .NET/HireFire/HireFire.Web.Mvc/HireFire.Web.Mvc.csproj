@@ -7495,12 +7495,15 @@
     <Content Include="Views\Admin\_Layout.Admin.cshtml" />
     <Content Include="Views\Admin\_Layout.Admin.Others.cshtml" />
     <Content Include="Views\Others\ContactSeller.cshtml" />
-    <Content Include="Views\Others\Home.cshtml" />
     <Content Include="Views\Others\OrderRequirements.cshtml" />
     <Content Include="Views\Others\PlaceOrder.cshtml" />
     <Content Include="Views\Others\ProceedToOrder.cshtml" />
     <Content Include="Views\Others\_Layout.Others.cshtml" />
     <Content Include="Views\Buyer\BuyerSetting.cshtml" />
+    <Content Include="Views\Others\_Layout.Admin.cshtml" />
+    <Content Include="Views\Others\Home.cshtml" />
+    <Content Include="Views\Others\Notification.cshtml" />
+    <Content Include="Views\Others\Messenger.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />

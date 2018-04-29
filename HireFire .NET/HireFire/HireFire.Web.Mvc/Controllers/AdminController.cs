@@ -49,5 +49,6 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
+
     }
 }
