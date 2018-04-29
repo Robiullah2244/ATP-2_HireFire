@@ -1,7 +1,421 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Setting";
+    Layout = "_Layout.Registration.cshtml";
 }
 
-<h2>Setting</h2>
+@section head{
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFire | Registration 1</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="../Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../Contents/bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../Contents/bower_components/Ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="../Contents/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../Contents/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../Contents/dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js does not work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Google Font -->
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+            .example-modal .modal {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                right: auto;
+                left: auto;
+                display: block;
+                z-index: 1;
+            }
+
+            .example-modal .modal {
+                background: transparent !important;
+            }
+        </style>
+    </head>
+}
+
+<!-- Content Wrapper. Contains page content -->
+
+
+<div style="background-color: #f2f2f2; font-family:times-new-roman">
+
+    <div style="margin-left:20%;margin-right:20%">
+        <br />
+
+        <form method="POST" enctype="multipart/form-data" action="">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Edit Profile</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" value="Md. Robi Ullah">
+                    </div>
+                    <!--		<div class="form-group">
+                              <label for="exampleInputEmail1">Category</label>
+                              <select name="category" id="category" onclick="validateCategory()" >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Graphics & Design">Graphics & Design</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="Writing & Translation">Writing & Translation</option>
+                                    <option value="Music & Audio">Music & Audio</option>
+                                    <option value="Programming & Tech">Programming & Tech</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Video & Animation">Video & Animation</option>
+                                </select>&nbsp;&nbsp;<span id="categoryErrorMassage"></span>
+                            </div>-->
+
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" rows="5" id="description"></textarea>
+                        <script>
+                            document.getElementById("description").defaultValue = "I am a professional .NET developer. And i love programming.";
+                        </script>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Language (Separated by comma)</label>
+                        <input type="text" class="form-control" id="name" value="Bangla,English">
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
+            </div>
+        </form>
+
+
+        <br /><br /><br />
+
+
+        <!--Password-->
+
+        <form method="POST" enctype="multipart/form-data" action="">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Change Password</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="password">Old Password</label>
+                        <input type="password" class="form-control" id="name" placeholder="Enter Old Password">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password">New Password</label>
+                        <input type="password" class="form-control" id="name" placeholder="Enter New Password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Re-Type New Password</label>
+                        <input type="password" class="form-control" id="name" placeholder="Re-Type New Password">
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
+            </div>
+        </form>
+
+
+
+        <br /><br /><br />
+        <!--Account Information-->
+
+        <form method="POST" enctype="multipart/form-data" action="">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Account option</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="accountInfo">Select Your Bank</label>
+                        <div class="form-group">
+
+                            <div class="form-group">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                                        Rocket
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        bKash
+                                    </label>
+                                </div>
+
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                        uKash
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                        IFIC
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accountInfo">Account Number</label>
+                        <input class="form-control" id="name" value="01679420786">
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
+            </div>
+        </form>
+
+
+
+
+
+        <br /><br /><br />
+
+
+        <!--Skills-->
+
+        <form method="POST" enctype="multipart/form-data" action="">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Skill</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Skills</label>
+                        <div class="form-group">
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Desktop Softwere Development
+                                </label>
+                                &nbsp;&nbsp;
+                                <label>
+                                    <input type="checkbox">
+                                    Desktop Softwere Development
+                                </label>
+                                &nbsp;&nbsp;
+                                <label>
+                                    <input type="checkbox">
+                                    Game Development
+                                </label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Mobile Development
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    Product Management
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    QA &amp; Testing
+                                </label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Script and Utilities
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    Web Development
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    Other-Softwere Development
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
+            </div>
+        </form>
+
+
+        <br /><br /><br />
+
+
+        <!--Skills-->
+
+        <form method="POST" enctype="multipart/form-data" action="">
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Availability and Contact Info</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <label>How many hours availabile do you have available for work in a week?</label>
+                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="1" aria-hidden="true">
+                            <option selected="selected">8 hours</option>
+                            <option>Bellow 12 hours</option>
+                            <option>12 hours</option>
+                            <option>16 hours</option>
+                            <option>20 hours</option>
+                            <option>24 hours</option>
+                            <option>28 hours</option>
+                            <option>32 hours</option>
+                            <option>Above 32 hours</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>District</label>
+                        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="1" aria-hidden="true">
+                            <option selected="selected">Comilla</option>
+                            <option>Dhaka</option>
+                            <option>Chittagong</option>
+                            <option>Rajshahi</option>
+                            <option>Noyakhali</option>
+                            <option>Khulna</option>
+                            <option>Bagura</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Address</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="Kandirpar,Comilla">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Postal Code</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="3500">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Phone Number</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" value="01679420786">
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
+
+            </div>
+
+        </form>
+
+        <form method="POST" enctype="multipart/form-data" action="SellerProfile.html">
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit all Changes</button>
+            </div>
+        </form>
+
+    </div>
+
+
+    <!-- /.content-wrapper -->
+    @section javascript{
+        <!-- jQuery 3 -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap 3.3.7 -->
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower_components/fastclick/lib/fastclick.js"></script>
+        <!-- AdminLTE App -->
+        <script src="dist/js/adminlte.min.js"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="dist/js/demo.js"></script>
+        <!-- page script -->
+        <script>
+            $(function () {
+                $('#example1').DataTable()
+                $('#example2').DataTable({
+                    'paging': true,
+                    'lengthChange': false,
+                    'searching': false,
+                    'ordering': true,
+                    'info': true,
+                    'autoWidth': false
+                })
+            })
+        </script>
+    }
+
 

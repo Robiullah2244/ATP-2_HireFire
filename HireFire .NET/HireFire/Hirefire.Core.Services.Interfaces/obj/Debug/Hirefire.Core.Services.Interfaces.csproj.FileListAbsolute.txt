@@ -38,3 +38,15 @@ D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.In
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\obj\Debug\Hirefire.Core.Services.Interfaces.csprojResolveAssemblyReference.cache
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\obj\Debug\Hirefire.Core.Services.Interfaces.dll
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\obj\Debug\Hirefire.Core.Services.Interfaces.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\Hirefire.Core.Services.Interfaces.dll.config
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\Hirefire.Core.Services.Interfaces.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\Hirefire.Core.Services.Interfaces.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\EntityFramework.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\EntityFramework.SqlServer.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\HireFire.Core.Entity.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\HireFire.Core.Entity.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\EntityFramework.xml
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\bin\Debug\EntityFramework.SqlServer.xml
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\obj\Debug\Hirefire.Core.Services.Interfaces.csprojResolveAssemblyReference.cache
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\obj\Debug\Hirefire.Core.Services.Interfaces.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\Hirefire.Core.Services.Interfaces\obj\Debug\Hirefire.Core.Services.Interfaces.pdb
