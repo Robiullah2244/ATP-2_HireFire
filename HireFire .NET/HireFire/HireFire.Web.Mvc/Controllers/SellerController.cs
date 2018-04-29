@@ -6,11 +6,30 @@ using System.Web;
 using System.Web.Mvc;
 using HireFire.Core.Entity;
 using System.Collections;
+using Hirefire.Core.Services.Interfaces;
 
 namespace HireFire.Controllers
 {
     public class SellerController : Controller
     {
+        public ISellerService _service;
+
+        public SellerController(ISellerService service)
+        {
+            _service = service;
+        }
+        public bool Insert()
+        {
+            var x = false;
+         
+                x = _service.Insert(new Seller { UserName = "Tanim",Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
+                Level=1,ReputationPoint=12,WorkingHour=2, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
+                BankName="Banani",AccountNumber="ABC",District="Com",Address="sd",PostalCode=12,MobileNumber="sad",
+                InstituteAttendFrom=DateTime.Now,InstituteName="AIUB",Degree="SD",Area="Abc",InstituteAttendTo=DateTime.Now});
+            
+            return x;
+        }
+
         // GET: Seller
         public ActionResult Profile()
         {

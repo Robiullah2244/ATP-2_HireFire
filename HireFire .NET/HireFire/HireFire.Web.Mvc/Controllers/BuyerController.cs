@@ -121,7 +121,7 @@ namespace HireFire.Controllers
         }
 
         //[HttpPost]
-        public bool Setting()
+        public bool BuyerSetting()
         {
             var x = _service.Update(new Buyer { UserName="robi", Email = "sdsfc", Name = "Tanim" });
             return x;
