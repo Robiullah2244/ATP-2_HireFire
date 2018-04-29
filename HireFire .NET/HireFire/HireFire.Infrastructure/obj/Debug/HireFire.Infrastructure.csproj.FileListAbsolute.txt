@@ -26,3 +26,15 @@ C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFir
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.csprojResolveAssemblyReference.cache
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll.config
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Core.Entity.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Core.Entity.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.xml
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.csprojResolveAssemblyReference.cache
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb

@@ -20,3 +20,13 @@ C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFir
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.xml
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
 C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.dll.config
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.pdb
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.xml
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.xml
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.csprojResolveAssemblyReference.cache
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
+D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb

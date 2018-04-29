@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace HireFire.Web.Mvc.Controllers
+{
+    public class OthersController : Controller
+    {
+        // GET: Others
+        public ActionResult Home()
+        {
+            return View();
+        }
+        public ActionResult ProceedToOrder()
+        {
+            return View();
+        }
+
+        public ActionResult OrderRequirements()
+        {
+            return View();
+        }
+        public ActionResult PlaceOrder()
+        {
+            return View();
+        }
+        public ActionResult ContactSeller()
+        {
+            return View();
+        }
+    }
+}
