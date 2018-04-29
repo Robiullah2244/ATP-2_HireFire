@@ -9,7 +9,7 @@ namespace Hirefire.Core.Services.Interfaces
 {
     public interface ISellerService
     {
-        IEnumerable<Seller> GetAll();
+        IEnumerable<Seller> GetAll();//Only needed for showing the seller List from admin
 
         Seller GetByUserName(string userName);
 

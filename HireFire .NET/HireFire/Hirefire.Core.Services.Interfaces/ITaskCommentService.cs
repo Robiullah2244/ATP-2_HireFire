@@ -11,8 +11,8 @@ namespace Hirefire.Core.Services.Interfaces
     {
         IEnumerable<TaskComment> GetAll(string taskId);///Calling Task Comment Table
         //TaskComment GetById(int Id);
-        bool Insert(TaskComment transaction);
-        //bool Update(TaskComment transaction);
+        bool Insert(TaskComment taskComment);
+        //bool Update(TaskComment taskcomment);
         //bool Delete(int Id);
     }
 }
