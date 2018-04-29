@@ -7388,6 +7388,7 @@
     <Content Include="Contents\Public Home\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Contents\Public Home\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Graph.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
