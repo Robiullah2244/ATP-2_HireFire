@@ -38,3 +38,15 @@ D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\b
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.csprojResolveAssemblyReference.cache
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll.config
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Infrastructure.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Core.Entity.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\HireFire.Core.Entity.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.xml
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.csprojResolveAssemblyReference.cache
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Infrastructure\obj\Debug\HireFire.Infrastructure.pdb

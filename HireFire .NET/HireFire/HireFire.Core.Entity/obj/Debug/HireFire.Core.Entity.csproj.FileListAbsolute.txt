@@ -30,3 +30,13 @@ D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.csprojResolveAssemblyReference.cache
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
 D:\Hire fire new\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.dll.config
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\HireFire.Core.Entity.pdb
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.xml
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\bin\Debug\EntityFramework.SqlServer.xml
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.csprojResolveAssemblyReference.cache
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
+D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb

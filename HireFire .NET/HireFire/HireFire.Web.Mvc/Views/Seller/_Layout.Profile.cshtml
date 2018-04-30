@@ -9,7 +9,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
 
+
+
 @RenderSection("head")
+
+
+
 
 <!--
 BODY TAG OPTIONS:
@@ -31,7 +36,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
         <!-- Main Header -->
@@ -51,6 +56,8 @@ desired effect
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+
+
 
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
@@ -72,7 +79,7 @@ desired effect
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                    <img src="~/Contents/Image/User/Tanim.jpg" class="img-circle" alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -153,6 +160,9 @@ desired effect
                             </ul>
                         </li>
 
+
+
+
                         <!------------------ blog icon --------------------->
 
                         <li class="dropdown tasks-menu">
@@ -163,6 +173,8 @@ desired effect
 
                         </li>
 
+
+
                         <!------------------ DashBoard icon --------------------->
 
                         <li class="dropdown tasks-menu">
@@ -171,22 +183,25 @@ desired effect
 
                         </li>
 
+
+
+
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="image/User/Md. Robi Ullah.jpg" class="user-image" alt="User Image">
+                                <img src="~/Contents/Image/User/nazmul.jpg" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Md. Robi Ullah</span>
+                                <span class="hidden-xs">MD.NAZMUL HOSSAIN</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="image/User/Md. Robi Ullah.jpg" class="img-circle" alt="User Image">
+                                    <img src="~/Contents/Image/User/nazmul.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        Md. Robi Ullah
+                                        MD.NAZMUL HOSSAIN
                                         <small>Member since Nov. 2012</small>
                                     </p>
                                 </li>
@@ -208,7 +223,7 @@ desired effect
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/buyer/profile" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/Seller/profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="PublicHome.html" class="btn btn-default btn-flat">Sign out</a>
@@ -230,10 +245,10 @@ desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="~/Contents/Image/User/nazmul.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Ibrahim Khalil Tanim</p>
+                        <p>MD.NAZMUL HOSSAIN</p>
                         <!-- Status -->
                         <!--          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
                     </div>
@@ -241,11 +256,22 @@ desired effect
 
                 <!-- Sidebar Menu -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <!--        <li class="header" align="center" style="font-size:16px;">Seller</li>-->
-                    <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="/buyer/dashboard"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
 
-                    <li><a href="/buyer/Account"><i class="fa fa-money"></i> <span>Accounts</span></a></li>
+                    <li class="active"><a href="/Seller/Dashboard"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
+
+                    <li class="treeview">
+                        <a>
+                            <i class="fa fa-money"></i> <span>Accounts</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="/Seller/BalanceReport"><i class="fa  fa-dollar"></i> <span>Balance</span></a></li>
+                            <li><a href="#" onclick="Withdraw()"><i class="fa   fa-cc-mastercard"></i> <span>Withdraw</span></a></li>
+                            <li><a href="/Seller/Account"><i class="fa  fa-sticky-note"></i> <span>Statement</span></a></li>
+                        </ul>
+                    </li>
 
                     <li class="treeview">
                         <a>
@@ -255,16 +281,17 @@ desired effect
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="/buyer/ActiveWork"><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
-                            <li><a href="/buyer/PendingWork"><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
-                            <li><a href="/buyer/CompletedWork"><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
+                            <li><a href="/Seller/ActiveWork"><i class="fa fa-hourglass-o"></i> <span>Active</span></a></li>
+                            <li><a href="/Seller/PendingWork"><i class="fa  fa-hourglass-half"></i> <span>Pending</span></a></li>
+                            <li><a href="/Seller/CompletedWork"><i class="fa  fa-hourglass"></i> <span>Completed</span></a></li>
                         </ul>
                     </li>
+                    <li><a href="/Seller/AllGigs"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
 
 
-                    <li><a href="Messenger.html"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
-                    <li><a href="#" onclick="promotion()"><i class="fa  fa-child"></i> <span>Promotions</span></a></li>
-                    <li><a href="BuyerSettings.html"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
+                    <li><a href="/Seller/Profile"><i class="fa fa-inbox"></i> <span>Profile</span></a></li>
+
+                    <li><a href="/Seller/Setting"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
 
 
                 </ul>
@@ -272,7 +299,6 @@ desired effect
             </section>
             <!-- /.sidebar -->
         </aside>
-
 
 
 
@@ -292,37 +318,28 @@ desired effect
             <!-- Default to the left -->
             <strong>Copyright &copy; 2018 <a href="#">HireFire</a>.</strong> All rights reserved.
         </footer>
+
     </div>
+
+
+
 
     <div id="promotion"></div>
 
+
+
+
+
+
+
     @RenderSection("javascript")
 
+
+
+
+
     <script>
-        function promotion() {
-            document.getElementById("promotion").innerHTML = "" +
-            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-              "<div class='modal-dialog'>" +
-                "<div class='modal-content'>" +
-                  "<div class='modal-header'>" +
-                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                    "<h4 class='modal-title'>Promotions</h4>" +
-                  "</div>" +
-                  "<div class='modal-body'>" +
-                    "<p>You have no promotion<br/></p>" +
-                    "<p><input placeholder='Promo Code' style='color:black'</p>" +
-                  "</div>" +
-                  "<div class='modal-footer'>" +
-                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                    "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
-                  "</div>" +
-                "</div>" +
-                "<!-- /.modal-content -->" +
-              "</div>" +
-              "<!-- /.modal-dialog -->" +
-            "</div>";
-        }
+
 
         function hide() {
             document.getElementById("promotion").innerHTML = "";
@@ -332,7 +349,102 @@ desired effect
             document.getElementById("promotion").innerHTML = "";
         }
 
+        function Withdraw() {
+            document.getElementById("promotion").innerHTML = "" +
+            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+              "<div class='modal-dialog'>" +
+                "<div class='modal-content'>" +
+                  "<div class='modal-header'>" +
+                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+                    "<h4 class='modal-title'>Withdraw</h4>" +
+                  "</div>" +
+                  "<div class='modal-body'>" +
+                    "<p>Current Balance: 120000<br/></p>" +
+                    "<p><input placeholder='Withdraw Ammount' style='color:black'</p>" +
+                  "</div>" +
+                  "<div class='modal-footer'>" +
+                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+                    "<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>" +
+                  "</div>" +
+                "</div>" +
+                "<!-- /.modal-content -->" +
+              "</div>" +
+              "<!-- /.modal-dialog -->" +
+            "</div>";
+        }
+
+
+
+
     </script>
 
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("SellerChartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Your Response Rate Last 3 Months"
+                },
+
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { y: 0 },
+                        { y: 4, indexLabel: "Week-1" },
+                        { y: 5, indexLabel: "Week-2" },
+                        { y: 5, indexLabel: "Week-3" },
+                        { y: 5, indexLabel: "Week-4" },
+                        { y: 5, indexLabel: "Week-5" },
+                        { y: 2, indexLabel: "Week-6" },
+                        { y: 3, indexLabel: "Week-7" },
+                        { y: 4, indexLabel: "Week-8" },
+                        { y: 5, indexLabel: "Week-9" },
+                        { y: 6, indexLabel: "Week-10" },
+                        { y: 5, indexLabel: "Week-11" },
+                        { y: 7, indexLabel: "Week-12" }
+                    ]
+                }]
+            });
+
+            chart.render();
+
+            var chart = new CanvasJS.Chart("BuyerChartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Buyer Response Rate Last 3 Months"
+                },
+
+                data: [{
+                    type: "line",
+                    dataPoints: [
+                        { y: 0 },
+                        { y: 3, indexLabel: "Week-1" },
+                        { y: 1, indexLabel: "Week-2" },
+                        { y: 7, indexLabel: "Week-3" },
+                        { y: 2, indexLabel: "Week-4" },
+                        { y: 6, indexLabel: "Week-5" },
+                        { y: 2, indexLabel: "Week-6" },
+                        { y: 6, indexLabel: "Week-7" },
+                        { y: 4, indexLabel: "Week-8" },
+                        { y: 5, indexLabel: "Week-9" },
+                        { y: 6, indexLabel: "Week-10" },
+                        { y: 8, indexLabel: "Week-11" },
+                        { y: 12, indexLabel: "Week-12" }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+
+        function AutoScroll() {
+            location.href = "#Table";
+        }
+
+    </script>
 </body>
 </html>
