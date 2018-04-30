@@ -78,7 +78,7 @@ namespace HireFire.Core.Services
         }
 
 
-        public IEnumerable<Buyer> NewUser(DateTime date)
+        public IEnumerable<Buyer> NewUser()
         {
             throw new NotImplementedException();
         }

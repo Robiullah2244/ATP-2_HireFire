@@ -12,6 +12,8 @@ namespace Hirefire.Core.Services.Interfaces
         IEnumerable<Order> GetAll();
 
         Order GetById(int id);
+
+
         Order MostPopularGig();///By counting the max order then we can get the Most popular gig
 
         bool Insert(Order order);

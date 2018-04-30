@@ -9,10 +9,12 @@ namespace Hirefire.Core.Services.Interfaces
 {
     public interface ITaskCommentService
     {
-        IEnumerable<TaskComment> GetAll(string taskId);///Calling Task Comment Table
+        IEnumerable<TaskComment> GetAllByTaskId(int taskId);///Calling Task Comment Table
         //TaskComment GetById(int Id);
         bool Insert(TaskComment taskComment);
         //bool Update(TaskComment taskcomment);
         //bool Delete(int Id);
+
+        bool DeleteAllByTaskId(int taskId); //when a task is deleted then all the comment of this task will be deleted.
     }
 }

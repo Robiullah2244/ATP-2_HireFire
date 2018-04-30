@@ -17,11 +17,19 @@ namespace Hirefire.Core.Services.Interfaces
 
         
         //public IEnumerable<Transaction> GetAll()
-        IEnumerable<Transaction> GetByBuyerUserName(string userName);
-        IEnumerable<Transaction> GetBySellerUserName(string userName);
+        IEnumerable<Transaction> GetByBuyerUserName(string buyerUserName); 
 
-        int TotalSpend(string userName);
-        int LastMonthSpend(string userName);
+        IEnumerable<Transaction> GetBySellerUserName(string sellerUserName);
+
+        int TotalSpend(string buyerUserName);
+
+        int LastMonthSpend(string buyerUserName);
+
+        int TotalIncome(string sellerUserName);
+
+        int LastMonthIncome(string sellerUserName);
+
+
 
         
     }
