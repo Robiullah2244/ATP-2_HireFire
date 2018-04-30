@@ -41,8 +41,6 @@ namespace HireFire.Core.Services
             {
                 return false;
             }
-
-            
         }
 
         public bool Update(Buyer buyer)
