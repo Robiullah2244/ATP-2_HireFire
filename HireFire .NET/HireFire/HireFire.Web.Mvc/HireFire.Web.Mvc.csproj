@@ -7505,6 +7505,10 @@
     <Content Include="Views\Others\Notification.cshtml" />
     <Content Include="Views\Others\Messenger.cshtml" />
     <Content Include="Views\Seller\TopBuyer.cshtml" />
+    <Content Include="Views\Others\PublicHome.cshtml" />
+    <Content Include="Views\Others\_Layout.PublicHome.cshtml" />
+    <Content Include="Views\Others\HomeWithOutSign_In.cshtml" />
+    <Content Include="Views\Others\_Layout.Home.without.signIN.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />

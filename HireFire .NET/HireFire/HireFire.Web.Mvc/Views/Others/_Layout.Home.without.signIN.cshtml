@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "_Layout.Dashboard";
+}
+
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+
+@RenderSection("head")
+
+<!--
+    BODY TAG OPTIONS:
+    =================
+    Apply one or more of the following classes to get the
+    desired effect
+    |---------------------------------------------------------|
+    | SKINS         | skin-blue                               |
+    |               | skin-black                              |
+    |               | skin-purple                             |
+    |               | skin-yellow                             |
+    |               | skin-red                                |
+    |               | skin-green                              |
+    |---------------------------------------------------------|
+    |LAYOUT OPTIONS | fixed                                   |
+    |               | layout-boxed                            |
+    |               | layout-top-nav                          |
+    |               | sidebar-collapse                        |
+    |               | sidebar-mini                            |
+    |---------------------------------------------------------|
+    -->
+
+
+<body class="hold-transition skin-blue layout-top-nav">
+
+    <div class="wrapper">
+
+        <header class="main-header">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="HomeWithOutSign_In"><img width="100" height="45" src="~/Contents/Image/logo.png"></a>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                       
+                     
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <!-- Navbar Right Menu -->
+                    <div class="navbar-custom-menu">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <!-- <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required" >Sign Up</button> -->
+                                <button type="button" name="Live Demo" class="btn btn-primary btn-lg" required="required" onclick="location.href='SignUp';">Sign Up</button>
+                            </div>
+                            <div class="form-group">
+                                <!-- <button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">Sign In</button> -->
+                                <button type="button" name="Get Now" class="btn btn-primary btn-lg" required="required" onclick="location.href='SignIn';">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                  
+                    <!-- /.navbar-custom-menu -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+
+
+
+
+
+        @RenderBody()
+
+
+
+
+
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2018 <a href="#">HireFire</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+
+    <div id="promotion"></div>
+
+    @RenderSection("javascript")
+
+    <script>
+        function promotion() {
+            document.getElementById("promotion").innerHTML = "" +
+            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+              "<div class='modal-dialog'>" +
+                "<div class='modal-content'>" +
+                  "<div class='modal-header'>" +
+                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+                    "<h4 class='modal-title'>Promotions</h4>" +
+                  "</div>" +
+                  "<div class='modal-body'>" +
+                    "<p>You have no promotion<br/></p>" +
+                    "<p><input placeholder='Promo Code' style='color:black'</p>" +
+                  "</div>" +
+                  "<div class='modal-footer'>" +
+                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+                    "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
+                  "</div>" +
+                "</div>" +
+                "<!-- /.modal-content -->" +
+              "</div>" +
+              "<!-- /.modal-dialog -->" +
+            "</div>";
+        }
+
+        function hide() {
+            document.getElementById("promotion").innerHTML = "";
+        }
+
+        function add() {
+            document.getElementById("promotion").innerHTML = "";
+        }
+
+    </script>
+
+</body>
+</html>
