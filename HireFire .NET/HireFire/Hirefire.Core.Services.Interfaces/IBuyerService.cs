@@ -14,7 +14,8 @@ namespace Hirefire.Core.Services.Interfaces
         Buyer GetByUserName(string userName);
 
         bool Insert(Buyer buyer);
-        bool Update(Buyer buyer);
+        bool UpdateProfileByUserName(string userName, string name, string email);
+        bool UpdatePasswordByUserName(string userName, string newPassword);
         bool Delete(string userName);
 
         IEnumerable<Buyer> NewUser();

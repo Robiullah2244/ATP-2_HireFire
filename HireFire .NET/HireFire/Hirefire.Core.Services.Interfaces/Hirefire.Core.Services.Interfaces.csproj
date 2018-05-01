@@ -49,19 +49,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdminService.cs" />
+    <Compile Include="IBuyerGraphService.cs" />
     <Compile Include="IBuyerService.cs" />
+    <Compile Include="IBuyerTableService.cs" />
     <Compile Include="ICategoryService.cs" />
     <Compile Include="IGigService.cs" />
     <Compile Include="ILanguageService.cs" />
     <Compile Include="IMessageService.cs" />
+    <Compile Include="INotificationService.cs" />
     <Compile Include="IOrderService.cs" />
     <Compile Include="IPromotionService.cs" />
     <Compile Include="ISellerService.cs" />
+    <Compile Include="IHeaderService.cs" />
     <Compile Include="ISkillService.cs" />
     <Compile Include="ITaskCommentService.cs" />
     <Compile Include="ITaskService.cs" />
     <Compile Include="ITransactionService.cs" />
-    <Compile Include="IUserService.cs" />
+    <Compile Include="IUserAuthenticationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

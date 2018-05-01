@@ -13,6 +13,9 @@ namespace Hirefire.Core.Services.Interfaces
 
         Seller GetByUserName(string userName);
 
+        bool UpdateDescriptionByUserName(string userName,string description);
+        bool InsertLanguageByUserName(string userName, string language);
+        bool InsertSkillByUserName(string userName, string skill);
         bool Insert(Seller seller);
         bool Update(Seller seller);
         bool Delete(string userName);
