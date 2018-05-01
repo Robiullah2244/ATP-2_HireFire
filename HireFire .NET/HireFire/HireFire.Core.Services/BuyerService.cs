@@ -27,7 +27,7 @@ namespace HireFire.Core.Services
     
 
 
-        public Buyer GetByUserName(string userName)
+        public dynamic GetByUserName(string userName)
         {
             return _context.Set<Buyer>().Where(b => b.UserName == userName).FirstOrDefault();
             //return _context.Set<Buyer>().ToList();

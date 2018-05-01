@@ -132,6 +132,8 @@ namespace HireFire.Web.Mvc.Controllers
         public ActionResult BuyerSetting()
         {
             var x = _buyerService.GetByUserName("robi");
+            ViewBag.Name = x.Name;
+            ViewBag.Email = x.Email;
             return View();
         }
 

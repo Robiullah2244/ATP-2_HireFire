@@ -40,3 +40,4 @@ D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\
 D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.csprojResolveAssemblyReference.cache
 D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.dll
 D:\9.(AIUB) SPRING 2017-2018\Final Term\ADVANCED TOPIC IN PROGRAMMING 2\Project\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.pdb
+E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Core.Entity\obj\Debug\HireFire.Core.Entity.csprojResolveAssemblyReference.cache

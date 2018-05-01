@@ -11,7 +11,7 @@ namespace Hirefire.Core.Services.Interfaces
     {
         IEnumerable<Buyer> GetAll();
 
-        Buyer GetByUserName(string userName);
+        dynamic GetByUserName(string userName);
 
         bool Insert(Buyer buyer);
         bool UpdateProfileByUserName(string userName, string name, string email);
