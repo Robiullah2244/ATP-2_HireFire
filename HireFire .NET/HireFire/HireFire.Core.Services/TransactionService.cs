@@ -82,6 +82,16 @@ namespace HireFire.Core.Services
             }
         }
 
+        public int TotalIncome(string sellerUserName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int LastMonthIncome(string sellerUserName)
+        {
+            throw new NotImplementedException();
+        }
+
        
     }
     
