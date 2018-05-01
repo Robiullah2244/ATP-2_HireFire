@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    public interface IUserService
+    public interface IUserAuthenticationService
     {
         IEnumerable<User> GetAll();
         User GetByUserName(string userName);

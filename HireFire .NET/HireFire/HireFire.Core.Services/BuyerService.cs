@@ -97,7 +97,21 @@ namespace HireFire.Core.Services
 
         public bool UpdateProfileByUserName(string userName, string name, string email)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetBuyer = _context.Set<Buyer>().Where(b => b.UserName == userName).FirstOrDefault();
+                targetBuyer.Name = name;
+                targetBuyer.Email = email;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
+           
         }
         
 

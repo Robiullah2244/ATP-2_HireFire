@@ -18,7 +18,7 @@ namespace Hirefire.Core.Services.Interfaces
                                                                                  //update seller page if the user is seller also.
         bool UpdatePasswordByUserName(string userName, string newPassword);
 
-        bool Update(string userName, string name, string email, string newPassword);//This is for submit changes button.
+        bool Update(string userName, string name, string email, string newPassword);//This is for submit all changes button.
 
         bool Delete(string userName);
 

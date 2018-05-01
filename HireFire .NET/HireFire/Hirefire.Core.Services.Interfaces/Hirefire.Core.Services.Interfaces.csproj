@@ -56,7 +56,7 @@
     <Compile Include="IFeedBackService.cs" />
     <Compile Include="IGigService.cs" />
     <Compile Include="ILanguageService.cs" />
-    <Compile Include="IMessageService.cs" />
+    <Compile Include="IMessengerService.cs" />
     <Compile Include="INotificationService.cs" />
     <Compile Include="IOrderService.cs" />
     <Compile Include="IPromotionService.cs" />

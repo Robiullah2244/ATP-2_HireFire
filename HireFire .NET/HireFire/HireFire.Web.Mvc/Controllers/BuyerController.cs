@@ -132,15 +132,18 @@ namespace HireFire.Web.Mvc.Controllers
         public ActionResult BuyerSetting()
         {
             var x = _buyerService.GetByUserName("robi");
-            ViewBag.Name = x.Name;
-            ViewBag.Email = x.Email;
+            if(x!=null)
+            {
+                ViewBag.Name = x.Name;
+                ViewBag.Email = x.Email;
+            }
             return View();
         }
 
         [HttpPost,ActionName("BuyerSetting")]
         public bool BuyerSettingPost()
         {
-            var x = _buyerService.UpdateProfileByUserName( "robi", "sdsfc", "Tanim" );
+            var x = _buyerService.UpdateProfileByUserName( "robi", "Tanim", "Tanim" );
             return x;
         }
         public bool Delete()
