@@ -7509,6 +7509,9 @@
     <Content Include="Views\Others\_Layout.PublicHome.cshtml" />
     <Content Include="Views\Others\HomeWithOutSign_In.cshtml" />
     <Content Include="Views\Others\_Layout.Home.without.signIN.cshtml" />
+    <Content Include="Views\Others\SignIN.cshtml" />
+    <Content Include="Views\Others\SignUP.cshtml" />
+    <Content Include="Views\Others\ProceedTo_OrderWithout_SignIN.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />

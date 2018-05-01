@@ -13,6 +13,8 @@ namespace Hirefire.Core.Services.Interfaces
 
         Message GetLatestMessageByUesrName(string userName);
 
+        IEnumerable<dynamic> GetAllContactListByUserName(string userName);
+
         bool Insert(Message message);//Insert the reply message to the table
 
         //bool Update(Message message);

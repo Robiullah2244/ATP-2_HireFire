@@ -53,6 +53,7 @@
     <Compile Include="IBuyerService.cs" />
     <Compile Include="IBuyerTableService.cs" />
     <Compile Include="ICategoryService.cs" />
+    <Compile Include="IFeedBackService.cs" />
     <Compile Include="IGigService.cs" />
     <Compile Include="ILanguageService.cs" />
     <Compile Include="IMessageService.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="IPromotionService.cs" />
     <Compile Include="ISellerService.cs" />
     <Compile Include="IHeaderService.cs" />
+    <Compile Include="ISellerTableService.cs" />
     <Compile Include="ISkillService.cs" />
     <Compile Include="ITaskCommentService.cs" />
     <Compile Include="ITaskService.cs" />

@@ -46,5 +46,18 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
+        public ActionResult SignIN()
+        {
+            return View();
+        }
+        public ActionResult SignUP()
+        {
+            return View();
+        }
+
+        public ActionResult ProceedTo_OrderWithout_SignIN()
+        {
+            return View();
+        }
     }
 }

@@ -11,12 +11,17 @@ namespace Hirefire.Core.Services.Interfaces
     {
 
         IEnumerable<Gig> GetAll();
+        IEnumerable<Gig> GetAllByUserName(string sellerUserName);//Get all the gig information of particluar seller
+        IEnumerable<Gig> GetTopGigsByUserName(string sellerUserName);//Get all the gig information of particluar seller by the
+                                                                      //order of number order completed
+
+        Gig GetAllDetailsByGigId(int gigId);///For retrieving information of single gig
 
 
         IEnumerable<Gig> GetById(int categoryId);
 
         bool Insert(Gig gig);
-        bool Update(Gig gig);
+        bool Update(Gig gig);//Update Gig By Gig Id 
         bool Delete(int id);  
 
         string SearchSuggestion(string searchValue, string searchBy);  //it's for real time suggestion

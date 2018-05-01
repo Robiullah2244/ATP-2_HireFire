@@ -105,5 +105,10 @@ namespace HireFire.Core.Services
         {
             throw new NotImplementedException();
         }
+
+        public bool Update(string userName, string name, string email, string newPassword)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Hirefire.Core.Services.Interfaces;
+﻿using System.Collections;
+using Hirefire.Core.Services.Interfaces;
 using HireFire.Core.Entity;
 using System;
 using System.Collections.Generic;
@@ -89,5 +90,34 @@ namespace HireFire.Core.Services
         {
             throw new NotImplementedException();
         }
+
+        public bool UpdateProfileByUserName(string userName, string name, string email, string languages)
+            //Also have to update buyer table.
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdatePasswordByUserName(string userName, string newPassword)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateAccountByUserName(string userName, string bankName, string accountNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateContactInfo(string userName, string workingHour, string district, string address, string postalCode,
+            string mobileNumber)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateSkillByUserName(string userName, ArrayList skill)
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }
