@@ -1,0 +1,257 @@
+﻿
+@{
+    ViewBag.Title = "PublicHome";
+    Layout = "~/Views/Others/_Layout.PublicHome.cshtml";
+}
+
+@section head{
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>HireFire | Public Home</title>
+
+        <!-- Bootstrap -->
+        <link href="~/Contents/Public Home/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/Contents/Public Home/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Contents/Public Home/css/animate.css">
+        <link rel="stylesheet" href="~/Contents/Public Home/css/overwrite.css">
+        <link href="~/Contents/Public Home/css/animate.min.css" rel="stylesheet">
+        <link href="~/Contents/Public Home/css/style.css" rel="stylesheet" />
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+}
+
+
+<div class="slider">
+    <div id="about-slider">
+        <div id="carousel-slider" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators visible-xs">
+                <li data-target="#carousel-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-slider" data-slide-to="1"></li>
+                <li data-target="#carousel-slider" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/Contents/Public Home/img/7.jpg" class="img-responsive" alt="">
+                    <div class="carousel-caption">
+                        <!-- <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                                 <h2><span>Worlds leading Market place </span></h2>
+                             </div>
+                            <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.6s">
+                                <p>Try Choose Compare is our slogan</p>
+                            </div> -->
+                        <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.5s">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <!-- <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required" >Sign Up</button> -->
+                                    <button type="button" name="Live Demo" class="btn btn-primary btn-lg" required="required" onclick="location.href='SignUp';">Sign Up</button>
+                                </div>
+                                <div class="form-group">
+                                    <!-- <button type="getnow" name="Get Now" class="btn btn-primary btn-lg" required="required">Sign In</button> -->
+                                    <button type="button" name="Get Now" class="btn btn-primary btn-lg" required="required" onclick="location.href='SignIn';">Sign In</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="feature">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-center">
+                                <h3>Explore the MarketPlace</h3>
+                                <p>These are the features <br>thank you!</p>
+                            </div>
+                            <div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
+                                <div class="text-center">
+                                    <div class="hi-icon-wrap hi-icon-effect">
+                                        <i class="fa fa-laptop"></i>
+                                        <h2>Golden</h2>
+                                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
+                                <div class="text-center">
+                                    <div class="hi-icon-wrap hi-icon-effect">
+                                        <i class="fa fa-heart-o"></i>
+                                        <h2>Silver</h2>
+                                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
+                                <div class="text-center">
+                                    <div class="hi-icon-wrap hi-icon-effect">
+                                        <i class="fa fa-cloud"></i>
+                                        <h2>Bronze</h2>
+                                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
+                                <div class="text-center">
+                                    <div class="hi-icon-wrap hi-icon-effect">
+                                        <i class="fa fa-camera"></i>
+                                        <h2>General</h2>
+                                        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing</p> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="gallery">
+                    <div class="container">
+                        <div class="text-center">
+                            <h3>Gallery</h3>
+                            <p>Our Services<br>Thank you!</p>
+                        </div>
+                        <div class="row">
+                            <figure class="effect-chico">
+                                <div class="col-md-3 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                                    <a href="~/Contents/Public Home/img/work/1.png" class="flipLightBox">
+                                        <img src="~/Contents/Public Home/img/work/1.png" class="img-responsive" alt="">
+                                    </a>
+                                </div>
+                            </figure>
+                            <figure class="effect-chico">
+                                <div class="col-md-3 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                                    <a href="~/Contents/Public Home/img/work/2.png" class="flipLightBox">
+                                        <img src="~/Contents/Public Home/img/work/2.png" class="img-responsive" alt="">
+                                    </a>
+                                </div>
+                            </figure>
+                            <figure class="effect-chico">
+                                <div class="col-md-3 wow fadeInDown" data-wow-offset="0" data-wow-delay="0.3s">
+                                    <a href="~/Contents/Public Home/img/work/3.png" class="flipLightBox">
+                                        <img src="~/Contents/Public Home/img/work/3.png" class="img-responsive" alt="">
+                                    </a>
+                                </div>
+                            </figure>
+                            <figure class="effect-chico">
+                                <div class="col-md-3 wow fadeInDown" data-wow-offset="0" data-wow-delay="0.3s">
+                                    <a href="~/Contents/Public Home/img/work/4.png" class="flipLightBox">
+                                        <img src="~/Contents/Public Home/img/work/4.png" class="img-responsive" alt="">
+                                    </a>
+                                </div>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="gallery">
+                        <div class="container">
+                            <div class="row">
+                                <figure class="effect-chico">
+                                    <div class="col-md-3 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <a href="~/Contents/Public Home/img/work/5.png" class="flipLightBox">
+                                            <img src="~/Contents/Public Home/img/work/5.png" class="img-responsive" alt="">
+                                        </a>
+                                    </div>
+                                </figure>
+                                <figure class="effect-chico">
+                                    <div class="col-md-3 wow fadeInUp" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <a href="~/Contents/Public Home/img/work/6.png" class="flipLightBox">
+                                            <img src="~/Contents/Public Home/img/work/6.png" class="img-responsive" alt="">
+                                        </a>
+                                    </div>
+                                </figure>
+                                <figure class="effect-chico">
+                                    <div class="col-md-3 wow fadeInDown" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <a href="~/Contents/Public Home/img/work/7.png" class="flipLightBox">
+                                            <img src="~/Contents/Public Home/img/work/7.png" class="img-responsive" alt="">
+                                        </a>
+                                    </div>
+                                </figure>
+                                <figure class="effect-chico">
+                                    <div class="col-md-3 wow fadeInDown" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <a href="~/Contents/Public Home/img/work/8.png" class="flipLightBox">
+                                            <img src="~/Contents/Public Home/img/work/8.png" class="img-responsive" alt="">
+                                        </a>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/#gallery-->
+
+                <div id="our-team">
+                    <div class="container">
+                        <div class="text-center">
+                            <h3>Our Team</h3>
+                            <p>We have a very intelligent team and thousands of supports<br>Thank you !</p>
+                        </div>
+                        <div class="team">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <div class="text-center">
+                                            <img src="~/Contents/Public Home/img/team/team 1.jpg" class="img-responsive" alt="">
+                                            <h2>Robi</h2>
+                                            <h4>Team Leader</h4>
+                                            <p>Dreaming to be a good developer </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 wow fadeInRight" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <div class="text-center">
+                                            <img src="~/Contents/Public Home/img/team/team 2.jpg" class="img-responsive" alt="">
+                                            <h2>Tanim</h2>
+                                            <h4>Scenior Developer</h4>
+                                            <p>Dreaming to be a good developer </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <div class="text-center">
+                                            <img src="~/Contents/Public Home/img/team/team 3.jpg" class="img-responsive" alt="">
+                                            <h2>Nazmul</h2>
+                                            <h4>Junior Developer</h4>
+                                            <p>Dreaming to be a good developer </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 wow fadeInLeft" data-wow-offset="0" data-wow-delay="0.3s">
+                                        <div class="text-center">
+                                            <img src="~/Contents/Public Home/img/team/team 4.jpg" class="img-responsive" alt="">
+                                            <h2>Ornob</h2>
+                                            <h4>Designer</h4>
+                                            <p>Loves designing and liitle bit developing</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/#our-team-->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@section Javascript{
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+                        <script src="~/Contents/Public Home/js/jquery-2.1.1.min.js"></script>
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <script src="~/Contents/Public Home/js/bootstrap.min.js"></script>
+                        <script src="~/Contents/Public Home/js/parallax.min.js"></script>
+                        <script src="~/Contents/Public Home/js/wow.min.js"></script>
+                        <script src="~/Contents/Public Home/js/jquery.easing.min.js"></script>
+                        <script type="text/javascript" src="~/Contents/Public Home/js/fliplightbox.min.js"></script>
+                        <script src="~/Contents/Public Home/js/functions.js"></script>
+            <script>
+                wow = new WOW(
+                    {
+
+                    })
+                    .init();
+            </script>
+}
+
