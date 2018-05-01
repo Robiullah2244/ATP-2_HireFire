@@ -10,8 +10,8 @@ namespace Hirefire.Core.Services.Interfaces
     public interface IBuyerTableService
     {
         IEnumerable<dynamic> TopSeller();
-        IEnumerable<dynamic> ActiveWorkByUserName(string uesrName);
-        IEnumerable<dynamic> PendingWorkByUserName(string uesrName);
-        IEnumerable<dynamic> CompletedWorkByUserName(string uesrName);
+        IEnumerable<dynamic> ActiveWorkByUserName(string buyerUesrName);
+        IEnumerable<dynamic> PendingWorkByUserName(string buyerUesrName);
+        IEnumerable<dynamic> CompletedWorkByUserName(string buyerUesrName);
     }
 }
