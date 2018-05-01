@@ -18,16 +18,22 @@ namespace HireFire.Core.Services
             _context = context;
         }
 
+
+
         public IEnumerable<Buyer> GetAll()
         {
             return _context.Set<Buyer>().ToList();
         }
     
+
+
         public Buyer GetByUserName(string userName)
         {
             return _context.Set<Buyer>().Where(b => b.UserName == userName).FirstOrDefault();
             //return _context.Set<Buyer>().ToList();
         }
+
+
 
         public bool Insert(Buyer buyer)
         {
@@ -42,6 +48,8 @@ namespace HireFire.Core.Services
                 return false;
             }
         }
+
+
 
         public bool Update(Buyer buyer)
         {
@@ -61,6 +69,8 @@ namespace HireFire.Core.Services
             
         }
 
+
+
         public bool Delete(string userName)
         {
             try
@@ -78,7 +88,20 @@ namespace HireFire.Core.Services
         }
 
 
+
         public IEnumerable<Buyer> NewUser()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public bool UpdateProfileByUserName(string userName, string name, string email)
+        {
+            throw new NotImplementedException();
+        }
+        
+
+        public bool UpdatePasswordByUserName(string userName, string newPassword)
         {
             throw new NotImplementedException();
         }

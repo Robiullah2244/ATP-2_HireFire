@@ -75,5 +75,19 @@ namespace HireFire.Core.Services
                 return false;
             }
         }
+
+        public bool UpdateDescriptionByUserName(string userName, string description)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool InsertLanguageByUserName(string userName, string language)
+        {
+            throw new NotImplementedException();
+        }
+        public bool InsertSkillByUserName(string userName, string skill)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

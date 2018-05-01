@@ -129,10 +129,16 @@ namespace HireFire.Web.Mvc.Controllers
             return View();
         }
 
-        //[HttpPost]
-        public bool BuyerSetting()
+        public ActionResult BuyerSetting()
         {
-            var x = _buyerService.Update(new Buyer { UserName="robi", Email = "sdsfc", Name = "Tanim" });
+            var x = _buyerService.GetByUserName("robi");
+            return View();
+        }
+
+        [HttpPost,ActionName("BuyerSetting")]
+        public bool BuyerSettingPost()
+        {
+            var x = _buyerService.UpdateProfileByUserName( "robi", "sdsfc", "Tanim" );
             return x;
         }
         public bool Delete()
