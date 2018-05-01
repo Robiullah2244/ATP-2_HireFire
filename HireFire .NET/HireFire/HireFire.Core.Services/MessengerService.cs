@@ -19,7 +19,9 @@ namespace HireFire.Core.Services
         }
         public IEnumerable<Message> GetAllMessage(string fromUser, string toUser)//At first we will have to see if a user is in
         {
-            throw new NotImplementedException();
+            return _context.Set<Message>().Where(b => (b.FromUser == fromUser
+                && b.ToUser == toUser) || (b.FromUser == toUser && b.ToUser == fromUser));//.OrderByDescending(b => b.Id);
+
         }
 
         public Message GetLatestMessageByUesrName(string userName)
@@ -61,9 +63,49 @@ namespace HireFire.Core.Services
         }
 
 
-        public bool Insert(Message message)//Insert the reply message to the table
+        public bool Insert(string fromUser, string toUser, string text)//Insert the reply message to the table
         {
-            throw new NotImplementedException();
+            int conversionNumber = _context.Set<Message>().Where(b => (b.FromUser == fromUser
+                && b.ToUser == toUser) || (b.FromUser == toUser && b.ToUser == fromUser)).Select(b => b.ConversionNumber).FirstOrDefault();
+            if (conversionNumber > 0)//It means I have previously communicate with this user
+            {
+                try
+                {
+                    Message message = new Message();
+                    message.FromUser = fromUser;
+                    message.ToUser = toUser;
+                    message.Text = text;
+                    message.ConversionNumber = conversionNumber;
+                    _context.Set<Message>().Add(message);
+                    _context.SaveChanges();
+                    return true;
+                }
+                catch 
+                {
+                    return false;
+                }
+            }
+
+            else
+            {
+                int nextConversionNumber = _context.Set<Message>().Select(b => b.ConversionNumber).Max()+1;// SingleOrDefault()
+                try
+                {
+                    Message message = new Message();
+                    message.FromUser = fromUser;
+                    message.ToUser = toUser;
+                    message.Text = text;
+                    message.ConversionNumber = nextConversionNumber;
+                    _context.Set<Message>().Add(message);
+                    _context.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            
         }
 
 

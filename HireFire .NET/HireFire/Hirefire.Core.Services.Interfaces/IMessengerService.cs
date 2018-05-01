@@ -17,7 +17,7 @@ namespace Hirefire.Core.Services.Interfaces
         IEnumerable<string> GetAllContactListByUserName(string userName);//Final version
 
 
-        bool Insert(Message message);//Insert the reply message to the table
+        bool Insert(string fromUser, string toUser, string text);//Insert the reply message to the table
 
         //bool Update(Message message);
         //bool Delete(int id);

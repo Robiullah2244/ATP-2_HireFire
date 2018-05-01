@@ -100,5 +100,23 @@ namespace HireFire.Web.Mvc.Controllers
             }
         }
 
+        public void ShowAllMessageCommunicationWithParticularUserTest()
+        {
+            var x = _messengerService.GetAllMessage("rakib","tanim");
+            Response.Write("ConversionNum   FromUser    ToUser  Text<br/>");
+            foreach (var x1 in x)
+            {
+                Response.Write(x1.ConversionNumber + "    " + x1.FromUser + "     " + x1.ToUser + "    " + x1.Text + "<br/>");
+            }
+        }
+
+        public void InsertMessageTest()
+        {
+            var x = _messengerService.Insert("rakib", "Imail", "owwww");
+            Response.Write(x);
+        }
+
+
+
     }
 }
