@@ -1,4 +1,5 @@
 ﻿using Hirefire.Core.Services.Interfaces;
+using HireFire.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,15 @@ namespace HireFire.Web.Mvc.Controllers
     public class OthersController : Controller
     {
         // GET: Others
+        IBuyerService _buyerService;
+        IUserAuthenticationService _userAuthenticationService;
+
+
+        public OthersController(IBuyerService service, IUserAuthenticationService userAuthenticationService)
+        {
+            _buyerService = service;
+            _userAuthenticationService = userAuthenticationService;
+        }
         public ActionResult Home()
         {
             return View();
@@ -51,9 +61,29 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
+        [HttpGet]
         public ActionResult SignUP()
         {
             return View();
+        }
+        [HttpPost,ActionName("SignUP")]
+        public ActionResult SignUP(Buyer buyer, string password, string Re_TypePassword)
+        {
+            //var x = _buyerService.Insert(new Buyer { UserName = "zzz" , JoiningDate = DateTime.Now, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now, Name = "Robi" });
+            //Response.Write(x);
+            //Response.Write(buyer.UserName + "<br/>" + buyer.Name + "<br/>" + buyer.Email + "<br/>" + "password" + password);
+            var x = _buyerService.Insert(new Buyer { UserName=buyer.UserName, JoiningDate=DateTime.Now,Email=buyer.Email, LastActiveTimeInfo=DateTime.Now});
+            //var x = _buyerService.Insert(buyer);
+            Response.Write(x);
+            if (x)
+            {
+                return RedirectToAction("Profile","Buyer");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         public ActionResult ProceedTo_OrderWithout_SignIN()

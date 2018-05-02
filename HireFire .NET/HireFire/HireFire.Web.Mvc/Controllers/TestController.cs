@@ -1,4 +1,5 @@
 ﻿using Hirefire.Core.Services.Interfaces;
+using HireFire.Core.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace HireFire.Web.Mvc.Controllers
         {
             _userAuthenticationService = authenticationService;
             this._messengerService = _messengerService;
+        }
+        public ActionResult Test()
+        {
+            return View();
         }
         public void LoginTest()//UserAuthenticationServiceIsValidTest
         {

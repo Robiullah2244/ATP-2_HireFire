@@ -101,29 +101,35 @@
                         <div class="form-group has-feedback">
                             @Html.LabelFor(model => model.Email)
                             @*<label for="exampleInputEmail1">Email</label>*@
-                            <input type="email" class="form-control" placeholder="Email">
+                            @Html.EditorFor(m => m.Email, new { htmlAttributes = new {@class = "form-control",@type="email", @placeholder = "Email" } })
+                            @*<input type="email" class="form-control" placeholder="Email">*@
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
 
 
 
                         <div class="form-group has-feedback">
-                            @Html.LabelFor(model => model.P)
+                            @Html.Label("Password")
                             @*<label for="exampleInputEmail1">Password</label>*@
-                            <input type="password" class="form-control" placeholder="Password">
+                            @Html.Editor("Password", new { htmlAttributes = new {@class = "form-control", @placeholder = "Password" } })
+                           @* @Html.TextBox("Password", (string)ViewBag.Password, new { id = "Password", @class = "form-control",@placeholder="Password" })*@
+                            @*<input type="password" class="form-control" placeholder="Password">*@
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
 
                         <div class="form-group has-feedback">
-                            <label for="exampleInputEmail1">Re-Type Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            @Html.Label("Re-Type Password")
+                            @*<label for="exampleInputEmail1">Re-Type Password</label>*@
+                            @Html.Editor("Re_TypePassword", new { htmlAttributes = new { @class = "form-control", @placeholder = "Re-Type Password" } })
+                            @*@Html.TextBox("Re-Type Password", (string)ViewBag.Password, new { id = "Re_TypePassword", @class = "form-control", @placeholder = "Re-Type Password" })*@
+                            @*<input type="password" class="form-control" placeholder="Password">*@
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label for="exampleInputEmail1">Language</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Write expertize languages separated by comma">
-                        </div>
+                        </div>*@
 
 
                         <div class="row">
