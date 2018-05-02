@@ -12,64 +12,55 @@
     <title>Test</title>
 </head>
 <body>
-    @using (Html.BeginForm()) 
-    {
-        @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>Buyer</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.JoiningDate, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.JoiningDate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.JoiningDate, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.LastActiveTimeInfo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.LastActiveTimeInfo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.LastActiveTimeInfo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-    }
-    
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        <h4>Buyer</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.JoiningDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.JoiningDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ImagePath)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastActiveTimeInfo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastActiveTimeInfo)
+            </dd>
+    
+        </dl>
     </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.UserName }) |
+        @Html.ActionLink("Back to List", "Index")*@
+    </p>
 </body>
 </html>

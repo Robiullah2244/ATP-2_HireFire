@@ -72,12 +72,12 @@ namespace HireFire.Web.Mvc.Controllers
             //var x = _buyerService.Insert(new Buyer { UserName = "zzz" , JoiningDate = DateTime.Now, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now, Name = "Robi" });
             //Response.Write(x);
             //Response.Write(buyer.UserName + "<br/>" + buyer.Name + "<br/>" + buyer.Email + "<br/>" + "password" + password);
-            var x = _buyerService.Insert(new Buyer { UserName=buyer.UserName, JoiningDate=DateTime.Now,Email=buyer.Email, LastActiveTimeInfo=DateTime.Now});
+            var x = _buyerService.Insert(new Buyer { UserName=buyer.UserName, JoiningDate=DateTime.Now.Date,Email=buyer.Email, LastActiveTimeInfo=DateTime.Now,Name=buyer.Name});
             //var x = _buyerService.Insert(buyer);
             Response.Write(x);
             if (x)
             {
-                return RedirectToAction("Profile","Buyer");
+                return RedirectToAction("Profile", "Buyer", new { @userName = buyer.UserName });
             }
             else
             {

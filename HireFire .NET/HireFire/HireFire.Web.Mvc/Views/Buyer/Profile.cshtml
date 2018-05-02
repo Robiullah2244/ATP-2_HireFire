@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HireFire.Core.Entity.Buyer
+@{
     ViewBag.Title = "Profile";
     Layout = "_Layout.Profile.cshtml";
 }
@@ -81,7 +82,7 @@
                 <td width="1%"></td>
                 <td valign="top" align="center" width="20%">
                     <img src="~/Contents/Image/User/b.png" width="30%" alt="TANIM" />
-                    <br />Ibrahim Khalil<hr />
+                    <br />@Html.DisplayFor(model => model.Name)<hr />
 
                     <table width="100%">
 
@@ -99,7 +100,7 @@
                         <tr>
                             <td width="5%"><img src="~/Contents/Image/User/member1.png" /></td>
                             <td>Member since</td>
-                            <td align="right">April 2017</td>
+                            <td align="right">@Html.DisplayFor(model => model.JoiningDate.Month)&nbsp; @Html.DisplayFor(model => model.JoiningDate.Year)</td>
                         </tr>
 
 

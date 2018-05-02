@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace HireFire.Core.Entity
     public class Buyer 
     {
         [Key]
+        [DisplayName("User Name")]
         public string UserName { get; set; }
         public string Name { get; set; }
         public DateTime JoiningDate { get; set; }

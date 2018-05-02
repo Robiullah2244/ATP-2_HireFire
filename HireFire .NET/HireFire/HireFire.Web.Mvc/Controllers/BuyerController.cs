@@ -45,21 +45,27 @@ namespace HireFire.Web.Mvc.Controllers
             return x;
         }
 
-        public ActionResult Profile()
+        public ActionResult Profile(string userName)
         {
 
-            //Category cetagory = new Category();
-            //cetagory.Name = "sfs";
-            //cetagory.Id = 1;
-            Admin a = new Admin();
-            a.ContactNumber = "4546";
-            a.JoiningDate = DateTime.Now;
-            a.UserName = "6789";
-            //ctx.Admins.Add(a);
+            ////Category cetagory = new Category();
+            ////cetagory.Name = "sfs";
+            ////cetagory.Id = 1;
+            //Admin a = new Admin();
+            //a.ContactNumber = "4546";
+            //a.JoiningDate = DateTime.Now;
+            //a.UserName = "6789";
+            ////ctx.Admins.Add(a);
 
-            //ctx.SaveChanges();
-
-            return View();
+            ////ctx.SaveChanges();
+            if(userName!=null)
+            {
+                return View(_buyerService.GetByUserName(userName));
+            }
+            else
+            {
+                return RedirectToAction("SignIN", "Others");
+            }
         }
 
         public ActionResult Dashboard()
