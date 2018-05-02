@@ -46,20 +46,46 @@ namespace HireFire.Core.Services
 
         public IEnumerable<string> GetAllContactListByUserName(string userName)//Final version
         {
-            //select * from Messages where FromUser='tanim'or ToUser='tanim' order by id desc
-            //int y = _context.Set<Message>().Select(b => b.ConversionNumber).Distinct().Count();
-            int y = _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).Select(b => b.ConversionNumber).Distinct().Count();
-            var x= _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).OrderByDescending(b => b.Id).Take(y);
-            List <string> userList=new List<string>();
+            var x = _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).OrderByDescending(b => b.Id);
+           // int z = -1;
+            List<int> z = new List<int>();
+            z.Add(-1);
+            List<string> userList = new List<string>();
+
             foreach (var x1 in x)
             {
-                if (x1.FromUser != userName)
-                    userList.Add(x1.FromUser);
-                else if (x1.ToUser != userName)
-                    userList.Add(x1.ToUser);
+                if (!z.Contains(x1.ConversionNumber))
+                {
+                    if (x1.FromUser != userName)
+                    {
+                        userList.Add(x1.FromUser + x1.ConversionNumber+" "+x1.Id);
+                    }
+                    else if (x1.ToUser != userName)
+                    {
+                        userList.Add(x1.ToUser + x1.ConversionNumber+" "+x1.Id);
+                    }
+                    z.Add(x1.ConversionNumber);
+                }
             }
-
             return userList;
+
+           // //select * from Messages where FromUser='tanim'or ToUser='tanim' order by id desc
+           // //int y = _context.Set<Message>().Select(b => b.ConversionNumber).Distinct().Count();
+           // int y = _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).Select(b => b.ConversionNumber).Distinct().Count();
+           // var z = _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).OrderByDescending(b => b.Id);
+           // //var z = x.OrderByDescending(b => b.ConversionNumber).Take(y);
+           //// var z = x.OrderByDescending(b => b.Id);
+           // List <string> userList=new List<string>();
+           // foreach (var x1 in z)
+           // {
+           //     if (x1.FromUser != userName)
+           //         userList.Add(x1.Id.ToString()+x1.ConversionNumber.ToString());
+           //     else if (x1.ToUser != userName)
+           //         userList.Add(x1.Id.ToString() + x1.ConversionNumber.ToString());
+           // }
+
+           // return userList;
+
         }
 
 
