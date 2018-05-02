@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HireFire.Core.Entity.Buyer
+@{
     ViewBag.Title = "SignUP";
 
 }
@@ -80,20 +81,26 @@
                 <div class="login-box-body">
                     <p class="login-box-msg">Sign in to start your session</p>
 
-                    <form action="BuyerProfile1" method="post">
+                    @*<form action="BuyerProfile1" method="post">*@
+                    @using (Html.BeginForm()) { 
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">User Name</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose a unique user name">
+                            @Html.LabelFor(model=>model.UserName)
+                            @*<label for="exampleInputEmail1">User Name</label>*@
+                            @Html.EditorFor(m => m.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Choose a unique user name" } })
+                            @*<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose a unique user name">*@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Name</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your Name">
+                            @Html.LabelFor(model => model.Name)
+                            @*<label for="exampleInputEmail1">Name</label>*@
+                            @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your Name" } })
+                            @*<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your Name">*@
                         </div>
 
                         <div class="form-group has-feedback">
-                            <label for="exampleInputEmail1">Email</label>
+                            @Html.LabelFor(model => model.Email)
+                            @*<label for="exampleInputEmail1">Email</label>*@
                             <input type="email" class="form-control" placeholder="Email">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
@@ -101,7 +108,8 @@
 
 
                         <div class="form-group has-feedback">
-                            <label for="exampleInputEmail1">Password</label>
+                            @Html.LabelFor(model => model.P)
+                            @*<label for="exampleInputEmail1">Password</label>*@
                             <input type="password" class="form-control" placeholder="Password">
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
@@ -132,7 +140,9 @@
                             </div>
                             <!-- /.col -->
                         </div>
-                    </form>
+                        }
+                    @*</form>*@
+
 
 
                     <!-- /.social-auth-links -->
@@ -158,10 +168,10 @@
         <!-- Default to the left -->
         <strong>Copyright &copy; 2018 <a href="HomeWithOutSign_In">HireFire</a>.</strong> All rights reserved.
     </footer>
- 
+
 
     <div id="promotion"></div>
-   
+
     <!-- jQuery 3 -->
     <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -178,38 +188,38 @@
         });
     </script>
     <script>
-    function promotion() {
-        document.getElementById("promotion").innerHTML = "" +
-        "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-          "<div class='modal-dialog'>" +
-            "<div class='modal-content'>" +
-              "<div class='modal-header'>" +
-                "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                  "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                "<h4 class='modal-title'>Promotions</h4>" +
+        function promotion() {
+            document.getElementById("promotion").innerHTML = "" +
+            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+              "<div class='modal-dialog'>" +
+                "<div class='modal-content'>" +
+                  "<div class='modal-header'>" +
+                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+                    "<h4 class='modal-title'>Promotions</h4>" +
+                  "</div>" +
+                  "<div class='modal-body'>" +
+                    "<p>You have no promotion<br/></p>" +
+                    "<p><input placeholder='Promo Code' style='color:black'</p>" +
+                  "</div>" +
+                  "<div class='modal-footer'>" +
+                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+                    "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
+                  "</div>" +
+                "</div>" +
+                "<!-- /.modal-content -->" +
               "</div>" +
-              "<div class='modal-body'>" +
-                "<p>You have no promotion<br/></p>" +
-                "<p><input placeholder='Promo Code' style='color:black'</p>" +
-              "</div>" +
-              "<div class='modal-footer'>" +
-                "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
-              "</div>" +
-            "</div>" +
-            "<!-- /.modal-content -->" +
-          "</div>" +
-          "<!-- /.modal-dialog -->" +
-        "</div>";
-    }
+              "<!-- /.modal-dialog -->" +
+            "</div>";
+        }
 
-    function hide() {
-        document.getElementById("promotion").innerHTML = "";
-    }
+        function hide() {
+            document.getElementById("promotion").innerHTML = "";
+        }
 
-    function add() {
-        document.getElementById("promotion").innerHTML = "";
-    }
+        function add() {
+            document.getElementById("promotion").innerHTML = "";
+        }
 
     </script>
 
