@@ -37,53 +37,54 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition skin-blue layout-top-nav">
+<body>
 
-    <div class="wrapper">
+    <div width="50%" class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
 
-        <header class="main-header">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a href="HomeWithOutSign_In"><img width="100" height="45" src="~/Contents/Image/logo.png"></a>
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                            <i class="fa fa-bars"></i>
-                        </button>
+
+
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            <a href="HomeWithOutSign_In"><img width="100" height="45" src="~/Contents/Image/logo.png"></a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <!-- /.navbar-custom-menu -->
+                        <div class="navbar-custom-menu">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <!-- <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required" >Sign Up</button> -->
+                                    <button type="button" name="Live Demo" class="btn btn-primary btn-lg" required="required" onclick="location.href='SignUp';">Sign Up</button>
+                                </div>
+
+                            </form>
+                        </div>
                     </div>
+                    <!-- /.container-fluid -->
 
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                </nav>
+            </header>
+        </div>
 
 
-                    </div>
-                    <!-- /.navbar-collapse -->
-                    <!-- Navbar Right Menu -->
-                    <div class="navbar-custom-menu">
-                        <form class="form-inline">
-                            <div class="form-group">
-                                <!-- <button type="livedemo" name="Live Demo" class="btn btn-primary btn-lg" required="required" >Sign Up</button> -->
-                                <button type="button" name="Live Demo" class="btn btn-primary btn-lg" required="required" onclick="location.href='SignUp';">Sign Up</button>
-                            </div>
-                           
-                        </form>
-                    </div>
 
-                    <!-- /.navbar-custom-menu -->
-                </div>
-                <!-- /.container-fluid -->
-            </nav>
-        </header>
 
         <div style="padding: 50px" class="hold-transition login-page">
             <div class="login-box">
                 <div class="login-logo">
-                    <a href="PublicHome"><b>Hire</b>Fire</a>
+                    <a href="HomeWithOutSign_In"><b>Hire</b>Fire</a>
                 </div>
                 <!-- /.login-logo -->
                 <div class="login-box-body">
                     <p class="login-box-msg">Sign in to start your session</p>
 
-                    <form action="/Buyer/Profile" method="post">
+                    <form action="BuyerProfile.html" method="post">
                         <div class="form-group has-feedback">
                             <input type="email" class="form-control" placeholder="Email">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -120,7 +121,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.login-box -->
         </div>
 
-        <!-- Main Footer -->
+
+
+
+
+        <hr style="margin-bottom: 0em;margin-top: 0em;color: black;background-color: black;height: 5px">
+
+        <!-- /.content-wrapper -->
         <footer class="main-footer">
             <!-- To the right -->
             <div class="pull-right hidden-xs">
@@ -131,62 +138,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </footer>
     </div>
 
-    <div id="promotion"></div>
 
 
 
 
-        <!-- jQuery 3 -->
-        <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- iCheck -->
-        <script src="~/Contents/plugins/iCheck/icheck.min.js"></script>
-        <script>
-            $(function () {
-                $('input').iCheck({
-                    checkboxClass: 'icheckbox_square-blue',
-                    radioClass: 'iradio_square-blue',
-                    increaseArea: '20%' /* optional */
-                });
+    <!-- jQuery 3 -->
+    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Contents/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' /* optional */
             });
-        </script>
-
-        <script>
-            function promotion() {
-                document.getElementById("promotion").innerHTML = "" +
-                "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-                  "<div class='modal-dialog'>" +
-                    "<div class='modal-content'>" +
-                      "<div class='modal-header'>" +
-                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                          "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                        "<h4 class='modal-title'>Promotions</h4>" +
-                      "</div>" +
-                      "<div class='modal-body'>" +
-                        "<p>You have no promotion<br/></p>" +
-                        "<p><input placeholder='Promo Code' style='color:black'</p>" +
-                      "</div>" +
-                      "<div class='modal-footer'>" +
-                        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                        "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
-                      "</div>" +
-                    "</div>" +
-                    "<!-- /.modal-content -->" +
-                  "</div>" +
-                  "<!-- /.modal-dialog -->" +
-                "</div>";
-            }
-
-            function hide() {
-                document.getElementById("promotion").innerHTML = "";
-            }
-
-            function add() {
-                document.getElementById("promotion").innerHTML = "";
-            }
-
-        </script>
+        });
+    </script>
 
 </body>
 </html>
