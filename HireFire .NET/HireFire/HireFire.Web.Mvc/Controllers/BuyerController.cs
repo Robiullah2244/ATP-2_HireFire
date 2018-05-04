@@ -17,12 +17,12 @@ namespace HireFire.Web.Mvc.Controllers
         // GET: /Buyer/
         IBuyerService _buyerService;
         ITransactionService _transactionService;
-
-
-        public BuyerController(IBuyerService service, ITransactionService transactionService)
+        ILanguageService _languageService;
+        public BuyerController(IBuyerService service, ITransactionService transactionService,  ILanguageService _languageService)
         {
             _buyerService = service;
             _transactionService = transactionService;
+            this._languageService = _languageService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
@@ -47,7 +47,6 @@ namespace HireFire.Web.Mvc.Controllers
 
         public ActionResult Profile()
         {
-
             ////Category cetagory = new Category();
             ////cetagory.Name = "sfs";
             ////cetagory.Id = 1;
@@ -62,13 +61,27 @@ namespace HireFire.Web.Mvc.Controllers
             if (Session["userName"] != null)
             {
                 //return View(_buyerService.GetByUserName(userName));
-                return View(_buyerService.GetByUserName(Session["userName"].ToString()));
+                string userName=Session["userName"].ToString();
+                var x=_languageService.GetByUserName(userName);
+                ViewBag.Language=x;
+                return View(_buyerService.GetByUserName(userName));
             }
             else
             {
                 return RedirectToAction("SignIN", "Others");
             }
         }
+        [HttpPost]
+        public ActionResult Profile(string newLanguage)
+        {
+
+            var y=_languageService.Insert(new Language { UserName = Session["userName"].ToString(), LanguageInfo = newLanguage });
+            string userName = Session["userName"].ToString();
+            var x = _languageService.GetByUserName(userName);
+            ViewBag.Language = x;
+            return View(_buyerService.GetByUserName(userName));
+        }
+
 
         public ActionResult Dashboard(string userName)
         {

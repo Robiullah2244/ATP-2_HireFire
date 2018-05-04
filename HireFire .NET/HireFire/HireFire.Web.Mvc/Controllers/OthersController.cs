@@ -17,15 +17,17 @@ namespace HireFire.Web.Mvc.Controllers
         IGigService _gigService;
         ISellerService _sellerService;
         IOrderService _OrderService;
+        ILanguageService _languageService;
 
 
-        public OthersController(IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService)
+        public OthersController(ILanguageService _languageService,IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService)
         {
             _buyerService = service;
             _userAuthenticationService = userAuthenticationService;
             _gigService = gigService;
             _sellerService = sellerService;
             _OrderService = OrderService;
+            this._languageService = _languageService;
         }
         public ActionResult Home(int categoryId)
         {
@@ -133,6 +135,11 @@ namespace HireFire.Web.Mvc.Controllers
                 else
                 {
                     var y = _buyerService.Insert(r.BuyerUser(user));
+                    var language = r.UserLanguage(user);
+                    foreach (var item in language)
+                    {
+                        _languageService.Insert(new Language { UserName = user.UserName, LanguageInfo = item });
+                    }
                     Session["userName"] = user.UserName;
                     return RedirectToAction("Profile", "Buyer");
                 }

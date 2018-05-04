@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Services
 {
-    class LanguageService : ILanguageService
+    public class LanguageService : ILanguageService
     {
         DbContext _context;
         public LanguageService(DbContext context)
