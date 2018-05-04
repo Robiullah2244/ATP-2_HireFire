@@ -68,6 +68,7 @@ namespace HireFire.Web.Mvc.Controllers
             var x = _messengerService.Insert("Imail", "ASS  ", "aaa");
             Response.Write(x);
         }
+        
 
     }
 }
