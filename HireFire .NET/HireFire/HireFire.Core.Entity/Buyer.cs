@@ -12,10 +12,12 @@ namespace HireFire.Core.Entity
     {
         [Key]
         [DisplayName("User Name")]
+        [Required]
         public string UserName { get; set; }
+        [Required]
         public string Name { get; set; }
         public DateTime JoiningDate { get; set; }
-
+        [Required]
         public string Email { get; set; }
         public string ImagePath { get; set; }
         public DateTime LastActiveTimeInfo { get; set; }

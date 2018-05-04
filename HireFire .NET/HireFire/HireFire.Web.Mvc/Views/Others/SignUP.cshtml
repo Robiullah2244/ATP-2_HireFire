@@ -1,4 +1,4 @@
-﻿@model HireFire.Core.Entity.Buyer
+﻿@model HireFire.Web.Mvc.Models.SignUpViewModel
 @{
     ViewBag.Title = "SignUP";
 
@@ -23,6 +23,9 @@
     <!-- iCheck -->
     <link rel="stylesheet" href="~/Contents/plugins/iCheck/square/blue.css">
     <link rel="stylesheet" href="~/Contents/dist/css/skins/_all-skins.min.css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -82,13 +85,15 @@
                     <p class="login-box-msg">Sign in to start your session</p>
 
                     @*<form action="BuyerProfile1" method="post">*@
-                    @using (Html.BeginForm()) { 
+                    @using (Html.BeginForm())
+                    {
 
                         <div class="form-group">
-                            @Html.LabelFor(model=>model.UserName)
+                            @Html.LabelFor(model => model.UserName)
                             @*<label for="exampleInputEmail1">User Name</label>*@
                             @Html.EditorFor(m => m.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Choose a unique user name" } })
                             @*<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Choose a unique user name">*@
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group">
@@ -96,40 +101,42 @@
                             @*<label for="exampleInputEmail1">Name</label>*@
                             @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter your Name" } })
                             @*<input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter your Name">*@
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group has-feedback">
                             @Html.LabelFor(model => model.Email)
                             @*<label for="exampleInputEmail1">Email</label>*@
-                            @Html.EditorFor(m => m.Email, new { htmlAttributes = new {@class = "form-control",@type="email", @placeholder = "Email" } })
+                            @Html.EditorFor(m => m.Email, new { htmlAttributes = new { @class = "form-control", @type = "email", @placeholder = "Email" } })
                             @*<input type="email" class="form-control" placeholder="Email">*@
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
 
 
 
                         <div class="form-group has-feedback">
-                            @Html.Label("Password")
+                            @Html.LabelFor(model => model.Password)
                             @*<label for="exampleInputEmail1">Password</label>*@
-                            @Html.Editor("Password", new { htmlAttributes = new {@class = "form-control", @placeholder = "Password" } })
-                           @* @Html.TextBox("Password", (string)ViewBag.Password, new { id = "Password", @class = "form-control",@placeholder="Password" })*@
+                            @*@Html.Editor("Password", new { htmlAttributes = new {@class = "form-control", @placeholder = "Password" } })*@
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                             @*<input type="password" class="form-control" placeholder="Password">*@
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
 
                         <div class="form-group has-feedback">
-                            @Html.Label("Re-Type Password")
-                            @*<label for="exampleInputEmail1">Re-Type Password</label>*@
-                            @Html.Editor("Re_TypePassword", new { htmlAttributes = new { @class = "form-control", @placeholder = "Re-Type Password" } })
-                            @*@Html.TextBox("Re-Type Password", (string)ViewBag.Password, new { id = "Re_TypePassword", @class = "form-control", @placeholder = "Re-Type Password" })*@
-                            @*<input type="password" class="form-control" placeholder="Password">*@
+                            @Html.LabelFor(model => model.ReTypePassword)
+                            @Html.EditorFor(model => model.ReTypePassword, new { htmlAttributes = new { @class = "form-control", @placeholder = "Re-Type Password" } })
+                            @Html.ValidationMessageFor(model => model.ReTypePassword, "", new { @class = "text-danger" })
                             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
-
-                        @*<div class="form-group">
-                            <label for="exampleInputEmail1">Language</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Write expertize languages separated by comma">
-                        </div>*@
+                        <div class="form-group has-feedback">
+                            @Html.LabelFor(model => model.Language)
+                            @Html.EditorFor(model => model.Language, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write expertize languages separated by comma" } })
+                            @Html.ValidationMessageFor(model => model.Language, "", new { @class = "text-danger" })
+                            @*<span class="glyphicon glyphicon-lock form-control-feedback"></span>*@
+                        </div>
 
 
                         <div class="row">
@@ -146,7 +153,7 @@
                             </div>
                             <!-- /.col -->
                         </div>
-                        }
+                    }
                     @*</form>*@
 
 
@@ -192,41 +199,6 @@
                 increaseArea: '20%' /* optional */
             });
         });
-    </script>
-    <script>
-        function promotion() {
-            document.getElementById("promotion").innerHTML = "" +
-            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-              "<div class='modal-dialog'>" +
-                "<div class='modal-content'>" +
-                  "<div class='modal-header'>" +
-                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                    "<h4 class='modal-title'>Promotions</h4>" +
-                  "</div>" +
-                  "<div class='modal-body'>" +
-                    "<p>You have no promotion<br/></p>" +
-                    "<p><input placeholder='Promo Code' style='color:black'</p>" +
-                  "</div>" +
-                  "<div class='modal-footer'>" +
-                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                    "<button type='button' class='btn btn-outline'  onclick='add()'>Add</button>" +
-                  "</div>" +
-                "</div>" +
-                "<!-- /.modal-content -->" +
-              "</div>" +
-              "<!-- /.modal-dialog -->" +
-            "</div>";
-        }
-
-        function hide() {
-            document.getElementById("promotion").innerHTML = "";
-        }
-
-        function add() {
-            document.getElementById("promotion").innerHTML = "";
-        }
-
     </script>
 
 </body>

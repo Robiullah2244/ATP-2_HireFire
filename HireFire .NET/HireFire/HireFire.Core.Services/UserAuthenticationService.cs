@@ -28,7 +28,16 @@ namespace HireFire.Core.Services
         }
         public bool Insert(User user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Set<User>().Add(user);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         public bool Update(User user)
         {
