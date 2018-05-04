@@ -36,26 +36,20 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue layout-top-nav">
     <div class="wrapper">
 
         <!-- Main Header -->
         <header class="main-header">
 
-            <!-- Logo -->
-            <a href="/Others/Home" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>H</b>F</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Hire</b>Fire</span>
-            </a>
-
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
+                <!-- Logo -->
+                <a href="/Others/Home" class="logo">
+                    <img width="100" height="45" src="~/Contents/Image/logo.png">
                 </a>
+
 
 
 
@@ -315,72 +309,5 @@ desired effect
 
     </script>
 
-    <script>
-        window.onload = function () {
-
-            var chart = new CanvasJS.Chart("SellerChartContainer", {
-                animationEnabled: true,
-                theme: "light2",
-                title: {
-                    text: "Your Response Rate Last 3 Months"
-                },
-
-                data: [{
-                    type: "line",
-                    dataPoints: [
-                        { y: 0 },
-                        { y: 4, indexLabel: "Week-1" },
-                        { y: 5, indexLabel: "Week-2" },
-                        { y: 5, indexLabel: "Week-3" },
-                        { y: 5, indexLabel: "Week-4" },
-                        { y: 5, indexLabel: "Week-5" },
-                        { y: 2, indexLabel: "Week-6" },
-                        { y: 3, indexLabel: "Week-7" },
-                        { y: 4, indexLabel: "Week-8" },
-                        { y: 5, indexLabel: "Week-9" },
-                        { y: 6, indexLabel: "Week-10" },
-                        { y: 5, indexLabel: "Week-11" },
-                        { y: 7, indexLabel: "Week-12" }
-                    ]
-                }]
-            });
-
-            chart.render();
-
-            var chart = new CanvasJS.Chart("BuyerChartContainer", {
-                animationEnabled: true,
-                theme: "light2",
-                title: {
-                    text: "Buyer Response Rate Last 3 Months"
-                },
-
-                data: [{
-                    type: "line",
-                    dataPoints: [
-                        { y: 0 },
-                        { y: 3, indexLabel: "Week-1" },
-                        { y: 1, indexLabel: "Week-2" },
-                        { y: 7, indexLabel: "Week-3" },
-                        { y: 2, indexLabel: "Week-4" },
-                        { y: 6, indexLabel: "Week-5" },
-                        { y: 2, indexLabel: "Week-6" },
-                        { y: 6, indexLabel: "Week-7" },
-                        { y: 4, indexLabel: "Week-8" },
-                        { y: 5, indexLabel: "Week-9" },
-                        { y: 6, indexLabel: "Week-10" },
-                        { y: 8, indexLabel: "Week-11" },
-                        { y: 12, indexLabel: "Week-12" }
-                    ]
-                }]
-            });
-            chart.render();
-
-        }
-
-        function AutoScroll() {
-            location.href = "#Table";
-        }
-
-    </script>
 </body>
 </html>
