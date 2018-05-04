@@ -27,7 +27,7 @@ namespace HireFire.Web.Mvc.Controllers
             _sellerService = sellerService;
             _OrderService = OrderService;
         }
-        public ActionResult Home(string categoryId)
+        public ActionResult Home(int categoryId)
         {
 
             var gigs = _gigService.GetByCategoryId(categoryId);

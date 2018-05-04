@@ -9,32 +9,34 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Services
 {
-    public class PromotionService : IPromotionService
+    public class OrderService : IOrderService
     {
-
         DbContext _context;
-
-        public PromotionService(DbContext context)
+        public OrderService(DbContext context)
         {
             _context = context;
         }
-
-        public IEnumerable<Promotion> GetAll()
+        public IEnumerable<Order> GetAll()
         {
-            return _context.Set<Promotion>().ToList();
+            return _context.Set<Order>();
         }
 
-        public Language GetById(int id)
+        public Order GetById(int id)
+        {
+            return _context.Set<Order>().Where(o => o.Id == id).SingleOrDefault();
+        }
+
+        public Order MostPopularGig()
         {
             throw new NotImplementedException();
         }
 
-        public bool Insert(Promotion promotion)
+        public bool Insert(Order order)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Promotion promotion)
+        public bool Update(Order order)
         {
             throw new NotImplementedException();
         }
@@ -42,6 +44,11 @@ namespace HireFire.Core.Services
         public bool Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Order> GetByGigId(int gigId)
+        {
+            return _context.Set<Order>().Where(o => o.GigId == gigId);
         }
     }
 }

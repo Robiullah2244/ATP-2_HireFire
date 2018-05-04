@@ -56,18 +56,18 @@
         <div align="center">
             <div>
                 <header style="background-color: #e6e6ff">
-                    <nav class="navbar" style="margin-top:50px">
+                    <nav class="navbar" style="margin-top:30px">
                         <div class="container">
                             <div class="navbar-header">
                                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse" align="center">
                                     <ul class="nav navbar-nav">
-                                        <li class="active"><a href="#" style="font-size: 17px"><b>Digital Marketing </b><span class="sr-only">(current)</span></a></li>
-                                        <li><a href="#" style="font-size: 17px"><b>Writing & Translation</b></a></li>
-                                        <li><a href="#" style="font-size: 17px"><b>Video & Animation</b></a></li>
-                                        <li><a href="#" style="font-size: 17px"><b>Programming & Tech</b></a></li>
-                                        <li><a href="#" style="font-size: 17px"><b>Business</b></a></li>
-                                        <li><a href="#" style="font-size: 17px"><b>Music</b></a></li>
-                                        <li><a href="#" style="font-size: 17px"><b>Fun</b></a></li>
+                                        <li class="active"><a href="/Others/Home?categoryId=1" style="font-size: 17px"><b>Digital Marketing </b><span class="sr-only">(current)</span></a></li>
+                                        <li><a href="/Others/Home?categoryId=2" style="font-size: 16px"><b>Writing & Translation</b></a></li>
+                                        <li><a href="/Others/Home?categoryId=3" style="font-size: 16px"><b>Video & Animation</b></a></li>
+                                        <li><a href="/Others/Home?categoryId=4" style="font-size: 16px"><b>Programming & Tech</b></a></li>
+                                        <li><a href="/Others/Home?categoryId=5" style="font-size: 16px"><b>Business</b></a></li>
+                                        <li><a href="/Others/Home?categoryId=6" style="font-size: 16px"><b>Music & Audio</b></a></li>
+                                        <li><a href="/Others/Home?categoryId=7" style="font-size: 16px"><b>Graphics & Design</b></a></li>
 
 
                                     </ul>
@@ -82,112 +82,52 @@
             <br />
             <table align="center">
                 <tr>
-                    <td width="300">
-                        <a href="ProceedToOrder.html"><img src="~/Contents/Image/Gig/graphics1.jpg" height="150" width="300"></a>
-                        <br>
 
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        shahadatraaz
-                        <br />
-                        Level 2 Seller
-                        <br />
-                        I will create a professional website design
-                    </td>
-                    <td width="300">
-                        <img src="~/Contents/Image/Gig/graphics2.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        rezabd
-                        <br />
-                        Level 2 Seller
-                        <br />
-                        I will redesign your wordpress site
-                    </td>
-                    <td width="300">
-                        <img src="~/Contents/Image/Gig/graphics3.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        teczium
-                        <br>
-                        Level 1 Seller
-                        <br />
-                        I will do desktop applications in c,c++
-                    </td>
-                    <td>
-                        <img src="~/Contents/Image/Gig/graphics4.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        tanimcml
-                        <br />
-                        Level 2 Seller
-                        <br />
-                        I will redesign your wordpress site
-                    </td>
-
-                </tr>
-            </table>
-            <table align="center">
-                <tr>
-                    <td width="300">
-                        <img src="~/Contents/Image/Gig/graphics5.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        shahadatraaz
-                        <br />
-                        Level 2 Seller
-                        <br />
-                        I will write c, c sharp, and winforms apps for you
-
-                    </td>
-                    <td width="300">
-                        <img src="~/Contents/Image/Gig/graphics6.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        rezabd
-                        <br />
-                        New Seller
-                        <br>
-                        I will provide you with awesome and responsive asp
-                    </td>
-                    <td width="300">
-                        <img src="~/Contents/Image/Gig/graphics7.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        robiullah
-                        <br />
-                        Level 2 Seller
-                        <br />
-                        I will redesign your wordpress site
-                    </td>
-
-                    <td width="300">
-                        <img src="~/Contents/Image/Gig/graphics8.jpg" height="150" width="300">
-                        <br>
-
-                        <img src="~/Contents/Image/User/user-avatar.jpg" width="50">
-                        <br />
-                        varuna10
-                        <br />
-                        Level 2 Seller
-                        <br />
-                        I will design a layout for your website
-                    </td>
+                    @{
+                        int elementCountInSingleRow = 0;
+                        foreach (var g in ViewBag.gigs)
+                        {
+                            elementCountInSingleRow++;
+                            string name = null;
+                            int level = 0;
+                            string imagePath = null;
+                            foreach (var s in ViewBag.sellers)
+                            {
+                                if (g.SellerUserName == s.UserName)
+                                {
+                                    name = s.UserName;
+                                    level = s.Level;
+                                    imagePath = s.ImagePath;
+                                }
+                            }
 
 
-                </tr>
+                            <td width="300" style="padding:5px">
+                                <a href="/Others/ProceedToOrder?gigId=@g.Id"><img src="~/Contents/Image/Gig/@g.ImagePath" height="150" width="300"></a>
+                                <br>
+
+                                <img src="~/Contents/Image/User/@imagePath" width="50">
+                                <br />
+                                @name
+                                <br />
+                                Level @level Seller
+                                <br />
+                                @g.Title
+                                <br />
+                                Price: @g.Price
+                            </td>
+
+                            if (elementCountInSingleRow % 4 == 0)
+                            {
+                                elementCountInSingleRow = 1;
+                                <tr/>
+					       
+				        }
+                        
+                    }
+                    }
+
+              
             </table>
             
             <br/><br/>

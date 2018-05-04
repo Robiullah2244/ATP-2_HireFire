@@ -11,7 +11,7 @@ namespace Hirefire.Core.Services.Interfaces
     {
         IEnumerable<Language> GetAll();
 
-        Language GetByUserName(int userName);
+        IEnumerable<Language> GetByUserName(string userName);
 
         bool Insert(Language language);
         bool Update(Language language);

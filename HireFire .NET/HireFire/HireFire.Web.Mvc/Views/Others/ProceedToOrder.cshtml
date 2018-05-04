@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="~/Contents/Image/User/Md. Robi Ullah.jpg" class="img-circle" alt="User Image">
+                                                    <img src="~/Contents/Image/User/@ViewBag.seller.ImagePath" class="img-circle" alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -329,20 +329,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <br />
                                                 I Will Install Wordpress, Customize Wordpress Theme<hr>
                                                 <br />
-                                                <img src="~/Contents/Image/Gig/graphics1.jpg" height="300" width="85%">
+                                                <img src="~/Contents/Image/Gig/@ViewBag.gig.ImagePath" height="300" width="85%">
 
                                                 <br />
                                                 <br />
                                                 <br />
 
-                                                <a align="center" href="OrderRequirements"><button type="submit">Proceed To Order($20)</button></a>
+                                                <a align="center" href="OrderRequirements"><button type="submit">Proceed To Order( @ViewBag.gig.Price BDT )</button></a>
                                                 <br />
-                                                <br />
-                                                $10 Delivery<br />Theme install
-                                                I will install your theme<br />
-                                                Wordpress Installation<br />
-                                                Theme Installation<br />
-                                                2 Plugins/Extensions<br />
+                                                
 
 
                                                 <br />
@@ -353,6 +348,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </tr>
                                         <tr>
                                             <td>
+                                                @foreach(var s in ViewBag.order)
+                                                {
+                                                    <a href="Others/ContactSeller?userName=@s.BuyerName"><img src="~/Contents/Image/User/@s." width="9%">Jon kin</a><br />
+                                                    
+                                                    <br /><br /><br />
+                                                }
+
                                                 <a href="ContactSeller"><img src="~/Contents/Image/User/user-avatar.jpg" width="9%">Jon kin</a><br />
                                                 The whole experience was great. I liked the sellers work. He listened to my requests
                                                 and gave me a logo that I love. It was easy and very quickly.
@@ -365,17 +367,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                                     </table>
                                 </td>
-                                <td width="1%"><hr width="1" size="1000"></td>
+                                <td width="8%"><hr width="1" size="1000"></td>
                                 <td width="39%">
                                     <table border="0" height="100%" width="85%" cellspacing="20">
                                         <tr height="70%"></tr>
                                         <tr height="20%"><td height="20%"></td></tr>
                                         <tr height="20%">
                                             <td align="center">
-                                                <a href="contactSeller"><img src="~/Contents/Image/User/b.png" height="150"></a>
-                                                <br />
-                                                &nbsp;&nbsp;<a href="contactSeller">I.K. Tanim</a><br /><br />
-                                                <a href="ContactSeller"><input type="button" value="View Profile" /></a><br />
+                                                <a href="contactSeller"><img class="fa-circle" src="~/Contents/Image/User/@ViewBag.seller.ImagePath" height="150"></a>
+                                                <br /><br />
+                                                &nbsp;&nbsp;<a href="contactSeller">@ViewBag.seller.Name</a><br /><br />
+                                                <a href="/Others/ContactSeller?userName=@ViewBag.seller.UserName"><input type="button" value="View Profile" /></a><br />
                                                 To live a creative life, we must lose our fear of being wrong<br />
                                                 <hr>
                                             </td>

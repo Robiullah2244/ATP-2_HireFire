@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Services
 {
-    class LanguageService //: ILanguageService
+    class LanguageService : ILanguageService
     {
         DbContext _context;
         public LanguageService(DbContext context)
@@ -21,10 +21,10 @@ namespace HireFire.Core.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Language> GetByUserName(int userName)
+        public IEnumerable<Language> GetByUserName(string userName)
         {
-            //return _context.Set<Language>().Where(l => l.UserName == userName);
-            throw new NotImplementedException();
+            return _context.Set<Language>().Where(l => l.UserName == userName);
+            //throw new NotImplementedException();
         }
 
         public bool Insert(Language language)
@@ -43,16 +43,6 @@ namespace HireFire.Core.Services
 
         public bool Update(Language language)
         {
-            try
-            {
-                //_context.Set<Language>().
-                //_context.SaveChanges();
-                //return true;
-            }
-            catch
-            {
-                return false;
-            }
             throw new NotImplementedException();
         }
 

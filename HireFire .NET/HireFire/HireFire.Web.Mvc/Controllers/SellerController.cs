@@ -12,25 +12,34 @@ namespace HireFire.Controllers
 {
     public class SellerController : Controller
     {
-        public ISellerService _service;
+        ISellerService _sellerService;
+        IGigService _gigService;
+        ISellerHeaderService _sellerHeaderService;
 
-        public SellerController(ISellerService service)
+
+        public SellerController(ISellerService sellerService, IGigService gigService)
         {
-            _service = service;
+            _sellerService = sellerService;
+            _gigService = gigService;
+
         }
-        public bool Insert()
-        {
-            var x = false;
+
+
+        //public bool Insert()
+        //{
+        //    var x = false;
          
-                x = _service.Insert(new Seller { UserName = "Tanim",Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
-                Level=1,ReputationPoint=12,WorkingHour="2 hour", Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
-                BankName="Banani",AccountNumber="ABC",District="Com",Address="sd",PostalCode=12,MobileNumber="sad",
-                InstituteAttendFrom=DateTime.Now,InstituteName="AIUB",Degree="SD",Area="Abc",InstituteAttendTo=DateTime.Now});
+        //        x = _service.Insert(new Seller { UserName = "Tanim",Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
+        //        Level=1,ReputationPoint=12,WorkingHour="2 hour", Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
+        //        BankName="Banani",AccountNumber="ABC",District="Com",Address="sd",PostalCode=12,MobileNumber="sad",
+        //        InstituteAttendFrom=DateTime.Now,InstituteName="AIUB",Degree="SD",Area="Abc",InstituteAttendTo=DateTime.Now});
             
-            return x;
-        }
+        //    return x;
+        //}
 
         // GET: Seller
+
+
         public ActionResult Profile()
         {
             // HireFireDbContext ctx = new HireFireDbContext();
@@ -38,6 +47,9 @@ namespace HireFire.Controllers
             //cetagory.Name = "sfs";
             //cetagory.Id = 1;
             // ctx.Admins.ToList();
+
+
+
             return View();
         }
 

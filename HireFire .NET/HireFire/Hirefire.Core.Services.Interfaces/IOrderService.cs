@@ -19,5 +19,6 @@ namespace Hirefire.Core.Services.Interfaces
         bool Insert(Order order);
         bool Update(Order order);
         bool Delete(int id);
+        IEnumerable<Order> GetByGigId(int gigId);
     }
 }

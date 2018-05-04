@@ -15,10 +15,10 @@ namespace Hirefire.Core.Services.Interfaces
         IEnumerable<Gig> GetTopGigsByUserName(string sellerUserName);//Get all the gig information of particluar seller by the
                                                                       //order of number order completed
 
-        Gig GetAllDetailsByGigId(int gigId);///For retrieving information of single gig
+        Gig GetByGigId(int gigId);///For retrieving information of single gig
 
 
-        IEnumerable<Gig> GetById(int categoryId);
+        IEnumerable<Gig> GetById(string categoryId);
 
         bool Insert(Gig gig);
         bool Update(Gig gig);//Update Gig By Gig Id 
@@ -32,7 +32,7 @@ namespace Hirefire.Core.Services.Interfaces
 
         string SearchSuggestionByPrice(string searchValue, int minimum, int maximum);  //it's for real time suggestion for price
 
-
+        IEnumerable<Gig> GetByCategoryId(int categoryId);
 
 
 

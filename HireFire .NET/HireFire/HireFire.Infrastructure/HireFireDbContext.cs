@@ -25,6 +25,8 @@ namespace HireFire.Infrastructure
 
         public DbSet<Promotion> Promotions { get; set; }
 
+        public DbSet<PromotionBuyer> PromotionBuyers { get; set; }
+
         public DbSet<Seller> Sellers { get; set; }
 
         public DbSet<Skill> Skills { get; set; }
@@ -37,7 +39,6 @@ namespace HireFire.Infrastructure
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<PromotionBuyer> PromotionBuyers { get; set; }
 
 
 

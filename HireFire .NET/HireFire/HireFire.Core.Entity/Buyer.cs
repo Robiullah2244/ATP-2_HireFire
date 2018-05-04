@@ -11,8 +11,6 @@ namespace HireFire.Core.Entity
     public class Buyer 
     {
         [Key]
-        [DisplayName("User Name")]
-        [Required]
         public string UserName { get; set; }
         [Required]
         public string Name { get; set; }
