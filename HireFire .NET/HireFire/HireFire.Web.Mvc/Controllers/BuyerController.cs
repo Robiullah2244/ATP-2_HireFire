@@ -45,7 +45,7 @@ namespace HireFire.Web.Mvc.Controllers
             return x;
         }
 
-        public ActionResult Profile(string userName)
+        public ActionResult Profile()
         {
 
             ////Category cetagory = new Category();
@@ -58,9 +58,11 @@ namespace HireFire.Web.Mvc.Controllers
             ////ctx.Admins.Add(a);
 
             ////ctx.SaveChanges();
-            if(userName!=null)
+            //return View();
+            if (Session["userName"] != null)
             {
-                return View(_buyerService.GetByUserName(userName));
+                //return View(_buyerService.GetByUserName(userName));
+                return View(_buyerService.GetByUserName(Session["userName"].ToString()));
             }
             else
             {
@@ -68,15 +70,15 @@ namespace HireFire.Web.Mvc.Controllers
             }
         }
 
-        public ActionResult Dashboard()
+        public ActionResult Dashboard(string userName)
         {
-            _buyerService.GetByUserName("Robi");
+            _buyerService.GetByUserName(userName);
 
-            int totalSpend = _transactionService.TotalSpend("Robi");
+            int totalSpend = _transactionService.TotalSpend(userName);
 
-            int lastMonthSpend = _transactionService.LastMonthSpend("Robi");
+            int lastMonthSpend = _transactionService.LastMonthSpend(userName);
 
-            var transaction = _transactionService.GetByBuyerUserName("robi");
+            var transaction = _transactionService.GetByBuyerUserName(userName);
 
 
             ViewBag.totalSpend = totalSpend;

@@ -65,7 +65,7 @@ namespace HireFire.Web.Mvc.Controllers
 
         public void InsertMessageTest()
         {
-            var x = _messengerService.Insert("rakib", "Imail", "owwww");
+            var x = _messengerService.Insert("Imail", "ASS  ", "aaa");
             Response.Write(x);
         }
 

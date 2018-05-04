@@ -61,6 +61,37 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult SignIN(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                int x=_userAuthenticationService.IsValid(user.UserName, user.Password);
+                if (x == 0)
+                {
+                    ModelState.AddModelError("UserName", "Check your userName");
+                    ModelState.AddModelError("Password", "Check your password");
+                    return View(user);
+                }
+                else
+                {
+                    Session["userName"]=user.UserName;
+                    if (x == 1)
+                    {
+                        return RedirectToAction("Dashboard", "Admin");//, new { @userName = user.UserName });
+                    }
+                    else if (x == 2)
+                    {
+                        return RedirectToAction("Profile", "Buyer");//, new { @userName = user.UserName });
+                    }
+                    else
+                    {
+                        return RedirectToAction("Profile", "Seller");//, new { @userName = user.UserName });
+                    }
+                }
+            }
+            return View(user);
+        }
         [HttpGet]
         public ActionResult SignUP()
         {
