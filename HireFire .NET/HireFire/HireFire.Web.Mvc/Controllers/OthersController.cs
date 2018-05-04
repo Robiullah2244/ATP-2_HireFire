@@ -13,19 +13,38 @@ namespace HireFire.Web.Mvc.Controllers
         // GET: Others
         IBuyerService _buyerService;
         IUserAuthenticationService _userAuthenticationService;
+        IGigService _gigService;
+        ISellerService _sellerService;
+        IOrderService _OrderService;
 
 
-        public OthersController(IBuyerService service, IUserAuthenticationService userAuthenticationService)
+        public OthersController(IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService)
         {
             _buyerService = service;
             _userAuthenticationService = userAuthenticationService;
+            _gigService = gigService;
+            _sellerService = sellerService;
+            _OrderService = OrderService;
         }
-        public ActionResult Home()
+        public ActionResult Home(string categoryId)
         {
+
+            var gigs = _gigService.GetByCategoryId(categoryId);
+            var sellers = _sellerService.GetAll();
+            ViewBag.gigs = gigs;
+            ViewBag.sellers = sellers;
+            ViewBag.categoryId = categoryId;
             return View();
         }
-        public ActionResult ProceedToOrder()
+        public ActionResult ProceedToOrder(int gigId)
         {
+            var gig = _gigService.GetByGigId(gigId);
+            var seller = _sellerService.GetByUserName(gig.SellerUserName);
+            var order = _OrderService.GetByGigId(gigId);
+            ViewBag.gig = gig;
+            ViewBag.seller = seller;
+            ViewBag.order = order;
+            
             return View();
         }
 
