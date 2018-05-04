@@ -121,15 +121,16 @@ namespace HireFire.Controllers
         {
             return View();
         }
-        public ActionResult Contact()
-        {
-            return View();
-        }
+
         public ActionResult Statistics()
         {
             return View();
         }
         public ActionResult Setting()
+        {
+            return View();
+        }
+        public ActionResult GigInventory()
         {
             return View();
         }
