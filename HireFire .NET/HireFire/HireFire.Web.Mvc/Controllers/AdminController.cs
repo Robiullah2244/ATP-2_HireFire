@@ -50,5 +50,9 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
     }
 }
