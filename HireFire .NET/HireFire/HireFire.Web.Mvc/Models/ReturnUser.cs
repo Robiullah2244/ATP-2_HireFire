@@ -25,7 +25,7 @@ namespace HireFire.Web.Mvc.Models
             User s=new User();
             s.UserName=user.UserName;
             s.Password=user.Password;
-            s.Type=1;
+            s.Type=2;
             return s;
         }
     }
