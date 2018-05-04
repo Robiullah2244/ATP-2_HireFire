@@ -51,6 +51,7 @@
     <Compile Include="Category.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Promotion.cs" />
+    <Compile Include="PromotionBuyer.cs" />
     <Compile Include="Transaction.cs" />
     <Compile Include="Admin.cs" />
     <Compile Include="Buyer.cs" />

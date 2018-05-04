@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HireFire.Core.Entity
 {
-    public class Language
+    public class PromotionBuyer
     {
         public int Id { get; set; }
         public string UserName { get; set; }
-        public string LanguageInfo { get; set; }
+        public int PromotionId { get; set; }
 
     }
 }

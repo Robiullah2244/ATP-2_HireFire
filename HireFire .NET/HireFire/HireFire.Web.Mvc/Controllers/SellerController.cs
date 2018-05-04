@@ -23,7 +23,7 @@ namespace HireFire.Controllers
             var x = false;
          
                 x = _service.Insert(new Seller { UserName = "Tanim",Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
-                Level=1,ReputationPoint=12,WorkingHour=2, Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
+                Level=1,ReputationPoint=12,WorkingHour="2 hour", Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
                 BankName="Banani",AccountNumber="ABC",District="Com",Address="sd",PostalCode=12,MobileNumber="sad",
                 InstituteAttendFrom=DateTime.Now,InstituteName="AIUB",Degree="SD",Area="Abc",InstituteAttendTo=DateTime.Now});
             

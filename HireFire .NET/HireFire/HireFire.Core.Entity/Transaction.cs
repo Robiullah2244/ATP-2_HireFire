@@ -13,6 +13,7 @@ namespace HireFire.Core.Entity
         public int BuyerPaid { get; set; }
         public string SellerName { get; set; }
         public float SellerEarned { get; set; }
+        public int WithdrawAmount { get; set; }
         public int OrderId { get; set; }
         public int PromotionId { get; set; }
         public float HireFireProfit { get; set; }

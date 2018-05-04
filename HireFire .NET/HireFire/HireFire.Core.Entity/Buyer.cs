@@ -19,6 +19,7 @@ namespace HireFire.Core.Entity
         public string Email { get; set; }
         public string ImagePath { get; set; }
         public DateTime LastActiveTimeInfo { get; set; }
+        public bool LogInStatus { get; set; }
         
     }
 }

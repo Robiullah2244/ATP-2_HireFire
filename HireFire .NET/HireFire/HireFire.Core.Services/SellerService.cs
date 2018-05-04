@@ -49,7 +49,7 @@ namespace HireFire.Core.Services
             {
                 string userName = seller.UserName.ToString();
                 var targetSeller = GetByUserName(userName);
-                targetSeller.UserName = seller.Name;
+                targetSeller.Name = seller.Name;
                 targetSeller.Email = seller.Email;
                 _context.SaveChanges();
                 return true;

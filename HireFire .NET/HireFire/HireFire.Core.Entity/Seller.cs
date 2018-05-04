@@ -16,11 +16,12 @@ namespace HireFire.Core.Entity
         public string Description { get; set; }
         public int Level { get; set; }
         public int ReputationPoint { get; set; }
-        public int WorkingHour { get; set; }
+        public string WorkingHour { get; set; }
 
         public string Email { get; set; }
         public string ImagePath { get; set; }
         public DateTime LastActiveTimeInfo { get; set; }
+        public bool LogInStatus { get; set; }
 
         //Account
         public string BankName { get; set; }
