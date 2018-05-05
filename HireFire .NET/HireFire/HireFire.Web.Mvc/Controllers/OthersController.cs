@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace HireFire.Web.Mvc.Controllers
 {
@@ -29,9 +30,8 @@ namespace HireFire.Web.Mvc.Controllers
             _OrderService = OrderService;
             this._languageService = _languageService;
         }
-        public ActionResult Home(int categoryId)
+        public ActionResult Home(int categoryId = 1)
         {
-
             var gigs = _gigService.GetByCategoryId(categoryId);
             var sellers = _sellerService.GetAll();
             ViewBag.gigs = gigs;
@@ -47,18 +47,71 @@ namespace HireFire.Web.Mvc.Controllers
             ViewBag.gig = gig;
             ViewBag.seller = seller;
             ViewBag.order = order;
-            
+
             return View();
         }
 
-        public ActionResult OrderRequirements()
+        public ActionResult OrderRequirements(int gigId)
         {
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("SignIn");
+            }
+            ViewBag.gigId = gigId;
             return View();
         }
-        public ActionResult PlaceOrder()
+
+
+        [HttpPost, ActionName("OrderRequirements")]
+        public ActionResult OrderRequirementsPost(DateTime deadline, string requirements, int gigId)
         {
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("SignIn");
+            }
+            Session["deadline"] = deadline;
+            Session["requirements"] = requirements;
+            //Response.Write(Session["deadline"]);
+            return RedirectToAction("PlaceOrder", new { gigId = gigId });
+            //return View();
+        }
+
+        [HttpGet]
+        public ActionResult PlaceOrder(int gigId)
+        {
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("SignIn");
+            }
+            var gig = _gigService.GetByGigId(gigId);
+            ViewBag.Title = gig.Title;
+            ViewBag.Price = gig.Price;
+            ViewBag.ProcessingFee = gig.Price * 10 / 100;
+            ViewBag.TotalFee = gig.Price + ViewBag.ProcessingFee;
+            ViewBag.Category = gig.CategoryId;
+
+            ViewBag.OrderNumber = _OrderService.GetLatestOrderNumber();
+
+            Seller seller = _sellerService.GetByUserName("Robi");
+            ViewBag.Name = seller.Name;
+            ViewBag.Level = seller.Level;
+            ViewBag.gigId = gigId;
             return View();
         }
+
+        [HttpPost, ActionName("PlaceOrder")]
+        public ActionResult PlaceOrderPost(string bankName, int gigId, string account)
+        {
+
+            DateTime deadline = Convert.ToDateTime(Session["deadline"]);
+            Response.Write(Session["requirement"]);
+            var x = _OrderService.Insert(deadline, gigId, Session["userName"].ToString(), bankName, account);
+            Response.Write(x);
+            //ScriptManager.RegisterStartupScript(Page, this.GetType(), "alert", string.Format("alert('{1}', '{0}');", Message, Title), true);
+            //Response.Write(@"<script language='javascript'>alert('The following errors have occurred: \n .');</script>");
+            return RedirectToAction("Home");
+        }
+
         public ActionResult ContactSeller()
         {
             return View();
