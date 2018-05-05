@@ -28,5 +28,18 @@ namespace HireFire.Web.Mvc.Models
             s.Type=2;
             return s;
         }
+        public List<string> UserLanguage(SignUpViewModel user)
+        {
+            List<string> language = new List<string>();
+
+            string lan = user.Language;
+            var x = lan.Split(',');
+            foreach (var item in x)
+            {
+                language.Add(item);
+            }
+
+            return language;
+        }
     }
 }

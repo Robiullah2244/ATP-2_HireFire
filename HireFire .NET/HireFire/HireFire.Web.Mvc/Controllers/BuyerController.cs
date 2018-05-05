@@ -17,12 +17,14 @@ namespace HireFire.Web.Mvc.Controllers
         // GET: /Buyer/
         IBuyerService _buyerService;
         ITransactionService _transactionService;
-
-
-        public BuyerController(IBuyerService service, ITransactionService transactionService)
+        ILanguageService _languageService;
+        IBuyerGraphService _buyerGraphService;
+        public BuyerController(IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService)
         {
             _buyerService = service;
             _transactionService = transactionService;
+            this._languageService = _languageService;
+            this._buyerGraphService = _buyerGraphService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
@@ -47,7 +49,6 @@ namespace HireFire.Web.Mvc.Controllers
 
         public ActionResult Profile()
         {
-
             ////Category cetagory = new Category();
             ////cetagory.Name = "sfs";
             ////cetagory.Id = 1;
@@ -62,15 +63,29 @@ namespace HireFire.Web.Mvc.Controllers
             if (Session["userName"] != null)
             {
                 //return View(_buyerService.GetByUserName(userName));
-                return View(_buyerService.GetByUserName(Session["userName"].ToString()));
+                string userName=Session["userName"].ToString();
+                var x=_languageService.GetByUserName(userName);
+                ViewBag.Language=x;
+                return View(_buyerService.GetByUserName(userName));
             }
             else
             {
                 return RedirectToAction("SignIN", "Others");
             }
         }
+        [HttpPost]
+        public ActionResult Profile(string newLanguage)
+        {
 
-        public ActionResult Dashboard(string userName)
+            var y=_languageService.Insert(new Language { UserName = Session["userName"].ToString(), LanguageInfo = newLanguage });
+            string userName = Session["userName"].ToString();
+            var x = _languageService.GetByUserName(userName);
+            ViewBag.Language = x;
+            return View(_buyerService.GetByUserName(userName));
+        }
+
+
+        public ActionResult Dashboard(string userName="tanim")
         {
             _buyerService.GetByUserName(userName);
 
@@ -79,10 +94,14 @@ namespace HireFire.Web.Mvc.Controllers
             int lastMonthSpend = _transactionService.LastMonthSpend(userName);
 
             var transaction = _transactionService.GetByBuyerUserName(userName);
-
+            var lastYearSpendGraph= _buyerGraphService.LastYearSpendGraphByUserName(userName);
+            var v = lastYearSpendGraph.ElementAt(0);
+            ViewBag.lastYearSpendGraph = lastYearSpendGraph;
 
             ViewBag.totalSpend = totalSpend;
             ViewBag.lastMonthSpend = lastMonthSpend;
+            ViewBag.lastMonthSpend = lastMonthSpend;
+            ViewBag.Jan=lastYearSpendGraph.ElementAt(4);
 
             return View();
             //Response.Write(lastMonthSpend + " " + totalSpend);

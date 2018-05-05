@@ -224,19 +224,20 @@
         var bar = new Morris.Bar({
             element: 'bar-chart',
             resize: true,
+
             data: [
-              { y: 'Jan', a: 100, b: 90 },
-              { y: 'Feb', a: 75, b: 65 },
-              { y: 'Mar', a: 50, b: 40 },
-              { y: 'April', a: 75, b: 65 },
-              { y: 'May', a: 50, b: 40 },
-              { y: 'Jun', a: 75, b: 65 },
-              { y: 'July', a: 100, b: 90 },
-              { y: 'Aug', a: 100, b: 90 },
-              { y: 'Sep', a: 75, b: 65 },
-              { y: 'Oct', a: 50, b: 40 },
-              { y: 'Nov', a: 75, b: 65 },
-              { y: 'Dec', a: 50, b: 40 }
+              { y: 'Jan', a: @ViewBag.lastYearSpendGraph[0]},
+              { y: 'Feb', a: @ViewBag.lastYearSpendGraph[1]},
+              { y: 'Mar', a: @ViewBag.lastYearSpendGraph[2]},
+              { y: 'April', a: @ViewBag.lastYearSpendGraph[3]},
+              { y: 'May', a: @ViewBag.lastYearSpendGraph[4]},
+              { y: 'Jun', a: @ViewBag.lastYearSpendGraph[5]},
+              { y: 'July', a: @ViewBag.lastYearSpendGraph[6] },
+              { y: 'Aug', a: @ViewBag.lastYearSpendGraph[7]},
+              { y: 'Sep', a: @ViewBag.lastYearSpendGraph[8]},
+              { y: 'Oct', a: @ViewBag.lastYearSpendGraph[9]},
+              { y: 'Nov', a: @ViewBag.lastYearSpendGraph[10]},
+              { y: 'Dec', a: @ViewBag.lastYearSpendGraph[11]}
             ],
             barColors: ['#00a65a', '#f56954'],
             xkey: 'y',

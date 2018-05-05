@@ -31,6 +31,9 @@ namespace HireFire.Web.Mvc
             container.RegisterType<DbContext, HireFireDbContext>();
             container.RegisterType<ITransactionService, TransactionService>();
             container.RegisterType<IGigService, GigService>();
+            container.RegisterType<IBuyerGraphService, BuyerGraphService>();
+            container.RegisterType<ILanguageService, LanguageService>();
+
             container.RegisterType<IOrderService, OrderService>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             //IUnityContainer container = new UnityContainer();

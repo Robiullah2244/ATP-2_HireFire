@@ -223,10 +223,10 @@ desired effect
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/buyer/profile" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/Seller/profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="PublicHome.html" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/Others/PublicHome" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -379,72 +379,6 @@ desired effect
 
     </script>
 
-    <script>
-        window.onload = function () {
-
-            var chart = new CanvasJS.Chart("SellerChartContainer", {
-                animationEnabled: true,
-                theme: "light2",
-                title: {
-                    text: "Your Response Rate Last 3 Months"
-                },
-
-                data: [{
-                    type: "line",
-                    dataPoints: [
-                        { y: 0 },
-                        { y: 4, indexLabel: "Week-1" },
-                        { y: 5, indexLabel: "Week-2" },
-                        { y: 5, indexLabel: "Week-3" },
-                        { y: 5, indexLabel: "Week-4" },
-                        { y: 5, indexLabel: "Week-5" },
-                        { y: 2, indexLabel: "Week-6" },
-                        { y: 3, indexLabel: "Week-7" },
-                        { y: 4, indexLabel: "Week-8" },
-                        { y: 5, indexLabel: "Week-9" },
-                        { y: 6, indexLabel: "Week-10" },
-                        { y: 5, indexLabel: "Week-11" },
-                        { y: 7, indexLabel: "Week-12" }
-                    ]
-                }]
-            });
-
-            chart.render();
-
-            var chart = new CanvasJS.Chart("BuyerChartContainer", {
-                animationEnabled: true,
-                theme: "light2",
-                title: {
-                    text: "Buyer Response Rate Last 3 Months"
-                },
-
-                data: [{
-                    type: "line",
-                    dataPoints: [
-                        { y: 0 },
-                        { y: 3, indexLabel: "Week-1" },
-                        { y: 1, indexLabel: "Week-2" },
-                        { y: 7, indexLabel: "Week-3" },
-                        { y: 2, indexLabel: "Week-4" },
-                        { y: 6, indexLabel: "Week-5" },
-                        { y: 2, indexLabel: "Week-6" },
-                        { y: 6, indexLabel: "Week-7" },
-                        { y: 4, indexLabel: "Week-8" },
-                        { y: 5, indexLabel: "Week-9" },
-                        { y: 6, indexLabel: "Week-10" },
-                        { y: 8, indexLabel: "Week-11" },
-                        { y: 12, indexLabel: "Week-12" }
-                    ]
-                }]
-            });
-            chart.render();
-
-        }
-
-        function AutoScroll() {
-            location.href = "#Table";
-        }
-
-    </script>
+   
 </body>
 </html>
