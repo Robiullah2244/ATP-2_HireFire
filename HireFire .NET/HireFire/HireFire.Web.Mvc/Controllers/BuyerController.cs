@@ -19,12 +19,15 @@ namespace HireFire.Web.Mvc.Controllers
         ITransactionService _transactionService;
         ILanguageService _languageService;
         IBuyerGraphService _buyerGraphService;
-        public BuyerController(IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService)
+        IBuyerTableService _buyerTableService;
+
+        public BuyerController(IBuyerTableService _buyerTableService,IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService)
         {
             _buyerService = service;
             _transactionService = transactionService;
             this._languageService = _languageService;
             this._buyerGraphService = _buyerGraphService;
+            this._buyerTableService = _buyerTableService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
@@ -95,13 +98,13 @@ namespace HireFire.Web.Mvc.Controllers
 
             var transaction = _transactionService.GetByBuyerUserName(userName);
             var lastYearSpendGraph= _buyerGraphService.LastYearSpendGraphByUserName(userName);
-            var v = lastYearSpendGraph.ElementAt(0);
+            //var v = lastYearSpendGraph.ElementAt(0);
             ViewBag.lastYearSpendGraph = lastYearSpendGraph;
 
             ViewBag.totalSpend = totalSpend;
             ViewBag.lastMonthSpend = lastMonthSpend;
             ViewBag.lastMonthSpend = lastMonthSpend;
-            ViewBag.Jan=lastYearSpendGraph.ElementAt(4);
+            //ViewBag.Jan=lastYearSpendGraph.ElementAt(4);
 
             return View();
             //Response.Write(lastMonthSpend + " " + totalSpend);
@@ -127,10 +130,27 @@ namespace HireFire.Web.Mvc.Controllers
         //}
         public ActionResult Account()
         {
-            IEnumerable<Transaction> transaction = _transactionService.GetByBuyerUserName("Robi");
-            return View(transaction);
-            
-
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("SignIN", "Others");
+            }
+            var AccountTransaction = _buyerTableService.GetTransaction(Session["userName"].ToString());
+            //foreach (var item in x)
+            //{
+            //    Response.Write(item.SellerName + "  " + item.BuyerPaid + "<br/>");
+            //}
+            var GigName = _buyerTableService.GetAllGigName(AccountTransaction);
+            var sellerName = _buyerTableService.GetAllSellerNameList(AccountTransaction);
+            ViewBag.AccountTransaction = AccountTransaction;
+            ViewBag.GigName = GigName;
+            ViewBag.SellerName = sellerName;
+            return View();
+            //foreach (var item in y)
+            //{
+            //    Response.Write(item + "<br/>");
+            //}
+            //IEnumerable<Transaction> transaction = _transactionService.GetByBuyerUserName("Robi");
+            //return View(transaction);
         }
         public void ActiveWork()
         {

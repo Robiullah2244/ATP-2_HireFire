@@ -32,6 +32,8 @@ namespace HireFire.Web.Mvc
             container.RegisterType<ITransactionService, TransactionService>();
             container.RegisterType<IGigService, GigService>();
             container.RegisterType<IBuyerGraphService, BuyerGraphService>();
+            container.RegisterType<IBuyerTableService, BuyerTableService>();
+
             container.RegisterType<ILanguageService, LanguageService>();
 
             container.RegisterType<IOrderService, OrderService>();
