@@ -16,9 +16,10 @@ namespace Hirefire.Core.Services.Interfaces
 
         Order MostPopularGig();///By counting the max order then we can get the Most popular gig
 
-        bool Insert(Order order);
+        bool Insert(DateTime deadline, int gigId, string userName, string accountName,string account);
         bool Update(Order order);
         bool Delete(int id);
         IEnumerable<Order> GetByGigId(int gigId);
+        int GetLatestOrderNumber();
     }
 }

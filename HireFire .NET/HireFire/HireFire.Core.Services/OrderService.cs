@@ -31,9 +31,39 @@ namespace HireFire.Core.Services
             throw new NotImplementedException();
         }
 
-        public bool Insert(Order order)
+        public bool Insert(DateTime deadline, int gigId, string userName, string bankName,string account)
         {
-            throw new NotImplementedException();
+            Order order = new Order();
+            order.GigId = gigId;
+            order.Date = DateTime.Now;
+            order.Deadline = deadline;
+            order.BuyerName = userName;
+            order.BankName = bankName;
+            order.AccountNumber = account;
+            order.Status = 0;
+            order.Feedback = "";
+            order.Rating = 0;
+
+            //order.GigId = 1;
+            //order.Date = DateTime.Now;
+            //order.Deadline = DateTime.Now;
+            //order.BuyerName = "dfds";
+            //order.BankName = "dsdsdf";
+            //order.AccountNumber = "sdsf";
+            //order.Status = 0;
+            //order.Feedback = "s";
+            //order.Rating = 0;
+            try
+            {
+                _context.Set<Order>().Add(order);
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
 
         public bool Update(Order order)
@@ -49,6 +79,17 @@ namespace HireFire.Core.Services
         public IEnumerable<Order> GetByGigId(int gigId)
         {
             return _context.Set<Order>().Where(o => o.GigId == gigId);
+        }
+
+        public int GetLatestOrderNumber()
+        {
+            var orderNumber = _context.Set<Order>().Select(n => n.Id).Max()+1;
+            if(orderNumber==null)
+            {
+                return 1;
+            }
+            return orderNumber;
+
         }
     }
 }

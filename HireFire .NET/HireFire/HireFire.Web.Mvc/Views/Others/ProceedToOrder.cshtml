@@ -52,7 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         margin-left: 15%;
     }
 </style>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
     <div class="wrapper">
 
         <!-- Main Header -->
@@ -253,7 +253,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </header>
 
         <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
+        <aside class="main-sidebar ">
 
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
@@ -335,9 +335,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <br />
                                                 <br />
 
-                                                <a align="center" href="OrderRequirements"><button type="submit">Proceed To Order( @ViewBag.gig.Price BDT )</button></a>
+                                                <a align="center" href="OrderRequirements?gigId=@ViewBag.gig.Id"><button type="submit">Proceed To Order( @ViewBag.gig.Price BDT )</button></a>
                                                 <br />
-                                                
+
 
 
                                                 <br />
@@ -348,20 +348,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </tr>
                                         <tr>
                                             <td>
-                                                @foreach(var s in ViewBag.order)
+                                                @foreach (var o in ViewBag.order)
                                                 {
-                                                    <a href="Others/ContactSeller?userName=@s.BuyerName"><img src="~/Contents/Image/User/@s." width="9%">Jon kin</a><br />
-                                                    
+                                                    <a href="Others/ContactSeller?userName=@o.BuyerName"><img src="~/Contents/Image/User/user-avatar.jpg" width="9%">@o.BuyerName</a><br />
+                                                    <br />
+                                                    @o.Feedback
                                                     <br /><br /><br />
                                                 }
 
-                                                <a href="ContactSeller"><img src="~/Contents/Image/User/user-avatar.jpg" width="9%">Jon kin</a><br />
-                                                The whole experience was great. I liked the sellers work. He listened to my requests
-                                                and gave me a logo that I love. It was easy and very quickly.
-                                                <br /><br /><br />
-                                                <a href="ContactSeller"><img src="~/Contents/Image/User/user-avatar.jpg" width="9%">Leo king</a>
-                                                The whole experience was great. I liked the sellers work. He listened to my requests
-                                                and gave me a logo that I love. It was easy and very quickly.
                                             </td>
                                         </tr>
 
@@ -386,16 +380,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td>
                                                 <br />
 
-                                                From Bangladesh<br />
-                                                Member since &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; May 2016<br />
-                                                Avg. Response Time<br />
+                                                From @ViewBag.seller.District<br />
+                                                Member since &nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; @ViewBag.seller.JoiningDate<br />
 
                                                 <hr>
                                                 <br />
-                                                I’m currently pursuing a degree of bachelors in Computer Science <br />
-                                                and have a sound knowledge of programming in C, C++ computer Languages.<br />
-                                                I can help you to complete University Assignments, Projects .<br />
-                                                Message me before placing order. Thank you!<br />
+
+
                                                 <hr>
                                             </td>
                                         </tr>

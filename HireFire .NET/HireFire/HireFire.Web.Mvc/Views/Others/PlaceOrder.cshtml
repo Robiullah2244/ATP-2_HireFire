@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "PlaceOrder";
+   
     Layout = "~/Views/Others/_Layout.Others.cshtml";
 }
 @section head{
@@ -30,8 +30,110 @@
     <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-}
+
+    <script>var accountName="Rocket"</script>
+
+
+    <script>
+
+    function validate()
+    {
+        isValid=true;
+        if(!validateAccount())
+        {
+            isValid=false;
+        }
+
+        if (!validatePin())
+        {
+            isValid=false;
+        }
+        if (isValid)
+        {
+            var x = document.getElementById("f");
+            x.setAttribute("action", "PlaceOrder?bankName=" + accountName+"&gigId="+@ViewBag.gigId);
+        }
+        return isValid;
+    }
+    function validateAccount()
+    {
+        var isValid=true;
+        var account = document.getElementById("account").value;
+
+        var accountErrorMessege=document.getElementById("accountErrorMessege");
+        accountErrorMessege.style.color="red";
+
+        var j=0;
+        for(var i=0;i<account.length;i++)
+        {
+            if(account[i]==" ")
+            {
+                j++;
+            }
+        }
+        if(account=="")
+        {
+            accountErrorMessege.innerHTML="*account can not be empty";
+            isValid=false;
+        }
+        else if(account=="Enter text here...")
+        {
+            accountErrorMessege.innerHTML="*account can not be empty";
+            isValid=false;
+        }
+        else if(i==j)
+        {
+            accountErrorMessege.innerHTML="*account can not contains only space";
+            isValid=false;
+        }
+        else
+        {
+            accountErrorMessege.innerHTML="";
+        }
+        return isValid;
+    }
+
+
+
+
+    function validatePin() {
+        var isValid = true;
+        var pin = document.getElementById("pin").value;
+
+        var pinErrorMessege = document.getElementById("pinErrorMessege");
+        pinErrorMessege.style.color = "red";
+
+        var j = 0;
+        for (var i = 0; i < pin.length; i++) {
+            if (pin[i] == " ") {
+                j++;
+            }
+        }
+        if (pin == "") {
+            pinErrorMessege.innerHTML = "*pin can not be empty";
+            isValid = false;
+        }
+        else if (pin == "Enter text here...") {
+            pinErrorMessege.innerHTML = "*pin can not be empty";
+            isValid = false;
+        }
+        else if (i == j) {
+            pinErrorMessege.innerHTML = "*pin can not contains only space";
+            isValid = false;
+        }
+        else {
+            pinErrorMessege.innerHTML = "";
+        }
+        return isValid;
+    }
+
+</script>
+
+
+   
+
+    </head>
+    }
 
 <br/><br /><br />
 <section class="invoice">
@@ -40,7 +142,7 @@
                 <div class="col-xs-12">
                     <h2 class="page-header">
                         <i class="fa fa-globe"></i> HireFire
-                        <small class="pull-right">Date: 2/10/2014</small>
+                        <small class="pull-right">Date: @DateTime.Now</small>
                     </h2>
                 </div>
                 <!-- /.col -->
@@ -50,8 +152,8 @@
                 <div class="col-sm-4 invoice-col">
                     <b>Seller Details</b><br/>
 
-                    <b>Name: </b> shahadatraaz<br>
-                    <b>Level: </b> Level 0 seller<br>
+                    <b>Name: </b> @ViewBag.Name<br>
+                    <b>Level: </b> Level <B>@ViewBag.Level</B> seller<br>
 
 
                 </div>
@@ -63,9 +165,8 @@
                 <div class="col-sm-4 invoice-col">
                     <b>Invoice #007612</b><br>
                     <br>
-                    <b>Order ID:</b> 4F3S8J<br>
-                    <b>Payment Due:</b> 2/22/2014<br>
-                    <b>Account:</b> 968-34567
+                    <b>Order ID:</b> @ViewBag.OrderNumber<br>
+                    <b>Account:</b> HireFire-968-34567
                 </div>
                 <!-- /.col -->
             </div>
@@ -86,10 +187,10 @@
                         <tbody>
                             <tr>
 
-                                <td> I Will Install Wordpress, Customize Wordpress Theme</td>
-                                <td>455-981-221</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
-                                <td>$64.50</td>
+                                <td>@ViewBag.Title</td>
+                                <td>@ViewBag.OrderNumber</td>
+                                <td>@ViewBag.Category</td>
+                                <td>@ViewBag.Price BDT</td>
                             </tr>
 
                         </tbody>
@@ -103,26 +204,23 @@
             <div class="row">
                 <!-- /.col -->
                 <div class="col-xs-5">
-                    <p class="lead">Amount Due 2/22/2014</p>
+                    <p class="lead"></p>
 
                     <div class="table-responsive">
                         <table class="table">
                             <tbody>
                                 <tr>
                                     <th style="width:50%">Subtotal:</th>
-                                    <td>$250.30</td>
+                                    <td>@ViewBag.Price BDT</td>
                                 </tr>
-                                <tr>
-                                    <th>Tax (9.3%)</th>
-                                    <td>$10.34</td>
-                                </tr>
+
                                 <tr>
                                     <th>Processing Fee:</th>
-                                    <td>$5.80</td>
+                                    <td>@ViewBag.ProcessingFee BDT</td>
                                 </tr>
                                 <tr>
                                     <th>Total:</th>
-                                    <td>$265.24</td>
+                                    <td><b>@ViewBag.TotalFee BDT</b></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -137,10 +235,10 @@
                 <!-- /.col -->
                 <div class="col-xs-5">
                     <p class="lead">Payment Methods:</p>
-                    <img width="70" height="50" src="image/PaymentMethod/Rocket.jpg" style="cursor: pointer" onclick="Rocket()" alt="Rocket">
-                    <img width="70" height="50" src="image/PaymentMethod/bKash.jpg" style="cursor: pointer" onclick="bKash()" alt="bKash">
-                    <img width="70" height="60" src="image/PaymentMethod/uKash.png" style="cursor: pointer" onclick="uKash()" alt="uKash">
-                    <img width="70" height="50" src="image/PaymentMethod/Ific.jpg" style="cursor: pointer" onclick="Ific()" alt="Ifif">
+                    <img width="70" height="50" src="~/Contents/Image/Other/Rocket.jpg" style="cursor: pointer" onclick="Rocket()" alt="Rocket">
+                    <img width="70" height="50" src="~/Contents/Image/Other/bKash.jpg" style="cursor: pointer" onclick="bKash()" alt="bKash">
+                    <img width="70" height="60" src="~/Contents/Image/Other/ukash.png" style="cursor: pointer" onclick="uKash()" alt="uKash">
+                    <img width="70" height="50" src="~/Contents/Image/Other/Ific.jpg" style="cursor: pointer" onclick="Ific()" alt="Ifif">
                     <br/>
 
                     <div id="RocketArea" style="margin-left:0px;margin-right:435px"><hr style='background-color: BLUE;height: 5px'> </div>
@@ -164,14 +262,16 @@
                                         <label class="col-sm-2 control-label">Account No</label>
 
                                         <div class="col-sm-10">
-                                            <input class="form-control" placeholder="Account No">
+                                            <input class="form-control" placeholder="Account No" name="account" id="account" onchange="validateAccount()">
+                                            <span id="accountErrorMessege"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Pin</label>
 
                                         <div class="col-sm-10">
-                                            <input type="password" class="form-control" id="inputPassword3" placeholder="Pin">
+                                            <input type="password" class="form-control" placeholder="Pin" id="pin" onchange="validatePin()">
+                                            <span id="pinErrorMessege"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -191,53 +291,67 @@
             <!-- /.row -->
 
 
-            <form action="Home">
-                <!-- this row will not appear when printing -->
-                <div class="row no-print">
-                    <div class="col-xs-12">
-                        <a href="invoice-print" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-                        <button type="submit" class="btn btn-success pull-right">
-                            <i class="fa fa-credit-card"></i> Submit Payment
-                        </button>
+    
 
-                    </div>
-                </div>
-            </form>
+    
+    <form method="post" action="" id="f" onsubmit="return validate()">
+        <!-- this row will not appear when printing -->
+        <div class=" row no-print">
+            <div class="col-xs-12">
+                <a href="invoice-print" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                <button type="submit" class="btn btn-success pull-right">
+                    <i class="fa fa-credit-card"></i> Submit Payment
+                </button>
+
+            </div>
+        </div>
+    </form>
         </section>
 
 
         @section Javascript{
 
         <script>
+           
+            
 	function Rocket()
 	{
-		document.getElementById("RocketArea").innerHTML="<hr style='background-color: BLUE;height: 5px'>";
-		document.getElementById("bKashArea").innerHTML="";
-		document.getElementById("uKashArea").innerHTML="";
-		document.getElementById("IficArea").innerHTML="";
+	    document.getElementById("RocketArea").innerHTML="<hr style='background-color: BLUE;height: 5px'>";
+	    document.getElementById("bKashArea").innerHTML="";
+	    document.getElementById("uKashArea").innerHTML="";
+	    document.getElementById("IficArea").innerHTML = "";
+	    accountName = "Rocket";
+	    
 	}
-	function bKash()
-	{
-		document.getElementById("bKashArea").innerHTML="<hr style='background-color: BLUE;height: 5px'>";
-		document.getElementById("RocketArea").innerHTML="";
-		document.getElementById("uKashArea").innerHTML="";
-		document.getElementById("IficArea").innerHTML="";
-	}
-	function uKash()
-	{
-		document.getElementById("uKashArea").innerHTML="<hr style='margin-bottom: 0em;background-color: BLUE;height: 5px'>";
-		document.getElementById("bKashArea").innerHTML="";
-		document.getElementById("RocketArea").innerHTML="";
-		document.getElementById("IficArea").innerHTML="";
-	}
-	function Ific()
-	{
-		document.getElementById("IficArea").innerHTML="<hr style='margin-bottom: 0em;background-color: BLUE;height: 5px'>";
-		document.getElementById("bKashArea").innerHTML="";
-		document.getElementById("uKashArea").innerHTML="";
-		document.getElementById("RocketArea").innerHTML="";
-	}
-        </script>
+
+    function bKash()
+    {
+        document.getElementById("bKashArea").innerHTML="<hr style='background-color: BLUE;height: 5px'>";
+        document.getElementById("RocketArea").innerHTML="";
+        document.getElementById("uKashArea").innerHTML="";
+        document.getElementById("IficArea").innerHTML = "";
+        accountName = "bKash";
+
+    }
+    function uKash()
+    {
+        document.getElementById("uKashArea").innerHTML="<hr style='margin-bottom: 0em;background-color: BLUE;height: 5px'>";
+        document.getElementById("bKashArea").innerHTML="";
+        document.getElementById("RocketArea").innerHTML="";
+        document.getElementById("IficArea").innerHTML = "";
+        accountName = "uKash";
+
+    }
+    function Ific()
+    {
+        document.getElementById("IficArea").innerHTML="<hr style='margin-bottom: 0em;background-color: BLUE;height: 5px'>";
+        document.getElementById("bKashArea").innerHTML="";
+        document.getElementById("uKashArea").innerHTML="";
+        document.getElementById("RocketArea").innerHTML = "";
+        accountName = "Ific";
+
+    }
+    </script>
 
         <!-- jQuery 3 -->
         <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>

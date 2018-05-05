@@ -33,6 +33,79 @@
     <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+
+
+    <script>
+
+
+    function validate() {
+        isValid = true;
+        if (!validateOrderRequirements()) {
+            isValid = false;
+        }
+
+        if (!validateDate()) {
+            isValid = false;
+        }
+
+        return isValid;
+    }
+    function validateOrderRequirements() {
+        var isValid = true;
+        var requirements = document.getElementById("requirements").value;
+
+        var orderRequirementsErrorMassage = document.getElementById("orderRequirementsErrorMassage");
+        orderRequirementsErrorMassage.style.color = "red";
+
+        var j = 0;
+        for (var i = 0; i < requirements.length; i++) {
+            if (requirements[i] == " ") {
+                j++;
+            }
+        }
+        if (requirements == "") {
+            orderRequirementsErrorMassage.innerHTML = "*Requirements can not be empty";
+            isValid = false;
+        }
+        else if (requirements == "Enter text here...") {
+            orderRequirementsErrorMassage.innerHTML = "*Requirements can not be empty";
+            isValid = false;
+        }
+        else if (i == j) {
+            orderRequirementsErrorMassage.innerHTML = "*Requirements can not contains only space";
+            isValid = false;
+        }
+        else {
+            orderRequirementsErrorMassage.innerHTML = "";
+        }
+        return isValid;
+    }
+
+    function validateDate() {
+
+        var isValid = true;
+        var deadline = document.getElementById("deadline").value;
+        var deadlineErrorMassage = document.getElementById("deadlineErrorMassage");
+        deadlineErrorMassage.style.color = "red";
+        if (deadline == "") {
+            deadlineErrorMassage.innerHTML = "*Please Set a Deadline";
+            isValid = false;
+        }
+        else if (Date.parse(deadline) < Date.parse(Date())) {
+            deadlineErrorMassage.innerHTML = "*Please Set a appropiate Deadline";
+            isValid = false;
+        }
+        else {
+            deadlineErrorMassage.innerHTML = "";
+        }
+        return isValid;
+    }
+
+    </script>
+
+
 </head>
 }
 
@@ -41,7 +114,7 @@
             <div style="margin-left:20%;margin-right:20%">
              
 
-                <form method="POST" enctype="multipart/form-data" action="PlaceOrder">
+                <form method="POST" enctype="multipart/form-data" action="OrderRequirements?gigId=@ViewBag.gigId" onsubmit="return validate()">
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">Order Requirements</h3>
@@ -53,12 +126,14 @@
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Requirements</label>
-                                <textarea class="form-control" rows="5" id="exampleInputPassword1" placeholder=""></textarea>
+                                <textarea class="form-control" rows="5" id="requirements" name="requirements" onchange="validateOrderRequirements()" placeholder=" "></textarea>
+                                <span id="orderRequirementsErrorMassage"></span>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Deadline</label>
-                                <input type="date" class="form-control" rows="5" id="exampleInputPassword1" placeholder="" />
+                                <input type="date" class="form-control" rows="5" id="deadline" name="deadline" onchange="validateDate()" placeholder=" " />
+                                &nbsp;&nbsp;<span id="deadlineErrorMassage"></span>
                             </div>
 
 
@@ -69,7 +144,7 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                         <br /><br /><br /><br /><br /><br />
-                       </div> 
+                    </div>
                 </form>
             </div>
         </div>
