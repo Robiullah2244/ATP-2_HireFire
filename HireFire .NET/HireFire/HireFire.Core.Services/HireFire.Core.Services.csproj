@@ -51,6 +51,7 @@
     <Compile Include="AdminService.cs" />
     <Compile Include="BuyerGraphService.cs" />
     <Compile Include="BuyerService.cs" />
+    <Compile Include="BuyerTableService.cs" />
     <Compile Include="GigService.cs" />
     <Compile Include="LanguageService.cs" />
     <Compile Include="MessengerService.cs" />
