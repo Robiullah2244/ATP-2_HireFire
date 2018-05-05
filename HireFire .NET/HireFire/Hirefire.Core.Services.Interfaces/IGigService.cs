@@ -34,7 +34,7 @@ namespace Hirefire.Core.Services.Interfaces
 
         IEnumerable<Gig> GetByCategoryId(int categoryId);
 
-
+        int CountByUserName(string userName);
 
 
     }

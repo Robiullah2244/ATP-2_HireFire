@@ -87,9 +87,18 @@ namespace HireFire.Core.Services
             throw new NotImplementedException();
         }
 
-        public int LastMonthIncome(string sellerUserName)
+        public float LastMonthIncome(string userName)
         {
-            throw new NotImplementedException();
+            float lastMonthIncome = 0;
+            var buyer = _context.Set<Transaction>().Where(s => (s.SellerName == userName)).ToList().Where(s => ((DateTime.Now - s.Date).Days <= 30));
+
+            foreach (var x in buyer)
+            {
+                lastMonthIncome += x.SellerEarned;
+            }
+
+
+            return lastMonthIncome;
         }
 
        

@@ -86,7 +86,7 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">ALL GIGS</span>
-                            <span class="info-box-number">10</span>
+                            <span class="info-box-number">@ViewBag.gigcount</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -99,8 +99,8 @@
                         <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
 
                         <div class="info-box-content">
+                            <br/>
                             <span class="info-box-text">TOP GIGS</span>
-                            <span class="info-box-number">10</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -112,8 +112,8 @@
                     <span class="info-box-icon bg-cyan"><i class="fa  fa-clock-o"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">Average Active<br>Hours</span>
-                        <span class="info-box-number">8-Hours</span>
+                        <span class="info-box-text">Working Hours</span>
+                        <span class="info-box-number">@ViewBag.workingHour</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -126,7 +126,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Last Month<br>Income</span>
-                        <span class="info-box-number">41,410</span>
+                        <span class="info-box-number">@ViewBag.lastMonthIncome</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -140,8 +140,8 @@
                         <span class="info-box-icon bg-aqua"><i class="fa fa-hand-peace-o"></i></span>
 
                         <div class="info-box-content">
+                            <br/>
                             <span class="info-box-text">Top Buyer</span>
-                            <span class="info-box-number">10</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -155,7 +155,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Your Level</span>
-                        <span class="info-box-number">Silver</span>
+                        <span class="info-box-number">@ViewBag.level</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -169,7 +169,7 @@
 
                     <div class="info-box-content">
                         <span class="info-box-text">Reputation point<br /></span>
-                        <span class="info-box-number">100</span>
+                        <span class="info-box-number">@ViewBag.reputationPoint</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -181,65 +181,9 @@
         <!--        Iframe-->
         <!--Iframe ends        -->
 
-        <div class="row">
-            <div class="col-md-">
-                <!-- LINE CHART -->
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <!--              <h3 class="box-title"><b>Your Response Rate Last 3 Months</b></h3>-->
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-
-                    <!--
-                                <div class="box-body chart-responsive">
-                                  <div class="chart" id="line-chart" style="height: 300px;"></div>
-                                </div>-->
-                    <div id="SellerChartContainer" style="height: 370px; width: 100%;"></div>
-                    <script src="~/Scripts/Graph.js"></script>
-                    <!-- /.box-body -->
-                </div>
-            </div>
-        </div>
         <hr style="border-color: blue">
         <hr style="border-color: blue">
 
-        <input type="radio" name="selector" value="CountryWise" checked> Country Wise&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="selector" value="ClientWise"> Client Wise<br><br>
-
-        <input name="search" />
-        <input type="button" value="Filter" style="color: blue" /><br><br>
-
-        <div class="row">
-            <div class="col-md-12">
-                <!-- LINE CHART -->
-                <div class="box box-info">
-                    <div class="box-header with-border">
-                        <!--              <h3 class="box-title"><b>Buyer Response Rate Last 3 Months</b></h3>-->
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-
-                    <!--
-                                <div class="box-body chart-responsive">
-                                  <div class="chart" id="line-chart" style="height: 300px;"></div>
-                                </div>-->
-                    <div id="BuyerChartContainer" style="height: 370px; width: 100%;"></div>
-                    <script src="~/Scripts/Graph.js"></script>
-                    <!-- /.box-body -->
-                </div>
-            </div>
-        </div>
 
 
         <div id="Table">
@@ -316,72 +260,6 @@
 
 
     </script>
-    <script>
-       window.onload = function () {
-
-           var chart = new CanvasJS.Chart("SellerChartContainer", {
-               animationEnabled: true,
-               theme: "light2",
-               title: {
-                   text: "Your Response Rate Last 3 Months"
-               },
-
-               data: [{
-                   type: "line",
-                   dataPoints: [
-                       { y: 0 },
-                       { y: 4, indexLabel: "Week-1" },
-                       { y: 5, indexLabel: "Week-2" },
-                       { y: 5, indexLabel: "Week-3" },
-                       { y: 5, indexLabel: "Week-4" },
-                       { y: 5, indexLabel: "Week-5" },
-                       { y: 2, indexLabel: "Week-6" },
-                       { y: 3, indexLabel: "Week-7" },
-                       { y: 4, indexLabel: "Week-8" },
-                       { y: 5, indexLabel: "Week-9" },
-                       { y: 6, indexLabel: "Week-10" },
-                       { y: 5, indexLabel: "Week-11" },
-                       { y: 7, indexLabel: "Week-12" }
-                   ]
-               }]
-           });
-
-           chart.render();
-
-           var chart = new CanvasJS.Chart("BuyerChartContainer", {
-               animationEnabled: true,
-               theme: "light2",
-               title: {
-                   text: "Buyer Response Rate Last 3 Months"
-               },
-
-               data: [{
-                   type: "line",
-                   dataPoints: [
-                       { y: 0 },
-                       { y: 3, indexLabel: "Week-1" },
-                       { y: 1, indexLabel: "Week-2" },
-                       { y: 7, indexLabel: "Week-3" },
-                       { y: 2, indexLabel: "Week-4" },
-                       { y: 6, indexLabel: "Week-5" },
-                       { y: 2, indexLabel: "Week-6" },
-                       { y: 6, indexLabel: "Week-7" },
-                       { y: 4, indexLabel: "Week-8" },
-                       { y: 5, indexLabel: "Week-9" },
-                       { y: 6, indexLabel: "Week-10" },
-                       { y: 8, indexLabel: "Week-11" },
-                       { y: 12, indexLabel: "Week-12" }
-                   ]
-               }]
-           });
-           chart.render();
-
-       }
-
-       function AutoScroll() {
-           location.href = "#Table";
-       }
-
-    </script>
+   
 }
 

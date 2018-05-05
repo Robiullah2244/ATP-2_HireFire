@@ -15,12 +15,14 @@ namespace HireFire.Controllers
         ISellerService _sellerService;
         IGigService _gigService;
         ISellerHeaderService _sellerHeaderService;
+        ITransactionService _transactionService;
 
 
-        public SellerController(ISellerService sellerService, IGigService gigService)
+        public SellerController(ISellerService sellerService, IGigService gigService, ITransactionService transactionService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
+            _transactionService = transactionService;
 
         }
 
@@ -55,14 +57,32 @@ namespace HireFire.Controllers
 
         public ActionResult Dashboard()
         {
-            //  HireFireDbContext ctx = new HireFireDbContext();
-            //Category cetagory = new Category();
-            //cetagory.Name = "sfs";
-            //cetagory.Id = 1;
-            //  return ctx.Categorys.ToList();
+            var gigcount = _gigService.CountByUserName("Robi");
+            ViewBag.gigcount = gigcount;
+
+            var seller = _sellerService.GetByUserName("Robi");
+            ViewBag.workingHour = seller.WorkingHour;
+            ViewBag.reputationPoint = seller.ReputationPoint;
+            var level = seller.Level;
+
+            if(level==1)
+            {
+                ViewBag.level = "Silver";
+            }
+            else if(level<4)
+            {
+                ViewBag.level = "Gold";
+            }
+            else
+            {
+                ViewBag.level = "Platinum";
+            }
+
+            ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
 
             return View();
         }
+
         public ActionResult ProfileFromAdminView()
         {
             return View();

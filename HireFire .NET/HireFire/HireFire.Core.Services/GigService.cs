@@ -81,5 +81,10 @@ namespace HireFire.Core.Services
         {
             return _context.Set<Gig>().Where(c => c.CategoryId == categoryId);
         }
+
+        public int CountByUserName(string userName)
+         {
+             return _context.Set<Gig>().Where(c => c.SellerUserName == userName).Count();
+         }
     }
 }
