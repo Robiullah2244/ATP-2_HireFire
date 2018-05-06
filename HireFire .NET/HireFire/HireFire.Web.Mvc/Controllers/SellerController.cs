@@ -252,6 +252,10 @@ namespace HireFire.Controllers
         {
             return View();
         }
+        public ActionResult AccountStatement()
+        {
+            return View();
+        }
     }
 }
 
