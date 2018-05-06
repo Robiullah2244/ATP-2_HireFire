@@ -58,6 +58,7 @@
     <Compile Include="OrderService.cs" />
     <Compile Include="PromotionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SellerGraphService.cs" />
     <Compile Include="SellerHeaderService.cs" />
     <Compile Include="SellerService.cs" />
     <Compile Include="TransactionService.cs" />
