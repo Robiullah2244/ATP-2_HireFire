@@ -1,0 +1,194 @@
+﻿@{
+    ViewBag.Title = "CreateGig";
+    Layout = "_Layout.Registration.cshtml";
+}
+
+@section head{
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFire | Registration 1</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.7 -->
+        <link rel="stylesheet" href="~/Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="~/Contents/bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="~/Contents/bower_components/Ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="~/Contents/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="~/Contents/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="~/Contents/dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js does not work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Google Font -->
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+            .example-modal .modal {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                right: auto;
+                left: auto;
+                display: block;
+                z-index: 1;
+            }
+
+            .example-modal .modal {
+                background: transparent !important;
+            }
+        </style>
+    </head>
+}
+
+<!-- Content Wrapper. Contains page content -->
+
+<div style="background-color: white; font-family:times-new-roman">
+
+    <div style="margin-left:20%;margin-right:20%">
+        <br />
+
+        <form method="POST" enctype="multipart/form-data" action="SellerProfile.html">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Edit Gig</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Gig Title</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Gig Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Category</label>
+                        <select name="category" id="category" onclick="validateCategory()">
+                            <option value="Please select">Please select</option>
+                            <option value="Graphics & Design">Graphics & Design</option>
+                            <option value="Digital Marketing">Digital Marketing</option>
+                            <option value="Writing & Translation">Writing & Translation</option>
+                            <option value="Music & Audio">Music & Audio</option>
+                            <option value="Programming & Tech">Programming & Tech</option>
+                            <option value="Business">Business</option>
+                            <option value="Video & Animation">Video & Animation</option>
+                        </select>&nbsp;&nbsp;<span id="categoryErrorMassage"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price in BDT">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Description</label>
+                        <textarea class="form-control" id="exampleInputPassword1" placeholder=""></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Choose a Image</label>
+                        <input type="file" id="exampleInputFile">
+
+
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+        </form>
+    </div>
+</div>
+
+<table border="0" width="100%">
+    </br></br>
+    <hr>
+    <tr>
+        <th align="left">CATEGORIES</th>
+        <th align="left">ABOUT</th>
+        <th align="left">COMMUNITY</th>
+        <th align="left">SUPPORT</th>
+        <th align="left">FOLLOW US</th>
+    </tr>
+
+    <tr>
+        <td> <a href="/Others/PublicHome">Graphics & Design</a></td>
+        <td>Careers</td>
+        <td>Blog</td>
+        <td>Contact Support</td>
+        <td> <a href="https://www.google.com/">Google</a></td>
+    </tr>
+    <tr>
+        <td><a href="/Others/PublicHome">Digital Marketing</a></td>
+        <td>Press & News</td>
+        <td>Forum</td>
+        <td>Help & Education</td>
+        <td>  <a href="https://twitter.com/">Twitter</a></td>
+
+    </tr>
+    <tr>
+        <td><a href="/Others/PublicHome">Writing & Translation</a></td>
+        <td>Partnerships</td>
+        <td>Podcast</td>
+        <td>Trust & Safety</td>
+        <td> <a href="https://Youtube.com">Youtube</a></td>
+
+    </tr>
+    <tr>
+        <td><a href="/Others/PublicHome"> Video & Animation</a></td>
+        <td>Privacy Policy</td>
+        <td>Affiliates</td>
+        <td>Selling on Freelance</td>
+        <td> <a href="https://www.facebook.com/robiullah2244">Facebook</a></td>
+
+    </tr>
+    <tr>
+        <td><a href="/Others/PublicHome"> Music & Audio</a></td>
+        <td>Terms of Service</td>
+        <td></td>
+        <td>Buying on freelance</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td> <a href="/Others/PublicHome">Programming & Tech</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><a href="/Others/PublicHome">Business</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<!-- /.content-wrapper -->
+@section javascript{
+    <!-- ./wrapper -->
+    <!-- jQuery 3 -->
+    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="~/Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Contents/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Contents/dist/js/demo.js"></script>
+}
+
+
