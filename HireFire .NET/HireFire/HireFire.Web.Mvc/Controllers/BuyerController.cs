@@ -22,8 +22,9 @@ namespace HireFire.Web.Mvc.Controllers
         IBuyerTableService _buyerTableService;
         IOrderService _orderService;
         ITaskService _taskService;
+        IGigService _gigService;
 
-        public BuyerController(IOrderService _orderService, IBuyerTableService _buyerTableService, IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService, ITaskService taskService)
+        public BuyerController(IOrderService _orderService, IBuyerTableService _buyerTableService, IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService, ITaskService taskService, IGigService gigService)
         {
             _buyerService = service;
             _transactionService = transactionService;
@@ -32,6 +33,7 @@ namespace HireFire.Web.Mvc.Controllers
             this._buyerTableService = _buyerTableService;
             this._orderService = _orderService;
             _taskService = taskService;
+            _gigService = gigService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
@@ -220,8 +222,19 @@ namespace HireFire.Web.Mvc.Controllers
             Order order = _orderService.GetById(32);
             ViewBag.finalDeadline = order.Deadline;
             ViewBag.feedback = order.Feedback;
+            ViewBag.rating = order.Rating;
+
+            ViewBag.title = _gigService.GetByGigId(order.GigId).Title;
+           // Response.Write(ViewBag.title);
 
             return View();
+        }
+
+
+        [HttpPost, ActionName("BuyerOrderProgress")]
+        public void BuyerOrderProgressPost(int taskId,string taskName,int orderId)
+        {
+            _taskService.Update(new Task { OrderId = orderId, TaskName = taskName, Id = taskId });
         }
 
         public ActionResult BuyerSetting()

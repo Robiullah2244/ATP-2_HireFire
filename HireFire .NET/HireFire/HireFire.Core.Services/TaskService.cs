@@ -42,7 +42,18 @@ namespace HireFire.Core.Services
 
         public bool Update(Entity.Task task)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetTask = _context.Set<Task>().Where(t => t.Id == task.Id).FirstOrDefault();
+                targetTask.TaskName = task.TaskName;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool Delete(int taskId)

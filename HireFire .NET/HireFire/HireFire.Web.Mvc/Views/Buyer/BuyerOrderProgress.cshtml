@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "BuyerOrderProgress";
+    
     Layout = "_Layout.Profile.cshtml";
 }
 @section head{
@@ -109,9 +109,9 @@
 
 
         <br /><br /><br />
-        <span style="margin-left: 7%;margin-right: 7%"><b>Gig Title: </b>I can do C++ Project</span><br /><br />
+        <span style="margin-left: 7%;margin-right: 7%"><b>Gig Title: </b>@ViewBag.title</span><br /><br />
 
-        <span style="margin-left: 7%;margin-right: 7%"><b>Deadline: </b>10 Days Left</span><br /><br />
+        <span style="margin-left: 7%;margin-right: 7%"><b>Deadline: </b> @((ViewBag.finalDeadline - DateTime.Now).Days) Days Left</span><br /><br />
 
 
         <b style="margin-left: 7%;margin-right: 7%">Progress</b><br /><br />
@@ -152,7 +152,7 @@
                             string v=t.Deadline.ToString("yyyy-MM-dd");
                             <tr>
                                 <td>@j.</td>
-                                <td><input value="@t.TaskName" /></td>
+                                <td><input value="@t.TaskName" name="taskName@(j)" onchange="TaskName(@t.Id,@t.OrderId)"/></td>
 
                                 @if (t.Status == 1)
                                 {
@@ -316,11 +316,54 @@
 
         <div align="center" style=" margin-left:20%;margin-right:20%">
             <b><h3>Rating</h3></b>
-            <span style="cursor: pointer" class="fa fa-star" id="OneStar" onclick="oneStar()"></span>
-            <span style="cursor: pointer" class="fa fa-star" id="TwoStar" onclick="twoStar()"></span>
-            <span style="cursor: pointer" class="fa fa-star" id="ThreeStar" onclick="threeStar()"></span>
-            <span style="cursor: pointer" class="fa fa-star" id="FourStar" onclick="fourStar()"></span>
-            <span style="cursor: pointer" class="fa fa-star" id="FiveStar" onclick="fiveStar()"></span>
+            @if (ViewBag.rating == 0)
+            {
+                <span style="cursor: pointer" class="fa fa-star" id="OneStar" onclick="oneStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="TwoStar" onclick="twoStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="ThreeStar" onclick="threeStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FourStar" onclick="fourStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FiveStar" onclick="fiveStar()"></span>
+            }
+            else if (ViewBag.rating == 1)
+            {
+                <span style="cursor: pointer" class="fa fa-star checked" id="OneStar" onclick="oneStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="TwoStar" onclick="twoStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="ThreeStar" onclick="threeStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FourStar" onclick="fourStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FiveStar" onclick="fiveStar()"></span>
+            }
+            else if (ViewBag.rating == 2)
+            {
+                <span style="cursor: pointer" class="fa fa-star checked" id="OneStar" onclick="oneStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="TwoStar" onclick="twoStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="ThreeStar" onclick="threeStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FourStar" onclick="fourStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FiveStar" onclick="fiveStar()"></span>
+            }
+            else if (ViewBag.rating == 3)
+            {
+                <span style="cursor: pointer" class="fa fa-star checked" id="OneStar" onclick="oneStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="TwoStar" onclick="twoStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="ThreeStar" onclick="threeStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FourStar" onclick="fourStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FiveStar" onclick="fiveStar()"></span>
+            }
+            else if (ViewBag.rating == 4)
+            {
+                <span style="cursor: pointer" class="fa fa-star checked" id="OneStar" onclick="oneStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="TwoStar" onclick="twoStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="ThreeStar" onclick="threeStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="FourStar" onclick="fourStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star" id="FiveStar" onclick="fiveStar()"></span>
+            }
+            else if (ViewBag.rating == 5)
+            {
+                <span style="cursor: pointer" class="fa fa-star checked" id="OneStar" onclick="oneStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="TwoStar" onclick="twoStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="ThreeStar" onclick="threeStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="FourStar" onclick="fourStar()"></span>
+                <span style="cursor: pointer" class="fa fa-star checked" id="FiveStar" onclick="fiveStar()"></span>
+            }
         </div>
 
         <br />
@@ -369,33 +412,65 @@
         <script>
 
 
+
+
+
+
+            function TaskName(tId,oId) {
+
+                alert(String(oId ));
+                var t = "taskName" + String(tId);
+                //alert(t);
+                var taskName = document.getElementsByName(t)[0].value;
+                //var ammount = $('[name=]').val();
+                alert(taskName);
+
+                $.ajax({
+                    method: "POST",
+                    url: "/Buyer/BuyerOrderProgress", // the URL of the controller action method
+                    data: { taskId: tId, taskName: taskName, orderId: oId } // optional data
+
+                });
+
+                alert("WithDraw Succesfull");
+                document.getElementById("promotion").innerHTML = "";
+
+            }
+
+
+
+
+
+
+
+
             //function AddRow() {
 
-                //document.getElementById("table").innerHTML += "<table class='table table-striped'>" +
-                //    "<tbody><tr>" +
-                //    "<td >" + count + "</td>" +
-                //    "<td ><input value='Task-" + count + "'/></td>" +
-                //    "<td ><span class='label label-success'>On going</span</td>" +
-                //    "<td>" +
-                //    "<div class='form-group'>" +
-                //    "<div class='input-group date'>" +
-                //    "<div class='input-group-addon'>" +
-                //    "<i class='fa fa-calendar'></i>" +
-                //    "</div>" +
-                //    "<input type='text' class='form-control pull-right' id='datepicker1'>" +
-                //    "</div>" +
-                //    "</div>" +
-                //    "</td>" +
-                //    "<td >" +
-                //    "<label class='fileContainer'>" +
-                //    "<span class='label label-success'>Browse</span>" +
-                //    "<input type='file'/>" +
-                //    "</label>" +
-                //    "</td>" +
-                //    "<td><a style='cursor: pointer' onclick='Comment(" + count + ")'>Comment</a></td>" +
-                //    "<td ><input type='checkbox' id='approve' ></td>" +
-                //    "</tr></table></tbody>";
-                //count++;
+            //document.getElementById("table").innerHTML += "<table class='table table-striped'>" +
+            //    "<tbody><tr>" +
+            //    "<td >" + count + "</td>" +
+            //    "<td ><input value='Task-" + count + "'/></td>" +
+            //    "<td ><span class='label label-success'>On going</span</td>" +
+            //    "<td>" +
+            //    "<div class='form-group'>" +
+            //    "<div class='input-group date'>" +
+            //    "<div class='input-group-addon'>" +
+            //    "<i class='fa fa-calendar'></i>" +
+            //    "</div>" +
+            //    "<input type='text' class='form-control pull-right' id='datepicker1'>" +
+            //    "</div>" +
+            //    "</div>" +
+            //    "</td>" +
+            //    "<td >" +
+            //    "<label class='fileContainer'>" +
+            //    "<span class='label label-success'>Browse</span>" +
+            //    "<input type='file'/>" +
+            //    "</label>" +
+            //    "</td>" +
+            //    "<td><a style='cursor: pointer' onclick='Comment(" + count + ")'>Comment</a></td>" +
+            //    "<td ><input type='checkbox' id='approve' ></td>" +
+            //    "</tr></table></tbody>";
+            //count++;
             //}
 
             //Date picker
@@ -406,76 +481,76 @@
 
 
             //function ClearRow() {
-        //        count = count - 1;
-        //        /*var previous="<table class='table table-striped'>"+
-		//"<tbody><tr>"+
-		//  "<td >"+count+"</td>"+
-		//  "<td ><input value='Task-"+count+"'/></td>"+
-        //  "<td ><span class='label label-success'>On going</span</td>"+
+            //        count = count - 1;
+            //        /*var previous="<table class='table table-striped'>"+
+            //"<tbody><tr>"+
+            //  "<td >"+count+"</td>"+
+            //  "<td ><input value='Task-"+count+"'/></td>"+
+            //  "<td ><span class='label label-success'>On going</span</td>"+
 
-        //  "<td>"+
-        //    "<div class='form-group'>"+
-        //         "<div class='input-group date'>"+
-        //          "<div class='input-group-addon'>"+
-        //            "<i class='fa fa-calendar'></i>"+
-        //          "</div>"+
-        //             "<input type='text' class='form-control pull-right' id='datepicker1'>"+
-        //         "</div>"+
+            //  "<td>"+
+            //    "<div class='form-group'>"+
+            //         "<div class='input-group date'>"+
+            //          "<div class='input-group-addon'>"+
+            //            "<i class='fa fa-calendar'></i>"+
+            //          "</div>"+
+            //             "<input type='text' class='form-control pull-right' id='datepicker1'>"+
+            //         "</div>"+
 
-        //       "</div>"+
-        //  "</td>"+
-		//  "<td >"+
-        //    "<label class='fileContainer'>"+
-        //        "<span class='label label-success'>Browse</span>"+
-        //        "<input type='file'/>"+
-        //    "</label>"+
-        //  "</td>"+
-        //    "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
-		//  "<td ><input type='checkbox' id='approve' ></td>"+
-		//"</tr></table></tbody>";
+            //       "</div>"+
+            //  "</td>"+
+            //  "<td >"+
+            //    "<label class='fileContainer'>"+
+            //        "<span class='label label-success'>Browse</span>"+
+            //        "<input type='file'/>"+
+            //    "</label>"+
+            //  "</td>"+
+            //    "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
+            //  "<td ><input type='checkbox' id='approve' ></td>"+
+            //"</tr></table></tbody>";
 
-        //var str=document.getElementById('table').innerHTML;
+            //var str=document.getElementById('table').innerHTML;
 
-        //var res = str.replace("<td>","");
+            //var res = str.replace("<td>","");
 
-        //document.getElementById("table").innerHTML=res;*/
+            //document.getElementById("table").innerHTML=res;*/
 
 
-                //document.getElementById("table").innerHTML = "" +
-                //    "<tbody><tr>" +
-                //    "<th >#</th>" +
-                //    "<th >Task</th>" +
-                //    "<th >Status</th>" +
-                //    "<th >Deadline</th>" +
-                //    "<th >File</th>" +
-                //    "<th >Comment</th>" +
-                //    "<th >Approve?</th>" +
-                //    "</tr>" +
-                //    "<tr>" +
-                //    "<td>1.</td>" +
-                //    "<td>" + "<input value='Task-1'/></td>" +
-                //    "<td>" + "<span class='label label-warning'>Pending</span></td>" +
-                //    "<td>" +
-                //    "<div class='form-group'>" +
-                //    "<div class='input-group date'>" +
-                //    "<div class='input-group-addon'>" +
-                //    "<i class='fa fa-calendar'></i>" +
-                //    "</div>" +
-                //    "<input type='text' class='form-control pull-right' id='datepicker'>" +
-                //    "</div>" + 
-                
-                //    "</div>" +
-                //    "</td>" +
-                //    "<td>" +
-                //    "<label class='fileContainer'>" +
-                //    "<span class='label label-success'>Browse</span>" +
-                //    "<input type='file'/>" +
-                //    "</label>" +
-                //    "</td>" +
-                //    "<td><a style='cursor: pointer' onclick='Comment('1')'>Comment</a></td>" +
-                //    "<td>" + "<input type='checkbox' id='approve' width='100'></td>" +
-                //    "</tr>" +
-                //    "</tbody";
+            //document.getElementById("table").innerHTML = "" +
+            //    "<tbody><tr>" +
+            //    "<th >#</th>" +
+            //    "<th >Task</th>" +
+            //    "<th >Status</th>" +
+            //    "<th >Deadline</th>" +
+            //    "<th >File</th>" +
+            //    "<th >Comment</th>" +
+            //    "<th >Approve?</th>" +
+            //    "</tr>" +
+            //    "<tr>" +
+            //    "<td>1.</td>" +
+            //    "<td>" + "<input value='Task-1'/></td>" +
+            //    "<td>" + "<span class='label label-warning'>Pending</span></td>" +
+            //    "<td>" +
+            //    "<div class='form-group'>" +
+            //    "<div class='input-group date'>" +
+            //    "<div class='input-group-addon'>" +
+            //    "<i class='fa fa-calendar'></i>" +
+            //    "</div>" +
+            //    "<input type='text' class='form-control pull-right' id='datepicker'>" +
+            //    "</div>" +
+
+            //    "</div>" +
+            //    "</td>" +
+            //    "<td>" +
+            //    "<label class='fileContainer'>" +
+            //    "<span class='label label-success'>Browse</span>" +
+            //    "<input type='file'/>" +
+            //    "</label>" +
+            //    "</td>" +
+            //    "<td><a style='cursor: pointer' onclick='Comment('1')'>Comment</a></td>" +
+            //    "<td>" + "<input type='checkbox' id='approve' width='100'></td>" +
+            //    "</tr>" +
+            //    "</tbody";
             //}
 
             var star;
@@ -491,7 +566,7 @@
             }
 
             function twoStar() {
-                
+
                 $("#OneStar").addClass("checked");
                 $("#TwoStar").addClass("checked");
                 $("#ThreeStar").removeClass("checked");
