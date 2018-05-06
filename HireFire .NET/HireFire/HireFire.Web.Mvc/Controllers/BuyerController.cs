@@ -137,15 +137,18 @@ namespace HireFire.Web.Mvc.Controllers
                 return RedirectToAction("SignIN", "Others");
             }
             var AccountTransaction = _buyerTableService.GetTransaction(Session["userName"].ToString());
+            if (AccountTransaction != null)
+            {
             //foreach (var item in x)
             //{
             //    Response.Write(item.SellerName + "  " + item.BuyerPaid + "<br/>");
             //}
-            var GigName = _buyerTableService.GetAllGigName(AccountTransaction);
-            var sellerName = _buyerTableService.GetAllSellerNameList(AccountTransaction);
-            ViewBag.AccountTransaction = AccountTransaction;
-            ViewBag.GigName = GigName;
-            ViewBag.SellerName = sellerName;
+                var GigName = _buyerTableService.GetAllGigName(AccountTransaction);
+                var sellerName = _buyerTableService.GetAllSellerNameList(AccountTransaction);
+                ViewBag.AccountTransaction = AccountTransaction;
+                ViewBag.GigName = GigName;
+                ViewBag.SellerName = sellerName;
+            }
             return View();
             //foreach (var item in y)
             //{
