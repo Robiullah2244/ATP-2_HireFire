@@ -157,21 +157,7 @@ namespace HireFire.Web.Mvc.Controllers
             //IEnumerable<Transaction> transaction = _transactionService.GetByBuyerUserName("Robi");
             //return View(transaction);
         }
-        public ActionResult ActiveWork()
-        {
-            var Order = _buyerTableService.GetActiveWorkByUserName("tanim");
-            var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
-            var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
-            ViewBag.Order = Order;
-            ViewBag.AllGig = AllGig;
-            ViewBag.SellerName = sellerName;
-            return View();
-            //_transactionService.GetByBuyerUserName("robi");
-            //DateTime d = DateTime.MinValue;
-            //Response.Write((DateTime.Now - d).Days);
-            //return View();
-
-        }
+        
         public ActionResult CompletedWork()
         {
             var Order = _buyerTableService.GetCompletedWorkByUserName("tanim");
@@ -194,6 +180,21 @@ namespace HireFire.Web.Mvc.Controllers
             ViewBag.AllGig = AllGig;
             ViewBag.SellerName = sellerName;
             return View();
+        }
+        public ActionResult ActiveWork()
+        {
+            var Order = _buyerTableService.GetActiveWorkByUserName("tanim");
+            var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
+            var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
+            ViewBag.SellerName = sellerName;
+            return View();
+            //_transactionService.GetByBuyerUserName("robi");
+            //DateTime d = DateTime.MinValue;
+            //Response.Write((DateTime.Now - d).Days);
+            //return View();
+
         }
         //[HttpPost, ActionName("PendingWork")]
         public ActionResult PendingWorkDeleteByOrderId(int orderId)
