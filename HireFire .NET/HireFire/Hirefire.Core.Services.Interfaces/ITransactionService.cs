@@ -17,7 +17,8 @@ namespace Hirefire.Core.Services.Interfaces
 
         
         //public IEnumerable<Transaction> GetAll()
-        IEnumerable<Transaction> GetByBuyerUserName(string buyerUserName); 
+        IEnumerable<Transaction> GetByBuyerUserName(string buyerUserName);
+        Transaction GetLastTransactionBySellerUserName(string userName);
 
         IEnumerable<Transaction> GetBySellerUserName(string sellerUserName);//SellerAccountStatement.html
 

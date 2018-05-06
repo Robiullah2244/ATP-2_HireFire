@@ -16,18 +16,20 @@ namespace HireFire.Controllers
         IGigService _gigService;
         ISellerHeaderService _sellerHeaderService;
         ITransactionService _transactionService;
+        ISkillService _skillService;
         IOrderService _orderService;
         ISellerGraphService _sellerGraphService;
+        ILanguageService _languageService;
 
-
-        public SellerController(ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
+        public SellerController(ISkillService _skillService,ILanguageService _languageService,ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
             _transactionService = transactionService;
             _orderService = orderService;
             this._sellerGraphService = _sellerGraphService;
-
+            this._languageService = _languageService;
+            this._skillService = _skillService;
         }
 
 
@@ -55,8 +57,39 @@ namespace HireFire.Controllers
             // ctx.Admins.ToList();
 
 
-
+            var x = _languageService.GetByUserName("tanim");
+            ViewBag.Language = x;
+            var y= _skillService.GetByUserName("tanim");
+            ViewBag.Skill = y;
+            var user = _sellerService.GetByUserName("tanim");
+            ViewBag.User = user;
+            var transaction = _transactionService.GetLastTransactionBySellerUserName("tanim");
+            ViewBag.Transaction = transaction;
+            var allGig = _gigService.GetAllByUserName("tanim");
+            ViewBag.AllGig = allGig;
+            //allGig.ElementAt(0).ImagePath
             return View();
+        }
+        //[HttpPost]
+        public ActionResult AddLanguage(string newLanguage)
+        {
+            string userName = "tanim";
+            var y = _languageService.Insert(new Language { UserName = userName, LanguageInfo = newLanguage });
+            //string userName = Session["userName"].ToString();
+            //var x = _languageService.GetByUserName(userName);
+            //ViewBag.Language = x;
+            return (RedirectToAction("Profile"));
+        }
+        public ActionResult AddSkill(string newSkill)
+        {
+            var x=_skillService.Insert(new Skill { UserName = "tanim", SkillInfo = newSkill });
+            //Response.Write(x);
+            return (RedirectToAction("Profile"));
+        }
+        public ActionResult EditDescription(string EditedDescription)
+        {
+            var x = _sellerService.UpdateDescriptionByUserName("tanim", EditedDescription);
+            return (RedirectToAction("Profile"));
         }
 
         public ActionResult Dashboard()

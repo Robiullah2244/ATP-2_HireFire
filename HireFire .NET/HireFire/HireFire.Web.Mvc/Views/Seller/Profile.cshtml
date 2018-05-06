@@ -8,7 +8,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>AdminLTE 2 | Seller Profile</title>
+        <title>HireFire | Seller Profile</title>
+        <link rel="shortcut icon" href="~/Contents/Image/logo.png" type="image/png" />
+
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -31,39 +33,66 @@
         <![endif]-->
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
+        <style>
+            .img {
+                border: 1px solid #ddd;
+                border-radius: 10px;
+                padding: 10px;
+                margin: 3px;
+                width: 300px;
+                height: 170px;
+            }
+        </style>
         <script>
-        function AddLanguage()
-        {
-            document.getElementById("language").innerHTML='<td colspan="4" class="form-group"><label for="name">New Language </label><input class="form-control" id="newLanguage" type="text" value="Type your Language"> <button onclick="AddLanguageinpanel()"><font size="3">Submit</font></button></td>';
-        }
-        function AddLanguageinpanel()
-        {
-            document.getElementById("language2").innerHTML+= '</br>'+document.getElementById("newLanguage").value;
-            document.getElementById("language").innerHTML="";
-        }
-        function Adddescription()
-        {
-            document.getElementById("textboxpanel").innerHTML='<td colspan="4" class="form-group"><textarea class="form-control" id="adddescriptionpanle">'+document.getElementById("textboxpanelLoder").innerHTML+'</textarea><button onclick="Adddescriptioninpanel()"><font size="3">Edit</font></button></td>';
 
-        }
-        function Adddescriptioninpanel()
-        {
+            //function AddLanguage()
+            //{
+            //    document.getElementById("language").innerHTML='<td colspan="4" class="form-group"><label for="name">New Language </label><input class="form-control" id="newLanguage" type="text" value="Type your Language"> <button onclick="AddLanguageinpanel()"><font size="3">Submit</font></button></td>';
+            //}
+            function AddLanguage() {
+                document.getElementById("language").innerHTML = '<td colspan="5" class="form-group">' +
+                    '<form action="/Seller/AddLanguage" method="post"><input class="form-control" id="newLanguage" ' +
+                    'name="newLanguage" type="text" placeholder="Type your New Language">' +
+                    '<font size="3"><input type="submit" value="Submit"/>&nbsp;' +
+                    '<button onclick="LanguagePanelHide()"><font size="3"> Close</font></button></font></form></td>';
 
-            document.getElementById("textboxpanelLoder").innerHTML = document.getElementById("adddescriptionpanle").value;
-            document.getElementById("textboxpanel").innerHTML="";
-        }
-      /*  <!--function clearcontents(adddescriptionpanle)
-            <!--{
-            <!--if(document.getElementById("adddescriptionpanle").value=="Your description .")
-            <!--{adddescriptionpanle.value = '';}
-            <!--	else
-            <!--	{
-            <!--		document.getElementById("textboxpanel").innerHTML='<td colspan="4" class="form-group"><textarea class="form-control" id="adddescriptionpanle" onclick="clearcontents(adddescriptionpanle)">'+document.getElementById("textboxpanelLoder").innerHTML+'</textarea><button onclick="Adddescriptioninpanel()"><font size="3">Edit</font></button></td>';
-            <!--	}
-        <!--}
-        -->*/
+            }
+            function AddSkill() {
+                document.getElementById("skill").innerHTML = '<td colspan="5" class="form-group">' +
+                    '<form action="/Seller/AddSkill" method="post"><input class="form-control" id="newSkill" ' +
+                    'name="newSkill" type="text" placeholder="Type your New Skill">' +
+                    '<font size="3"><input type="submit" value="Submit"/>&nbsp;' +
+                    '<button onclick="SkillPanelHide()"><font size="3"> Close</font></button></font></form></td>';
 
+            }
+            function LanguagePanelHide() {
+                document.getElementById("language").innerHTML = "";
+            }
+            function SkillPanelHide() {
+                document.getElementById("skill").innerHTML = "";
+            }
+            function Adddescription() {
+                document.getElementById("textboxpanel").innerHTML = '<td colspan="5" class="form-group"><textarea class="form-control" id="adddescriptionpanle">' + document.getElementById("textboxpanelLoder").innerHTML + '</textarea><button onclick="Adddescriptioninpanel()"><font size="3">Edit</font></button></td>';
+
+            }
+            function Adddescriptioninpanel() {
+
+                //document.getElementById("textboxpanelLoder").innerHTML = document.getElementById("adddescriptionpanle").value;
+                var x = document.getElementById("adddescriptionpanle").value;
+                window.location.href = '/seller/EditDescription?EditedDescription=' + x;
+                document.getElementById("textboxpanel").innerHTML = "";
+            }
+            //function Addskill() {
+            //    document.getElementById("skill").innerHTML = '<td colspan="4" class="form-group"><label for="name">New Language </label><input class="form-control" id="skillinpanel" type="text" value="Type your Skill"> <button onclick="Addskillonpanel()"><font size="3">Submit</font></button></td>';
+
+            //    //document.getElementById("skillpanel").innerHTML = '<td colspan="4" class="form-group"><textarea class="form-control" id="skillinpanel">' + document.getElementById("SkillLoder").innerHTML + '</textarea><button onclick="Addskillonpanel()"><font size="3">Edit</font></button></td>';
+
+            //}
+            function Addskillonpanel() {
+
+                document.getElementById("SkillLoder").innerHTML = document.getElementById("skillinpanel").value;
+                document.getElementById("skillpanel").innerHTML = "";
+            }
         </script>
     </head>
 
@@ -80,37 +109,46 @@
                 <td width="1%"></td>
                 <td valign="top" align="center" width="20%">
                     <img src="~/Contents/Image/User/b.png" width="30%" alt="TANIM" />
-                    <br />MD.NAZMUL HOSSAIN<hr />
+                    <br />@ViewBag.User.Name<hr />
 
                     <table width="100%">
 
                         <tr align="center">
-                            <td colspan="3">
+                            <td colspan="5">
                                 <button><font size="3"><a href="/Buyer/Profile">View as Buyer</a></font></button>
                             </td>
                         </tr>
 
                         <tr>
                             <td width="5%"><img src="~/Contents/Image/Other/location.png" /></td>
-                            <td width="60%">Form</td>
-                            <td align="right">Bangladesh</td>
+                            <td width="40%">Form</td>
+                            <td align="right" colspan="3">Bangladesh</td>
                         </tr>
                         <tr>
                             <td width="5%"><img src="~/Contents/Image/User/member1.png" /></td>
                             <td>Member since</td>
-                            <td align="right">April 2017</td>
+                            <td align="right" colspan="3">@ViewBag.User.JoiningDate.ToString("MMMM") @ViewBag.User.JoiningDate.ToString("yyyy")</td>
                         </tr>
 
-                        <tr>
+                        @*<tr>
                             <td width="5%"><img src="~/Contents/Image/Other/time.png" /></td>
                             <td>Average Response</td>
-                            <td align="right">1Hrs.</td>
-                        </tr>
+                            <td align="right" colspan="3">1Hrs.</td>
+                        </tr>*@
 
                         <tr>
                             <td width="5%"><img src="~/Contents/Image/Other/delivery.png" /></td>
                             <td>Last Delivery</td>
-                            <td align="right">about 4 months</td>
+                            <td align="right" colspan="3">
+                                @if (@ViewBag.Transaction != null)
+                                {
+                                    <span>About </span><span>@ViewBag.Transaction.Date.ToString("MM")</span><span> months ago.</span>
+                                }
+                                else
+                                {
+                                    <span>Never Delivered</span>
+                                }
+                            </td>
                         </tr>
 
                         <tr height="40">
@@ -128,7 +166,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4" id="textboxpanelLoder"> Your description .</td>
+                            <td colspan="5" id="textboxpanelLoder"> @ViewBag.User.Description</td>
                         </tr>
                         <tr id="textboxpanel"></tr>
                         <tr height="10">
@@ -148,7 +186,15 @@
                         </tr>
 
                         <tr>
-                            <td colspan="4" id="language2">English</td>
+                            <td colspan="4" id="language2">
+                                @{
+                                    foreach (var item in ViewBag.Language)
+                                    {
+                                        <li>@item.LanguageInfo</li>
+                                    }
+                                }
+
+                            </td>
                         </tr>
 
                         <tr id="language">
@@ -164,14 +210,21 @@
                             <td align="right" class="dropdown tasks-menu">
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="label label-danger" onclick="Addskill()">Add Skill's</span>
+                                    <span class="label label-danger" onclick="AddSkill()">Add Skill's</span>
                                 </a>
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="4" id="SkillLoder"> Your Skill's .</td>
+                            <td colspan="5" id="SkillLoder">
+                                @{
+                                    foreach (var item in ViewBag.Skill)
+                                    {
+                                        <li>@item.SkillInfo</li>
+                                    }
+                                }
+                            </td>
                         </tr>
-                        <tr id="skillpanel"></tr>
+                        <tr id="skill"></tr>
 
                         <tr height="10">
                             <td colspan="3"><hr /></td>
@@ -189,50 +242,76 @@
                     </table>
 
                 </td>
-               <td width="5%"></td>
+                <td width="5%"></td>
                 <td width="60%" valign="top">
                     <h1>Active Gigs	</h1><br /><br />
                     <table cellspacing="40">
+
                         <tr>
-                            <td width="20%">
-                                <img src="~/Contents/Image/Gig/graphics2.jpg" width="100%" / width="80"><br /><br />
-                                <a href="GigDetail.html">I will do c or c++ project for you.</a>
-                            </td>
-                            <td>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <img src="~/Contents/Image/Gig/addgig.png" /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href="CreateGig.html"><button>Create a new gig</button></a>
-                            </td>
+                            @{
+                                int count = 0;
+                                int i = 0;
+                                foreach (var item in ViewBag.AllGig)
+                                {
 
-                            <!-- <td width="5%"></td>
-                            <td width="60%" valign="top">
-                                <h1>Active Gigs	</h1><br /><br />
-                                <h2>You doesn't have any gig's to display</h2>
-                            </td>-->
+                                    <td width="20%">
+                                        <img src="~/Contents/Image/Gig/@item.ImagePath" class="img"><br /><br />
+                                        <a href="GigDetail.html?GigId=@item.Id">@item.Title</a>
+                                    </td>
+                                    count++;
+                                    i++;
+                                    if (count == 3)
+                                    {
+
+                                        count = 0;
+                                    <tr />
+                                    }
+                                }
+                                if (count < 3)
+                                {
+                                    <td>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <img src="~/Contents/Image/Gig/addgig.png" /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a href="CreateGig.html"><button>Create a new gig</button></a>
+                                    </td>
+                        <tr/>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <img src="~/Contents/Image/Gig/addgig.png" /><br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="CreateGig.html"><button>Create a new gig</button></a>
+                                        </td>
+                                    </tr>
+                                }
 
 
+                            }
+
+
+                        </table>
+                        </td>
                         </tr>
-                    </table>
-                </td>
-            </tr>
 
-        </table>
-    </section>
-</div>
-<!-- /.content-wrapper -->
-@section javascript{
-    <!-- ./wrapper -->
-    <!-- jQuery 3 -->
-    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- SlimScroll -->
-    <script src="~/Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
-    <!-- AdminLTE App -->
-    <script src="~/Contents/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="~/Contents/dist/js/demo.js"></script>
+                        </table>
+                    </section>
+                </div>
+                <!-- /.content-wrapper -->
+                @section javascript{
+                    <!-- ./wrapper -->
+                    <!-- jQuery 3 -->
+                    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
+                    <!-- Bootstrap 3.3.7 -->
+                    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                    <!-- SlimScroll -->
+                    <script src="~/Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+                    <!-- FastClick -->
+                    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
+                    <!-- AdminLTE App -->
+                    <script src="~/Contents/dist/js/adminlte.min.js"></script>
+                    <!-- AdminLTE for demo purposes -->
+                    <script src="~/Contents/dist/js/demo.js"></script>
 
-}
+                }
