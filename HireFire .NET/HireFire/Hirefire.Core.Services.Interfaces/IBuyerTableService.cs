@@ -11,10 +11,13 @@ namespace Hirefire.Core.Services.Interfaces
     {
         IEnumerable<dynamic> GetTopSeller(string userName);
         IEnumerable<Transaction> GetTransaction(string userName);
+        IEnumerable<string> GetAllSellerNameList(IEnumerable<Transaction> transaction);//Seller Name will be found for GetAccountHistory 
         IEnumerable<string> GetAllGigName(IEnumerable<Transaction> transaction);//Gig Name will be found for GetAccountHistory 
-        IEnumerable<dynamic> GetActiveWorkByUserName(string uesrName);
-        IEnumerable<dynamic> GetPendingWorkByUserName(string uesrName);
-        IEnumerable<dynamic> GetCompletedWorkByUserName(string uesrName);
-        IEnumerable<string> GetAllSellerNameList(IEnumerable<Transaction> transaction);
+        IEnumerable<Order> GetActiveWorkByUserName(string uesrName);
+        IEnumerable<Gig> GetAllGigInformationByOrderId(IEnumerable<Order> order);
+        IEnumerable<string> GetAllSellerNameListByGig(IEnumerable<Gig> gig);
+        IEnumerable<Order> GetPendingWorkByUserName(string uesrName);
+        IEnumerable<Order> GetCompletedWorkByUserName(string uesrName);
+        IEnumerable<Transaction> GetTransactionForCompletionDate(IEnumerable<Order> order);
     }
 }

@@ -41,7 +41,7 @@ namespace HireFire.Core.Services
             }
             return GigName;
         }
-        public IEnumerable<string> GetAllSellerNameList(IEnumerable<Transaction> transaction)
+        public IEnumerable<string> GetAllSellerNameList(IEnumerable<Transaction> transaction)//Account History Page
         {
             List<string> sellerName = new List<string>();
             foreach (var item in transaction)
@@ -72,17 +72,49 @@ namespace HireFire.Core.Services
         //    return obj;
         //    //throw new NotImplementedException();
         //}
-        public IEnumerable<dynamic> GetActiveWorkByUserName(string userName)
+        public IEnumerable<Order> GetActiveWorkByUserName(string userName)
         {
-            throw new NotImplementedException();
+            return (_context.Set<Order>().Where(b => b.BuyerName == userName && b.Status==2).OrderByDescending(b => b.Deadline).ToList());
+            //throw new NotImplementedException();
         }
-        public IEnumerable<dynamic> GetPendingWorkByUserName(string userName)
+        public IEnumerable<Gig> GetAllGigInformationByOrderId(IEnumerable<Order> order)//Get All other information using the order table for Active,Pending,Completed Works
         {
-            throw new NotImplementedException();
+            List<Gig> GigList = new List<Gig>();
+            foreach (var item in order)
+            {
+                var z = _context.Set<Gig>().Where(b => b.Id == item.GigId).FirstOrDefault();
+                GigList.Add(z);
+            }
+            return GigList;
         }
-        public IEnumerable<dynamic> GetCompletedWorkByUserName(string userName)
+        public IEnumerable<string> GetAllSellerNameListByGig(IEnumerable<Gig> gig)//Account History Page
         {
-            throw new NotImplementedException();
+            List<string> sellerName = new List<string>();
+            foreach (var item in gig)
+            {
+                var z = _context.Set<Seller>().Where(b => b.UserName == item.SellerUserName).FirstOrDefault();
+                sellerName.Add(z.Name);
+            }
+            return sellerName;
+        }
+        public IEnumerable<Order> GetPendingWorkByUserName(string userName)
+        {
+            return (_context.Set<Order>().Where(b => b.BuyerName == userName && b.Status == 1).OrderByDescending(b => b.Deadline).ToList());
+
+        }
+        public IEnumerable<Order> GetCompletedWorkByUserName(string userName)
+        {
+            return (_context.Set<Order>().Where(b => b.BuyerName == userName && b.Status == 3).OrderByDescending(b => b.Deadline).ToList());
+        }
+        public IEnumerable<Transaction> GetTransactionForCompletionDate(IEnumerable<Order> order)//Get Completion Date using the order table for Completed Works
+        {
+            List<Transaction> TransactionList = new List<Transaction>();
+            foreach (var item in order)
+            {
+                var z = _context.Set<Transaction>().Where(b => b.OrderId == item.Id).FirstOrDefault();
+                TransactionList.Add(z);
+            }
+            return TransactionList;
         }
     }
 }

@@ -152,19 +152,42 @@ namespace HireFire.Web.Mvc.Controllers
             //IEnumerable<Transaction> transaction = _transactionService.GetByBuyerUserName("Robi");
             //return View(transaction);
         }
-        public void ActiveWork()
+        public ActionResult ActiveWork()
         {
-            _transactionService.GetByBuyerUserName("robi");
-            DateTime d = DateTime.MinValue;
-            Response.Write((DateTime.Now - d).Days);
+            var Order = _buyerTableService.GetActiveWorkByUserName("tanim");
+            var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
+            var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
+            ViewBag.SellerName = sellerName;
+            return View();
+            //_transactionService.GetByBuyerUserName("robi");
+            //DateTime d = DateTime.MinValue;
+            //Response.Write((DateTime.Now - d).Days);
             //return View();
+
         }
         public ActionResult CompletedWork()
         {
+            var Order = _buyerTableService.GetCompletedWorkByUserName("tanim");
+            var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
+            var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
+            var completionDate = _buyerTableService.GetTransactionForCompletionDate(Order);
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
+            ViewBag.SellerName = sellerName;
+            ViewBag.CompletionDate = completionDate;
+            //var x=Order.ElementAt(0).Date;
             return View();
         }
         public ActionResult PendingWork()
         {
+            var Order = _buyerTableService.GetPendingWorkByUserName("tanim");
+            var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
+            var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
+            ViewBag.SellerName = sellerName;
             return View();
         }
         public ActionResult BuyerList()

@@ -7,6 +7,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>HireFire | Pending Task</title>
+        <link rel="shortcut icon" href="~/Contents/Image/logo.png" type="image/png" />
+
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
@@ -89,13 +91,30 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a href="#">TANVIR</a> </td>
-                                    <td>I will do Designing</td>
-                                    <td>100223</td>
-                                    <td>12-02-2018</td>
-                                    <td><span class="label label-danger" style="cursor: pointer;">Remove</span></td>
-                                </tr>
+                                @{
+                                    int i = 0;
+                                    int j;
+                                    foreach (var item in ViewBag.AllGig)
+                                    {
+                                        <tr>
+                                            
+                                            <td><a href="/Others/ContactSeller?userName=@item.SellerUserName">@ViewBag.SellerName[i]</a></td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Price</td>
+                                            <td>@ViewBag.Order[i].Deadline.ToString("yyyy/MM/dd")</td>
+                                            <td><span class="label label-danger" style="cursor: pointer;" onclick="Delete(@ViewBag.Order[@i].Id,@i)">Remove</span></td>
+
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                                @*<tr>
+                                        <td><a href="#">TANVIR</a> </td>
+                                        <td>I will do Designing</td>
+                                        <td>100223</td>
+                                        <td>12-02-2018</td>
+                                        <td><span class="label label-danger" style="cursor: pointer;">Remove</span></td>
+                                    </tr>*@
 
 
                             </tbody>
@@ -120,6 +139,8 @@
     </section>
     <!-- /.content -->
 </div>
+<div id="Deletion"></div>
+
 <!-- /.content-wrapper -->
 @section javascript{
     <!-- jQuery 3 -->
@@ -139,6 +160,44 @@
     <script src="../Contents/dist/js/demo.js"></script>
     <!-- page script -->
 
+    <script>
+    function Delete(orderId, index) {
+        //var k = index;
+
+        document.getElementById("Deletion").innerHTML = "" +
+"<form action='/buyer/PendingWordDelete?orderId='"+orderId+"><div class='modal modal-danger fade in' id='modal-danger' style='display: block; padding-right: 17px;'>" +
+  "<div class='modal-dialog'>" +
+    "<div class='modal-content'>" +
+      "<div class='modal-header'>" +
+        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+          "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+        "<h4 class='modal-title'>Deletion</h4>" +orderId+
+      "</div>" +
+      "<div class='modal-body'>" +
+        "<p>Do you want to delete the order?</p>" + orderId+
+      "</div>" +
+      "<div class='modal-footer'>" +
+        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+        "<input type='submit'  class='btn btn-outline'/>" +
+      "</div>" +
+    "</div>" +
+    "<!-- /.modal-content -->" +
+  "</div>" +
+  "<!-- /.modal-dialog -->" +
+"</div></form>";
+    }
+  
+    //var z;
+    //alert(x);
+
+    function hide() {
+        document.getElementById("Deletion").innerHTML = "";
+    }
+
+    function add() {
+        document.getElementById("Deletion").innerHTML = "";
+    }
+    </script>
 
     <script>
         $(function () {
