@@ -152,7 +152,7 @@
                             string v=t.Deadline.ToString("yyyy-MM-dd");
                             <tr>
                                 <td>@j.</td>
-                                <td><input value="@t.TaskName" name="taskName@(j)" onchange="TaskName(@t.Id,@t.OrderId)"/></td>
+                                <td><input value="@t.TaskName" name="taskName@(j)" onchange="TaskUpdate(@t.Id)" /></td>
 
                                 @if (t.Status == 1)
                                 {
@@ -170,7 +170,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="date" class="form-control pull-right datepicker" id="datepicker" value="@v" />
+                                            <input type="date" class="form-control pull-right datepicker" name="deadline@(j)" onchange="TaskUpdate(@t.Id)" id=" datepicker" value="@v" />
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -187,11 +187,11 @@
 
                                 @if (t.Approbation == true)
                                 {
-                                    <td><input type="checkbox" checked id="approve" width="100"></td>
+                                    <td><input type="checkbox" checked id="approve" name="taskApprove@(j)" onchange="TaskUpdate(@t.Id)" width="100"></td>
                                 }
                                 else
                                 {
-                                    <td><input type="checkbox" id="approve" width="100"></td>
+                                    <td><input type="checkbox" id="approve" name="taskApprove@(j)" onchange="TaskUpdate(@t.Id)" width=" 100"></td>
                                 }
 
                             </tr>
@@ -203,7 +203,7 @@
                         {
                             <tr>
                                 <td>@(i+1).</td>
-                                <td><input value="Task-@(i+1)" /></td>
+                                <td><input value="Task-@(i+1)" name="taskName@(i + 1)"  onchange="TaskInsert(@(i+1))" /></td>
    
                                 <td><span class="label label-danger">Not Assign</span></td>
 
@@ -213,7 +213,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </div>
-                                            <input type="date" class="form-control pull-right datepicker" id="datepicker" />
+                                            <input type="date" class="form-control pull-right datepicker" id="datepicker" onchange="TaskInsert(@(i+1))" name="deadline@(i + 1)" />
                                         </div>
                                         <!-- /.input group -->
                                     </div>
@@ -277,9 +277,16 @@
                     var d = ViewBag.finalDeadline.ToString("yyyy-MM-dd");
                     <tr>
                         <td>1.</td>
-                        <td><input readonly value="Final Task" /></td>
-
-                        <td><span class="label label-warning">Waiting For Approve</span></td>
+                        <td><input readonly value="Final Task" name="finalTask" /></td>
+                        @if (ViewBag.status == 3)
+                        {
+                            <td><span class="label label-success">Approved</span></td>
+                        }
+                        else
+                        {
+                            <td><span class="label label-warning">Waiting For Approve</span></td>
+                        }
+                        
 
                         <td>
                             <div class="form-group">
@@ -287,7 +294,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="date" class="form-control pull-right datepicker"  id="datepicker" value="@d" />
+                                    <input type="date" class="form-control pull-right datepicker" name="finalDeadline" onchange="FinalTaskDeadline(5)" id="datepicker" value="@d" />
                                 </div>
                                 <!-- /.input group -->
                             </div>
@@ -300,8 +307,15 @@
 
                             </label>
                         </td>
-
-                        <td><input type="checkbox" id="approve" width="100"></td>
+                        @if (ViewBag.status == 3)
+                        {
+                            <td><input type="checkbox" id="approve" checked name="finalApprove" onclick="return false;" onchange=" finalapprove()" width="100"></td>
+                        }
+                        else
+                        {
+                            <td><input type="checkbox" id="approve" name="finalApprove" onchange="FinalApprove()" width="100"></td>
+                        }
+                        
 
                     </tr>
                 }
@@ -388,6 +402,10 @@
         <!-- /.content-wrapper -->
        
     </div>
+
+        <div id="popup"></div>
+
+
     @section javascript{
         <!-- ./wrapper -->
         <!-- jQuery 3 -->
@@ -416,25 +434,111 @@
 
 
 
-            function TaskName(tId,oId) {
+    function TaskUpdate(tId) {
 
-                alert(String(oId ));
-                var t = "taskName" + String(tId);
-                //alert(t);
-                var taskName = document.getElementsByName(t)[0].value;
-                //var ammount = $('[name=]').val();
-                alert(taskName);
+        //alert("TaskUpdate");
+        var t = "taskName" + String(tId);
+        var d = "deadline" + String(tId);
+        var a = "taskApprove" + String(tId);
+        //alert(t);
+        var taskName = document.getElementsByName(t)[0].value;
+        var deadline = document.getElementsByName(d)[0].value;
+        var approve = document.getElementsByName(a)[0].checked;
+        //var ammount = $('[name=]').val();
+        //alert(approve);
 
-                $.ajax({
-                    method: "POST",
-                    url: "/Buyer/BuyerOrderProgress", // the URL of the controller action method
-                    data: { taskId: tId, taskName: taskName, orderId: oId } // optional data
+        $.ajax({
+            method: "POST",
+            url: "/Buyer/BuyerOrderProgress", // the URL of the controller action method
+            data: { taskId: tId, taskName: taskName, deadline: deadline, identifier:"update", orderId:@ViewBag.orderId, approve:approve} // optional data
 
-                });
+        });
 
-                alert("WithDraw Succesfull");
-                document.getElementById("promotion").innerHTML = "";
 
+    }
+
+
+    function TaskInsert(tId) {
+
+        // alert("sdcds" );
+        var t = "taskName" + String(tId);
+        var d = "deadline" + String(tId);
+        // alert(t);
+        var taskName = document.getElementsByName(t)[0].value;
+        var deadline = document.getElementsByName(d)[0].value;
+        //var ammount = $('[name=]').val();
+        //alert(deadline);
+
+        $.ajax({
+            method: "POST",
+            url: "/Buyer/BuyerOrderProgress", // the URL of the controller action method
+            data: { taskId: tId, taskName: taskName, deadline: deadline, identifier:"insert", orderId:@ViewBag.orderId, approve:true } // optional data
+
+        });
+
+    }
+
+
+
+    function FinalTaskDeadline(tId) {
+
+        // alert("sdcds" );
+        var t = "finalTask";
+        var d = "finalDeadline";
+        // alert(t);
+        var taskName = document.getElementsByName(t)[0].value;
+        var deadline = document.getElementsByName(d)[0].value;
+        //var ammount = $('[name=]').val();
+        //alert(deadline);
+
+        $.ajax({
+            method: "POST",
+            url: "/Buyer/BuyerOrderProgress", // the URL of the controller action method
+            data: { taskId: tId, taskName: taskName, deadline: deadline, identifier:"Final Task Deadline", orderId:@ViewBag.orderId, approve:true } // optional data
+
+        });
+
+    }
+
+
+
+
+            function hide1() {
+                document.getElementById("popup").innerHTML = "";
+            }
+
+
+
+            function approve1() {
+                
+                window.location.href = "/Buyer/TaskApprove?orderId="+@ViewBag.orderId;
+            }
+
+
+
+            function FinalApprove() {
+                document.getElementById("popup").innerHTML = "" +
+                "<div class='modal modal-danger fade in' id='modal-danger' style='display: block; padding-right: 17px;'>" +
+                  "<div class='modal-dialog'>" +
+                    "<div class='modal-content'>" +
+                      "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                          "<span aria-hidden='true' onclick='hide1()'>×</span></button>" +
+                        "<h4 class='modal-title'>Withdraw</h4>" +
+                      "</div>" +
+                      "<div class='modal-body'>" +
+                        "<p>Are You Sure that you want to approve Finally and Permanently?<br/></p>" +
+                        "<p>You can not clain after approve<br/></p>" +
+                      "</div>" +
+                      "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide1()'>Close</button>" +
+                        "<button type='button' class='btn btn-outline'  onclick='approve1()'>Approve</button>" +
+                      "</div>" +
+                    "</div>" +
+                    "<!-- /.modal-content -->" +
+                  "</div>" +
+                  "<!-- /.modal-dialog -->" +
+                "</div>";
             }
 
 
@@ -443,167 +547,57 @@
 
 
 
+    var star;
 
-            //function AddRow() {
+    function oneStar() {
 
-            //document.getElementById("table").innerHTML += "<table class='table table-striped'>" +
-            //    "<tbody><tr>" +
-            //    "<td >" + count + "</td>" +
-            //    "<td ><input value='Task-" + count + "'/></td>" +
-            //    "<td ><span class='label label-success'>On going</span</td>" +
-            //    "<td>" +
-            //    "<div class='form-group'>" +
-            //    "<div class='input-group date'>" +
-            //    "<div class='input-group-addon'>" +
-            //    "<i class='fa fa-calendar'></i>" +
-            //    "</div>" +
-            //    "<input type='text' class='form-control pull-right' id='datepicker1'>" +
-            //    "</div>" +
-            //    "</div>" +
-            //    "</td>" +
-            //    "<td >" +
-            //    "<label class='fileContainer'>" +
-            //    "<span class='label label-success'>Browse</span>" +
-            //    "<input type='file'/>" +
-            //    "</label>" +
-            //    "</td>" +
-            //    "<td><a style='cursor: pointer' onclick='Comment(" + count + ")'>Comment</a></td>" +
-            //    "<td ><input type='checkbox' id='approve' ></td>" +
-            //    "</tr></table></tbody>";
-            //count++;
-            //}
+        $("#OneStar").addClass("checked");
+        $("#TwoStar").removeClass("checked");
+        $("#ThreeStar").removeClass("checked");
+        $("#FourStar").removeClass("checked");
+        $("#FiveStar").removeClass("checked");
+        star = 1;
+    }
 
-            //Date picker
+    function twoStar() {
 
-            //$('datepicker').datepicker({
-            //    //autoclose: true
-            //})
+        $("#OneStar").addClass("checked");
+        $("#TwoStar").addClass("checked");
+        $("#ThreeStar").removeClass("checked");
+        $("#FourStar").removeClass("checked");
+        $("#FiveStar").removeClass("checked");
+        star = 2;
+    }
 
+    function threeStar() {
 
-            //function ClearRow() {
-            //        count = count - 1;
-            //        /*var previous="<table class='table table-striped'>"+
-            //"<tbody><tr>"+
-            //  "<td >"+count+"</td>"+
-            //  "<td ><input value='Task-"+count+"'/></td>"+
-            //  "<td ><span class='label label-success'>On going</span</td>"+
+        $("#OneStar").addClass("checked");
+        $("#TwoStar").addClass("checked");
+        $("#ThreeStar").addClass("checked");
+        $("#FourStar").removeClass("checked");
+        $("#FiveStar").removeClass("checked");
+        star = 3;
+    }
 
-            //  "<td>"+
-            //    "<div class='form-group'>"+
-            //         "<div class='input-group date'>"+
-            //          "<div class='input-group-addon'>"+
-            //            "<i class='fa fa-calendar'></i>"+
-            //          "</div>"+
-            //             "<input type='text' class='form-control pull-right' id='datepicker1'>"+
-            //         "</div>"+
+    function fourStar() {
 
-            //       "</div>"+
-            //  "</td>"+
-            //  "<td >"+
-            //    "<label class='fileContainer'>"+
-            //        "<span class='label label-success'>Browse</span>"+
-            //        "<input type='file'/>"+
-            //    "</label>"+
-            //  "</td>"+
-            //    "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
-            //  "<td ><input type='checkbox' id='approve' ></td>"+
-            //"</tr></table></tbody>";
+        $("#OneStar").addClass("checked");
+        $("#TwoStar").addClass("checked");
+        $("#ThreeStar").addClass("checked");
+        $("#FourStar").addClass("checked");
+        $("#FiveStar").removeClass("checked");
+        star = 4;
+    }
 
-            //var str=document.getElementById('table').innerHTML;
+    function fiveStar() {
 
-            //var res = str.replace("<td>","");
-
-            //document.getElementById("table").innerHTML=res;*/
-
-
-            //document.getElementById("table").innerHTML = "" +
-            //    "<tbody><tr>" +
-            //    "<th >#</th>" +
-            //    "<th >Task</th>" +
-            //    "<th >Status</th>" +
-            //    "<th >Deadline</th>" +
-            //    "<th >File</th>" +
-            //    "<th >Comment</th>" +
-            //    "<th >Approve?</th>" +
-            //    "</tr>" +
-            //    "<tr>" +
-            //    "<td>1.</td>" +
-            //    "<td>" + "<input value='Task-1'/></td>" +
-            //    "<td>" + "<span class='label label-warning'>Pending</span></td>" +
-            //    "<td>" +
-            //    "<div class='form-group'>" +
-            //    "<div class='input-group date'>" +
-            //    "<div class='input-group-addon'>" +
-            //    "<i class='fa fa-calendar'></i>" +
-            //    "</div>" +
-            //    "<input type='text' class='form-control pull-right' id='datepicker'>" +
-            //    "</div>" +
-
-            //    "</div>" +
-            //    "</td>" +
-            //    "<td>" +
-            //    "<label class='fileContainer'>" +
-            //    "<span class='label label-success'>Browse</span>" +
-            //    "<input type='file'/>" +
-            //    "</label>" +
-            //    "</td>" +
-            //    "<td><a style='cursor: pointer' onclick='Comment('1')'>Comment</a></td>" +
-            //    "<td>" + "<input type='checkbox' id='approve' width='100'></td>" +
-            //    "</tr>" +
-            //    "</tbody";
-            //}
-
-            var star;
-
-            function oneStar() {
-
-                $("#OneStar").addClass("checked");
-                $("#TwoStar").removeClass("checked");
-                $("#ThreeStar").removeClass("checked");
-                $("#FourStar").removeClass("checked");
-                $("#FiveStar").removeClass("checked");
-                star = 1;
-            }
-
-            function twoStar() {
-
-                $("#OneStar").addClass("checked");
-                $("#TwoStar").addClass("checked");
-                $("#ThreeStar").removeClass("checked");
-                $("#FourStar").removeClass("checked");
-                $("#FiveStar").removeClass("checked");
-                star = 2;
-            }
-
-            function threeStar() {
-
-                $("#OneStar").addClass("checked");
-                $("#TwoStar").addClass("checked");
-                $("#ThreeStar").addClass("checked");
-                $("#FourStar").removeClass("checked");
-                $("#FiveStar").removeClass("checked");
-                star = 3;
-            }
-
-            function fourStar() {
-
-                $("#OneStar").addClass("checked");
-                $("#TwoStar").addClass("checked");
-                $("#ThreeStar").addClass("checked");
-                $("#FourStar").addClass("checked");
-                $("#FiveStar").removeClass("checked");
-                star = 4;
-            }
-
-            function fiveStar() {
-
-                $("#OneStar").addClass("checked");
-                $("#TwoStar").addClass("checked");
-                $("#ThreeStar").addClass("checked");
-                $("#FourStar").addClass("checked");
-                $("#FiveStar").addClass("checked");
-                star = 4;
-            }
+        $("#OneStar").addClass("checked");
+        $("#TwoStar").addClass("checked");
+        $("#ThreeStar").addClass("checked");
+        $("#FourStar").addClass("checked");
+        $("#FiveStar").addClass("checked");
+        star = 4;
+    }
 
         </script>
 

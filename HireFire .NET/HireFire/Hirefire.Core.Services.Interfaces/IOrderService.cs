@@ -18,6 +18,7 @@ namespace Hirefire.Core.Services.Interfaces
 
         bool Insert(DateTime deadline, int gigId, string userName, string accountName,string account);
         bool Update(Order order);
+        bool UpdateStatus(Order order);
         bool Delete(int id);
         IEnumerable<Order> GetByGigId(int gigId);
         int GetLatestOrderNumber();

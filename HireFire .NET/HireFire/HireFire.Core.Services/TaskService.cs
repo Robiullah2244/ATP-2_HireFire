@@ -30,6 +30,8 @@ namespace HireFire.Core.Services
         {
             try
             {
+                task.Status = 1;
+                task.Approbation = false;
                 _context.Set<Task>().Add(task);
                 _context.SaveChanges();
                 return true;
@@ -45,7 +47,9 @@ namespace HireFire.Core.Services
             try
             {
                 var targetTask = _context.Set<Task>().Where(t => t.Id == task.Id).FirstOrDefault();
+                targetTask.Approbation = task.Approbation;
                 targetTask.TaskName = task.TaskName;
+                targetTask.Deadline = task.Deadline;
                 _context.SaveChanges();
 
                 return true;
@@ -55,6 +59,8 @@ namespace HireFire.Core.Services
                 return false;
             }
         }
+
+      
 
         public bool Delete(int taskId)
         {

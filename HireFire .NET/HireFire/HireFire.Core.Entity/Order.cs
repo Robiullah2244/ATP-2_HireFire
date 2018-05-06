@@ -19,6 +19,8 @@ namespace HireFire.Core.Entity
         public string Feedback { get; set; }
         public int Rating { get; set; }
         public string SellerName { get; set; }
+        public string FileName { get; set; }
+
 
     }
 }

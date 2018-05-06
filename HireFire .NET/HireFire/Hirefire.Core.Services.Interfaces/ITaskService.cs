@@ -13,6 +13,8 @@ namespace Hirefire.Core.Services.Interfaces
         Task GetById(int taskId);
         bool Insert(Task task);
         bool Update(Task task);
+
+
         bool Delete(int taskId);
 
         int NumberOfActiveTaskByUserName(string userName);// Return the number of active works

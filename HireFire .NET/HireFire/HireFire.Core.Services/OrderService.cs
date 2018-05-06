@@ -68,8 +68,36 @@ namespace HireFire.Core.Services
 
         public bool Update(Order order)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetOrder = _context.Set<Order>().Where(o => o.Id == order.Id).FirstOrDefault();
+                targetOrder.Deadline = order.Deadline;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
+        public bool UpdateStatus(Order order)
+        {
+            try
+            {
+                var targetOrder = _context.Set<Order>().Where(o => o.Id == order.Id).FirstOrDefault();
+                targetOrder.Status = order.Status;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
         public bool Delete(int id)
         {

@@ -211,19 +211,20 @@ namespace HireFire.Web.Mvc.Controllers
         {
             return View();
         }
-        public ActionResult BuyerOrderProgress()
+        public ActionResult BuyerOrderProgress(int orderId)
         {
            // bool t = _taskService.Insert(new Task { OrderId = 32, TaskName = "fdfds", Status = 2, Deadline = DateTime.Now, Approbation = false, FileName = "cds" });
-            IEnumerable<Task> task = _taskService.GetAllByOrderId(32);
+            IEnumerable<Task> task = _taskService.GetAllByOrderId(orderId);
             ViewBag.task = task;
             //Response.Write(task.ToList()[1].Deadline.ToString("MM/dd/yyyy"));
             ViewBag.count = task.Count();
 
-            Order order = _orderService.GetById(32);
+            Order order = _orderService.GetById(orderId);
             ViewBag.finalDeadline = order.Deadline;
             ViewBag.feedback = order.Feedback;
             ViewBag.rating = order.Rating;
-
+            ViewBag.orderId = orderId;
+            ViewBag.status = order.Status;
             ViewBag.title = _gigService.GetByGigId(order.GigId).Title;
            // Response.Write(ViewBag.title);
 
@@ -232,9 +233,24 @@ namespace HireFire.Web.Mvc.Controllers
 
 
         [HttpPost, ActionName("BuyerOrderProgress")]
-        public void BuyerOrderProgressPost(int taskId,string taskName,int orderId)
+        public void BuyerOrderProgressPost(int taskId, string taskName, DateTime deadline, string identifier, int orderId, bool approve)
         {
-            _taskService.Update(new Task { OrderId = orderId, TaskName = taskName, Id = taskId });
+            if(identifier=="update")
+            {
+                _taskService.Update(new Task { TaskName = taskName, Id = taskId, Deadline = deadline, Approbation=approve});
+            }
+
+            else if (identifier == "insert")
+            {
+                _taskService.Insert(new Task { TaskName = taskName, Deadline = deadline, OrderId = orderId });
+            }
+
+            else if (identifier == "Final Task Deadline")
+            {
+                _orderService.Update(new Order { Deadline = deadline, Id=orderId });
+            }
+     
+            
         }
 
         public ActionResult BuyerSetting()
@@ -258,6 +274,11 @@ namespace HireFire.Web.Mvc.Controllers
         {
             var x = _buyerService.Delete("robi2");
             return x;
+        }
+
+        public void TaskApprove(int orderId)
+        {
+            _orderService.UpdateStatus(new Order { Status = 3, Id=orderId });
         }
 
     }
