@@ -1,11 +1,11 @@
 ﻿
 @{
     ViewBag.Title = "AdminSetting";
-    Layout = "~/Views/Admin/_Layout.Admin.others.cshtml";
+    Layout = "_Layout.Setting.cshtml";
 }
 @section head{
 <head>
-    <title>HireFire | Settings</title>
+    <title>HireFire |Admin Settings</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,63 +35,130 @@
 </head>
 }
 
-        <div style="background-color: #f2f2f2; font-family:times-new-roman">
+ <div style="background-color: #f2f2f2; font-family:times-new-roman">
 
-            <div style="margin-left:20%;margin-right:20%">
-                <br /><br /><br />
+    <div style="margin-left:20%;margin-right:20%">
+        <br />
 
-                <form method="POST" enctype="multipart/form-data" action="Others/Dashboard">
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Edit</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
+        <form method="POST" enctype="multipart/form-data" action="/Admin/Dashboard">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Edit</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
 
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" value="Md. Robi Ullah">
-                            </div>
-                            <!--		<div class="form-group">
-		                                    <label for="exampleInputEmail1">Category</label>
-		                                    <select name="category" id="category" onclick="validateCategory()" >
-		                                        <option value="Please select">Please select</option>
-		                                        <option value="Graphics & Design">Graphics & Design</option>
-		                                        <option value="Digital Marketing">Digital Marketing</option>
-		                                        <option value="Writing & Translation">Writing & Translation</option>
-		                                        <option value="Music & Audio">Music & Audio</option>
-		                                        <option value="Programming & Tech">Programming & Tech</option>
-		                                        <option value="Business">Business</option>
-		                                        <option value="Video & Animation">Video & Animation</option>
-		                                    </select>&nbsp;&nbsp;<span id="categoryErrorMassage"></span>
-		                                </div>-->
-
-                            <div class="form-group">
-                                <label for="name">Password</label>
-                                <input type="password" class="form-control" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Re-Type Password</label>
-                                <input type="password" class="form-control" id="name">
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Submit Changes</button>
-                        </div>
+                <div class="box-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" value="Md. Robi Ullah">
                     </div>
-                </form>
-                <br /><br /><br /><br /><br />
-                <br />
+                    <!--		<div class="form-group">
+                              <label for="exampleInputEmail1">Category</label>
+                              <select name="category" id="category" onclick="validateCategory()" >
+                                    <option value="Please select">Please select</option>
+                                    <option value="Graphics & Design">Graphics & Design</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="Writing & Translation">Writing & Translation</option>
+                                    <option value="Music & Audio">Music & Audio</option>
+                                    <option value="Programming & Tech">Programming & Tech</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Video & Animation">Video & Animation</option>
+                                </select>&nbsp;&nbsp;<span id="categoryErrorMassage"></span>
+                            </div>-->
 
+                    <div class="form-group">
+                        <label for="name">Password</label>
+                        <input type="password" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Re-Type Password</label>
+                        <input type="password" class="form-control" id="name">
+                    </div>
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit Changes</button>
+                </div>
             </div>
+        </form>
 
-        </div>
 
-        @section Javascript
+        <br />
+
+        <table border="0" width="100%">
+            <br />
+            <br />
+            <hr>
+            <tr>
+                <th align="left">CATEGORIES</th>
+                <th align="left">ABOUT</th>
+                <th align="left">COMMUNITY</th>
+                <th align="left">SUPPORT</th>
+                <th align="left">FOLLOW US</th>
+            </tr>
+
+            <tr>
+                <td> <a href="/Others/PublicHome">Graphics & Design</a></td>
+                <td>Careers</td>
+                <td>Blog</td>
+                <td>Contact Support</td>
+                <td> <a href="https://www.google.com/">Google</a></td>
+            </tr>
+            <tr>
+                <td><a href="/Others/PublicHome">Digital Marketing</a></td>
+                <td>Press & News</td>
+                <td>Forum</td>
+                <td>Help & Education</td>
+                <td>  <a href="https://twitter.com/">Twitter</a></td>
+
+            </tr>
+            <tr>
+                <td><a href="/Others/PublicHome">Writing & Translation</a></td>
+                <td>Partnerships</td>
+                <td>Podcast</td>
+                <td>Trust & Safety</td>
+                <td> <a href="https://Youtube.com">Youtube</a></td>
+
+            </tr>
+            <tr>
+                <td><a href="/Others/PublicHome"> Video & Animation</a></td>
+                <td>Privacy Policy</td>
+                <td>Affiliates</td>
+                <td>Selling on Freelance</td>
+                <td> <a href="https://www.facebook.com/robiullah2244">Facebook</a></td>
+
+            </tr>
+            <tr>
+                <td><a href="/Others/PublicHome"> Music & Audio</a></td>
+                <td>Terms of Service</td>
+                <td></td>
+                <td>Buying on freelance</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td> <a href="/Others/PublicHome">Programming & Tech</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="/Others/PublicHome">Business</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+
+
+    </div>
+
+    @section Javascript
         {
 
         <!-- ./wrapper -->
@@ -107,6 +174,6 @@
         <script src="~/Contents/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="~/Contents/dist/js/demo.js"></script>
-}
+    }
 
 
