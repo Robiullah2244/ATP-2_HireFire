@@ -12,18 +12,18 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.7 -->
-        <link rel="stylesheet" href="../Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="../Contents/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="../Contents/bower_components/Ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/Ionicons/css/ionicons.min.css">
         <!-- DataTables -->
-        <link rel="stylesheet" href="../Contents/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../Contents/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="~/Contents/dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
-        <link rel="stylesheet" href="../Contents/dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="~/Contents/dist/css/skins/_all-skins.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js does not work if you view the page via file:// -->
@@ -55,20 +55,7 @@
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!--
-        <section class="content-header">
-          <h1>
-            Data Tables
-            <small>advanced tables</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Data tables</li>
-          </ol>
-        </section>
-    -->
+
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -102,7 +89,7 @@
                                             <td>@item.Title</td>
                                             <td>@item.Price</td>
                                             <td>@ViewBag.Order[i].Deadline.ToString("yyyy/MM/dd")</td>
-                                            <td><span class="label label-danger" style="cursor: pointer;" onclick="Delete(@ViewBag.Order[@i].Id,@i)">Remove</span></td>
+                                            <td><span class="label label-danger" style="cursor: pointer;" onclick="Delete(@ViewBag.Order[i].Id)">Remove</span></td>
 
                                         </tr>
                                         i++;
@@ -144,41 +131,41 @@
 <!-- /.content-wrapper -->
 @section javascript{
     <!-- jQuery 3 -->
-    <script src="../Contents/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="../Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- DataTables -->
-    <script src="../Contents/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../Contents/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Contents/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Contents/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- SlimScroll -->
-    <script src="../Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
-    <script src="../Contents/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
-    <script src="../Contents/dist/js/adminlte.min.js"></script>
+    <script src="~/Contents/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="../Contents/dist/js/demo.js"></script>
+    <script src="~/Contents/dist/js/demo.js"></script>
     <!-- page script -->
 
     <script>
-    function Delete(orderId, index) {
+    function Delete(orderId) {
         //var k = index;
 
         document.getElementById("Deletion").innerHTML = "" +
-"<form action='/buyer/PendingWordDelete?orderId='"+orderId+"><div class='modal modal-danger fade in' id='modal-danger' style='display: block; padding-right: 17px;'>" +
+"<form method='post'><div class='modal modal-danger fade in' id='modal-danger' style='display: block; padding-right: 17px;'>" +
   "<div class='modal-dialog'>" +
     "<div class='modal-content'>" +
       "<div class='modal-header'>" +
         "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-          "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-        "<h4 class='modal-title'>Deletion</h4>" +orderId+
+          "<span aria-hidden='true' onclick='hide2()'>×</span></button>" +
+        "<h4 class='modal-title'>Deletion</h4>" +
       "</div>" +
       "<div class='modal-body'>" +
-        "<p>Do you want to delete the order?</p>" + orderId+
+        "<p>Do you want to delete the order?</p>" +
       "</div>" +
       "<div class='modal-footer'>" +
-        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-        "<input type='submit'  class='btn btn-outline'/>" +
+        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide2()'>Close</button>" +
+        "<input type='button' onclick='myfunction("+orderId+")'value='submit'  class='btn btn-outline'/>" +
       "</div>" +
     "</div>" +
     "<!-- /.modal-content -->" +
@@ -186,15 +173,13 @@
   "<!-- /.modal-dialog -->" +
 "</div></form>";
     }
-  
-    //var z;
-    //alert(x);
+    function myfunction(x) {
+        window.location.href = '/buyer/PendingWorkDeleteByOrderId?orderId=' + x;
+        //$.post('/buyer/PendingWork?orderId=' + x);
 
-    function hide() {
-        document.getElementById("Deletion").innerHTML = "";
     }
 
-    function add() {
+    function hide2() {
         document.getElementById("Deletion").innerHTML = "";
     }
     </script>

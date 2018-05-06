@@ -90,16 +90,20 @@
                             </thead>
                             <tbody>
                                 @{
-                                    int i=0;
-                                    int j=0;
-                                    foreach (var item in ViewBag.AccountTransaction)
+                                    int i = 0;
+                                    int j = 0;
+                                    if (ViewBag.AccountTransaction!=null)
                                     {
-                                        <tr>
-                                            <td>@item.Date.ToString("yyyy/MM/dd")</td>
-                                            <td><a href="/Others/ContactSeller?userName=@item.SellerName">@ViewBag.SellerName[j++]</a></td>
-                                            <td>@ViewBag.GigName[i++]</td>
-                                            <td>@item.BuyerPaid</td>
-                                        </tr>
+
+                                        foreach (var item in ViewBag.AccountTransaction)
+                                        {
+                                            <tr>
+                                                <td>@item.Date.ToString("yyyy/MM/dd")</td>
+                                                <td><a href="/Others/ContactSeller?userName=@item.SellerName">@ViewBag.SellerName[j++]</a></td>
+                                                <td>@ViewBag.GigName[i++]</td>
+                                                <td>@item.BuyerPaid</td>
+                                            </tr>
+                                        }
                                     }
                                 }
                                 @*<tr>
