@@ -36,14 +36,14 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-collapse sidebar-mini">
     <div class="wrapper">
 
         <!-- Main Header -->
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="/Others/HomeWithOutSign_In" class="logo">
+            <a href="/Others/Home" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>H</b>F</span>
                 <!-- logo for regular state and mobile devices -->
@@ -79,7 +79,7 @@ desired effect
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <!-- User Image -->
-                                                    <img src="~/Contents/Image/User/Tanim.jpg" class="img-circle" alt="User Image">
+                                                    <img src="~/Contents/Image/User/@ViewBag.User.ImagePath" class="img-circle" alt="User Image">
                                                 </div>
                                                 <!-- Message title and timestamp -->
                                                 <h4>
@@ -191,18 +191,18 @@ desired effect
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
-                                <img src="~/Contents/Image/User/nazmul.jpg" class="user-image" alt="User Image">
+                                <img src="~/Contents/Image/User/@ViewBag.User.ImagePath" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">MD.NAZMUL HOSSAIN</span>
+                                <span class="hidden-xs">@ViewBag.User.Name</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
-                                    <img src="~/Contents/Image/User/nazmul.jpg" class="img-circle" alt="User Image">
+                                    <img src="~/Contents/Image/User/@ViewBag.User.ImagePath" class="img-circle" alt="User Image">
 
                                     <p>
-                                        MD.NAZMUL HOSSAIN
-                                        <small>Member since Nov. 2012</small>
+                                        @ViewBag.User.Name
+                                        <small>Member since @ViewBag.User.JoiningDate.ToString("MMMM"). @ViewBag.User.JoiningDate.ToString("yyyy")</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -245,10 +245,10 @@ desired effect
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="~/Contents/Image/User/nazmul.jpg" class="img-circle" alt="User Image">
+                        <img src="~/Contents/Image/User/@ViewBag.User.ImagePath" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>MD.NAZMUL HOSSAIN</p>
+                        <p>@ViewBag.User.Name</p>
                         <!-- Status -->
                         <!--          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
                     </div>
@@ -381,6 +381,6 @@ desired effect
 
     </script>
 
-   
+
 </body>
 </html>

@@ -65,7 +65,11 @@ namespace HireFire.Core.Services
             return _context.Set<Transaction>().Where(b => b.SellerName == userName);
             //return _context.Set<Buyer>().ToList();
         }
-
+        public Transaction GetLastTransactionBySellerUserName(string userName)
+        {
+            return _context.Set<Transaction>().Where(b => b.SellerName == userName).OrderByDescending(b=>b.Date).FirstOrDefault();
+            //return _context.Set<Buyer>().ToList();
+        }
 
 
         public bool Insert(Transaction transaction)

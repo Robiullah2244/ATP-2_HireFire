@@ -79,7 +79,17 @@ namespace HireFire.Core.Services
 
         public bool UpdateDescriptionByUserName(string userName, string description)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetSeller = GetByUserName(userName);
+                targetSeller.Description = description;
+                _context.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public bool InsertLanguageByUserName(string userName, string language)

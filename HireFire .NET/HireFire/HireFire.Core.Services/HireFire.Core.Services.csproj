@@ -61,6 +61,7 @@
     <Compile Include="SellerGraphService.cs" />
     <Compile Include="SellerHeaderService.cs" />
     <Compile Include="SellerService.cs" />
+	<Compile Include="SkillService.cs" />
     <Compile Include="TaskService.cs" />
     <Compile Include="TransactionService.cs" />
     <Compile Include="UserAuthenticationService.cs" />
