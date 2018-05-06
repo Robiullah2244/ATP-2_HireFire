@@ -58,10 +58,10 @@
     <div style="margin-left:20%;margin-right:20%">
         <br />
 
-        <form method="POST" enctype="multipart/form-data" action="SellerProfile.html">
+        <form method="POST" enctype="multipart/form-data" >
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Edit Gig</h3>
+                    <h3 class="box-title">Create Gig</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
@@ -69,7 +69,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Gig Title</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Gig Title">
+                        <input type="text" class="form-control" id="gigTitle" name="gigTitle" placeholder="Enter Gig Title">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Category</label>
@@ -87,17 +87,15 @@
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Price</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price in BDT">
+                        <input type="text" class="form-control" id="gigPrice" name="gigPrice" placeholder="Price in BDT">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Description</label>
-                        <textarea class="form-control" id="exampleInputPassword1" placeholder=""></textarea>
+                        <label for="gigDescription">Description</label>
+                        <textarea class="form-control" id="gigDescription" name="gigDescription" placeholder=""></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputFile">Choose a Image</label>
-                        <input type="file" id="exampleInputFile">
-
-
+                        <label for="gigImage">Choose a Image</label>
+                        <input type="file" id="gigImage" name="gigImage">
                     </div>
 
                 </div>
@@ -110,70 +108,6 @@
     </div>
 </div>
 
-<table border="0" width="100%">
-    </br></br>
-    <hr>
-    <tr>
-        <th align="left">CATEGORIES</th>
-        <th align="left">ABOUT</th>
-        <th align="left">COMMUNITY</th>
-        <th align="left">SUPPORT</th>
-        <th align="left">FOLLOW US</th>
-    </tr>
-
-    <tr>
-        <td> <a href="/Others/PublicHome">Graphics & Design</a></td>
-        <td>Careers</td>
-        <td>Blog</td>
-        <td>Contact Support</td>
-        <td> <a href="https://www.google.com/">Google</a></td>
-    </tr>
-    <tr>
-        <td><a href="/Others/PublicHome">Digital Marketing</a></td>
-        <td>Press & News</td>
-        <td>Forum</td>
-        <td>Help & Education</td>
-        <td>  <a href="https://twitter.com/">Twitter</a></td>
-
-    </tr>
-    <tr>
-        <td><a href="/Others/PublicHome">Writing & Translation</a></td>
-        <td>Partnerships</td>
-        <td>Podcast</td>
-        <td>Trust & Safety</td>
-        <td> <a href="https://Youtube.com">Youtube</a></td>
-
-    </tr>
-    <tr>
-        <td><a href="/Others/PublicHome"> Video & Animation</a></td>
-        <td>Privacy Policy</td>
-        <td>Affiliates</td>
-        <td>Selling on Freelance</td>
-        <td> <a href="https://www.facebook.com/robiullah2244">Facebook</a></td>
-
-    </tr>
-    <tr>
-        <td><a href="/Others/PublicHome"> Music & Audio</a></td>
-        <td>Terms of Service</td>
-        <td></td>
-        <td>Buying on freelance</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td> <a href="/Others/PublicHome">Programming & Tech</a></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><a href="/Others/PublicHome">Business</a></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
 <!-- /.content-wrapper -->
 @section javascript{
     <!-- ./wrapper -->

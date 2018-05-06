@@ -187,6 +187,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ReturnCategoryId.cs" />
     <Compile Include="Models\ReturnUser.cs" />
     <Compile Include="Models\SignUpViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -7518,6 +7519,8 @@
     <Content Include="Views\Others\ProceedTo_OrderWithout_SignIN.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Seller\AllGigsForFrame.cshtml" />
+    <Content Include="Views\Seller\CreateGig.cshtml" />
+    <Content Include="Views\Seller\EditGig.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />

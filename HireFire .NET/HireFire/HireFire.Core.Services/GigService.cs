@@ -42,9 +42,19 @@ namespace HireFire.Core.Services
             throw new NotImplementedException();
         }
 
-        public bool Insert(Entity.Gig gig)
+        public bool Insert(Gig gig)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Set<Gig>().Add(gig);
+                _context.SaveChanges();
+                return true;
+            }
+            catch 
+            {
+                
+                return false;
+            }
         }
 
         public bool Update(Entity.Gig gig)

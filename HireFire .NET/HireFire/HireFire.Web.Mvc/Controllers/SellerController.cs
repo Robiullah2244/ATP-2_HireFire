@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using HireFire.Core.Entity;
 using System.Collections;
 using Hirefire.Core.Services.Interfaces;
+using HireFire.Web.Mvc.Models;
 
 namespace HireFire.Controllers
 {
@@ -325,6 +326,26 @@ namespace HireFire.Controllers
         public ActionResult CreateGig()
         {
             return View();
+        }
+        [HttpPost,ActionName("CreateGig")]
+        public ActionResult CreateGig(string category, string gigTitle, int gigPrice, string gigDescription, HttpPostedFileBase gigImage)
+        {
+            //Response.Write(category+"  "+gigTitle+"  "+gigPrice+"  "+gigDescription);
+            var file = gigImage;
+            string picName="";
+            if (file != null)
+            {
+                picName = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(Server.MapPath("~/Contents/Image/Gig"), picName);
+                // file is uploaded
+                file.SaveAs(path);
+
+                //Response.Write(pic);
+            }
+            ReturnCategoryId cd=new ReturnCategoryId();
+            int categoryId=cd.ReturnCategoryIdByCategoryName(category);
+            var x=_gigService.Insert(new Gig { SellerUserName = "tanim", CategoryId = categoryId, Description = gigDescription, ImagePath = picName, Date = DateTime.Now, Price = gigPrice, Title = gigTitle });
+            return(RedirectToAction("Profile"));
         }
         public ActionResult EditGig()
         {
