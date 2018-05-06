@@ -65,6 +65,10 @@ namespace HireFire.Controllers
             var seller = _sellerService.GetByUserName("Robi");
             ViewBag.workingHour = seller.WorkingHour;
             ViewBag.reputationPoint = seller.ReputationPoint;
+
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
+
             var level = seller.Level;
 
             if(level==1)
@@ -97,14 +101,20 @@ namespace HireFire.Controllers
 
         public ActionResult ActiveWork()
         {
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
             return View();
         }
         public ActionResult PendingWork()
         {
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
             return View();
         }
         public ActionResult CompletedWork()
         {
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
             return View();
         }
         public ActionResult AllGigs()
@@ -115,7 +125,9 @@ namespace HireFire.Controllers
             List<int> numberOfOrder = new List<int>();
             List<float> avgRating = new List<float>();
 
-            
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
+
             foreach (var g in gigs)
             {
                 gig.Add(g);
@@ -242,6 +254,11 @@ namespace HireFire.Controllers
         }
         public ActionResult BalanceReport()
         {
+            var totalIncome =  _transactionService.TotalIncome("Robi");
+            ViewBag.totalIncome = totalIncome;
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
+            ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
             return View();
         }
 
@@ -268,6 +285,45 @@ namespace HireFire.Controllers
             _transactionService.Insert(new Transaction { SellerName = "Robi", BuyerPaid = 0, SellerEarned = 0, WithdrawAmount = Convert.ToInt32(withdrawAmount), OrderId = 0, PromotionId = 0, HireFireProfit = 0, Date = DateTime.Now });
             //return RedirectToAction("Account");
         }
+
+        public ActionResult AllGigsForFrame()
+        {
+            var gigs = _gigService.GetAllByUserName("Robi");
+
+            List<Gig> gig = new List<Gig>();
+            List<int> numberOfOrder = new List<int>();
+            List<float> avgRating = new List<float>();
+
+
+            foreach (var g in gigs)
+            {
+                gig.Add(g);
+                var order = _orderService.GetByGigId(g.Id);
+                int count = 0;
+                float rating = 0;
+                foreach (var o in order)
+                {
+                    rating += o.Rating;
+                    count++;
+                }
+                if (float.IsNaN(rating))
+                {
+                    avgRating.Add(0f);
+                }
+                else
+                {
+                    avgRating.Add(rating / count);
+                }
+
+                numberOfOrder.Add(count);
+            }
+
+            ViewBag.gigs = gig;
+            ViewBag.numberOfOrder = numberOfOrder;
+            ViewBag.avgRating = avgRating;
+            return View();
+        }
+
     }
 }
 

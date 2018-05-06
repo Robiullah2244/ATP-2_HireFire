@@ -82,9 +82,18 @@ namespace HireFire.Core.Services
             }
         }
 
-        public int TotalIncome(string sellerUserName)
+        public float TotalIncome(string sellerUserName)
         {
-            throw new NotImplementedException();
+            float TotalIncome = 0;
+            var buyer = _context.Set<Transaction>().Where(s => (s.SellerName == sellerUserName)).ToList();
+
+            foreach (var x in buyer)
+            {
+                TotalIncome += x.SellerEarned;
+            }
+
+
+            return TotalIncome;
         }
 
         public float LastMonthIncome(string userName)

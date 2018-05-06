@@ -7517,6 +7517,7 @@
     <Content Include="Views\Others\SignUP.cshtml" />
     <Content Include="Views\Others\ProceedTo_OrderWithout_SignIN.cshtml" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Seller\AllGigsForFrame.cshtml" />
     <None Include="Views\Seller\_Layout.Dashboard.cshtml" />
     <Content Include="Views\Seller\_Layout.Profile.cshtml" />
     <Content Include="Views\Seller\_Layout.Registration.cshtml" />

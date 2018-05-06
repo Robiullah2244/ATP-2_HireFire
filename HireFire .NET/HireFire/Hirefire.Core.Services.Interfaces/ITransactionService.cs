@@ -25,7 +25,7 @@ namespace Hirefire.Core.Services.Interfaces
 
         int LastMonthSpend(string buyerUserName);
 
-        int TotalIncome(string sellerUserName);
+        float TotalIncome(string sellerUserName);
 
         float LastMonthIncome(string sellerUserName);
 
