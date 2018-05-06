@@ -207,7 +207,7 @@ namespace HireFire.Controllers
 
         public ActionResult TopBuyer()
         {
-            var transaction = _transactionService.GetBySellerUserName("Robi");
+            var transaction = _transactionService.GetBySellerUserName("Robi").Distinct();
 
             foreach(var t in transaction)
             {
@@ -233,6 +233,11 @@ namespace HireFire.Controllers
         }
         public ActionResult Account()
         {
+            var t = _transactionService.GetBySellerUserName("Robi");
+            ViewBag.transaction = t;
+
+            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            ViewBag.balance = balance;
             return View();
         }
         public ActionResult BalanceReport()
@@ -255,6 +260,13 @@ namespace HireFire.Controllers
         public ActionResult AccountStatement()
         {
             return View();
+        }
+
+        public void Withdraw(string withdrawAmount)
+        {
+
+            _transactionService.Insert(new Transaction { SellerName = "Robi", BuyerPaid = 0, SellerEarned = 0, WithdrawAmount = Convert.ToInt32(withdrawAmount), OrderId = 0, PromotionId = 0, HireFireProfit = 0, Date = DateTime.Now });
+            //return RedirectToAction("Account");
         }
     }
 }

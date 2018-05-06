@@ -85,29 +85,47 @@
                                     <th>From</th>
                                     <th>Transaction Type</th>
                                     <th>Amount</th>
+                                    <th>Order Id</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>2012-03-13</td>
-                                    <td>Null</td>
-                                    <td>Withdraw</td>
-                                    <td>1200</td>
-                                </tr>
 
-                                <tr>
-                                    <td>2011-03-13</td>
-                                    <td>Robi Ullah</td>
-                                    <td>Deposit</td>
-                                    <td>1500</td>
-                                </tr>
+                                @foreach (var t in ViewBag.transaction)
+                                {
+                                    <tr>
+                                        <td>@t.Date</td>
+                                        <td>@t.BuyerName</td>
+                                        @if(t.WithdrawAmount>0)
+                                        {
+                                            <td>Withdraw</td>
+                                        }
+                                        else
+                                        {
+                                        <td>Deposit</td>
+                                        }
 
-                                <tr>
-                                    <td>2014-03-13</td>
-                                    <td>HireFire</td>
-                                    <td>Repotation Bouns</td>
-                                    <td>300</td>
-                                </tr>
+                                        @if (t.WithdrawAmount > 0)
+                                        {
+                                            <td>@t.WithdrawAmount</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@t.SellerEarned</td>
+                                        }
+                                        
+
+                                        @if (t.WithdrawAmount > 0)
+                                        {
+                                            <td>NILL</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@t.OrderId</td>
+                                        }
+                                        
+                                    </tr>
+                                }
+                            
 
                             </tbody>
                             <tfoot>
