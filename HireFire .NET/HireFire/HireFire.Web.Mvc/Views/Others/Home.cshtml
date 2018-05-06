@@ -9,6 +9,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>HireFire | Home</title>
+    <link rel="shortcut icon" href="~/Contents/Image/logo.png" type="image/png" />
+
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -31,6 +33,24 @@
     <![endif]-->
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        .img {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 3px;
+            width: 300px;
+            height: 170px;
+        }
+        .imgUser{
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 0px;
+            margin: 3px;
+            width: 50px;
+        }
+    </style>
+
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <style>
@@ -103,10 +123,10 @@
 
 
                             <td width="300" style="padding:5px">
-                                <a href="/Others/ProceedToOrder?gigId=@g.Id"><img src="~/Contents/Image/Gig/@g.ImagePath" height="150" width="300"></a>
+                                <a href="/Others/ProceedToOrder?gigId=@g.Id"><img src="~/Contents/Image/Gig/@g.ImagePath" class="img"></a>
                                 <br>
 
-                                <img src="~/Contents/Image/User/@imagePath" width="50">
+                                <img src="~/Contents/Image/User/@imagePath"class="imgUser">
                                 <br />
                                 @name
                                 <br />
