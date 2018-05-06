@@ -36,6 +36,8 @@ namespace Hirefire.Core.Services.Interfaces
 
         int CountByUserName(string userName);
 
+        IEnumerable<Gig> GetTopGigByUserName(string sellerUserName);
+
 
     }
 }

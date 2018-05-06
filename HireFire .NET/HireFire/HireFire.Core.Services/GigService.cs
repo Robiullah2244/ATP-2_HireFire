@@ -23,7 +23,7 @@ namespace HireFire.Core.Services
 
         public IEnumerable<Entity.Gig> GetAllByUserName(string sellerUserName)
         {
-            throw new NotImplementedException();
+            return _context.Set<Gig>().Where(c => c.SellerUserName == sellerUserName);
         }
 
         public IEnumerable<Entity.Gig> GetTopGigsByUserName(string sellerUserName)
@@ -83,8 +83,15 @@ namespace HireFire.Core.Services
         }
 
         public int CountByUserName(string userName)
-         {
-             return _context.Set<Gig>().Where(c => c.SellerUserName == userName).Count();
-         }
+        {
+            return _context.Set<Gig>().Where(c => c.SellerUserName == userName).Count();
+        }
+
+        public IEnumerable<Gig> GetTopGigByUserName(string sellerUserName)
+        {
+            //_context.Set<Order>().Where()
+            //return _context.Set<Gig>().Where(c => c.SellerUserName == sellerUserName).OrderBy(c=>c.)
+                throw new NotImplementedException();
+        }
     }
 }

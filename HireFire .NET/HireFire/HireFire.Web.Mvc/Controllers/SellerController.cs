@@ -16,13 +16,15 @@ namespace HireFire.Controllers
         IGigService _gigService;
         ISellerHeaderService _sellerHeaderService;
         ITransactionService _transactionService;
+        IOrderService _orderService;
 
 
-        public SellerController(ISellerService sellerService, IGigService gigService, ITransactionService transactionService)
+        public SellerController(ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
             _transactionService = transactionService;
+            _orderService = orderService;
 
         }
 
@@ -107,14 +109,110 @@ namespace HireFire.Controllers
         }
         public ActionResult AllGigs()
         {
+            var gigs =  _gigService.GetAllByUserName("Robi");
+
+            List<Gig> gig = new List<Gig>();
+            List<int> numberOfOrder = new List<int>();
+            List<float> avgRating = new List<float>();
+
+            
+            foreach (var g in gigs)
+            {
+                gig.Add(g);
+                var order = _orderService.GetByGigId(g.Id);
+                int count = 0;
+                float rating = 0;
+                foreach(var o in order)
+                {
+                    rating += o.Rating;
+                    count++;
+                }
+                if(float.IsNaN(rating))
+                {
+                    avgRating.Add(0f);
+                }
+                else
+                {
+                    avgRating.Add(rating / count);
+                }
+                
+                numberOfOrder.Add(count);
+            }
+
+            ViewBag.gigs = gig;
+            ViewBag.numberOfOrder = numberOfOrder;
+            ViewBag.avgRating = avgRating;
             return View();
         }
+
         public ActionResult TopGigs()
         {
+            var gigs = _gigService.GetAllByUserName("Robi");
+
+            List<Gig> gig = new List<Gig>();
+            List<int> numberOfOrder = new List<int>();
+
+            List<float> avgRating = new List<float>();
+
+            foreach (var g in gigs)
+            {
+                gig.Add(g);
+                var order = _orderService.GetByGigId(g.Id);
+                int count = 0;
+                float rating = 0;
+                foreach (var o in order)
+                {
+                    rating += o.Rating;
+                    count++;
+                }
+                numberOfOrder.Add(count);
+                avgRating.Add(rating / count);
+            }
+
+            List<int> numOfOrder = new List<int>();
+            numOfOrder = numberOfOrder.Take(5).ToList();
+
+            int largesub;
+
+            for (int i = 0; i < 5; i++)
+            {
+                largesub = i;
+                for (int j = i + 1; j < 5; j++)
+                {
+                    if (numOfOrder[j] > numOfOrder[largesub])
+                    {
+                        largesub = j;
+                    }
+                }
+                int temp1 = numOfOrder[i];
+                numOfOrder[i] = numOfOrder[largesub];
+                numOfOrder[largesub] = temp1;
+
+                Gig temp2 = gig[i];
+                gig[i] = gig[largesub];
+                gig[largesub] = temp2;
+
+                float temp3 = avgRating[i];
+                avgRating[i] = avgRating[largesub];
+                avgRating[largesub] = temp3;
+
+            }
+
+            numOfOrder = numOfOrder.Where(i => i >= 1).ToList();
+            ViewBag.gigs = gig;
+            ViewBag.numberOfOrder = numOfOrder;
+            ViewBag.avgRating = avgRating;
             return View();
         }
+
         public ActionResult TopBuyer()
         {
+            var transaction = _transactionService.GetBySellerUserName("Robi");
+
+            foreach(var t in transaction)
+            {
+                var order = _orderService.GetById(t.OrderId);
+            }
             return View();
         }
         public ActionResult Registration1()

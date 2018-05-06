@@ -39,7 +39,7 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><b>TOP GIGS</b></h3>
+                        <h3 class="box-title"><b>TOP 5 GIGS</b></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -49,16 +49,24 @@
                                     <th>Gig Title</th>
                                     <th>Number of order completed</th>
                                     <th>Gig Price</th>
+                                    <th>Avg Rating</th>
                                     <th>Gig Added Date(yyyy/mm/dd)</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a href="#" style="text-decoration: none; color:inherit;">I will do c++</a></td>
-                                    <td>12.5$</td>
-                                    <td>12</td>
-                                    <td>2005-03-12</td>
-                                </tr>
+                                @{int i = 0;
+                                foreach (var n in ViewBag.numberOfOrder)
+                                {
+                                    <tr>
+                                        <td><a href="/seller/GigDetail?gigId=@ViewBag.gigs[i].Id" target="gjgj">@ViewBag.gigs[i].Title</a></td>
+                                        <td>@n</td>
+                                        <td>@ViewBag.gigs[i].Price</td>
+                                        <td>@ViewBag.avgRating[i]</td>
+                                        <td>@ViewBag.gigs[i].Date</td>
+                                    </tr>
+                                    i++;
+                                }
+                                }
 
 
                             </tbody>
@@ -97,7 +105,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="~/Contents/dist/js/demo.js"></script>
     <!-- page script -->
-    <script>
+    @*<script>
         $(function () {
             $('#example1').DataTable()
             $('#example2').DataTable({
@@ -109,6 +117,6 @@
                 'autoWidth': false
             })
         })
-    </script>
+    </script>*@
 </body>
 </html>

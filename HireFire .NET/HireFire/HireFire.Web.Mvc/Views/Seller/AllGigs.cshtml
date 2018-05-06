@@ -39,7 +39,7 @@
 
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><b>TOP GIGS</b></h3>
+                        <h3 class="box-title"><b>All GIGS</b></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -49,16 +49,26 @@
                                     <th>Gig Title</th>
                                     <th>Number of order completed</th>
                                     <th>Gig Price</th>
+                                    <th>Avg Rating</th>
                                     <th>Gig Added Date(yyyy/mm/dd)</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><a href="#" style="text-decoration: none; color:inherit;">I will do c++</a></td>
-                                    <td>12.5$</td>
-                                    <td>12</td>
-                                    <td>2005-03-12</td>
-                                </tr>
+                                @{int i=0;
+                                foreach (var g in ViewBag.gigs)
+                                {
+                                    <tr>
+                                        <td><a href="/seller/GigDetail?gigId=@g.Id" target="gjgj">@g.Title</a></td>
+                                        <td>@ViewBag.numberOfOrder[i]</td>
+                                        <td>@g.Price</td>
+                                        <td>@ViewBag.avgRating[i]</td>
+                                        <td>@g.Date</td>
+                                    </tr>
+                                    i++;
+                                }
+                                }
+                                
+                              
 
 
                             </tbody>
