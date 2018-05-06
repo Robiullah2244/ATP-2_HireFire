@@ -73,7 +73,17 @@ namespace HireFire.Core.Services
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var targetedOrder = GetById(id);
+                _context.Set<Order>().Remove(targetedOrder);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public IEnumerable<Order> GetByGigId(int gigId)

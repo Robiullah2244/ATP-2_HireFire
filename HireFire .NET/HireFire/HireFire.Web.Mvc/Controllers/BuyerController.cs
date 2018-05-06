@@ -20,14 +20,16 @@ namespace HireFire.Web.Mvc.Controllers
         ILanguageService _languageService;
         IBuyerGraphService _buyerGraphService;
         IBuyerTableService _buyerTableService;
+        IOrderService _orderService;
 
-        public BuyerController(IBuyerTableService _buyerTableService,IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService)
+        public BuyerController( IOrderService _orderService,IBuyerTableService _buyerTableService,IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService)
         {
             _buyerService = service;
             _transactionService = transactionService;
             this._languageService = _languageService;
             this._buyerGraphService = _buyerGraphService;
             this._buyerTableService = _buyerTableService;
+            this._orderService = _orderService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
@@ -189,6 +191,13 @@ namespace HireFire.Web.Mvc.Controllers
             ViewBag.AllGig = AllGig;
             ViewBag.SellerName = sellerName;
             return View();
+        }
+        //[HttpPost, ActionName("PendingWork")]
+        public ActionResult PendingWorkDeleteByOrderId(int orderId)
+        {
+            var x = _orderService.Delete(orderId);
+            return RedirectToAction("PendingWork");
+            //Response.Write(orderId);
         }
         public ActionResult BuyerList()
         {
