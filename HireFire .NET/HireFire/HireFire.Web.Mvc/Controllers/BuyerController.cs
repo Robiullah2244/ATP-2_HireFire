@@ -21,8 +21,9 @@ namespace HireFire.Web.Mvc.Controllers
         IBuyerGraphService _buyerGraphService;
         IBuyerTableService _buyerTableService;
         IOrderService _orderService;
+        ITaskService _taskService;
 
-        public BuyerController( IOrderService _orderService,IBuyerTableService _buyerTableService,IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService)
+        public BuyerController(IOrderService _orderService, IBuyerTableService _buyerTableService, IBuyerService service, ITransactionService transactionService, ILanguageService _languageService, IBuyerGraphService _buyerGraphService, ITaskService taskService)
         {
             _buyerService = service;
             _transactionService = transactionService;
@@ -30,6 +31,7 @@ namespace HireFire.Web.Mvc.Controllers
             this._buyerGraphService = _buyerGraphService;
             this._buyerTableService = _buyerTableService;
             this._orderService = _orderService;
+            _taskService = taskService;
         }
 
         //HireFireDbContext ctx = new HireFireDbContext();
@@ -160,7 +162,7 @@ namespace HireFire.Web.Mvc.Controllers
         
         public ActionResult CompletedWork()
         {
-            var Order = _buyerTableService.GetCompletedWorkByUserName("tanim");
+            var Order = _buyerTableService.GetCompletedWorkByUserName("Robi");
             var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
             var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
             var completionDate = _buyerTableService.GetTransactionForCompletionDate(Order);
@@ -173,7 +175,7 @@ namespace HireFire.Web.Mvc.Controllers
         }
         public ActionResult PendingWork()
         {
-            var Order = _buyerTableService.GetPendingWorkByUserName("tanim");
+            var Order = _buyerTableService.GetPendingWorkByUserName("Robi");
             var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
             var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
             ViewBag.Order = Order;
@@ -183,7 +185,7 @@ namespace HireFire.Web.Mvc.Controllers
         }
         public ActionResult ActiveWork()
         {
-            var Order = _buyerTableService.GetActiveWorkByUserName("tanim");
+            var Order = _buyerTableService.GetActiveWorkByUserName("Robi");
             var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
             var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
             ViewBag.Order = Order;
@@ -209,6 +211,16 @@ namespace HireFire.Web.Mvc.Controllers
         }
         public ActionResult BuyerOrderProgress()
         {
+           // bool t = _taskService.Insert(new Task { OrderId = 32, TaskName = "fdfds", Status = 2, Deadline = DateTime.Now, Approbation = false, FileName = "cds" });
+            IEnumerable<Task> task = _taskService.GetAllByOrderId(32);
+            ViewBag.task = task;
+            //Response.Write(task.ToList()[1].Deadline.ToString("MM/dd/yyyy"));
+            ViewBag.count = task.Count();
+
+            Order order = _orderService.GetById(32);
+            ViewBag.finalDeadline = order.Deadline;
+            ViewBag.feedback = order.Feedback;
+
             return View();
         }
 
