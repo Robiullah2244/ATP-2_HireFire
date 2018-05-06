@@ -1,510 +1,253 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Dashboard";
+    Layout = "_Layout.Admin.cshtml";
 }
 
 
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HireFire | Starter</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet" href="~/Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="~/Contents/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="~/Contents/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="~/Contents/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-          page. However, you can choose any other skin. Make sure you
-          apply the skin class to the body tag so the changes take effect. -->
-    <link rel="stylesheet" href="~/Contents/dist/css/skins/skin-blue.min.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <!-- Google Font -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+@section head{
 
-        <!-- Main Header -->
 
-        <header class="main-header">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HireFire | Admin Dashboard</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="stylesheet" href="~/Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="~/Contents/bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="~/Contents/bower_components/Ionicons/css/ionicons.min.css">
+        <!-- Morris charts -->
+        <link rel="stylesheet" href="~/Contents/bower_components/morris.js/morris.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="~/Contents/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+              page. However, you can choose any other skin. Make sure you
+              apply the skin class to the body tag so the changes take effect. -->
+        <link rel="stylesheet" href="~/Contents/dist/css/skins/skin-blue.min.css">
 
-            <!-- Logo -->
-            <a href="/Others/Home" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>H</b>F</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Hire</b>Fire</span>
-            </a>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js does not work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <!-- Google Font -->
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <style>
+            .example-modal .modal {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                right: auto;
+                left: auto;
+                display: block;
+                z-index: 1;
+            }
 
-            <!-- Header Navbar -->
-            <nav class="navbar navbar-static-top" role="navigation">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
+            .example-modal .modal {
+                background: transparent !important;
+            }
+        </style>
+    </head>
+}
 
 
 
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                            <!-- Menu toggle button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope-o"></i>
-                                <span class="label label-success">4</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
-                                <li>
-                                    <!-- inner menu: contains the messages -->
-                                    <ul class="menu">
-                                        <li>
-                                            <!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <!-- User Image -->
-                                                    <img src="~/Contents/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                                                </div>
-                                                <!-- Message title and timestamp -->
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <!-- The message -->
-                                                <p>Why not buy a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <!-- end message -->
-                                    </ul>
-                                    <!-- /.menu -->
-                                </li>
-                                <li class="footer"><a href="/Others/Messenger">See All Messages</a></li>
-                            </ul>
-                        </li>
-                        <!-- /.messages-menu -->
-                        <!-- Notifications Menu -->
-                        <li class="dropdown notifications-menu">
-                            <!-- Menu toggle button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
-                                <li>
-                                    <!-- Inner Menu: contains the notifications -->
-                                    <ul class="menu">
-                                        <li>
-                                            <!-- start notification -->
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li>
-                                        <!-- end notification -->
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="/Others/Notification">View all</a></li>
-                            </ul>
-                        </li>
-                        <!-- Tasks Menu -->
-                        <!------------------ blog icon --------------------->
+ <!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <!--
+        <section class="content-header">
+          <iframe name="contentFrame" frameborder="0" width="100%" height="475" src="gigs.html"></iframe>
 
-                        <li class="dropdown tasks-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="Blog" class="fa ion-compose">
+        </section>
+    -->
+    <!-- Main content -->
+    <section class="content container-fluid">
 
-                            </a>
+        <!--------------------------
+          | Your Page Content Here |
+          -------------------------->
+        <!-- Another Style
+                <div class="col-lg-3 col-xs-6" >
+                   small box
+                  <div class="small-box bg-aqua">
+                    <div class="inner">
+                      <h3>150</h3>
 
-                        </li>
-
-
-
-                        <!------------------ DashBoard icon --------------------->
-
-                        <li class="dropdown tasks-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="Dashboard" class="fa  fa-dashboard (alias)">  </a>
-
-                        </li>
-
-
-
-
-                        <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
-                            <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <!-- The user image in the navbar-->
-                                <img src="~/Contents/image/User/Md. Robi Ullah.jpg" class="user-image" alt="User Image">
-                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Md. Robi Ullah</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- The user image in the menu -->
-                                <li class="user-header">
-                                    <img src="~/Contents/image/User/Md. Robi Ullah.jpg" class="img-circle" alt="User Image">
-
-                                    <p>
-                                        Md. Robi Ullah
-                                        <small>Member since Nov. 2012</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row -->
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="Dashboard" class="btn btn-default btn-flat">Dashboard</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="/Others/PublicHome" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="~/Contents/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                      <p>Deactive User Last Month</p>
                     </div>
-                    <div class="pull-left info">
-                        <p>Ibrahim Khalil Tanim</p>
-                        <!-- Status -->
-                        <!--          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
+                    <div class="icon">
+                      <i class="ion on ion-lock-combination"></i>
                     </div>
-                </div>
-
-                <!-- search form (Optional) --
-                <form action="#" method="get" class="sidebar-form">
-                  <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                        <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                        </button>
-                      </span>
+                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                   </div>
-                </form>
-                <!-- /.search form -->
-                <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    <!--        <li class="header" align="center" style="font-size:16px;">Seller</li>-->
-                    <!-- Optionally, you can add icons to the links -->
-                    <li class="active"><a href="#"><i class="fa  fa-dashboard"></i> <span>Dash Board</span></a></li>
-
-                    <li><a href="AdminAccountReport"><i class="fa fa-money"></i> <span>Accounts</span></a></li>
-                    <li class="treeview">
-                        <a>
-                            <i class="fa   fa-tasks"></i> <span>Report</span>
-                            <!--          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>-->
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="AdminGigsReport"><i class="fa  fa-hand-stop-o "></i> <span>Gigs</span></a></li>
-                            <li><a href="AdminSellerReport"><i class="fa  fa-user"></i> <span>Seller</span></a></li>
-                            <li><a href="AdminBuyerReport%20"><i class="fa   fa-child"></i> <span>Buyer</span></a></li>
-                        </ul>
-                    </li>
-
-
-                    <li><a href="/Others/Messenger"><i class="fa fa-inbox"></i> <span>Inbox</span></a></li>
-                    <li><a href="AdminSettings"><i class="fa  fa-gear"></i> <span>Settings</span></a></li>
-
-
-                </ul>
-                <!-- /.sidebar-menu -->
-            </section>
-            <!-- /.sidebar -->
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <!--
-                <section class="content-header">
-                  <iframe name="contentFrame" frameborder="0" width="100%" height="475" src="gigs.html"></iframe>
-
-                </section>
-            -->
-            <!-- Main content -->
-            <section class="content container-fluid">
-
-                <!--------------------------
-                  | Your Page Content Here |
-                  -------------------------->
-                <!-- Another Style
-                        <div class="col-lg-3 col-xs-6" >
-                           small box
-                          <div class="small-box bg-aqua">
-                            <div class="inner">
-                              <h3>150</h3>
-
-                              <p>Deactive User Last Month</p>
-                            </div>
-                            <div class="icon">
-                              <i class="ion on ion-lock-combination"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-                          </div>
-                        </div>
-                -->
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="AdminTotalUserListGraph" style="text-decoration: none; color:inherit;">
-                        <div class="info-box" style="cursor:pointer;">
-                            <span class="info-box-icon bg-green"><i class="ion ion-ios-people"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Total User</span>
-                                <span class="info-box-number">41,410</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                    </a>
-                    <!-- /.info-box -->
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="deactiveUserList" style="text-decoration: none; color:inherit;">
-                        <div class="info-box" style="cursor:pointer;">
-                            <span class="info-box-icon bg-aqua"><i class="ion ion-lock-combination"></i></span>
+        -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="/Admin/AdminTotalUserListGraph" style="text-decoration: none; color:inherit;">
+                <div class="info-box" style="cursor:pointer;">
+                    <span class="info-box-icon bg-green"><i class="ion ion-ios-people"></i></span>
 
-                            <div class="info-box-content">
-                                <span class="info-box-text">Deactive User</span>
-                                <span class="info-box-number">41,410</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                    </a>
-                    <!-- /.info-box -->
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total User</span>
+                        <span class="info-box-number">41,410</span>
+                    </div>
+                    <!-- /.info-box-content -->
                 </div>
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="newMemberList" style="text-decoration: none; color:inherit;">
-                        <div class="info-box" style="cursor:pointer;">
-                            <span class="info-box-icon bg-orange"><i class="ion ion-ios-person"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">New Members</span>
-                                <span class="info-box-number">41,410</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                    </a>
-                    <!-- /.info-box -->
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="blockUserList" style="text-decoration: none; color:inherit;">
-                        <div class="info-box" style="cursor:pointer;">
-                            <span class="info-box-icon bg-red"><i class="fa fa-ban"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Block User List</span>
-                                <span class="info-box-number">41,410</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                    </a>
-                    <!-- /.info-box -->
-                </div>
-
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="UserActivity" style="text-decoration: none; color:inherit;">
-                        <div class="info-box" style="cursor:pointer;">
-                            <span class="info-box-icon bg-blue"><i class="fa  fa-line-chart"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text"><br /></span>
-                                <span class="info-box-text"><b>User Activity</b></span>
-
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                    </a>
-                    <!-- /.info-box -->
-                </div>
-
-
-                <div class="col-md-3 col-sm-6 col-xs-12">
-                    <a href="AddAdmin" style="text-decoration: none; color:inherit;">
-                        <div class="info-box" style="cursor:pointer;">
-                            <span class="info-box-icon bg-cyan"><i class="fa  fa-user-plus"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text"><br /></span>
-                                <span class="info-box-text"><b>Add Admin</b></span>
-
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                    </a>
-                    <!-- /.info-box -->
-                </div>
-
-
-            </section>
-            <!-- /.content -->
+            </a>
+            <!-- /.info-box -->
         </div>
-        <!-- /.content-wrapper -->
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="pull-right hidden-xs">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2016 <a href="/Others/Home">HireFire</a>.</strong> All rights reserved.
-        </footer>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="/Admin/AdminTotalUserListGraph" style="text-decoration: none; color:inherit;">
+                <div class="info-box" style="cursor:pointer;">
+                    <span class="info-box-icon bg-aqua"><i class="ion ion-lock-combination"></i></span>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane active" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:;">
-                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                    <p>Will be 23 on April 24th</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:;">
-                                <h4 class="control-sidebar-subheading">
-                                    Custom Template Design
-                                    <span class="pull-right-container">
-                                        <span class="label label-danger pull-right">70%</span>
-                                    </span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
+                    <div class="info-box-content">
+                        <span class="info-box-text">Deactive User</span>
+                        <span class="info-box-number">41,410</span>
+                    </div>
+                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.tab-pane -->
-                <!-- Stats tab content -->
-                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                <!-- /.tab-pane -->
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
+            </a>
+            <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="/Admin/AdminTotalUserListGraph" style="text-decoration: none; color:inherit;">
+                <div class="info-box" style="cursor:pointer;">
+                    <span class="info-box-icon bg-orange"><i class="ion ion-ios-person"></i></span>
 
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Some information about this general settings option
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-                    </form>
+                    <div class="info-box-content">
+                        <span class="info-box-text">New Members</span>
+                        <span class="info-box-number">41,410</span>
+                    </div>
+                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.tab-pane -->
-            </div>
-        </aside>
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-        immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
-    </div>
-    <!-- ./wrapper -->
+            </a>
+            <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="/Admin/AdminTotalUserListGraph" style="text-decoration: none; color:inherit;">
+                <div class="info-box" style="cursor:pointer;">
+                    <span class="info-box-icon bg-red"><i class="fa fa-ban"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Block User List</span>
+                        <span class="info-box-number">41,410</span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+            </a>
+            <!-- /.info-box -->
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="/Admin/AdminTotalUserListGraph" style="text-decoration: none; color:inherit;">
+                <div class="info-box" style="cursor:pointer;">
+                    <span class="info-box-icon bg-blue"><i class="fa  fa-line-chart"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><br /></span>
+                        <span class="info-box-text"><b>User Activity</b></span>
+
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+            </a>
+            <!-- /.info-box -->
+        </div>
+
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <a href="/Admin/AddAdmin" style="text-decoration: none; color:inherit;">
+                <div class="info-box" style="cursor:pointer;">
+                    <span class="info-box-icon bg-cyan"><i class="fa  fa-user-plus"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><br /></span>
+                        <span class="info-box-text"><b>Add Admin</b></span>
+
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+            </a>
+            <!-- /.info-box -->
+        </div>
+
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+
+@section javascript{
+
     <!-- REQUIRED JS SCRIPTS -->
     <!-- jQuery 3 -->
     <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="~/Contents/bower_components/raphael/raphael.min.js"></script>
+    <script src="~/Contents/bower_components/morris.js/morris.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Contents/dist/js/adminlte.min.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. -->
-</body>
-</html>
+
+
+
+
+    <script>
+
+
+        function hide() {
+            document.getElementById("promotion").innerHTML = "";
+        }
+
+        function add() {
+            document.getElementById("promotion").innerHTML = "";
+        }
+
+        function Withdraw() {
+            document.getElementById("promotion").innerHTML = "" +
+            "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+              "<div class='modal-dialog'>" +
+                "<div class='modal-content'>" +
+                  "<div class='modal-header'>" +
+                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                      "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+                    "<h4 class='modal-title'>Withdraw</h4>" +
+                  "</div>" +
+                  "<div class='modal-body'>" +
+                    "<p>Current Balance: 120000<br/></p>" +
+                    "<p><input placeholder='Withdraw Ammount' style='color:black'</p>" +
+                  "</div>" +
+                  "<div class='modal-footer'>" +
+                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+                    "<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>" +
+                  "</div>" +
+                "</div>" +
+                "<!-- /.modal-content -->" +
+              "</div>" +
+              "<!-- /.modal-dialog -->" +
+            "</div>";
+        }
+
+
+
+
+    </script>
+}
+
