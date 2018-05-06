@@ -101,6 +101,25 @@ namespace HireFire.Core.Services
             return lastMonthIncome;
         }
 
+
+        public float GetBalanceBySellerUserName(string sellerUserName)
+        {
+            var transaction = _context.Set<Transaction>().Where(s => s.SellerName == sellerUserName);
+            float balance = 0;
+            foreach(var t in transaction)
+            {
+                if(t.OrderId>0)
+                {
+                    balance += t.SellerEarned;
+                }
+                else
+                {
+                    balance -= t.WithdrawAmount;
+                }
+            }
+
+            return balance;
+        }
        
     }
     

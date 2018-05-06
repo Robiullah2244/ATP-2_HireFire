@@ -29,6 +29,8 @@ namespace Hirefire.Core.Services.Interfaces
 
         float LastMonthIncome(string sellerUserName);
 
+        float GetBalanceBySellerUserName(string sellerUserName);
+
 
 
         

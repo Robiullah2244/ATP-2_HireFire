@@ -2,6 +2,8 @@
     ViewBag.Title = "_Layout.Dashboard";
 }
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -346,6 +348,29 @@ desired effect
         }
 
         function add() {
+
+            //var dataString = 'name=' + name + '&email=' + email + '&phone=' + phone;
+            ////alert (dataString);return false;
+            //alert("dscds");
+            //$.ajax({
+                
+            //    url: "/Others/WithdrawAmount",
+            //    data: { withdrawAmount: 577 },
+            //    success: function () {
+            //        //display message back to user here
+            //    }
+            //});
+
+            //return false;
+            var ammount =$("[name='withdrawAmount']").val();
+
+            $.ajax({
+                url: "/Seller/Withdraw", // the URL of the controller action method
+                data: { withdrawAmount: ammount } // optional data
+
+            });
+
+            alert("WithDraw Succesfull");
             document.getElementById("promotion").innerHTML = "";
         }
 
@@ -360,8 +385,8 @@ desired effect
                     "<h4 class='modal-title'>Withdraw</h4>" +
                   "</div>" +
                   "<div class='modal-body'>" +
-                    "<p>Current Balance: 120000<br/></p>" +
-                    "<p><input placeholder='Withdraw Ammount' style='color:black'</p>" +
+                    "<p>Current Balance: @ViewBag.balance BDT<br/></p>" +
+                    "<p><input placeholder='Withdraw Ammount' style='color:black' name='withdrawAmount'</p>" +
                   "</div>" +
                   "<div class='modal-footer'>" +
                     "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +

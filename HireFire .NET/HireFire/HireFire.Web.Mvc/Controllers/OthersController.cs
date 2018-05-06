@@ -19,9 +19,10 @@ namespace HireFire.Web.Mvc.Controllers
         ISellerService _sellerService;
         IOrderService _OrderService;
         ILanguageService _languageService;
+        ITransactionService _transactionService;
 
 
-        public OthersController(ILanguageService _languageService,IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService)
+        public OthersController(ILanguageService _languageService,IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService, ITransactionService transactionService)
         {
             _buyerService = service;
             _userAuthenticationService = userAuthenticationService;
@@ -29,6 +30,7 @@ namespace HireFire.Web.Mvc.Controllers
             _sellerService = sellerService;
             _OrderService = OrderService;
             this._languageService = _languageService;
+            _transactionService = transactionService;
         }
         public ActionResult Home(int categoryId = 1)
         {
@@ -204,8 +206,8 @@ namespace HireFire.Web.Mvc.Controllers
             return View();
         }
 
-        
 
+        
 
 
     }
