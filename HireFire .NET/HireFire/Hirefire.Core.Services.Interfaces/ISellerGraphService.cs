@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Hirefire.Core.Services.Interfaces
 {
-    class ISellerGraphService
+    public interface ISellerGraphService
     {
-        IEnumerable<int> LastYearIncomeGraphByUserName(string sellerUserName);//sellerBalanceReport.html 
+        IEnumerable<double> LastYearIncomeGraphByUserName(string sellerUserName);
     }
 }

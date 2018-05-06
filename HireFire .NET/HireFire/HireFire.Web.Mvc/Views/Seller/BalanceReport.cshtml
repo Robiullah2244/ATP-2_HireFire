@@ -14,19 +14,19 @@
         <title>HireFire | Seller BAlance Report</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-        <link rel="stylesheet" href="../Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="../Contents/bower_components/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/font-awesome/css/font-awesome.min.css">
         <!-- Ionicons -->
-        <link rel="stylesheet" href="../Contents/bower_components/Ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/Ionicons/css/ionicons.min.css">
         <!-- Morris charts -->
-        <link rel="stylesheet" href="../Contents/bower_components/morris.js/morris.css">
+        <link rel="stylesheet" href="~/Contents/bower_components/morris.js/morris.css">
         <!-- Theme style -->
-        <link rel="stylesheet" href="../Contents/dist/css/AdminLTE.min.css">
+        <link rel="stylesheet" href="~/Contents/dist/css/AdminLTE.min.css">
         <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
               page. However, you can choose any other skin. Make sure you
               apply the skin class to the body tag so the changes take effect. -->
-        <link rel="stylesheet" href="../Contents/dist/css/skins/skin-blue.min.css">
+        <link rel="stylesheet" href="~/Contents/dist/css/skins/skin-blue.min.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js does not work if you view the page via file:// -->
@@ -159,16 +159,16 @@
 @section javascript{
 
     <!-- jQuery 3 -->
-    <script src="../Contents/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
-    <script src="../Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Morris.js charts -->
-    <script src="../Contents/bower_components/raphael/raphael.min.js"></script>
-    <script src="../Contents/bower_components/morris.js/morris.min.js"></script>
+    <script src="~/Contents/bower_components/raphael/raphael.min.js"></script>
+    <script src="~/Contents/bower_components/morris.js/morris.min.js"></script>
     <!-- FastClick -->
-    <script src="../Contents/bower_components/fastclick/lib/fastclick.js"></script>
+    <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
-    <script src="../Contents/dist/js/adminlte.min.js"></script>
+    <script src="~/Contents/dist/js/adminlte.min.js"></script>
 
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
@@ -218,23 +218,23 @@
             element: 'bar-chart',
             resize: true,
             data: [
-              { y: 'Jan', a: 100, b: 90 },
-              { y: 'Feb', a: 75, b: 65 },
-              { y: 'Mar', a: 50, b: 40 },
-              { y: 'April', a: 75, b: 65 },
-              { y: 'May', a: 50, b: 40 },
-              { y: 'Jun', a: 75, b: 65 },
-              { y: 'July', a: 100, b: 90 },
-              { y: 'Aug', a: 100, b: 90 },
-              { y: 'Sep', a: 75, b: 65 },
-              { y: 'Oct', a: 50, b: 40 },
-              { y: 'Nov', a: 75, b: 65 },
-              { y: 'Dec', a: 50, b: 40 }
+             { y: 'Jan', a: @ViewBag.lastYearIncomeGraph[0]},
+             { y: 'Feb', a: @ViewBag.lastYearIncomeGraph[1]},
+             { y: 'Mar', a: @ViewBag.lastYearIncomeGraph[2]},
+             { y: 'April', a: @ViewBag.lastYearIncomeGraph[3]},
+             { y: 'May', a: @ViewBag.lastYearIncomeGraph[4]},
+             { y: 'Jun', a: @ViewBag.lastYearIncomeGraph[5]},
+             { y: 'July', a: @ViewBag.lastYearIncomeGraph[6] },
+             { y: 'Aug', a: @ViewBag.lastYearIncomeGraph[7]},
+             { y: 'Sep', a: @ViewBag.lastYearIncomeGraph[8]},
+             { y: 'Oct', a: @ViewBag.lastYearIncomeGraph[9]},
+             { y: 'Nov', a: @ViewBag.lastYearIncomeGraph[10]},
+             { y: 'Dec', a: @ViewBag.lastYearIncomeGraph[11]}
             ],
             barColors: ['#00a65a', '#f56954'],
             xkey: 'y',
             ykeys: ['a'],
-            labels: ['Total money spend'],
+            labels: ['Total money Incomed'],
             hideHover: 'auto'
         });
 

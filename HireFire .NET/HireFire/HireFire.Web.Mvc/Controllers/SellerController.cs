@@ -17,14 +17,16 @@ namespace HireFire.Controllers
         ISellerHeaderService _sellerHeaderService;
         ITransactionService _transactionService;
         IOrderService _orderService;
+        ISellerGraphService _sellerGraphService;
 
 
-        public SellerController(ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
+        public SellerController(ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
             _transactionService = transactionService;
             _orderService = orderService;
+            this._sellerGraphService = _sellerGraphService;
 
         }
 
@@ -242,6 +244,8 @@ namespace HireFire.Controllers
         }
         public ActionResult BalanceReport()
         {
+            var lastYearIncomeGraph = _sellerGraphService. LastYearIncomeGraphByUserName("tanim");
+            ViewBag.lastYearIncomeGraph = lastYearIncomeGraph;
             return View();
         }
 
