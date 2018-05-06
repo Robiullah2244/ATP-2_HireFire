@@ -18,6 +18,7 @@ namespace HireFire.Core.Entity
         public int Status { get; set; }  //Pending-->1   Active-->2    Completed-->3
         public string Feedback { get; set; }
         public int Rating { get; set; }
+        public string SellerName { get; set; }
 
     }
 }

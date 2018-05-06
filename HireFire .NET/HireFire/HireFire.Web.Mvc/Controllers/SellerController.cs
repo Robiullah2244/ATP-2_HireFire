@@ -17,14 +17,16 @@ namespace HireFire.Controllers
         ISellerHeaderService _sellerHeaderService;
         ITransactionService _transactionService;
         IOrderService _orderService;
+        ISellerGraphService _sellerGraphService;
 
 
-        public SellerController(ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
+        public SellerController(ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
             _transactionService = transactionService;
             _orderService = orderService;
+            this._sellerGraphService = _sellerGraphService;
 
         }
 
@@ -32,12 +34,12 @@ namespace HireFire.Controllers
         //public bool Insert()
         //{
         //    var x = false;
-         
+
         //        x = _service.Insert(new Seller { UserName = "Tanim",Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
         //        Level=1,ReputationPoint=12,WorkingHour="2 hour", Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
         //        BankName="Banani",AccountNumber="ABC",District="Com",Address="sd",PostalCode=12,MobileNumber="sad",
         //        InstituteAttendFrom=DateTime.Now,InstituteName="AIUB",Degree="SD",Area="Abc",InstituteAttendTo=DateTime.Now});
-            
+
         //    return x;
         //}
 
@@ -71,11 +73,11 @@ namespace HireFire.Controllers
 
             var level = seller.Level;
 
-            if(level==1)
+            if (level == 1)
             {
                 ViewBag.level = "Silver";
             }
-            else if(level<4)
+            else if (level < 4)
             {
                 ViewBag.level = "Gold";
             }
@@ -119,7 +121,7 @@ namespace HireFire.Controllers
         }
         public ActionResult AllGigs()
         {
-            var gigs =  _gigService.GetAllByUserName("Robi");
+            var gigs = _gigService.GetAllByUserName("Robi");
 
             List<Gig> gig = new List<Gig>();
             List<int> numberOfOrder = new List<int>();
@@ -134,12 +136,12 @@ namespace HireFire.Controllers
                 var order = _orderService.GetByGigId(g.Id);
                 int count = 0;
                 float rating = 0;
-                foreach(var o in order)
+                foreach (var o in order)
                 {
                     rating += o.Rating;
                     count++;
                 }
-                if(float.IsNaN(rating))
+                if (float.IsNaN(rating))
                 {
                     avgRating.Add(0f);
                 }
@@ -147,7 +149,7 @@ namespace HireFire.Controllers
                 {
                     avgRating.Add(rating / count);
                 }
-                
+
                 numberOfOrder.Add(count);
             }
 
@@ -221,7 +223,7 @@ namespace HireFire.Controllers
         {
             var transaction = _transactionService.GetBySellerUserName("Robi").Distinct();
 
-            foreach(var t in transaction)
+            foreach (var t in transaction)
             {
                 var order = _orderService.GetById(t.OrderId);
             }
@@ -254,11 +256,24 @@ namespace HireFire.Controllers
         }
         public ActionResult BalanceReport()
         {
+
+
+            //var totalIncome =  _transactionService.TotalIncome("Robi");
+            //ViewBag.totalIncome = totalIncome;
+            //var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            //ViewBag.balance = balance;
+            //ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
+            //return View();
+
+
             var totalIncome =  _transactionService.TotalIncome("Robi");
             ViewBag.totalIncome = totalIncome;
             var balance = _transactionService.GetBalanceBySellerUserName("Robi");
             ViewBag.balance = balance;
             ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
+
+            var lastYearIncomeGraph = _sellerGraphService. LastYearIncomeGraphByUserName("Robi");
+            ViewBag.lastYearIncomeGraph = lastYearIncomeGraph;
             return View();
         }
 
