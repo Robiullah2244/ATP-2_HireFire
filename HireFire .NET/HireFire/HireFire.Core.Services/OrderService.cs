@@ -98,6 +98,39 @@ namespace HireFire.Core.Services
             }
         }
 
+        public bool UpdateRating(Order order)
+        {
+            try
+            {
+                var targetOrder = _context.Set<Order>().Where(o => o.Id == order.Id).FirstOrDefault();
+                targetOrder.Rating = order.Rating;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        public bool UpdateFeedback(Order order)
+        {
+            try
+            {
+                var targetOrder = _context.Set<Order>().Where(o => o.Id == order.Id).FirstOrDefault();
+                targetOrder.Feedback = order.Feedback;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
         public bool Delete(int id)
         {

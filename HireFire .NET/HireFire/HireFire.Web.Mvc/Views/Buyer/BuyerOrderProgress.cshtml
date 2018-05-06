@@ -388,7 +388,7 @@
 
                 <div class="form-group">
                     <label for="description">Feedback</label>
-                    <textarea class="form-control" rows="5" id="description"></textarea>
+                    <textarea class="form-control" name="feedback" onchange="Feedback()" rows="5" id="description"></textarea>
                     <script>
                         document.getElementById("description").defaultValue = "@ViewBag.feedback";
                     </script>
@@ -431,6 +431,16 @@
 
 
 
+            function Feedback() {
+
+                var feedbackValue = document.getElementsByName("feedback")[0].value;
+                
+                $.ajax({
+                    method: "POST",
+                    url: "/Buyer/Feedback", // the URL of the controller action method
+                    data: {star:0, feedback:feedbackValue, orderId:@ViewBag.orderId, identifier:"Feedback"} // optional data
+                });
+            }
 
 
 
@@ -503,43 +513,43 @@
 
 
 
-            function hide1() {
-                document.getElementById("popup").innerHTML = "";
-            }
+    function hide1() {
+        document.getElementById("popup").innerHTML = "";
+    }
 
 
 
-            function approve1() {
-                
-                window.location.href = "/Buyer/TaskApprove?orderId="+@ViewBag.orderId;
-            }
+    function approve1() {
+
+        window.location.href = "/Buyer/TaskApprove?orderId="+@ViewBag.orderId;
+    }
 
 
 
-            function FinalApprove() {
-                document.getElementById("popup").innerHTML = "" +
-                "<div class='modal modal-danger fade in' id='modal-danger' style='display: block; padding-right: 17px;'>" +
-                  "<div class='modal-dialog'>" +
-                    "<div class='modal-content'>" +
-                      "<div class='modal-header'>" +
-                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                          "<span aria-hidden='true' onclick='hide1()'>×</span></button>" +
-                        "<h4 class='modal-title'>Withdraw</h4>" +
-                      "</div>" +
-                      "<div class='modal-body'>" +
-                        "<p>Are You Sure that you want to approve Finally and Permanently?<br/></p>" +
-                        "<p>You can not clain after approve<br/></p>" +
-                      "</div>" +
-                      "<div class='modal-footer'>" +
-                        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide1()'>Close</button>" +
-                        "<button type='button' class='btn btn-outline'  onclick='approve1()'>Approve</button>" +
-                      "</div>" +
-                    "</div>" +
-                    "<!-- /.modal-content -->" +
-                  "</div>" +
-                  "<!-- /.modal-dialog -->" +
-                "</div>";
-            }
+    function FinalApprove() {
+        document.getElementById("popup").innerHTML = "" +
+        "<div class='modal modal-danger fade in' id='modal-danger' style='display: block; padding-right: 17px;'>" +
+          "<div class='modal-dialog'>" +
+            "<div class='modal-content'>" +
+              "<div class='modal-header'>" +
+                "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                  "<span aria-hidden='true' onclick='hide1()'>×</span></button>" +
+                "<h4 class='modal-title'>Withdraw</h4>" +
+              "</div>" +
+              "<div class='modal-body'>" +
+                "<p>Are You Sure that you want to approve Finally and Permanently?<br/></p>" +
+                "<p>You can not clain after approve<br/></p>" +
+              "</div>" +
+              "<div class='modal-footer'>" +
+                "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide1()'>Close</button>" +
+                "<button type='button' class='btn btn-outline'  onclick='approve1()'>Approve</button>" +
+              "</div>" +
+            "</div>" +
+            "<!-- /.modal-content -->" +
+          "</div>" +
+          "<!-- /.modal-dialog -->" +
+        "</div>";
+    }
 
 
 
@@ -557,6 +567,14 @@
         $("#FourStar").removeClass("checked");
         $("#FiveStar").removeClass("checked");
         star = 1;
+
+        $.ajax({
+
+            url: "/Buyer/Feedback", // the URL of the controller action method
+            data: { star:star, orderId:@ViewBag.orderId, identifier: "Star"} // optional data
+
+        });
+
     }
 
     function twoStar() {
@@ -567,6 +585,13 @@
         $("#FourStar").removeClass("checked");
         $("#FiveStar").removeClass("checked");
         star = 2;
+
+        $.ajax({
+
+            url: "/Buyer/Feedback", // the URL of the controller action method
+            data: { star:star, orderId:@ViewBag.orderId, identifier: "Star" } // optional data
+
+        });
     }
 
     function threeStar() {
@@ -577,6 +602,12 @@
         $("#FourStar").removeClass("checked");
         $("#FiveStar").removeClass("checked");
         star = 3;
+
+        $.ajax({
+            url: "/Buyer/Feedback", // the URL of the controller action method
+            data: { feedback:"Nothing", star:star, orderId:@ViewBag.orderId, identifier: "Star" } // optional data
+
+        });
     }
 
     function fourStar() {
@@ -587,6 +618,13 @@
         $("#FourStar").addClass("checked");
         $("#FiveStar").removeClass("checked");
         star = 4;
+
+        $.ajax({
+
+            url: "/Buyer/Feedback", // the URL of the controller action method
+            data: { star:star, orderId:@ViewBag.orderId, identifier: "Star" } // optional data
+
+        });
     }
 
     function fiveStar() {
@@ -596,10 +634,20 @@
         $("#ThreeStar").addClass("checked");
         $("#FourStar").addClass("checked");
         $("#FiveStar").addClass("checked");
-        star = 4;
+        star = 5;
+
+        $.ajax({
+
+            url: "/Buyer/Feedback", // the URL of the controller action method
+            data: { star:star, orderId:@ViewBag.orderId, identifier: "Star" } // optional data
+
+        });
     }
 
+
         </script>
+
+
 
         <script>
             function Comment(count) {

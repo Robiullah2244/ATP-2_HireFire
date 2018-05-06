@@ -281,5 +281,18 @@ namespace HireFire.Web.Mvc.Controllers
             _orderService.UpdateStatus(new Order { Status = 3, Id=orderId });
         }
 
+        public void Feedback(int orderId, int star, string identifier, string feedback)
+        {
+            if(identifier=="Star")
+            {
+                 _orderService.UpdateRating(new Order { Rating = star, Id = orderId });
+            }
+            if(identifier=="Feedback")
+            {
+                _orderService.UpdateFeedback(new Order { Feedback = feedback, Id = orderId });
+            }
+           
+        }
+
     }
 }
