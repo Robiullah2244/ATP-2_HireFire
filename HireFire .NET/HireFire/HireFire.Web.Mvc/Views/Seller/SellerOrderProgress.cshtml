@@ -1,6 +1,6 @@
 ﻿@{
-    ViewBag.Title = "SellerOrderProgress";
-    Layout = "_Layout.Registration.cshtml";
+
+    Layout = "_Layout.Profile.cshtml";
 }
 @section head{
     <head>
@@ -107,14 +107,14 @@
 
 
             <br /><br /><br />
-            <span style="margin-left: 7%;margin-right: 7%"><b>Gig Title: </b>I can do C++ Project</span><br /><br />
+            <span style="margin-left: 7%;margin-right: 7%"><b>Gig Title: </b>@ViewBag.title</span><br /><br />
 
-            <span style="margin-left: 7%;margin-right: 7%"><b>Deadline: </b>10 Days Left</span><br /><br />
+            <span style="margin-left: 7%;margin-right: 7%"><b>Deadline: </b> @((ViewBag.finalDeadline - DateTime.Now).Days) Days Left</span><br /><br />
 
 
             <b style="margin-left: 7%;margin-right: 7%">Progress</b><br /><br />
             <div class="progress" style="margin-left: 7%;margin-right: 7%">
-                <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: @(ViewBag.progress)%">
 
                 </div>
             </div>
@@ -140,41 +140,108 @@
                                     <th>Deadline</th>
                                     <th>File</th>
                                     <th>Comment</th>
-                                    <th>Approve?</th>
+                                    <th>Approbation</th>
 
                                 </tr>
+                                @{int j = 0;
+                                foreach (var t in ViewBag.task)
+                                {
+                                    j++;
+                                    string v = t.Deadline.ToString("yyyy-MM-dd");
+                                    <tr>
+                                        <td>@j.</td>
+                                        <td><input value="@t.TaskName" name="taskName@(j)" onchange="TaskUpdate(@t.Id)" /></td>
 
-                                <tr>
-                                    <td>1.</td>
-                                    <td><input value="Task-1" /></td>
-                                    <td><span class="label label-warning">Pending</span></td>
+                                        @if (t.Status == 1)
+                                        {
+                                            <td><span class="label label-warning">Pending</span></td>
+                                        }
+                                        else if (t.Status == 2)
+                                        {
+                                            <td><span class="label label-success">On-Going</span></td>
+                                        }
+                                        else if (t.Status == 3)
+                                        {
+                                            <td><span class="label label-success">Complete</span></td>
+                                        }
 
 
-
-                                    <td>
-                                        <div class="form-group">
-                                            <div class="input-group date">
-                                                <div class="input-group-addon">
-                                                    <i class="fa fa-calendar"></i>
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="date" class="form-control pull-right datepicker" name="deadline@(j)" onchange="TaskUpdate(@t.Id)" id=" datepicker" value="@v" />
                                                 </div>
-                                                <input type="text" class="form-control pull-right" id="datepicker">
+                                                <!-- /.input group -->
                                             </div>
-                                            <!-- /.input group -->
-                                        </div>
 
-                                    </td>
-                                    <td>
+                                        </td>
+                                        <td>
 
-                                        <label class="fileContainer" style="cursor: pointer">
-                                            <span class="label label-success">Download</span>
+                                            <form method="post" action="/seller/Upload?taskId=@t.Id&orderId=@ViewBag.orderId" enctype="multipart/form-data">
+                                                <label class="fileContainer">
+                                                    <span class="label label-success" style="cursor:pointer">Browse</span>
+                                                    <input type="file" name="uploadFile">
+                                                </label>
+                                                <label>
+                                                    <span class="label label-success" style="cursor:pointer">Upload</span>
+                                                    <input class="label label-success" name="uploadFile" type="submit" value="Upload" />
+                                                </label>
+                                            </form>
+                                            
+                                        </td>
+                                        <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
 
-                                        </label>
-                                    </td>
-                                    <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
-                                    <td><input type="checkbox" id="approve" width="100"></td>
-                                </tr>
+                                        @if (t.Approbation == true)
+                                        {
+                                            <td><span name="approve" class="label label-success">Approved</span></td>
+                                        }
+                                        else
+                                        {
+                                            <td><span name="approve" class="label label-warning">Not Approved Yet</span></td>
+                                        }
+
+                                    </tr>
+
+                                }
+                                }
+
+                                @for (int i = ViewBag.count; i < 4; i++)
+                                {
+                                    <tr>
+                                        <td>@(i + 1).</td>
+                                        <td><input value="Task-@(i+1)" name="taskName@(i + 1)" onchange="TaskInsert(@(i+1))" /></td>
+
+                                        <td><span class="label label-danger">Not Assign</span></td>
+
+                                        <td>
+                                            <div class="form-group">
+                                                <div class="input-group date">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </div>
+                                                    <input type="date" class="form-control pull-right datepicker" id="datepicker" onchange="TaskInsert(@(i+1))" name="deadline@(i + 1)" />
+                                                </div>
+                                                <!-- /.input group -->
+                                            </div>
+
+                                        </td>
+                                        <td>
+
+                                            <label class="fileContainer">
+                                                <span class="label label-success">Browse</span>
+                                                <input type="file">
+                                            </label>
+                                        </td>
+                                        <td><a style='cursor: pointer' onclick="Comment('1')">Comment</a></td>
+
+                                        <td><span class="label label-success">Not Assign</span></td>
 
 
+                                    </tr>
+                                }
 
 
                             </tbody>
@@ -185,23 +252,147 @@
             </div>
 
 
-            <div class="label label-success" style="cursor:pointer; margin-right: 85%; margin-left: 7%;" onclick="AddRow()">
-                <div class="glyphicon glyphicon-plus"> Add Row</div>
-            </div>
+            @*<div class="label label-success" style="cursor:pointer; margin-right: 85%; margin-left: 7%;" onclick="AddRow()">
+                    <div class="glyphicon glyphicon-plus"> Add Row</div>
+                </div>
 
-            <div id="task"></div>
-            <div class="label label-danger" style="cursor:pointer;margin-right: 85%; margin-left: 7%" onclick="ClearRow()">
-                <div class="glyphicon glyphicon-minus"> Clear Row</div>
-            </div>
+                <div id="task"></div>
+                <div class="label label-danger" style="cursor:pointer;margin-right: 85%; margin-left: 7%" onclick="ClearRow()">
+                    <div class="glyphicon glyphicon-minus"> Clear Row</div>
+                </div>*@
 
             <br /><br /><br />
+
+            <h4 style="background-color:#b6ff00; font-size: 18px; text-align: center; padding: 7px 10px; margin-top: 0;">
+                Final Submition
+            </h4>
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding" style="margin-left: 7%;margin-right: 7%">
+                <table id=" table" class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>#</th>
+                            <th>Task</th>
+                            <th>Status</th>
+
+                            <th>Deadline</th>
+                            <th>File</th>
+                            <th>Approbation</th>
+
+                        </tr>
+
+                        @{
+                            var d = ViewBag.finalDeadline.ToString("yyyy-MM-dd");
+                            <tr>
+                                <td>1.</td>
+                                <td><input readonly value="Final Task" name="finalTask" /></td>
+                                @if (ViewBag.status == 3)
+                                {
+                                    <td><span name="approve" class="label label-success">Approved</span></td>
+                                }
+                                else
+                                {
+                                    <td><span name="approve" class="label label-warning">Waiting For Approve</span></td>
+                                }
+
+
+                                <td>
+                                    <div class="form-group">
+                                        <div class="input-group date">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input type="date" class="form-control pull-right datepicker" name="finalDeadline" id="datepicker" value="@d" />
+                                        </div>
+                                        <!-- /.input group -->
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <form method="post" action="/seller/Upload?orderId=@ViewBag.orderId&taskId=0" enctype="multipart/form-data">
+                                        <label class="fileContainer">
+                                            <span class="label label-success" style="cursor:pointer">Browse</span>
+                                            <input type="file" name="uploadFile">
+                                        </label>
+                                        <label>
+                                            <span class="label label-success" style="cursor:pointer">Upload</span>
+                                            <input class="label label-success"  type="submit" value="Upload" />
+                                        </label>
+                                    </form>
+                                </td>
+                                @if (ViewBag.status == 3)
+                                {
+                                    <td><span name="approve" class="label label-success">Approved</span></td>
+                                }
+                                else
+                                {
+                                    <td><span name="approve" class="label label-warning">Not Approved Yet</span></td>
+                                }
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- /.box-body -->
+
+            <br /><br /><br />
+
             <div align="center" style=" margin-left:20%;margin-right:20%">
                 <b><h3>Rating</h3></b>
-                <span style="cursor: pointer" class="fa fa-star checked"></span>
-                <span style="cursor: pointer" class="fa fa-star checked"></span>
-                <span style="cursor: pointer" class="fa fa-star checked"></span>
-                <span style="cursor: pointer" class="fa fa-star checked"></span>
-                <span style="cursor: pointer" class="fa fa-star"></span>
+                @if (ViewBag.rating == 0)
+                {
+                    <span  class="fa fa-star" id="OneStar"></span>
+                    <span  class="fa fa-star" id="TwoStar" ></span>
+                    <span  class="fa fa-star" id="ThreeStar"></span>
+                    <span  class="fa fa-star" id="FourStar"></span>
+                    <span  class="fa fa-star" id="FiveStar" ></span>
+                }
+                else if (ViewBag.rating == 1)
+                {
+                    <span  class="fa fa-star checked" id="OneStar"></span>
+                    <span  class="fa fa-star" id="TwoStar"></span>
+                    <span  class="fa fa-star" id="ThreeStar"></span>
+                    <span  class="fa fa-star" id="FourStar"></span>
+                    <span  class="fa fa-star" id="FiveStar"></span>
+                }
+                else if (ViewBag.rating == 2)
+                {
+                    <span  class="fa fa-star checked" id="OneStar"></span>
+                    <span  class="fa fa-star checked" id="TwoStar"></span>
+                    <span  class="fa fa-star" id="ThreeStar"></span>
+                    <span  class="fa fa-star" id="FourStar"></span>
+                    <span  class="fa fa-star" id="FiveStar"></span>
+                }
+                else if (ViewBag.rating == 3)
+                {
+                    <span  class="fa fa-star checked" id="OneStar"></span>
+                    <span  class="fa fa-star checked" id="TwoStar"></span>
+                    <span  class="fa fa-star checked" id="ThreeStar"></span>
+                    <span  class="fa fa-star" id="FourStar"></span>
+                    <span  class="fa fa-star" id="FiveStar"></span>
+                }
+                else if (ViewBag.rating == 4)
+                {
+                    <span  class="fa fa-star checked" id="OneStar"></span>
+                    <span  class="fa fa-star checked" id="TwoStar"></span>
+                    <span  class="fa fa-star checked" id="ThreeStar" ></span>
+                    <span  class="fa fa-star checked" id="FourStar" ></span>
+                    <span  class="fa fa-star" id="FiveStar" ></span>
+                }
+                else if (ViewBag.rating == 5)
+                {
+                    <span  class="fa fa-star checked" id="OneStar"></span>
+                    <span  class="fa fa-star checked" id="TwoStar"></span>
+                    <span  class="fa fa-star checked" id="ThreeStar"></span>
+                    <span  class="fa fa-star checked" id="FourStar"></span>
+                    <span  class="fa fa-star checked" id="FiveStar"></span>
+                }
             </div>
 
             <br />
@@ -212,9 +403,9 @@
 
                     <div class="form-group">
                         <label for="description">Feedback</label>
-                        <textarea class="form-control" rows="5" id="description"></textarea>
+                        <textarea class="form-control" name="feedback" readonly rows="5" id="description"></textarea>
                         <script>
-                        document.getElementById("description").defaultValue = "Your Web designing sense is very Gooood.";
+                            document.getElementById("description").defaultValue = "@ViewBag.feedback";
                         </script>
 
                     </div>
@@ -222,266 +413,200 @@
             </div>
 
 
+            <hr style="margin-bottom: 0em;color: black;background-color: black;height: 5px">
+            <!-- /.content-wrapper -->
+
+        </div>
+
+        <div id="popup"></div>
+
 
         @section javascript{
-        <!-- ./wrapper -->
-        <!-- jQuery 3 -->
-        <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- SlimScroll -->
-        <script src="~/Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- FastClick -->
-        <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
-        <!-- AdminLTE App -->
-        <script src="~/Contents/dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="~/Contents/dist/js/demo.js"></script>
+            <!-- ./wrapper -->
+            <!-- jQuery 3 -->
+            <script src="~/Contents/bower_components/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap 3.3.7 -->
+            <script src="~/Contents/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- SlimScroll -->
+            <script src="~/Contents/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+            <!-- FastClick -->
+            <script src="~/Contents/bower_components/fastclick/lib/fastclick.js"></script>
+            <!-- AdminLTE App -->
+            <script src="~/Contents/dist/js/adminlte.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="~/Contents/dist/js/demo.js"></script>
+            <!-- bootstrap datepicker -->
+            <script src="~/Contents/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
             <!-- Select2 -->
 
             <script>
-            var count = 2;
+                var count = 2;
             </script>
             <script>
 
 
-            function AddRow() {
-
-                document.getElementById("table").innerHTML += "<table class='table table-striped'>" +
-                    "<tbody><tr>" +
-                    "<td >" + count + "</td>" +
-                    "<td ><input value='Task-" + count + "'/></td>" +
-                    "<td ><span class='label label-success'>On going</span</td>" +
-                    "<td>" +
-                    "<div class='form-group'>" +
-                    "<div class='input-group date'>" +
-                    "<div class='input-group-addon'>" +
-                    "<i class='fa fa-calendar'></i>" +
-                    "</div>" +
-                    "<input type='text' class='form-control pull-right' id='datepicker1'>" +
-                    "</div>" +
-                    "</div>" +
-                    "</td>" +
-                    "<td >" +
-                    "<label class='fileContainer'>" +
-                    "<span class='label label-success'>Browse</span>" +
-                    "<input type='file'/>" +
-                    "</label>" +
-                    "</td>" +
-                    "<td><a style='cursor: pointer' onclick='Comment(" + count + ")'>Comment</a></td>" +
-                    "<td ><input type='checkbox' id='approve' ></td>" +
-                    "</tr></table></tbody>";
-                count++;
-            }
-
-            //Date picker
-            $('#datepicker').datepicker({
-                autoclose: true
-            })
 
 
-            function ClearRow() {
-                count = count - 1;
-                /*var previous="<table class='table table-striped'>"+
-		"<tbody><tr>"+
-		  "<td >"+count+"</td>"+
-		  "<td ><input value='Task-"+count+"'/></td>"+
-          "<td ><span class='label label-success'>On going</span</td>"+
+                function Upload()
+                {
+                    alert("scsd");
 
-          "<td>"+
-            "<div class='form-group'>"+
-                 "<div class='input-group date'>"+
-                  "<div class='input-group-addon'>"+
-                    "<i class='fa fa-calendar'></i>"+
-                  "</div>"+
-                     "<input type='text' class='form-control pull-right' id='datepicker1'>"+
-                 "</div>"+
-
-               "</div>"+
-          "</td>"+
-		  "<td >"+
-            "<label class='fileContainer'>"+
-                "<span class='label label-success'>Browse</span>"+
-                "<input type='file'/>"+
-            "</label>"+
-          "</td>"+
-            "<td><a style='cursor: pointer' onclick='Comment("+count+")'>Comment</a></td>"+
-		  "<td ><input type='checkbox' id='approve' ></td>"+
-		"</tr></table></tbody>";
-
-        var str=document.getElementById('table').innerHTML;
-
-        var res = str.replace("<td>","");
-
-        document.getElementById("table").innerHTML=res;*/
+                }
 
 
-                document.getElementById("table").innerHTML = "" +
-                    "<tbody><tr>" +
-                    "<th >#</th>" +
-                    "<th >Task</th>" +
-                    "<th >Status</th>" +
-                    "<th >Deadline</th>" +
-                    "<th >File</th>" +
-                    "<th >Comment</th>" +
-                    "<th >Approve?</th>" +
-                    "</tr>" +
-                    "<tr>" +
-                    "<td>1.</td>" +
-                    "<td>" + "<input value='Task-1'/></td>" +
-                    "<td>" + "<span class='label label-warning'>Pending</span></td>" +
-                    "<td>" +
-                    "<div class='form-group'>" +
-                    "<div class='input-group date'>" +
-                    "<div class='input-group-addon'>" +
-                    "<i class='fa fa-calendar'></i>" +
-                    "</div>" +
-                    "<input type='text' class='form-control pull-right' id='datepicker'>" +
-                    "</div>" +
-                <!-- /.
-                input
-                group -- >
-                    "</div>" +
-                    "</td>" +
-                    "<td>" +
-                    "<label class='fileContainer'>" +
-                    "<span class='label label-success'>Browse</span>" +
-                    "<input type='file'/>" +
-                    "</label>" +
-                    "</td>" +
-                    "<td><a style='cursor: pointer' onclick='Comment('1')'>Comment</a></td>" +
-                    "<td>" + "<input type='checkbox' id='approve' width='100'></td>" +
-                    "</tr>" +
-                    "</tbody";
-            }
+                function TaskUpdate(tId) {
 
-            function OneStar() {
-                document.getElementById("OneStar").style.backgroundColor = "red";
-                document.getElementById("TwoStar").style.backgroundColor = "#4d79ff";
-                document.getElementById("ThreeStar").style.backgroundColor = "#4d79ff";
-                document.getElementById("FourStar").style.backgroundColor = "#4d79ff";
-                document.getElementById("FiveStar").style.backgroundColor = "#4d79ff";
-            }
+                    //alert("TaskUpdate");
+                    var t = "taskName" + String(tId);
+                    var d = "deadline" + String(tId);
+                    //var a = "taskApprove" + String(tId);
+                    //alert(t);
+                    var taskName = document.getElementsByName(t)[0].value;
+                    var deadline = document.getElementsByName(d)[0].value;
+                    //var approve = document.getElementsByName(a)[0].checked;
+                    //var ammount = $('[name=]').val();
+                    //alert(approve);
 
-            function TwoStar() {
-                document.getElementById("OneStar").style.backgroundColor = "red";
-                document.getElementById("TwoStar").style.backgroundColor = "red";
-                document.getElementById("ThreeStar").style.backgroundColor = "#4d79ff";
-                document.getElementById("FourStar").style.backgroundColor = "#4d79ff";
-                document.getElementById("FiveStar").style.backgroundColor = "#4d79ff";
-            }
+                    $.ajax({
+                        method: "POST",
+                        url: "/seller/BuyerOrderProgress", // the URL of the controller action method
+                        data: { taskId: tId, taskName: taskName, deadline: deadline, identifier:"update", orderId:@ViewBag.orderId, } // optional data
 
-            function ThreeStar() {
-                document.getElementById("OneStar").style.backgroundColor = "red";
-                document.getElementById("TwoStar").style.backgroundColor = "red";
-                document.getElementById("ThreeStar").style.backgroundColor = "red";
-                document.getElementById("FourStar").style.backgroundColor = "#4d79ff";
-                document.getElementById("FiveStar").style.backgroundColor = "#4d79ff";
-            }
+                    });
 
-            function FourStar() {
-                document.getElementById("OneStar").style.backgroundColor = "red";
-                document.getElementById("TwoStar").style.backgroundColor = "red";
-                document.getElementById("ThreeStar").style.backgroundColor = "red";
-                document.getElementById("FourStar").style.backgroundColor = "red";
-                document.getElementById("FiveStar").style.backgroundColor = "#4d79ff";
-            }
 
-            function FiveStar() {
-                document.getElementById("OneStar").style.backgroundColor = "red";
-                document.getElementById("TwoStar").style.backgroundColor = "red";
-                document.getElementById("ThreeStar").style.backgroundColor = "red";
-                document.getElementById("FourStar").style.backgroundColor = "red";
-                document.getElementById("FiveStar").style.backgroundColor = "red";
-            }
+                }
+
+
+                function TaskInsert(tId) {
+
+                    // alert("sdcds" );
+                    var t = "taskName" + String(tId);
+                    var d = "deadline" + String(tId);
+                    // alert(t);
+                    var taskName = document.getElementsByName(t)[0].value;
+                    var deadline = document.getElementsByName(d)[0].value;
+                    //var ammount = $('[name=]').val();
+                    //alert(deadline);
+
+                    $.ajax({
+                        method: "POST",
+                        url: "/Buyer/BuyerOrderProgress", // the URL of the controller action method
+                        data: { taskId: tId, taskName: taskName, deadline: deadline, identifier:"insert", orderId:@ViewBag.orderId, approve:true } // optional data
+
+                    });
+
+                }
+
+
+
+
+
+
+                function hide1() {
+                    document.getElementById("popup").innerHTML = "";
+                }
+
+
+
+                function approve1() {
+
+                    window.location.href = "/Buyer/TaskApprove?orderId="+@ViewBag.orderId;
+                }
+
+
+
 
             </script>
 
+
+
             <script>
-            function Comment(count) {
-                document.getElementById("comment").innerHTML = "" +
-                    "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-                    "<div class='modal-dialog'>" +
-                    "<div class='modal-content'>" +
-                    "<div class='modal-header'>" +
-                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                    "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                    "<h4 class='modal-title'>Task-" + count + "</h4>" +
-                    "</div>" +
-                    "<div class='modal-body'>" +
-                    "<b>Comment and Reply</b><br/><br/>" +
-                    "<table border='0' width='100%' height='100%'>" +
-                    "<tbody><tr>" +
-                    "<td>" +
-                    "<img src='../uploads/raj.jpg' title='raj' width='30'>&nbsp;&nbsp;It's Need to be update<br><br>" +
-                    "</td>" +
-                    "</tr><tr>" +
-                    "<td>" +
-                    "<img src='../uploads/robi.jpg' title='robi' width='30'>&nbsp;&nbsp; What update??<br><br>" +
-                    "</td>" +
-                    "</tr><tr>" +
-                    "<td>" +
-                    "<img src='../uploads/raj.jpg' title='raj' width='30'>&nbsp;&nbsp; Design of Home page is not perfect<br><br>" +
-                    "</td>" +
-                    "</tr><tr>" +
-                    "<td>" +
-                    "<img src='../uploads/robi.jpg' title='robi' width='30'>&nbsp;&nbsp; Ok. i Will see<br><br>" +
-                    "</td>" +
-                    "</tr>" +
-                    "<tr>" +
-                    "<td>" +
-                    "<textarea rows='2' cols='30' name='reply' style='color:black'></textarea>" +
-                    "<br><input type='submit' value='Reply' style='color:black'>" +
-                    "</td>" +
-                    "</tr>" +
-                    "<tr height='70%'>" +
-                    "<td>" +
-                    "</td>" +
-                    "</tr>" +
-                    "</tbody></table>" +
-                    "</div>" +
-                    "<div class='modal-footer'>" +
-                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                    "</div>" +
-                    "</div>" +
-                    "<!-- /.modal-content -->" +
-                    "</div>" +
-                    "<!-- /.modal-dialog -->" +
-                    "</div>";
-            }
+                function Comment(count) {
+                    document.getElementById("comment").innerHTML = "" +
+                        "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+                        "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                        "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                        "<span aria-hidden='true' onclick='hide2()'>×</span></button>" +
+                        "<h4 class='modal-title'>Task-" + count + "</h4>" +
+                        "</div>" +
+                        "<div class='modal-body'>" +
+                        "<b>Comment and Reply</b><br/><br/>" +
+                        "<table border='0' width='100%' height='100%'>" +
+                        "<tbody><tr>" +
+                        "<td>" +
+                        "<img src='../uploads/raj.jpg' title='raj' width='30'>&nbsp;&nbsp;It's Need to be update<br><br>" +
+                        "</td>" +
+                        "</tr><tr>" +
+                        "<td>" +
+                        "<img src='../uploads/robi.jpg' title='robi' width='30'>&nbsp;&nbsp; What update??<br><br>" +
+                        "</td>" +
+                        "</tr><tr>" +
+                        "<td>" +
+                        "<img src='../uploads/raj.jpg' title='raj' width='30'>&nbsp;&nbsp; Design of Home page is not perfect<br><br>" +
+                        "</td>" +
+                        "</tr><tr>" +
+                        "<td>" +
+                        "<img src='../uploads/robi.jpg' title='robi' width='30'>&nbsp;&nbsp; Ok. i Will see<br><br>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr>" +
+                        "<td>" +
+                        "<textarea rows='2' cols='30' name='reply' style='color:black'></textarea>" +
+                        "<br><input type='submit' value='Reply' style='color:black'>" +
+                        "</td>" +
+                        "</tr>" +
+                        "<tr height='70%'>" +
+                        "<td>" +
+                        "</td>" +
+                        "</tr>" +
+                        "</tbody></table>" +
+                        "</div>" +
+                        "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide2()'>Close</button>" +
+                        "<button type='button' class='btn btn-outline'  onclick='approve1()'>Approve</button>" +
+                        "</div>" +
+                        "</div>" +
+                        "<!-- /.modal-content -->" +
+                        "</div>" +
+                        "<!-- /.modal-dialog -->" +
+                        "</div>";
+                }
 
-            function hide() {
-                document.getElementById("comment").innerHTML = "";
-            }
+                function hide2() {
+                    document.getElementById("comment").innerHTML = "";
+                }
 
-            function add() {
-                document.getElementById("comment").innerHTML = "";
-            }
+                function add() {
+                    document.getElementById("comment").innerHTML = "";
+                }
 
-            function Withdraw() {
-                document.getElementById("comment").innerHTML = "" +
-                    "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
-                    "<div class='modal-dialog'>" +
-                    "<div class='modal-content'>" +
-                    "<div class='modal-header'>" +
-                    "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
-                    "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
-                    "<h4 class='modal-title'>Withdraw</h4>" +
-                    "</div>" +
-                    "<div class='modal-body'>" +
-                    "<p>Current Balance: 120000<br/></p>" +
-                    "<p><input placeholder='Withdraw Ammount' style='color:black'</p>" +
-                    "</div>" +
-                    "<div class='modal-footer'>" +
-                    "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
-                    "<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>" +
-                    "</div>" +
-                    "</div>" +
-                    "<!-- /.modal-content -->" +
-                    "</div>" +
-                    "<!-- /.modal-dialog -->" +
-                    "</div>";
-            }
+                function Withdraw() {
+                    document.getElementById("comment").innerHTML = "" +
+                        "<div class='modal modal-info fade in' id='modal-info' style='display: block; padding-right: 17px;'>" +
+                        "<div class='modal-dialog'>" +
+                        "<div class='modal-content'>" +
+                        "<div class='modal-header'>" +
+                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
+                        "<span aria-hidden='true' onclick='hide()'>×</span></button>" +
+                        "<h4 class='modal-title'>Withdraw</h4>" +
+                        "</div>" +
+                        "<div class='modal-body'>" +
+                        "<p>Current Balance: 120000<br/></p>" +
+                        "<p><input placeholder='Withdraw Ammount' style='color:black'</p>" +
+                        "</div>" +
+                        "<div class='modal-footer'>" +
+                        "<button type='button' class='btn btn-outline pull-left' data-dismiss='modal' onclick='hide()'>Close</button>" +
+                        "<button type='button' class='btn btn-outline'  onclick='add()'>Withdraw</button>" +
+                        "</div>" +
+                        "</div>" +
+                        "<!-- /.modal-content -->" +
+                        "</div>" +
+                        "<!-- /.modal-dialog -->" +
+                        "</div>";
+                }
 
 
             </script>
@@ -489,8 +614,3 @@
 
 
 </body>
-
-
-
-
-

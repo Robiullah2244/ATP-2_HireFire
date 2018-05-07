@@ -13,7 +13,7 @@ namespace Hirefire.Core.Services.Interfaces
         Task GetById(int taskId);
         bool Insert(Task task);
         bool Update(Task task);
-
+        bool UpdateFileName(Task task);
 
         bool Delete(int taskId);
 

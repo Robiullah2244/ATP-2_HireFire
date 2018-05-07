@@ -219,6 +219,23 @@ namespace HireFire.Web.Mvc.Controllers
             //Response.Write(task.ToList()[1].Deadline.ToString("MM/dd/yyyy"));
             ViewBag.count = task.Count();
 
+            float completeCount=0, onGoingCount=0;
+            foreach(var t in task)
+            {
+                if(t.Status==3) ////3-->Complete
+                {
+                    completeCount++;
+                }
+                else if(t.Status==2)  ////2-->On going
+                {
+                    onGoingCount++;
+                }
+            }
+
+            int progress = (int)Math.Ceiling(((completeCount + onGoingCount / 2) / 4) * 100);
+
+            ViewBag.progress = progress;
+
             Order order = _orderService.GetById(orderId);
             ViewBag.finalDeadline = order.Deadline;
             ViewBag.feedback = order.Feedback;
@@ -292,6 +309,25 @@ namespace HireFire.Web.Mvc.Controllers
                 _orderService.UpdateFeedback(new Order { Feedback = feedback, Id = orderId });
             }
            
+        }
+
+        public FileResult Download(int orderId , int taskId)
+        {
+            if(taskId==0)
+            {
+                string fileName = _orderService.GetById(orderId).FileName;
+                byte[] fileBytes = System.IO.File.ReadAllBytes(@"E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\Contents\Image\Task\Final\" + fileName);
+                // string fileName1 = "Order"+orderId.ToString()+"_Task"+taskId.ToString();
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            }
+            else
+            {
+                string fileName = _taskService.GetById(taskId).FileName;
+                byte[] fileBytes = System.IO.File.ReadAllBytes(@"E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\Contents\Image\Task\Partial\" + fileName);
+                // string fileName1 = "Order"+orderId.ToString()+"_Task"+taskId.ToString();
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+            }
+
         }
 
     }

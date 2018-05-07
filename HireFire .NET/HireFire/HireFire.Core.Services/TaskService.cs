@@ -23,7 +23,7 @@ namespace HireFire.Core.Services
 
         public Entity.Task GetById(int taskId)
         {
-            throw new NotImplementedException();
+            return _context.Set<Task>().Where(t => t.Id == taskId).FirstOrDefault();
         }
 
         public bool Insert(Entity.Task task)
@@ -60,8 +60,26 @@ namespace HireFire.Core.Services
             }
         }
 
-      
 
+
+        public bool UpdateFileName(Entity.Task task)
+        {
+            try
+            {
+                var targetTask = _context.Set<Task>().Where(t => t.Id == task.Id).FirstOrDefault();
+                targetTask.FileName = task.FileName;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+
+        
         public bool Delete(int taskId)
         {
             throw new NotImplementedException();

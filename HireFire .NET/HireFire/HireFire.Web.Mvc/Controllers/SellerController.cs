@@ -22,8 +22,9 @@ namespace HireFire.Controllers
         ISellerGraphService _sellerGraphService;
         ILanguageService _languageService;
         ISellerTableService _sellerTableService;
-
-        public SellerController(ISellerTableService _sellerTableService,ISkillService _skillService,ILanguageService _languageService,ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
+        ITaskService _taskService;
+        IBuyerService _buyerService;
+        public SellerController(ISellerTableService _sellerTableService,ISkillService _skillService,ILanguageService _languageService,ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService, ITaskService taskService,IBuyerService buyerService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
@@ -33,6 +34,9 @@ namespace HireFire.Controllers
             this._languageService = _languageService;
             this._skillService = _skillService;
             this._sellerTableService = _sellerTableService;
+            _taskService = taskService;
+
+            _buyerService = buyerService;
         }
 
 
@@ -60,15 +64,15 @@ namespace HireFire.Controllers
             // ctx.Admins.ToList();
 
 
-            var x = _languageService.GetByUserName("tanim");
+            var x = _languageService.GetByUserName("robi");
             ViewBag.Language = x;
-            var y= _skillService.GetByUserName("tanim");
+            var y = _skillService.GetByUserName("robi");
             ViewBag.Skill = y;
-            var user = _sellerService.GetByUserName("tanim");
+            var user = _sellerService.GetByUserName("robi");
             ViewBag.User = user;
-            var transaction = _transactionService.GetLastTransactionBySellerUserName("tanim");
+            var transaction = _transactionService.GetLastTransactionBySellerUserName("robi");
             ViewBag.Transaction = transaction;
-            var allGig = _gigService.GetAllByUserName("tanim");
+            var allGig = _gigService.GetAllByUserName("robi");
             ViewBag.AllGig = allGig;
             //allGig.ElementAt(0).ImagePath
             return View();
@@ -284,11 +288,18 @@ namespace HireFire.Controllers
         public ActionResult TopBuyer()
         {
             var transaction = _transactionService.GetBySellerUserName("Robi").Distinct();
+            List<Buyer> buyer = new List<Buyer>();
 
-            foreach (var t in transaction)
+            foreach(var t in transaction)
             {
-                var order = _orderService.GetById(t.OrderId);
+                var b = _buyerService.GetByUserName(t.BuyerName);
+
+                buyer.Add(b); 
             }
+
+            ViewBag.buyer = buyer;
+            ViewBag.transaction = transaction;
+        
             return View();
         }
         public ActionResult Registration1()
@@ -303,10 +314,89 @@ namespace HireFire.Controllers
         {
             return View();
         }
-        public ActionResult SellerOrderProgress()
+        public ActionResult SellerOrderProgress(int orderId)
         {
+            // bool t = _taskService.Insert(new Task { OrderId = 32, TaskName = "fdfds", Status = 2, Deadline = DateTime.Now, Approbation = false, FileName = "cds" });
+            IEnumerable<Task> task = _taskService.GetAllByOrderId(orderId);
+            ViewBag.task = task;
+            var user = _sellerService.GetByUserName("robi");
+            ViewBag.User = user;
+            //Response.Write(task.ToList()[1].Deadline.ToString("MM/dd/yyyy"));
+            ViewBag.count = task.Count();
+
+            float completeCount = 0, onGoingCount = 0;
+            foreach (var t in task)
+            {
+                if (t.Status == 3) ////3-->Complete
+                {
+                    completeCount++;
+                }
+                else if (t.Status == 2)  ////2-->On going
+                {
+                    onGoingCount++;
+                }
+            }
+
+            int progress = (int)Math.Ceiling(((completeCount + onGoingCount / 2) / 4) * 100);
+
+            ViewBag.progress = progress;
+
+            Order order = _orderService.GetById(orderId);
+            ViewBag.finalDeadline = order.Deadline;
+            ViewBag.feedback = order.Feedback;
+            ViewBag.rating = order.Rating;
+            ViewBag.orderId = orderId;
+            ViewBag.status = order.Status;
+            ViewBag.title = _gigService.GetByGigId(order.GigId).Title;
+            // Response.Write(ViewBag.title);
+
             return View();
         }
+
+        [HttpPost, ActionName("BuyerOrderProgress")]
+        public void BuyerOrderProgressPost(int taskId, string taskName, DateTime deadline, string identifier, int orderId)
+        {
+            if (identifier == "update")
+            {
+                _taskService.Update(new Task { TaskName = taskName, Id = taskId, Deadline = deadline});
+            }
+
+
+        }
+
+        [HttpPost]
+        public ActionResult Upload(int orderId, int taskId, HttpPostedFileBase uploadFile)
+        {
+            var file = uploadFile;
+   
+            if (file != null)
+            {
+                //Response.Write("success");
+                if(taskId==0)
+                {
+                    string picName = "OrderId" + orderId.ToString()+ ".jpg";
+                    string path = System.IO.Path.Combine(Server.MapPath("~/Contents/Image/Task/Final/"), picName);
+                    // file is uploaded
+                    file.SaveAs(path);
+                    bool x = _orderService.UpdateFileName(new Order { FileName = picName, Id = orderId });
+
+                    //Response.Write(picName);
+                }
+                else
+                {
+                    string picName = "OrderId" + orderId.ToString() + "_TaskId" + taskId.ToString() + ".jpg";
+                    string path = System.IO.Path.Combine(Server.MapPath("~/Contents/Image/Task/Partial/"), picName);
+                    // file is uploaded
+                    file.SaveAs(path);
+                    bool x = _taskService.UpdateFileName(new Task { FileName = picName, Id = taskId });
+                    
+                    //Response.Write(x);
+                }
+    
+            }
+            return RedirectToAction("SellerOrderProgress", new { orderId = orderId });
+        }
+
         public ActionResult Account()
         {
             var t = _transactionService.GetBySellerUserName("Robi");

@@ -132,6 +132,22 @@ namespace HireFire.Core.Services
         }
 
 
+
+        public bool UpdateFileName(Order order)
+        {
+            try
+            {
+                var targetOrder = _context.Set<Order>().Where(o => o.Id == order.Id).FirstOrDefault();
+                targetOrder.FileName = order.FileName;
+                _context.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
         public bool Delete(int id)
         {
             try

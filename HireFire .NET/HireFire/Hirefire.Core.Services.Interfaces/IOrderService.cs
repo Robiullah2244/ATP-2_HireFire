@@ -21,6 +21,7 @@ namespace Hirefire.Core.Services.Interfaces
         bool UpdateStatus(Order order);
         bool UpdateRating(Order order);
         bool UpdateFeedback(Order order);
+        bool UpdateFileName(Order order);
         bool Delete(int id);
         IEnumerable<Order> GetByGigId(int gigId);
         int GetLatestOrderNumber();
