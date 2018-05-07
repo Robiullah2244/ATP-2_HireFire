@@ -31,7 +31,7 @@ namespace HireFire.Core.Services
             throw new NotImplementedException();
         }
 
-        public bool Insert(DateTime deadline, int gigId, string userName, string bankName,string account)
+        public bool Insert(DateTime deadline, int gigId, string userName, string bankName,string account,string sellerName)
         {
             Order order = new Order();
             order.GigId = gigId;
@@ -40,9 +40,10 @@ namespace HireFire.Core.Services
             order.BuyerName = userName;
             order.BankName = bankName;
             order.AccountNumber = account;
-            order.Status = 0;
+            order.Status = 1;
             order.Feedback = "";
             order.Rating = 0;
+            order.SellerName = sellerName;
 
             //order.GigId = 1;
             //order.Date = DateTime.Now;

@@ -95,8 +95,8 @@ namespace HireFire.Web.Mvc.Controllers
             ViewBag.Category = gig.CategoryId;
 
             ViewBag.OrderNumber = _OrderService.GetLatestOrderNumber();
-
-            Seller seller = _sellerService.GetByUserName("Robi");
+            var s = _gigService.GetByGigId(gigId);
+            Seller seller = _sellerService.GetByUserName(s.SellerUserName);
             ViewBag.Name = seller.Name;
             ViewBag.Level = seller.Level;
             ViewBag.gigId = gigId;
@@ -109,7 +109,8 @@ namespace HireFire.Web.Mvc.Controllers
 
             DateTime deadline = Convert.ToDateTime(Session["deadline"]);
             Response.Write(Session["requirement"]);
-            var x = _OrderService.Insert(deadline, gigId, Session["userName"].ToString(), bankName, account);
+            var sellerName = _gigService.GetByGigId(gigId).SellerUserName;
+            var x = _OrderService.Insert(deadline, gigId, Session["userName"].ToString(), bankName, account,sellerName);
             Response.Write(x);
             //ScriptManager.RegisterStartupScript(Page, this.GetType(), "alert", string.Format("alert('{1}', '{0}');", Message, Title), true);
             //Response.Write(@"<script language='javascript'>alert('The following errors have occurred: \n .');</script>");
@@ -122,13 +123,13 @@ namespace HireFire.Web.Mvc.Controllers
         }
         public ActionResult Messenger()
         {
-            var allContactList=_messengerService.GetAllContactListByUserName("tanim");
-            ViewBag.User = "tanim";
+            var allContactList=_messengerService.GetAllContactListByUserName(Session["UserName"].ToString());
+            ViewBag.User = Session["UserName"].ToString();
             ViewBag.AllContactList = allContactList;
             string lastUserName = allContactList.ElementAt(0).ToString();
             ViewBag.LastUser = lastUserName;
             //xResponse.Write(lastUserName);
-            var AllMessageWithThelastUser = _messengerService.GetAllMessage("tanim", lastUserName);
+            var AllMessageWithThelastUser = _messengerService.GetAllMessage(Session["UserName"].ToString(), lastUserName);
             ViewBag.AllMessageWithThelastUser = AllMessageWithThelastUser;
             return View();
         }

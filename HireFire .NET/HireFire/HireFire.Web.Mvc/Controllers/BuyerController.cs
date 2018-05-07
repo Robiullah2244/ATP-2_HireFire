@@ -75,6 +75,8 @@ namespace HireFire.Web.Mvc.Controllers
                 string userName=Session["userName"].ToString();
                 var x=_languageService.GetByUserName(userName);
                 ViewBag.Language=x;
+                var user = _buyerService.GetByUserName(userName);
+                ViewBag.User = user;
                 return View(_buyerService.GetByUserName(userName));
             }
             else
@@ -110,6 +112,8 @@ namespace HireFire.Web.Mvc.Controllers
             ViewBag.totalSpend = totalSpend;
             ViewBag.lastMonthSpend = lastMonthSpend;
             ViewBag.lastMonthSpend = lastMonthSpend;
+            var user = _buyerService.GetByUserName(Session["userName"].ToString());
+            ViewBag.User = user;
             //ViewBag.Jan=lastYearSpendGraph.ElementAt(4);
 
             return View();
@@ -152,6 +156,8 @@ namespace HireFire.Web.Mvc.Controllers
                 ViewBag.AccountTransaction = AccountTransaction;
                 ViewBag.GigName = GigName;
                 ViewBag.SellerName = sellerName;
+                var user = _buyerService.GetByUserName(Session["userName"].ToString());
+                ViewBag.User = user;
             }
             return View();
             //foreach (var item in y)
@@ -164,7 +170,7 @@ namespace HireFire.Web.Mvc.Controllers
         
         public ActionResult CompletedWork()
         {
-            var Order = _buyerTableService.GetCompletedWorkByUserName("Robi");
+            var Order = _buyerTableService.GetCompletedWorkByUserName(Session["userName"].ToString());
             var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
             var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
             var completionDate = _buyerTableService.GetTransactionForCompletionDate(Order);
@@ -172,29 +178,35 @@ namespace HireFire.Web.Mvc.Controllers
             ViewBag.AllGig = AllGig;
             ViewBag.SellerName = sellerName;
             ViewBag.CompletionDate = completionDate;
+            var user = _buyerService.GetByUserName(Session["userName"].ToString());
+            ViewBag.User = user;
             //var x=Order.ElementAt(0).Date;
             return View();
         }
         public ActionResult PendingWork()
         {
-            var Order = _buyerTableService.GetPendingWorkByUserName("Robi");
+            var Order = _buyerTableService.GetPendingWorkByUserName(Session["userName"].ToString());
             var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
             var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
             ViewBag.Order = Order;
             ViewBag.AllGig = AllGig;
             ViewBag.SellerName = sellerName;
+            var user = _buyerService.GetByUserName(Session["userName"].ToString());
+            ViewBag.User = user;
             return View();
         }
         public ActionResult ActiveWork()
         {
-            var Order = _buyerTableService.GetActiveWorkByUserName("Robi");
+            var Order = _buyerTableService.GetActiveWorkByUserName(Session["userName"].ToString());
             var AllGig = _buyerTableService.GetAllGigInformationByOrderId(Order);
             var sellerName = _buyerTableService.GetAllSellerNameListByGig(AllGig);
             ViewBag.Order = Order;
             ViewBag.AllGig = AllGig;
             ViewBag.SellerName = sellerName;
+            var user = _buyerService.GetByUserName(Session["userName"].ToString());
+            ViewBag.User = user;
             return View();
-            //_transactionService.GetByBuyerUserName("robi");
+            //_transactionService.GetByBuyerUserName(Session["userName"].ToString());
             //DateTime d = DateTime.MinValue;
             //Response.Write((DateTime.Now - d).Days);
             //return View();
@@ -233,7 +245,8 @@ namespace HireFire.Web.Mvc.Controllers
             }
 
             int progress = (int)Math.Ceiling(((completeCount + onGoingCount / 2) / 4) * 100);
-
+            var user = _buyerService.GetByUserName(Session["userName"].ToString());
+            ViewBag.User = user;
             ViewBag.progress = progress;
 
             Order order = _orderService.GetById(orderId);
@@ -272,11 +285,13 @@ namespace HireFire.Web.Mvc.Controllers
 
         public ActionResult BuyerSetting()
         {
-            var x = _buyerService.GetByUserName("robi");
+            var x = _buyerService.GetByUserName(Session["userName"].ToString());
             if(x!=null)
             {
                 ViewBag.Name = x.Name;
                 ViewBag.Email = x.Email;
+                var user = _buyerService.GetByUserName(Session["userName"].ToString());
+                ViewBag.User = user;
             }
             return View();
         }
@@ -284,7 +299,7 @@ namespace HireFire.Web.Mvc.Controllers
         [HttpPost,ActionName("BuyerSetting")]
         public bool BuyerSettingPost()
         {
-            var x = _buyerService.UpdateProfileByUserName( "robi", "Tanim", "Tanim" );
+            var x = _buyerService.UpdateProfileByUserName( Session["userName"].ToString(), "Tanim", "Tanim" );
             return x;
         }
         public bool Delete()
@@ -316,14 +331,14 @@ namespace HireFire.Web.Mvc.Controllers
             if(taskId==0)
             {
                 string fileName = _orderService.GetById(orderId).FileName;
-                byte[] fileBytes = System.IO.File.ReadAllBytes(@"E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\Contents\Image\Task\Final\" + fileName);
+                byte[] fileBytes = System.IO.File.ReadAllBytes(@"C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\Contents\Image\Task\Final\" + fileName);
                 // string fileName1 = "Order"+orderId.ToString()+"_Task"+taskId.ToString();
                 return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
             }
             else
             {
                 string fileName = _taskService.GetById(taskId).FileName;
-                byte[] fileBytes = System.IO.File.ReadAllBytes(@"E:\xampp\htdocs\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\Contents\Image\Task\Partial\" + fileName);
+                byte[] fileBytes = System.IO.File.ReadAllBytes(@"C:\xampp\htdocs\ProjectAtp-2\ATP-2_HireFire\ATP-2_HireFire\HireFire .NET\HireFire\HireFire.Web.Mvc\Contents\Image\Task\Partial\" + fileName);
                 // string fileName1 = "Order"+orderId.ToString()+"_Task"+taskId.ToString();
                 return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
             }

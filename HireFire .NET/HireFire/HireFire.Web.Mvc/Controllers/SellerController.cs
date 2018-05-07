@@ -44,7 +44,7 @@ namespace HireFire.Controllers
         //{
         //    var x = false;
 
-        //        x = _service.Insert(new Seller { UserName = "Tanim",Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
+        //        x = _service.Insert(new Seller { UserName = Session["UserName"].ToString(),Name = "Ibrahim", JoiningDate = DateTime.Now, Description="sdf",
         //        Level=1,ReputationPoint=12,WorkingHour="2 hour", Email = "sdsfc", ImagePath = "scsd", LastActiveTimeInfo = DateTime.Now,
         //        BankName="Banani",AccountNumber="ABC",District="Com",Address="sd",PostalCode=12,MobileNumber="sad",
         //        InstituteAttendFrom=DateTime.Now,InstituteName="AIUB",Degree="SD",Area="Abc",InstituteAttendTo=DateTime.Now});
@@ -62,17 +62,20 @@ namespace HireFire.Controllers
             //cetagory.Name = "sfs";
             //cetagory.Id = 1;
             // ctx.Admins.ToList();
+            if (Session["userName"] == null)
+            {
+                return RedirectToAction("SignIN", "Others");
+            }
 
-
-            var x = _languageService.GetByUserName("robi");
+            var x = _languageService.GetByUserName(Session["UserName"].ToString());
             ViewBag.Language = x;
-            var y = _skillService.GetByUserName("robi");
+            var y = _skillService.GetByUserName(Session["UserName"].ToString());
             ViewBag.Skill = y;
-            var user = _sellerService.GetByUserName("robi");
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
             ViewBag.User = user;
-            var transaction = _transactionService.GetLastTransactionBySellerUserName("robi");
+            var transaction = _transactionService.GetLastTransactionBySellerUserName(Session["UserName"].ToString());
             ViewBag.Transaction = transaction;
-            var allGig = _gigService.GetAllByUserName("robi");
+            var allGig = _gigService.GetAllByUserName(Session["UserName"].ToString());
             ViewBag.AllGig = allGig;
             //allGig.ElementAt(0).ImagePath
             return View();
@@ -80,7 +83,7 @@ namespace HireFire.Controllers
         //[HttpPost]
         public ActionResult AddLanguage(string newLanguage)
         {
-            string userName = "tanim";
+            string userName = Session["UserName"].ToString();
             var y = _languageService.Insert(new Language { UserName = userName, LanguageInfo = newLanguage });
             //string userName = Session["userName"].ToString();
             //var x = _languageService.GetByUserName(userName);
@@ -89,26 +92,27 @@ namespace HireFire.Controllers
         }
         public ActionResult AddSkill(string newSkill)
         {
-            var x=_skillService.Insert(new Skill { UserName = "tanim", SkillInfo = newSkill });
+            var x=_skillService.Insert(new Skill { UserName = Session["UserName"].ToString(), SkillInfo = newSkill });
             //Response.Write(x);
             return (RedirectToAction("Profile"));
         }
         public ActionResult EditDescription(string EditedDescription)
         {
-            var x = _sellerService.UpdateDescriptionByUserName("tanim", EditedDescription);
+            var x = _sellerService.UpdateDescriptionByUserName(Session["UserName"].ToString(), EditedDescription);
             return (RedirectToAction("Profile"));
         }
 
         public ActionResult Dashboard()
         {
-            var gigcount = _gigService.CountByUserName("Robi");
+            var gigcount = _gigService.CountByUserName(Session["UserName"].ToString());
             ViewBag.gigcount = gigcount;
 
-            var seller = _sellerService.GetByUserName("Robi");
+            var seller = _sellerService.GetByUserName(Session["UserName"].ToString());
             ViewBag.workingHour = seller.WorkingHour;
             ViewBag.reputationPoint = seller.ReputationPoint;
+            ViewBag.User = seller;
 
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
 
             var level = seller.Level;
@@ -126,7 +130,7 @@ namespace HireFire.Controllers
                 ViewBag.level = "Platinum";
             }
 
-            ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
+            ViewBag.lastMonthIncome = _transactionService.LastMonthIncome(Session["UserName"].ToString());
 
             return View();
         }
@@ -143,22 +147,26 @@ namespace HireFire.Controllers
 
         public ActionResult ActiveWork()
         {
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
-            var Order = _sellerTableService.GetActiveWorkByUserName("tanim");//buyer name, deadline
+            var Order = _sellerTableService.GetActiveWorkByUserName(Session["UserName"].ToString());//buyer name, deadline
             var AllGig = _sellerTableService.GetAllGigInformationByOrderId(Order);//gig name, gig price
             ViewBag.Order = Order;
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
             ViewBag.AllGig = AllGig;
             return View();
         }
         public ActionResult PendingWork()
         {
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
-            var Order = _sellerTableService.GetPendingWorkByUserName("tanim");//buyer name, deadline
+            var Order = _sellerTableService.GetPendingWorkByUserName(Session["UserName"].ToString());//buyer name, deadline
             var AllGig = _sellerTableService.GetAllGigInformationByOrderId(Order);//gig name, gig price
             ViewBag.Order = Order;
             ViewBag.AllGig = AllGig;
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
             return View();
         }
         
@@ -174,28 +182,32 @@ namespace HireFire.Controllers
         }
         public ActionResult CompletedWork()
         {
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
-            var Order = _sellerTableService.GetCompletedWorkByUserName("tanim");//buyer name
+            var Order = _sellerTableService.GetCompletedWorkByUserName(Session["UserName"].ToString());//buyer name
             //Order.ElementAt(0).BuyerName
             var AllGig = _sellerTableService.GetAllGigInformationByOrderId(Order);//gig name, gig price
             var completionDate = _sellerTableService.GetTransactionForCompletionDate(Order);//CompletionDate
             ViewBag.Order = Order;
             ViewBag.AllGig = AllGig;
             ViewBag.CompletionDate = completionDate;
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
 
             return View();
         }
         public ActionResult AllGigs()
         {
-            var gigs = _gigService.GetAllByUserName("Robi");
+            var gigs = _gigService.GetAllByUserName(Session["UserName"].ToString());
 
             List<Gig> gig = new List<Gig>();
             List<int> numberOfOrder = new List<int>();
             List<float> avgRating = new List<float>();
 
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
 
             foreach (var g in gigs)
             {
@@ -228,7 +240,7 @@ namespace HireFire.Controllers
 
         public ActionResult TopGigs()
         {
-            var gigs = _gigService.GetAllByUserName("Robi");
+            var gigs = _gigService.GetAllByUserName(Session["UserName"].ToString());
 
             List<Gig> gig = new List<Gig>();
             List<int> numberOfOrder = new List<int>();
@@ -287,7 +299,7 @@ namespace HireFire.Controllers
         }
         public ActionResult TopBuyer()
         {
-            var transaction = _transactionService.GetBySellerUserName("Robi").Distinct();
+            var transaction = _transactionService.GetBySellerUserName(Session["UserName"].ToString()).Distinct();
             List<Buyer> buyer = new List<Buyer>();
 
             foreach(var t in transaction)
@@ -319,10 +331,11 @@ namespace HireFire.Controllers
             // bool t = _taskService.Insert(new Task { OrderId = 32, TaskName = "fdfds", Status = 2, Deadline = DateTime.Now, Approbation = false, FileName = "cds" });
             IEnumerable<Task> task = _taskService.GetAllByOrderId(orderId);
             ViewBag.task = task;
-            var user = _sellerService.GetByUserName("robi");
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
             ViewBag.User = user;
             //Response.Write(task.ToList()[1].Deadline.ToString("MM/dd/yyyy"));
             ViewBag.count = task.Count();
+           
 
             float completeCount = 0, onGoingCount = 0;
             foreach (var t in task)
@@ -399,33 +412,37 @@ namespace HireFire.Controllers
 
         public ActionResult Account()
         {
-            var t = _transactionService.GetBySellerUserName("Robi");
+            var t = _transactionService.GetBySellerUserName(Session["UserName"].ToString());
             ViewBag.transaction = t;
 
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
             return View();
         }
         public ActionResult BalanceReport()
         {
 
 
-            //var totalIncome =  _transactionService.TotalIncome("Robi");
+            //var totalIncome =  _transactionService.TotalIncome(Session["UserName"].ToString());
             //ViewBag.totalIncome = totalIncome;
-            //var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            //var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             //ViewBag.balance = balance;
-            //ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
+            //ViewBag.lastMonthIncome = _transactionService.LastMonthIncome(Session["UserName"].ToString());
             //return View();
 
 
-            var totalIncome =  _transactionService.TotalIncome("Robi");
+            var totalIncome =  _transactionService.TotalIncome(Session["UserName"].ToString());
             ViewBag.totalIncome = totalIncome;
-            var balance = _transactionService.GetBalanceBySellerUserName("Robi");
+            var balance = _transactionService.GetBalanceBySellerUserName(Session["UserName"].ToString());
             ViewBag.balance = balance;
-            ViewBag.lastMonthIncome = _transactionService.LastMonthIncome("Robi");
+            ViewBag.lastMonthIncome = _transactionService.LastMonthIncome(Session["UserName"].ToString());
 
-            var lastYearIncomeGraph = _sellerGraphService. LastYearIncomeGraphByUserName("Robi");
+            var lastYearIncomeGraph = _sellerGraphService. LastYearIncomeGraphByUserName(Session["UserName"].ToString());
             ViewBag.lastYearIncomeGraph = lastYearIncomeGraph;
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
             return View();
         }
 
@@ -443,6 +460,8 @@ namespace HireFire.Controllers
         }
         public ActionResult CreateGig()
         {
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
             return View();
         }
         [HttpPost,ActionName("CreateGig")]
@@ -462,12 +481,16 @@ namespace HireFire.Controllers
             }
             ReturnCategoryId cd=new ReturnCategoryId();
             int categoryId=cd.ReturnCategoryIdByCategoryName(category);
-            var x=_gigService.Insert(new Gig { SellerUserName = "tanim", CategoryId = categoryId, Description = gigDescription, ImagePath = picName, Date = DateTime.Now, Price = gigPrice, Title = gigTitle });
+            var x=_gigService.Insert(new Gig { SellerUserName = Session["UserName"].ToString(), CategoryId = categoryId, Description = gigDescription, ImagePath = picName, Date = DateTime.Now, Price = gigPrice, Title = gigTitle });
             return(RedirectToAction("Profile"));
         }
-        public ActionResult EditGig()
+        public ActionResult EditGig(int GigId)
         {
-            return View();
+            var user = _sellerService.GetByUserName(Session["UserName"].ToString());
+            ViewBag.User = user;
+            var x=_gigService.GetByGigId(GigId);
+            ViewBag.Gig=x;
+            return View(x);
         }
         public ActionResult AccountStatement()
         {
@@ -477,13 +500,13 @@ namespace HireFire.Controllers
         public void Withdraw(string withdrawAmount)
         {
 
-            _transactionService.Insert(new Transaction { SellerName = "Robi", BuyerPaid = 0, SellerEarned = 0, WithdrawAmount = Convert.ToInt32(withdrawAmount), OrderId = 0, PromotionId = 0, HireFireProfit = 0, Date = DateTime.Now });
+            _transactionService.Insert(new Transaction { SellerName = Session["UserName"].ToString(), BuyerPaid = 0, SellerEarned = 0, WithdrawAmount = Convert.ToInt32(withdrawAmount), OrderId = 0, PromotionId = 0, HireFireProfit = 0, Date = DateTime.Now });
             //return RedirectToAction("Account");
         }
 
         public ActionResult AllGigsForFrame()
         {
-            var gigs = _gigService.GetAllByUserName("Robi");
+            var gigs = _gigService.GetAllByUserName(Session["UserName"].ToString());
 
             List<Gig> gig = new List<Gig>();
             List<int> numberOfOrder = new List<int>();
