@@ -35,6 +35,7 @@ namespace HireFire.Web.Mvc
             container.RegisterType<ISellerGraphService, SellerGraphService>();
             container.RegisterType<ISkillService, SkillService>();
             container.RegisterType<IBuyerTableService, BuyerTableService>();
+            container.RegisterType<ISellerTableService, SellerTableService>();
 
             container.RegisterType<ILanguageService, LanguageService>();
 

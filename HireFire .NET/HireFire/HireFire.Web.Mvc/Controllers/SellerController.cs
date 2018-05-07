@@ -21,8 +21,9 @@ namespace HireFire.Controllers
         IOrderService _orderService;
         ISellerGraphService _sellerGraphService;
         ILanguageService _languageService;
+        ISellerTableService _sellerTableService;
 
-        public SellerController(ISkillService _skillService,ILanguageService _languageService,ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
+        public SellerController(ISellerTableService _sellerTableService,ISkillService _skillService,ILanguageService _languageService,ISellerGraphService _sellerGraphService, ISellerService sellerService, IGigService gigService, ITransactionService transactionService, IOrderService orderService)
         {
             _sellerService = sellerService;
             _gigService = gigService;
@@ -31,6 +32,7 @@ namespace HireFire.Controllers
             this._sellerGraphService = _sellerGraphService;
             this._languageService = _languageService;
             this._skillService = _skillService;
+            this._sellerTableService = _sellerTableService;
         }
 
 
@@ -139,18 +141,45 @@ namespace HireFire.Controllers
         {
             var balance = _transactionService.GetBalanceBySellerUserName("Robi");
             ViewBag.balance = balance;
+            var Order = _sellerTableService.GetActiveWorkByUserName("tanim");//buyer name, deadline
+            var AllGig = _sellerTableService.GetAllGigInformationByOrderId(Order);//gig name, gig price
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
             return View();
         }
         public ActionResult PendingWork()
         {
             var balance = _transactionService.GetBalanceBySellerUserName("Robi");
             ViewBag.balance = balance;
+            var Order = _sellerTableService.GetPendingWorkByUserName("tanim");//buyer name, deadline
+            var AllGig = _sellerTableService.GetAllGigInformationByOrderId(Order);//gig name, gig price
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
             return View();
+        }
+        
+        public ActionResult PendingWorkRejectedByOrderId(int orderId)
+        {
+            var x = _orderService.Delete(orderId);
+            return RedirectToAction("PendingWork");
+        }
+        public ActionResult PendingWorkAcceptedByOrderId(int orderId)
+        {
+            var x = _orderService.UpdateWorkToActiveByOderId(orderId);
+            return RedirectToAction("PendingWork");
         }
         public ActionResult CompletedWork()
         {
             var balance = _transactionService.GetBalanceBySellerUserName("Robi");
             ViewBag.balance = balance;
+            var Order = _sellerTableService.GetCompletedWorkByUserName("tanim");//buyer name
+            //Order.ElementAt(0).BuyerName
+            var AllGig = _sellerTableService.GetAllGigInformationByOrderId(Order);//gig name, gig price
+            var completionDate = _sellerTableService.GetTransactionForCompletionDate(Order);//CompletionDate
+            ViewBag.Order = Order;
+            ViewBag.AllGig = AllGig;
+            ViewBag.CompletionDate = completionDate;
+
             return View();
         }
         public ActionResult AllGigs()
@@ -252,7 +281,6 @@ namespace HireFire.Controllers
             ViewBag.avgRating = avgRating;
             return View();
         }
-
         public ActionResult TopBuyer()
         {
             var transaction = _transactionService.GetBySellerUserName("Robi").Distinct();

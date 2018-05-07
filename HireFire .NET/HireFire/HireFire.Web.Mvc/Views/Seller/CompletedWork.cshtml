@@ -89,12 +89,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @{
+                                    int i = 0;
+                                    foreach (var item in ViewBag.AllGig)
+                                    {
+                                        <tr>
+                                            <td><a href="/Others/ContactSeller?userName=@ViewBag.Order[i].BuyerName">@ViewBag.Order[i].BuyerName</a></td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Price</td>
+                                            <td>@ViewBag.CompletionDate[i].Date.ToString("yyyy/MM/dd")</td>
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                                @*<tr>
                                     <td><a href="#">TANVIR</a> </td>
                                     <td>I will do Designing</td>
                                     <td>100223</td>
                                     <td>12-02-2018</td>
-                                </tr>
+                                </tr>*@
 
 
                             </tbody>

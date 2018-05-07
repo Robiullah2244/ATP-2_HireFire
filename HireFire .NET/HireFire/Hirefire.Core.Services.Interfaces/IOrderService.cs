@@ -22,5 +22,6 @@ namespace Hirefire.Core.Services.Interfaces
         bool Delete(int id);
         IEnumerable<Order> GetByGigId(int gigId);
         int GetLatestOrderNumber();
+        bool UpdateWorkToActiveByOderId(int orderId);
     }
 }

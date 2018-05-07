@@ -129,5 +129,19 @@ namespace HireFire.Core.Services
             return orderNumber;
 
         }
+        public bool UpdateWorkToActiveByOderId(int orderId)
+        {
+            try
+            {
+                var targetedOrder = GetById(orderId);
+                targetedOrder.Status = 2;
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
