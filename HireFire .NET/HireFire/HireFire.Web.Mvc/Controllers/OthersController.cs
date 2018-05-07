@@ -20,9 +20,10 @@ namespace HireFire.Web.Mvc.Controllers
         IOrderService _OrderService;
         ILanguageService _languageService;
         ITransactionService _transactionService;
+        IMessengerService _messengerService;
 
 
-        public OthersController(ILanguageService _languageService,IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService, ITransactionService transactionService)
+        public OthersController(IMessengerService _messengerService,ILanguageService _languageService,IBuyerService service, IUserAuthenticationService userAuthenticationService,IGigService gigService,ISellerService sellerService,IOrderService OrderService, ITransactionService transactionService)
         {
             _buyerService = service;
             _userAuthenticationService = userAuthenticationService;
@@ -31,6 +32,7 @@ namespace HireFire.Web.Mvc.Controllers
             _OrderService = OrderService;
             this._languageService = _languageService;
             _transactionService = transactionService;
+            this._messengerService = _messengerService;
         }
         public ActionResult Home(int categoryId = 1)
         {
@@ -120,11 +122,24 @@ namespace HireFire.Web.Mvc.Controllers
         }
         public ActionResult Messenger()
         {
+            var allContactList=_messengerService.GetAllContactListByUserName("tanim");
+            ViewBag.User = "tanim";
+            ViewBag.AllContactList = allContactList;
+            string lastUserName = allContactList.ElementAt(0).ToString();
+            ViewBag.LastUser = lastUserName;
+            //xResponse.Write(lastUserName);
+            var AllMessageWithThelastUser = _messengerService.GetAllMessage("tanim", lastUserName);
+            ViewBag.AllMessageWithThelastUser = AllMessageWithThelastUser;
             return View();
         }
         public ActionResult Notification()
         {
             return View();
+        }
+        public ActionResult InsertMessage(string fromUser, string toUser, string text)
+        {
+            var x=_messengerService.Insert(fromUser, toUser, text);
+            return RedirectToAction("Messenger");
         }
         public ActionResult PublicHome()
         {

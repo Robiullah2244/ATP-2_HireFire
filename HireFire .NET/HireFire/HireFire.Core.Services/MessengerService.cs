@@ -32,17 +32,6 @@ namespace HireFire.Core.Services
             //throw new NotImplementedException();
         }
 
-        //public IEnumerable<Message> GetAllContactListByUserName(string userName)//Version 1
-        //{
-        //    //select * from Messages where FromUser='tanim'or ToUser='tanim' order by id desc
-        //    //int y = _context.Set<Message>().Select(b => b.ConversionNumber).Distinct().Count();
-        //    int y = _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).Select(b => b.ConversionNumber).Distinct().Count();
-
-        //    return _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).OrderByDescending(b => b.Id).Take(y);
-            
-
-        //    //throw new NotImplementedException();
-        //}
 
         public IEnumerable<string> GetAllContactListByUserName(string userName)//Final version
         {
@@ -58,11 +47,11 @@ namespace HireFire.Core.Services
                 {
                     if (x1.FromUser != userName)
                     {
-                        userList.Add(x1.FromUser + x1.ConversionNumber+" "+x1.Id);
+                        userList.Add(x1.FromUser);
                     }
                     else if (x1.ToUser != userName)
                     {
-                        userList.Add(x1.ToUser + x1.ConversionNumber+" "+x1.Id);
+                        userList.Add(x1.ToUser);
                     }
                     z.Add(x1.ConversionNumber);
                 }
@@ -134,6 +123,17 @@ namespace HireFire.Core.Services
             
         }
 
+        //public IEnumerable<Message> GetAllContactListByUserName(string userName)//Version 1
+        //{
+        //    //select * from Messages where FromUser='tanim'or ToUser='tanim' order by id desc
+        //    //int y = _context.Set<Message>().Select(b => b.ConversionNumber).Distinct().Count();
+        //    int y = _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).Select(b => b.ConversionNumber).Distinct().Count();
+
+        //    return _context.Set<Message>().Where(b => b.FromUser == userName || b.ToUser == userName).OrderByDescending(b => b.Id).Take(y);
+
+
+        //    //throw new NotImplementedException();
+        //}
 
     }
 }
